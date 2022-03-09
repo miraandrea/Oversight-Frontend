@@ -1,0 +1,23 @@
+/* @media (max-width:450px){ */
+    .headercenter{
+        padding: 5%;
+        padding-top: 15%;
+        display: flex;
+        justify-content: space-between;
+    
+    }
+    .hrtop{
+        padding-left: 15%;
+        position: relative;
+        top: -25px;
+    }
+    .hrtop hr{
+        width: 89%;
+        background-color: #1d9df6;
+    }
+    .oversight-text{
+        font-size: 18px;
+        position: relative;
+        top: -29%;
+    }
+/* } */

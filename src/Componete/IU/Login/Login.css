@@ -1,0 +1,87 @@
+.entry{
+    padding-left: 5%;
+    margin: 25px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+input{
+    background-color: #fff;
+    color: rgb(0, 0, 0);
+    text-decoration: black;
+    margin: 10px;
+    border-radius: 5px;
+    width: 190px ;
+    height:25px ;
+    border-color: rgb(199, 199, 204);
+}
+
+.button1{
+    background-color:rgb(70, 172, 240) ;
+    color:aliceblue;
+    border: none;
+    width: 245px;
+    height: 35px;
+    margin: 20px;
+    
+}
+.line1{
+    
+    width: 100px;
+}
+
+.line3{
+    width: 100px;
+}
+
+.line{
+    display: flex;
+}
+
+h3{
+    font-size: 15px;
+    color: rgb(189, 189, 218);
+}
+
+.copy{
+
+    padding-top: 70%;
+
+}
+.componente{
+    height: 230px;
+}
+
+h4{
+    color: rgb(180, 178, 178);
+    margin: -7px 48%;
+}
+
+button{
+    border-radius: 5px;
+}
+
+ body{
+    margin: 0;
+    font-family: sans-serif;
+    color: rgb(141, 144, 146);
+} 
+
+.line2{
+    display: flex;
+    justify-content: center;
+    width: 210px;
+}
+
+.passwoard{
+    display: flex;
+    justify-content: center;
+}
+
+.Copy2{
+    display: flex;
+    justify-content: center;
+}
+

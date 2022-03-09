@@ -1,0 +1,13 @@
+/* @media (max-width:460px){ */
+    .perfile{
+        position: relative;
+        width: 39px;
+        height: 28px;
+        overflow: hidden;
+        border-radius: 87%;
+        
+    }
+    .imgperfile{
+        width: 100%;
+    }
+/* } */
