@@ -11,12 +11,9 @@ export const ViewProfileAdmi = () => {
        <p>1007603426</p>
        <p>11°B</p>
        <hr />
-
-       <div className='Icon'>
-
        <AiOutlineFileSearch />
-       </div>
        <p className='Historial'>Historial</p>
+
     <div className='cont'>
       <div className='contTitle'>
 
