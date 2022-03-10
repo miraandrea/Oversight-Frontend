@@ -84,4 +84,9 @@ button{
     display: flex;
     justify-content: center;
 }
-
+.swal-title{
+    color: #1D9DF6;
+}
+.swal-text{
+    color: #000;
+}

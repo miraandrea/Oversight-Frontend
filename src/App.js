@@ -1,7 +1,7 @@
 import './App.css';
 import { MaintStart } from './Componete/Pege/MainStart/MainStart';
 import { AdmiMainMenu } from './Componete/Pege/AdmiMainMenu/AdmiMainMenu';
-
+import { TeachMainMenu } from './Componete/Pege/TeachMainMenu/TeachMainMenu';
 
 import {
   BrowserRouter,
@@ -15,6 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<MaintStart/>} />
         <Route path='/Administrador' element={<AdmiMainMenu />} />
+        <Route path='/Docente' element={<TeachMainMenu />} />
       </Routes>
     </BrowserRouter>
 
