@@ -12,7 +12,6 @@ export const Iconos = () => {
     
     </div>
     <div className='candado1'>
-
     </div>
 </div>
   )

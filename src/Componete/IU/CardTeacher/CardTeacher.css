@@ -1,0 +1,42 @@
+@media (max-width:320px){
+    .teachercard{
+        height: 1px;
+        width: 10vw;
+        padding-left: 25%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        position: relative;
+        top: -200px;
+    }
+    .card{ 
+        grid-area: 1 / 2 / 2 / 5; 
+    }
+    .card {
+        width: 3rem;
+        height: 7rem;
+        border-radius: 7px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        background-color: #fff;
+        box-shadow: 0 0 3px #1d9df6;
+    }
+    .card img {
+        width: 4rem;
+        border-radius: 13px;  
+    }
+    .card p {
+        padding-top: 1% ;
+        text-align: center;
+        font-size: 53%;
+        margin-top: 0.1rem;
+    }
+    .sweetwarning{
+        background-color: #f61d1d;
+        font-weight: 40;
+        width: 87%;
+        margin-right: -25%;
+        background-color: rgb(255, 255, 255);
+    }
+}
