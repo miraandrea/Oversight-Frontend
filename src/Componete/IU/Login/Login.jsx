@@ -33,6 +33,10 @@ return (
 }
 
 const MostrarAlerta=()=>{
-    swal("Su usuario y contraseña es el documento de identidad")
+    swal({
+        title: "Querido Usuario",
+        text: "Su usuario y contraseña es el documento de identidad"
+    })
+    
 
 }
