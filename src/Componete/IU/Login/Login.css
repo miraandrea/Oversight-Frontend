@@ -90,3 +90,8 @@ button{
 .swal-text{
     color: #000;
 }
+.swal-button1{
+    background-color: #1D9DF6;
+    position: relative;
+    left: 128%;
+}
