@@ -1,10 +1,28 @@
 .photoView{
-    width: 40% ;
+    width: 35%;
+    position: relative;
+    left: -35%;
+    top: 20px;
 }
-
-.Historial{
-    width: 10%;
-    margin: -7% 54%;
+.information{
+    position: relative;
+    left: 20%;
+    top: -66px;
+}
+.lineIn{
+    position: relative;
+    top: -66px;
+    background-color: #1D9DF6;
+}
+.iconRecord{
+    position: relative;
+    top: -68px;
+    display: flex;
+    justify-content: center;
+}
+.iconRecord p{
+    position: relative;
+    top: -13px;
 }
 
 .title{

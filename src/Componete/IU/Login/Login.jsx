@@ -35,7 +35,7 @@ return (
 const MostrarAlerta=()=>{
     swal({
         buttons: {
-            confirm: { text: "Entendido" },
+            confirm: { text: "Entendido", className: "swal-button1" },
         },
         title: "Querido Usuario",
         text: "Su usuario y contraseña es el documento de identidad"
