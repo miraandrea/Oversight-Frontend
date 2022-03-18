@@ -8,28 +8,37 @@ import axios from 'axios'
 const parrafo = "El usuario o contraseña son incorrectos"
 export const Login = (parrafo) => {
 
-    const URL = 'http://localhost:8080/api/authenticate'
+    const URL = "http://localhost:8080/api/authenticate";
 
     const[username, setUsername] = useState()
     const[password, setPassword] = useState()
 
-    const response = (e) => {
+    const validateLogin = (e) => {
         e.preventDefault()
         axios.post(URL,{
             username: username,
             password: password
         })
-        .then( response => response)
-        .then( data => console.log(data) )
+        .then( response => userLogged(response.data))    
+        .catch(error => console.log(error))
     }
-    
+
+    const userLogged = (data) => {
+        console.log(data.authentication)
+        if (data.authentication) {
+            window.location.href= "/Administrador"
+        }
+        else{
+            console.log("el usuario es incorrecto")
+        }
+    } 
 return (
     <div className='container'>
             <Iconos />
         <div className='entry'>
             <input onChange={e=> setUsername(e.target.value)}  type="text" name="username" required placeholder='Usuario' />
             <input onChange={e=> setPassword(e.target.value)} type="password" name='password' required placeholder='Contraseña' />
-            <button onClick={response} className='button1' type="submit" value="Iniciar Sesión">Iniciar Sesión </button>
+            <button onClick={validateLogin} className='button1' type="submit" value="Iniciar Sesión">Iniciar Sesión </button>
         </div>
             <h4>O</h4>
         <div className='line'>
