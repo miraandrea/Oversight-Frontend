@@ -31,6 +31,17 @@ export const ViewProfileAdmi = () => {
             value="2018-07-22"
             min="2018-01-01" max="2050-12-31"></input>
         </div>
+        <p>Descripcion Docente</p>
+        <textarea name="docente" id="" cols="30" rows="10" placeholder='Ingrese la descripcion del docente'></textarea>
+      
+        <p>Descripcion Estudiante</p>
+        <textarea name="docente" id="" cols="30" rows="10" placeholder='Ingrese la descripcion del estudiante'></textarea>
+
+        <input type="text" name="title" id="" placeholder='Firma Docente' />
+        <hr />
+
+        <input type="text" name="title" id="" placeholder='Firma Estudiante' />
+        <hr />
       </div>
     </div>
   )
