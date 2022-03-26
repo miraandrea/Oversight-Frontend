@@ -1,9 +1,10 @@
+//cambiar
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Card } from '../../IU/Card/Card'
-import './Main.css'
+import { CardAdmi } from '../../IU/CardAdmi/CardAdmi'
+import './MainAdmi.css'
 
-export const Main = () => {
+export const MainAdmi = () => {
 
   const URL = 'http://localhost:8080/api/courses'
 
@@ -23,7 +24,7 @@ export const Main = () => {
   return (
     <div className ="mainCard">
        {courses.map((course) =>{
-          return <div className='cardune'> <Card key={course.idcurso} course={course} /></div>
+          return <div className='cardune'> <CardAdmi key={course.idcurso} course={course} /></div>
         })}
     </div>
   )
