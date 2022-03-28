@@ -10,8 +10,8 @@ export const Login = (parrafo) => {
 
     const URL = "http://localhost:8080/api/authenticate";
 
-    const[username, setUsername] = useState()
-    const[password, setPassword] = useState()
+    const[username, setUsername] = useState("")
+    const[password, setPassword] = useState("")
 
     const validateLogin = (e) => {
         e.preventDefault()
