@@ -6,7 +6,6 @@ export const MaintStart = () => {
   return (
     <div>
     <Session/>
-    <NavLink to='/Docente'><p>docente</p></NavLink>
     </div>
   )
 }
