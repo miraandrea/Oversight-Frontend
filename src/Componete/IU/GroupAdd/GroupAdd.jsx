@@ -1,18 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "./GroupAdd.css";
 import { MdGroupAdd } from "react-icons/md";
 
 export const GroupAdd = () => {
+
+  const URL = 'http://localhost:8080/api/courses'
+
   return (
     <div>
-      <p className="Register">Agregar grupo</p>
-      <MdGroupAdd className='iconregster'/>
-      <div className="mainRegister">
+      <p className="nameGroup">Agregar grupo</p>
+      <MdGroupAdd className='iconGroup'/>
+      <div className="mainGroup">
+        <br />
         <hr className="line5" />
         <div className="last">
-          <input className="userNameRegistre" type="text" placeholder="Nombre Grupo" />
+          <input className="userNameGroup" type="text" placeholder="Nombre Grupo" />
+        </div>
+        <div className="photoGroup">
           <button>Foto</button>
         </div>
+        <br />
 
         <select className="desple">
           <option value="1">Seleccione un director de grupo</option>

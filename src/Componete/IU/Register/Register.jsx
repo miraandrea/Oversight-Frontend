@@ -21,11 +21,16 @@ export const Register = () => {
             placeholder="Documento Identidad"
           />
         </div>
-
         <select className="desple">
           <option value="1">Seleccione un rol</option>
           <option value="2">Estudiante</option>
           <option value="3">Docente</option>
+        </select>
+        <div className="despleRol"></div>
+        <select className="desple">
+          <option value="1">Seleccione un grupo</option>
+          <option value="2">7°A</option>
+          <option value="3">10°B</option>
         </select>
       </div>
       <div className="btn_Registrar">
