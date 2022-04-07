@@ -1,24 +1,14 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import './Card.css'
-import swal from "@sweetalert/with-react"
-import { ViewProfileAdmi } from '../ViewProfileAdmi/ViewProfileAdmi'
 import { NavLink } from 'react-router-dom'
 
 export const Card = ({ course }) => {
   return (
     <div className="maincard">
       <div className="card">
-      <NavLink to="/Estudiantes_Administrador"><img src={course.photo} alt={course.nombre}/> </NavLink> {/*onClick={() => showAdd()}*/} 
+      <NavLink to="/Estudiantes_Administrador"><img src={course.photo} alt={course.nombre}/> </NavLink>
         <p>{course.nombre}</p>
-      </div>  
+      </div> 
     </div>
   )
-// }
-// const showAdd = () => {
-//   swal({
-//     buttons: {
-//       confirm: { text: "Deshabilitar", className: "sweetWarning" },
-//     },
-//     content: <ViewProfileAdmi />,
-//   });
 };
