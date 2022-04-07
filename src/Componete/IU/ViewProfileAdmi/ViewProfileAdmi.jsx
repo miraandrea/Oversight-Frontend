@@ -4,6 +4,7 @@ import { AiOutlineFileSearch } from "react-icons/ai";
 import './ViewProfileAdmi.css'
 
 export const ViewProfileAdmi = () => {
+
   return (
     <div>
       <img src={viewFotophoto} alt="photo" className="photoView" />
