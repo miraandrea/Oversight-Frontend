@@ -1,3 +1,4 @@
+//cambiar manual 
 import React from "react";
 import "./Register.css";
 import { IoMdPersonAdd } from "react-icons/io";

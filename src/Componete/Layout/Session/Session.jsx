@@ -6,11 +6,8 @@ import './Session.css'
 export const Session = () => {
   return (
     <div>
-    <TextOversight text="textOversight"/>
-    <Login/>
-    
-    
-    
+      <TextOversight text="textOversight" />
+      <Login />
     </div>
   )
 }
