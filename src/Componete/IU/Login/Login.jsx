@@ -2,7 +2,10 @@ import React, { useState } from 'react'
 import swal from 'sweetalert';
 import { Iconos } from '../Iconos/Iconos'
 import './Login.css'
+import logo from '../../../Img/logoOverSight.jpg'
 import { NavLink } from 'react-router-dom'
+import { TiLockClosed } from "react-icons/ti";
+import { IoPersonAddOutline } from "react-icons/io5";
 import axios from 'axios'
 
 const parrafo = "El usuario o contraseña son incorrectos"
@@ -33,17 +36,35 @@ export const Login = (parrafo) => {
         }
     } 
 return (
+<div>
     <div className='container'>
-            <Iconos />
+            
         <div className='entry'>
-            <input onChange={e=> setUsername(e.target.value)}  type="text" name="username" required placeholder='Usuario' />
-            <input onChange={e=> setPassword(e.target.value)} type="password" name='password' required placeholder='Contraseña' />
+        <div className='contPadre'>
+            <div className='user'>
+                <IoPersonAddOutline className='username'/>
+                <input id="input1" onChange={e=> setUsername(e.target.value)}  type="text" name="username" required placeholder='Usuario' />
+            </div>
+            <div className='candado'>
+                <TiLockClosed className='padlock' />
+                <input id="input2" onChange={e=> setPassword(e.target.value)} type="password" name='password' required placeholder='Contraseña' />
+            </div>
+        </div>
             <button onClick={validateLogin} className='button1' type="submit" value="Iniciar Sesión">Iniciar Sesión </button>
         </div>
+        <div className='containerline'>
+        <div className='cero'>
             <h4>O</h4>
+
+        </div>
         <div className='line'>
-            <hr className='line1'/> <hr className='line3'/>
+            <hr className='line1'/> 
+            <hr className='line3'/>
         </div> 
+
+        </div>
+ 
+            
         <div className='passwoard' >
 
         <h3 onClick={()=>MostrarAlerta()}>¿Olvidaste tu Contraseña?</h3>
@@ -56,6 +77,16 @@ return (
 
         </div>
     </div>
+        <div className='conteinerLogo'>
+            <div className='logoCon'>
+            <img className='logo' src={logo}></img>
+            </div>
+
+        </div>
+</div>
+
+
+
 )
 }
 
