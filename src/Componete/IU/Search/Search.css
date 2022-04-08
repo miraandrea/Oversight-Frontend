@@ -1,11 +1,26 @@
 /* @media (max-width:460px){ */
     .search{
-        height: 37%;
-        padding-left: 2%;
+        height: 50px;
+        padding-left: -10%;
+        width: 55%;
+        margin: -40px 250px;
+        
+        
     }
     .search input{
-        width: 65%;
-        height: 30%;
+        width: 100%;
         font-size: 80%;
+    }
+
+    .iconsearch{
+        margin-right: 100px;
+        width: -40px;
+    }
+
+    .conterIcon{
+
+        height: 0;
+        width: 30px;
+        margin:-15px  550px;
     }
 /* } */

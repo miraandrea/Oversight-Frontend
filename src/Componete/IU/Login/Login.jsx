@@ -3,7 +3,12 @@ import swal from 'sweetalert';
 import { Iconos } from '../Iconos/Iconos'
 import './Login.css'
 import logo from '../../../Img/logoOverSight.jpg'
+<<<<<<< refs/remotes/origin/jaramillo
 import { NavLink } from 'react-router-dom'
+=======
+
+
+>>>>>>> local
 import { TiLockClosed } from "react-icons/ti";
 import { IoPersonAddOutline } from "react-icons/io5";
 import axios from 'axios'
