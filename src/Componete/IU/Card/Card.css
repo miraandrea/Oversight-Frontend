@@ -1,10 +1,15 @@
-.maincard{
-    padding-top: 13%;
+.maincard1{
+    padding: 0.5rem;
+    background-color: #fff;
+    padding-top: 7%;
     position: relative;
-    left: 84%;
-    top: -295px;
+    left: 65%;
+    top: -264px;
 }
-.card {
+.borde {
+    box-shadow: 0 0 7px #1d9df6;
+}
+/* .card {
     width: 3rem;
     height: 7rem;
     border-radius: 7px;
@@ -14,8 +19,8 @@
     padding: 1rem;
     background-color: #fff;
     box-shadow: 0 0 3px #1d9df6;
-}
-.card img {
+} */
+/* .card img {
     width: 4rem;
     border-radius: 13px;  
 }
@@ -24,11 +29,4 @@
     text-align: center;
     font-size: 53%;
     margin-top: 0.1rem;
-}
-.sweetwarning{
-    background-color: #f61d1d;
-    font-weight: 40;
-    width: 87%;
-    margin-right: -25%;
-    background-color: rgb(255, 255, 255);
-}
+} */
