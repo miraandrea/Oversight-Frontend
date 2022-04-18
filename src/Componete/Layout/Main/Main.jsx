@@ -4,6 +4,7 @@ import { Card } from "../../IU/Card/Card";
 import "./Main.css";
 
 export const Main = () => {
+  
   const URL = "http://localhost:4000/v1/courses";
 
   const [courses, setCourses] = useState([]);
@@ -20,6 +21,15 @@ export const Main = () => {
     };
     getCourses();
   }, []);
+
+  const paola = courses.map((course, index) => {
+    return (
+      <div>
+        <h1 key={course.index} course={course} />
+      </div>
+    );
+  })
+  console.log(paola);
 
   return (
     <div className="mainCard">

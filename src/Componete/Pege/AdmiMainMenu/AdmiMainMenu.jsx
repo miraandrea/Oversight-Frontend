@@ -3,7 +3,8 @@ import { BarMenu } from '../../Layout/BarMenu/BarMenu'
 import { Header } from '../../Layout/Header/Header'
 import { Main } from '../../Layout/Main/Main'
 
-export const AdmiMainMenu = () => {
+  export const AdmiMainMenu = () => {
+      
   return (
     <div>
         <Header />

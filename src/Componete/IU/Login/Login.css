@@ -179,7 +179,12 @@
             margin-right: 300%;
             width: 1%;
         }
-    
+    .paragrapg{
+        color: #ff0000;
+        width: 230%;
+        font-size: 80%;
+        text-align: center;   
+    }
 
 @media(max-width:780px){
     .logo{

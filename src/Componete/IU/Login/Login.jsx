@@ -1,19 +1,21 @@
-import React, { useState } from 'react'
-import swal from 'sweetalert';
-import logo from '../../../Img/logoOverSight.jpg'
-import { TiLockClosed } from "react-icons/ti";
-import { IoPersonAddOutline } from "react-icons/io5";
-import axios from 'axios'
 import './Login.css'
+import axios from 'axios'
+import swal from 'sweetalert';
+import React, { useState } from 'react'
+import Cookies from 'universal-cookie/es6';
+import { TiLockClosed } from "react-icons/ti";
+import logo from '../../../Img/logoOverSight.jpg'
+import { IoPersonAddOutline } from "react-icons/io5";
 
-const parrafo = "El usuario o contraseña son incorrectos"
+export const Login = () => {
 
-export const Login = (parrafo) => {
+    const URL = "http://localhost:4000/v3/authenticate";
 
-    const URL = "http://localhost:4000/v1/authenticate";
+    const cookies = new Cookies();
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [message, setMessage] = useState("")
 
     const validateLogin = (e) => {
         e.preventDefault()
@@ -21,20 +23,47 @@ export const Login = (parrafo) => {
             username: username,
             password: password
         })
-        .then(response => userLogged(response.data))
-        .catch(error => console.log(error))
+            .then(response => userLogged(response.data))
+            .catch(error => console.log(error))
     }
 
     const userLogged = (data) => {
-        console.log(data.authentication)
-        if (data.authentication) {
+        if (data.rol === "Administrator") {
+            var respuesta = data.data[0]
+            cookies.set('idadministrador', respuesta.idadministrador, { path: "/" })
+            cookies.set('foto', respuesta.foto, { path: "/" })
+            cookies.set('nombre', respuesta.nombre, { path: "/" })
+            cookies.set('apellido', respuesta.apellido, { path: "/" })
+            cookies.set('fecha', respuesta.fecnac, { path: "/" })
             window.location.href = "/Administrador"
         }
+        if (data.rol === "Teacher") {
+            var respuesta = data.data[0]
+            cookies.set('idadministrador', respuesta.idadministrador, { path: "/" })
+            cookies.set('foto', respuesta.foto, { path: "/" })
+            cookies.set('nombre', respuesta.nombre, { path: "/" })
+            cookies.set('apellido', respuesta.apellido, { path: "/" })
+            cookies.set('fecha', respuesta.fecnac, { path: "/" })
+            cookies.set('sexo', respuesta.sexo, { path: "/" })
+            cookies.set('firma', respuesta.firma, { path: "/" })
+            window.location.href = "/Docente"
+        }
+        if (data.rol === "Student") {
+            var respuesta = data.data[0]
+            cookies.set('idadministrador', respuesta.idadministrador, { path: "/" })
+            cookies.set('foto', respuesta.foto, { path: "/" })
+            cookies.set('nombre', respuesta.nombre, { path: "/" })
+            cookies.set('apellido', respuesta.apellido, { path: "/" })
+            cookies.set('fecha', respuesta.fecnac, { path: "/" })
+            cookies.set('sexo', respuesta.sexo, { path: "/" })
+            cookies.set('firma', respuesta.firma, { path: "/" })
+            // window.location.href = "/Estudiante"
+        }
         else {
-            console.log("el usuario es incorrecto")
+            const paragrapg = "El usuario o contraseña son incorretos"
+            setMessage(paragrapg)
         }
     }
-
     return (
         <div>
             <div className='container'>
@@ -51,10 +80,10 @@ export const Login = (parrafo) => {
                     </div>
                     <button onClick={validateLogin} className='button1' type="submit" value="Iniciar Sesión">Iniciar Sesión </button>
                 </div>
+                <p className='paragrapg'>{message}</p>
                 <div className='containerline'>
                     <div className='cero'>
                         <h4>O</h4>
-
                     </div>
                     <div className='line'>
                         <hr className='line1' />
@@ -77,7 +106,8 @@ export const Login = (parrafo) => {
                 </div>
             </div>
         </div>
-        )}
+    )
+}
 
 const MostrarAlerta = () => {
     swal({

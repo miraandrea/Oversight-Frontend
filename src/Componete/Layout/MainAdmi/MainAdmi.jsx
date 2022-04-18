@@ -5,7 +5,8 @@ import { CardAdmi } from "../../IU/CardAdmi/CardAdmi";
 import "./MainAdmi.css";
 
 export const MainAdmi = () => {
-  const URL = "http://localhost:4000/v1/students";
+
+  const URL = "http://localhost:4000/v1/courses/:name";
 
   const [courses, setCourses] = useState([]);
 
@@ -25,7 +26,7 @@ export const MainAdmi = () => {
     <div className="mainCard">
       {courses.map((courseStudent, index) => {
         return (
-          <div className="cardune">
+          <div>
             <CardAdmi key={index} courseStudent={courseStudent} />
           </div>
         );
