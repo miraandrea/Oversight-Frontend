@@ -7,9 +7,24 @@ import { MdGroupAdd } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import swal from "@sweetalert/with-react";
 import { GroupAdd } from "../GroupAdd/GroupAdd";
+import Cookies from 'universal-cookie/es6'
 import "./IconMenu.css";
 
+const cookies = new Cookies()
+
+const cerrarSesion = () => {
+  
+  console.log('idadministrador', {path: "/"})
+  console.log('foto', {path: "/"});
+  console.log('nombre', {path: "/"})
+  console.log('apellido', {path: "/"})
+  console.log('fecha', {path: "/"})
+  window.location.href = "/"
+  
+}
+
 export const IconMenu = () => {
+  
   return (
     <div className="menu">
       <NavLink to="/Administrador">
@@ -20,9 +35,7 @@ export const IconMenu = () => {
       <p>Registrar</p>
       <MdGroupAdd onClick={() => showGroup()} className="iconmenu" />
       <p className="group">Agregar grupo</p>
-      <NavLink to="/">
-        <IoExitOutline className="iconmenu" />
-      </NavLink>
+      <IoExitOutline onClick={() => cerrarSesion()} className="iconmenu" />
       <p>Salir</p>
     </div>
   );
