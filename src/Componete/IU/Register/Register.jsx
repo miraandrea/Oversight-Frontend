@@ -23,12 +23,12 @@ export const Register = () => {
     });
   }, []);
 
+  console.log(data);
 
-  
   
   // Rol usuarios 
   
-  const [rolUsuarios, setRolUsuarios] = useState(" ")
+  const [rolUsuarios, setRolUsuarios] = useState("")
   
   
   const estudiante1 = (event) =>{
@@ -56,12 +56,15 @@ export const Register = () => {
           .catch((error) => console.log(error));
       };
     
-    if ( rolUsuarios == 1 ){
+    if ( rolUsuarios == 2 ){
+      console.log("Estudiante");
+    }
+    if ( rolUsuarios == 3) {
+      console.log("Docente");
+    }
+    else{
       console.log("Es necesario escoger el rol");
     }
-    if ( rolUsuarios == 2) {
-      
-      }
   });
 
   return (

@@ -2,8 +2,12 @@
     transform: rotate(90deg);
     position: relative;
     right: 30%;
+    height: 60%;
+    margin-top: 230px;
     top: -115px;
 }
 .menuhr hr{
+    width: 75%;
     background-color: #1d9df6;
+
 }

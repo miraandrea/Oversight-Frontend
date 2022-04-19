@@ -6,7 +6,9 @@ export const Search = () => {
   return (
     <div className="search">
       <input type="text" name="Search" id="" placeholder="Buscar" />{" "}
+      <div className="iconsearchCont">
       <MdPersonSearch className="iconsearch" />
+      </div>
     </div>
   );
 };

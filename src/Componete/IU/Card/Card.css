@@ -1,26 +1,28 @@
 .maincard1{
     padding: 0.5rem;
-    background-color: #fff;
+    background-color: rgba(245, 245, 245, 0.864);
     padding-top: 7%;
+    width: 30%;
     position: relative;
     left: 65%;
     top: -264px;
 }
 .borde {
     box-shadow: 0 0 7px #1d9df6;
+    height: 30%;
 }
-/* .card {
+.card {
     width: 3rem;
-    height: 7rem;
+    height: 30px;
     border-radius: 7px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1rem;
-    background-color: #fff;
+    background-color: rgb(255, 255, 255);
     box-shadow: 0 0 3px #1d9df6;
-} */
-/* .card img {
+} 
+.card img {
     width: 4rem;
     border-radius: 13px;  
 }
@@ -29,4 +31,4 @@
     text-align: center;
     font-size: 53%;
     margin-top: 0.1rem;
-} */
+} 
