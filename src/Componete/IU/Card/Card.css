@@ -1,11 +1,11 @@
-.maincard1{
+/* .maincard1{
     padding-top: -63%;
     position: relative;
     left: 90%;
     top: -500px;
     width: 80px;
     height: 200px;
-}
+} */
 .card {
     width: 50px;
     height: 8rem;
@@ -34,3 +34,4 @@
     margin-right: -25%;
     background-color: rgb(255, 255, 255);
 }
+

@@ -1,6 +1,6 @@
 /* @media (max-width:460px){ */
     .perfile{
-        margin: 11px 95%;
+        margin: 11px 100%;
         width: 60px;
         height: 50px;
         overflow: hidden;
@@ -10,6 +10,29 @@
     }
     .imgperfile{
         float: right;
+        
         width: 100%;
+    }
+
+
+    @media(max-width:780px){
+
+        .perfile{
+            margin: 11px 95%;
+            width: 60px;
+            height: 50px;
+            overflow: hidden;
+            border-radius: 87%;
+            background-color: brown;
+            
+        }
+        .imgperfile{
+            float: right;
+            
+            width: 100%;
+        }
+
+
+
     }
 /* } */
