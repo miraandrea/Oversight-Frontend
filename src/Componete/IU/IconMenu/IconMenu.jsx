@@ -10,18 +10,6 @@ import { GroupAdd } from "../GroupAdd/GroupAdd";
 import Cookies from 'universal-cookie/es6'
 import "./IconMenu.css";
 
-const cookies = new Cookies()
-
-const cerrarSesion = () => {
-  
-  console.log('idadministrador', {path: "/"})
-  console.log('foto', {path: "/"});
-  console.log('nombre', {path: "/"})
-  console.log('apellido', {path: "/"})
-  console.log('fecha', {path: "/"})
-  window.location.href = "/"
-  
-}
 
 export const IconMenu = () => {
   
@@ -31,6 +19,11 @@ export const IconMenu = () => {
         <IoMdHome className="iconmenu" />
       </NavLink>
       <p>Inicio</p>
+      <NavLink to="/prueba">
+      <button>
+        Registrar
+      </button>
+      </NavLink>
       <IoMdPersonAdd onClick={() => showRegister()} className="iconmenu" />
       <p>Registrar</p>
       <MdGroupAdd onClick={() => showGroup()} className="iconmenu" />
@@ -58,3 +51,16 @@ const showGroup = (btn) => {
     content: <GroupAdd></GroupAdd>,
   });
 };
+
+const cookies = new Cookies()
+
+const cerrarSesion = () => {
+  
+  cookies.remove('idadministrador', {path: "/"})
+  cookies.remove('foto', {path: "/"});
+  cookies.remove('nombre', {path: "/"})
+  cookies.remove('apellido', {path: "/"})
+  cookies.remove('fecha', {path: "/"})
+  window.location.href = "/"
+  
+}

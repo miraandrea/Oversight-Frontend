@@ -1,27 +1,22 @@
 .maincard1{
-    padding: 0.5rem;
-    background-color: rgba(245, 245, 245, 0.864);
-    padding-top: 7%;
-    width: 30%;
+    padding-top: -63%;
     position: relative;
-    left: 65%;
-    top: -264px;
-}
-.borde {
-    box-shadow: 0 0 7px #1d9df6;
-    height: 30%;
+    left: 90%;
+    top: -500px;
+    width: 80px;
+    height: 200px;
 }
 .card {
-    width: 3rem;
-    height: 30px;
+    width: 50px;
+    height: 8rem;
     border-radius: 7px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1rem;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 0 3px #1d9df6;
-} 
+    background-color: #fff;
+    box-shadow: 0 0 6px #1d9df6;
+}
 .card img {
     width: 4rem;
     border-radius: 13px;  
@@ -29,6 +24,13 @@
 .card p {
     padding-top: 1% ;
     text-align: center;
-    font-size: 53%;
+    font-size: 60%;
     margin-top: 0.1rem;
-} 
+}
+.sweetwarning{
+    background-color: #f61d1d;
+    font-weight: 40;
+    width: 80%;
+    margin-right: -25%;
+    background-color: rgb(255, 255, 255);
+}

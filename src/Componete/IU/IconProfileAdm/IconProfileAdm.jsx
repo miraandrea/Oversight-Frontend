@@ -1,30 +1,29 @@
-import React from 'react'
+import React from "react";
 import { IoExitOutline } from "react-icons/io5";
 import { IoMdHome } from "react-icons/io";
-import { NavLink } from 'react-router-dom';
+import Cookies from "universal-cookie/es6";
+import { NavLink } from "react-router-dom";
 
 export const IconProfileAdm = () => {
+  const cookies = new Cookies();
 
-    const cerrarSesion = () => {
-  
-        console.log('idadministrador', {path: "/"})
-        console.log('foto', {path: "/"});
-        console.log('nombre', {path: "/"})
-        console.log('apellido', {path: "/"})
-        console.log('fecha', {path: "/"})
-        window.location.href = "/"
-        
-      }
-      
-    return (
-        <div>
-            <NavLink to="/Administrador">
-                <IoMdHome className="iconmenu" />
-            </NavLink>
-            <p>Inicio</p>
+  const cerrarSesion = () => {
+    cookies.remove("idadministrador", { path: "/" });
+    cookies.remove("foto", { path: "/" });
+    cookies.remove("nombre", { path: "/" });
+    cookies.remove("apellido", { path: "/" });
+    cookies.remove("fecha", { path: "/" });
+    window.location.href = "/";
+  };
 
-            <IoExitOutline onClick={() => cerrarSesion()} className="iconmenu" />
-            <p>Salir</p>
-        </div>
-    )
-}
+  return (
+    <div>
+      <NavLink to="/Administrador">
+        <IoMdHome className="iconmenu" />
+      </NavLink>
+      <p>Inicio</p>
+      <IoExitOutline onClick={() => cerrarSesion()} className="iconmenu" />
+      <p>Salir</p>
+    </div>
+  );
+};
