@@ -6,9 +6,7 @@ export const BarMenu = () => {
   return (
     <div>
       <IconMenu />
-      <div className="menuhr">
-        <hr />
-      </div>
+
     </div>
   );
 };

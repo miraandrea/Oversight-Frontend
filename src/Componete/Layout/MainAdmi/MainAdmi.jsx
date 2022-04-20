@@ -23,6 +23,7 @@ export const MainAdmi = () => {
   }, []);
 
   return (
+  
     <div className="mainCard">
       {courses.map((courseStudent, index) => {
         return (
@@ -32,5 +33,6 @@ export const MainAdmi = () => {
         );
       })}
     </div>
+
   );
 };
