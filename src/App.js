@@ -10,6 +10,7 @@ import {
   Routes,
   Route
 } from "react-router-dom"
+import { Register } from './Componete/IU/Register/Register';
 
 function App() {
   return (
@@ -20,6 +21,10 @@ function App() {
         <Route path='/Docente' element={<TeachMainMenu />} />
         <Route path='/Estudiantes_Administrador' element={<AdmiMainStudent />} />
         <Route path='/Perfil/Administrador' element={<AdmSeeProfile />} />
+
+
+        <Route path='/prueba' element={<Register/>} />
+
       </Routes>
     </BrowserRouter>
 
