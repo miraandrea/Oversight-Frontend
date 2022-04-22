@@ -18,6 +18,7 @@ export const GroupAdd = () => {
         </div>
         <div className="photoGroup">
           <button>Foto</button>
+          {/* para la imagenes <input type="file" /> */}
         </div>
         <br />
 

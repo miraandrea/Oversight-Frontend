@@ -29,6 +29,15 @@ p{
     margin-right: 35%;
     background-color: rgb(255, 255, 255);
 }
+.paper{
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	width: 470px;
+	background-color: #fff ;
+	box-shadow: 5px ;
+	padding: 2px 4px 3px ;
+}
 
 
 @media(max-width:780px){
