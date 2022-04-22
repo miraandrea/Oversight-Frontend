@@ -4,8 +4,8 @@ import "./Register.css";
 import axios from "axios";
 
 export const Register = () => {
+  
   // Rol courses
-
   const urlCurse = "http://localhost:4000/v1/courses";
   const [data, setData] = useState([" "]);
 
@@ -21,49 +21,63 @@ export const Register = () => {
     });
   }, []);
 
-  // // Rol usuarios
-  
+  // Rol usuarios
   const [rolUsuarios, setRolUsuarios] = useState("");
-  
-  
-  //Registar estudiante
-  let URL; 
-  
+  let URL;
+
+  //mensages
+  const [message, setMessage] = useState("");
+  const [messageRegister, setMessageRegister] = useState("");
+
+  //Registar
   const [document, setDocument] = useState("");
-  const [studentName, setStudentName] = useState("");
-  const [studentLastName, setStudentLastName] = useState("");
+  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [dateBirth, setDateBirth] = useState("");
   const [sex, setSex] = useState("");
   const [course, setCourse] = useState("");
-  console.log(course);
-  
-  if (rolUsuarios == 2) {
-    console.log("Estudiante");
-    URL = "http://localhost:4000/v1/students"
-  }
-  if (rolUsuarios == 3) {
-    console.log("Docente");
-    URL = "http://localhost:4000/v1/teachers"
-  } 
-  else {
-    console.log("Es necesario escoger el rol");
-  }
-  console.log(URL);
 
   const response = (e) => {
-    e.preventDefault()
-    axios.post(URL,{
-      document: document,
-      studentName: studentName,
-      studentLastName: studentLastName,
-      dateBirth: dateBirth,
-      sex: sex,
-      course: course
-    })
-    .then( response => response)
-    .then( data => console.log(data) )
-  }
+    if (rolUsuarios == 2) {
+      console.log("Estudiante");
+      URL = "http://localhost:4000/v2/students";
+    }
+    if (rolUsuarios == 3) {
+      console.log("Docente");
+      URL = "http://localhost:4000/v2/teachers";
+    }
+    if (rolUsuarios == "") {
+      const paragrapg = "Es necesario escoger el rol";
+      setMessage(paragrapg);
+      console.log("Es necesario escoger el rol");
+    }
+    console.log(URL);
+    e.preventDefault();
+    axios
+      .post(URL, {
+        document: document,
+        name: name,
+        lastName: lastName,
+        dateBirth: dateBirth,
+        sex: sex,
+        course: course,
+      })
+      .then((response) => userRegister(response.data))
+      .catch((error) => console.log(error));
+  };
 
+  const userRegister = (data) => {
+    if (data) {
+      const paragrapg = "se registro";
+      setMessageRegister(paragrapg);
+    }
+    //falta que no deje registrar si esta null
+    // if (data == null){
+    //   const paragrapg = "no se pudo registro"
+    //   setMessage1(paragrapg)
+    //   console.log(data);
+    // }
+  };
 
   return (
     <div>
@@ -71,19 +85,16 @@ export const Register = () => {
         <p className="Register">Registrar</p>
         <IoMdPersonAdd className="iconregster" />
         <div className="mainRegister">
-          <hr className="line5" />
+          <hr className="lineRegister" />
           <div className="last">
-
-
             <input
-              onChange={e=> setStudentName(e.target.value)}
+              onChange={(e) => setName(e.target.value)}
               className="userNameRegistre"
               type="text"
               placeholder="Nombres"
             />
-
             <input
-              onChange={e=> setStudentLastName(e.target.value)}
+              onChange={(e) => setLastName(e.target.value)}
               className="lastName"
               type="text"
               placeholder="Apellidos"
@@ -92,30 +103,35 @@ export const Register = () => {
 
           <div className="number1">
             <input
-              onChange={e=> setDocument(e.target.value)}
+              onChange={(e) => setDocument(e.target.value)}
               className="number"
               type="number"
               placeholder="Documento Identidad"
             />
           </div>
-          <input type="datetime" 
-                 placeholder="fecha"
-                 onChange={e=> setDateBirth(e.target.value)}
+          <input
+            type="datetime"
+            placeholder="fecha"
+            onChange={(e) => setDateBirth(e.target.value)}
           />
-          <select className="desple" onChange={e => setSex(e.target.value)}>
+          <select className="desple" onChange={(e) => setSex(e.target.value)}>
             <option value="null">Genero</option>
             <option value="F">Feminino</option>
             <option value="M">Masculino</option>
           </select>
-
-          <select className="desple" onChange={e => setRolUsuarios(e.target.value)}>
+          <p>{message}</p>
+          <select
+            className="desple"
+            onChange={(e) => setRolUsuarios(e.target.value)}
+          >
             <option value="1">Seleccione un rol</option>
             <option value="2">Estudiante</option>
             <option value="3">Docente</option>
           </select>
-          
-          <div className="despleRol"></div>
-          <select className="desple" onChange={e=> setCourse(e.target.value)}>
+          <select
+            className="desple"
+            onChange={(e) => setCourse(e.target.value)}
+          >
             <option>Seleccione un grupo</option>
             {data.map((el, index) => {
               return (
@@ -126,8 +142,11 @@ export const Register = () => {
             })}
           </select>
         </div>
+        <p>{messageRegister}</p>
         <div className="btn_Registrar">
-          <button className="Registrar" onClick={response}>Registrar</button>
+          <button className="Registrar" onClick={response}>
+            Registrar
+          </button>
         </div>
       </form>
     </div>

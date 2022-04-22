@@ -3,20 +3,22 @@ import { AdmProfile } from '../../IU/AdmProfile/AdmProfile'
 import { IconProfileAdm } from '../../IU/IconProfileAdm/IconProfileAdm'
 import { ImgProfile } from '../../IU/ImgProfile/ImgProfile'
 import { TextOversight } from '../../IU/TextOversight/TextOversight'
+import './AdmProfileFooter.css'
 
 export const AdmProfileFooter = () => {
   return (
     <div>
-      <ImgProfile/>
+    <div className="iAdm">
+      <ImgProfile  img="ImgAdm"  />
+
+    </div>
+
       <TextOversight text="oversight-profile" />
       <div className="hrtop">
-        <hr />
+      <AdmProfile className={Text} />
       </div>
-      <AdmProfile/>
-      <IconProfileAdm />
-      <div className="menuhr">
-        <hr />
-      </div>
+      <IconProfileAdm  />
+
     </div>
   )
 }

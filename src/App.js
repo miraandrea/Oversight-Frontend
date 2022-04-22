@@ -10,7 +10,7 @@ import {
   Routes,
   Route
 } from "react-router-dom"
-import { Register } from './Componete/IU/Register/Register';
+import { GroupAdd } from './Componete/IU/GroupAdd/GroupAdd';
 
 function App() {
   return (
@@ -22,8 +22,7 @@ function App() {
         <Route path='/Estudiantes_Administrador' element={<AdmiMainStudent />} />
         <Route path='/Perfil/Administrador' element={<AdmSeeProfile />} />
 
-
-        <Route path='/prueba' element={<Register/>} />
+        <Route path='/prueba1' element={<GroupAdd/>} />
 
       </Routes>
     </BrowserRouter>

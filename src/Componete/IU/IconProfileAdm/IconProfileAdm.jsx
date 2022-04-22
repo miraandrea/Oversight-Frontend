@@ -3,6 +3,7 @@ import { IoExitOutline } from "react-icons/io5";
 import { IoMdHome } from "react-icons/io";
 import Cookies from "universal-cookie/es6";
 import { NavLink } from "react-router-dom";
+import '../../Layout/AdmProfileFooter/AdmProfileFooter.css'
 
 export const IconProfileAdm = () => {
   const cookies = new Cookies();
@@ -17,13 +18,13 @@ export const IconProfileAdm = () => {
   };
 
   return (
-    <div>
+    <div className="hr" >
+      <p className="aviso">Salir</p>
+      <IoExitOutline onClick={() => cerrarSesion()} className="admi" />
+      <p className="aviso">Inicio </p>
       <NavLink to="/Administrador">
-        <IoMdHome className="iconmenu" />
+        <IoMdHome className="admi" />
       </NavLink>
-      <p>Inicio</p>
-      <IoExitOutline onClick={() => cerrarSesion()} className="iconmenu" />
-      <p>Salir</p>
     </div>
   );
 };

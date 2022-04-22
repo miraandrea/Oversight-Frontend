@@ -1,7 +1,8 @@
 import React from 'react'
 import Cookies from 'universal-cookie/es6';
+import './AdmProfile.css'
 
-export const AdmProfile = () => {
+export const AdmProfile = (Text) => {
 
   const cookies = new Cookies();
 
@@ -12,11 +13,15 @@ export const AdmProfile = () => {
   const fecha =('Fecha: '+ cookies.get("fecnac"))
 
   return (
-    <div>
+
+    <div className='Text'>
+    <div className='Texto1'>
       <p>{documento}</p>
       <p>{nombre}</p>
       <p>{apellido}</p>
       <p>{fecha}</p>
+
+    </div>
     </div>
   )
 }
