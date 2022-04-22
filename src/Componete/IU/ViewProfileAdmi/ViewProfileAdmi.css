@@ -1,3 +1,72 @@
 .photoView{
-    width: 40% ;
+    width: 35%;
+    position: relative;
+    left: -35%;
+    top: 20px;
+}
+.information{
+    position: relative;
+    left: 20%;
+    top: -66px;
+}
+.lineIn{
+    position: relative;
+    top: -66px;
+    background-color: #1D9DF6;
+}
+.iconRecord{
+    position: relative;
+    top: -68px;
+    display: flex;
+    justify-content: center;
+}
+.iconRecord p{
+    position: relative;
+    top: -13px;
+}
+
+.title{
+    width: 0%;
+    height: 0%;
+    padding: 20%;
+    margin: -100px -120px;
+    color: black;
+}
+
+.clotTitle{
+    width: 0%;
+}
+
+
+.cont{
+    width: 6%;
+    height: 100%;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8rem;
+    background-color: #fff;
+    box-shadow: 0 0 3px #1d9df6;
+}
+
+.line6{
+    width: 110px;
+    position: relative;
+    top: -90px;
+    left: -120px;
+    color: #8FD0FE;
+
+}
+
+.Data{
+    width: 125px;
+    height: 20px;
+    border-color: #8FD0FE;
+    margin: 0% 30%;
+}
+
+.DataCont{
+    width: 0%;
+    margin: -550% 40%;
 }

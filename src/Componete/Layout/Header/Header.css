@@ -1,23 +1,119 @@
-/* @media (max-width:450px){ */
+
     .headercenter{
-        padding: 5%;
-        padding-top: 15%;
-        display: flex;
-        justify-content: space-between;
+        margin: 60px 40px;
+        height: 0%;
     
+
     }
-    .hrtop{
-        padding-left: 15%;
-        position: relative;
-        top: -25px;
+
+    .center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    .hrtop hr{
-        width: 89%;
-        background-color: #1d9df6;
+
+    .ContAdm{
+        margin: 11px 95%;
+            width: 60px;
+            height: 50px;
+            overflow: hidden;
+            border-radius: 87%;
+            background-color: brown;
     }
+    .imgperfile{
+        float: right;
+        
+        width: 100%;
+    }
+    .ContAdm{
+        margin: 11px 100%;
+        width: 60px;
+        height: 50px;
+        overflow: hidden;
+        border-radius: 87%;
+        background-color: brown;
+        
+    }
+    .imgperfile{
+        float: right;
+        
+        width: 100%;
+    }
+
+
+
+
+
     .oversight-text{
-        font-size: 18px;
-        position: relative;
-        top: -29%;
+        font-size: 25px;
+        margin-left: -800px;
+        margin-top: -200px;
+        
+        
+        
     }
-/* } */
+
+    @media(max-width:780px){
+        .headercenter{
+            margin-right: -50px;
+
+        }
+
+        .oversight-text{
+            font-size: 20px;
+            margin-left: -600px;
+            margin-top: -110px;
+            
+            
+            
+        }
+
+        .hrtop{
+            padding-left: -30.5%;
+            top: -20px;
+            height: 0px;
+            width: 80%;
+            margin-left: 180px;
+            margin-bottom:-30px ;
+            margin-top: 40px;
+    
+        }
+        .hrtop hr{
+            width: 100%;
+    
+            background-color:#1d9df6;
+        }
+
+        .ContAdm{
+            margin: 11px 95%;
+            width: 60px;
+            height: 50px;
+            overflow: hidden;
+            border-radius: 87%;
+            background-color: brown;
+            
+        }
+        .imgperfile{
+            float: right;
+            
+            width: 100%;
+        }
+
+
+    }
+
+    @media(max-width:340px){
+
+        .oversight-text{
+            font-size: 20px;
+            margin-left: -565px;
+            margin-top: -110px;
+            
+            
+            
+        }
+
+
+
+
+    }

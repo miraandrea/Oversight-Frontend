@@ -1,60 +1,45 @@
-import React from 'react'
-import { Card } from '../../IU/Card/Card'
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Card } from "../../IU/Card/Card";
+import "./Main.css";
 
 export const Main = () => {
+  
+  const URL = "http://localhost:4000/v1/courses";
+
+  const [courses, setCourses] = useState([]);
+
+  useEffect(() => {
+    const getCourses = () => {
+      axios
+        .get(URL)
+        .then((response) => response)
+        .then((data) => {
+          setCourses(data.data);
+        })
+        .catch((error) => console.log(error));
+    };
+    getCourses();
+  }, []);
+
+  const paola = courses.map((course, index) => {
+    return (
+      <div>
+        <h1 key={course.index} course={course} />
+      </div>
+    );
+  })
+  console.log(paola);
+
   return (
-    <div>
-        <Card />
+    <div className="mainCard">
+      {courses.map((course, index) => {
+        return (
+          <div>
+            <Card key={index} course={course} />
+          </div>
+        );
+      })}
     </div>
-  )
-}
-
-// import React, { useState, useEffect } from 'react';
-// import { Card } from '../../UI/Card/Card';
-// import { Buscar } from '../../UI/Buscar/Buscar';
-
-
-// const URL = 'https://rickandmortyapi.com/api/character';
-
-
-// export const LayoutMain = () => {
-
-//   const [personaje, setpersonaje] = useState([])
-//   const [loading, setloading] = useState(true)
-//   const [buscar, setbuscar] = useState('')
-
-//   useEffect(() => {
-//     const getpersonaje = async () => {
-//       try {
-//         const response = await fetch(URL)
-//         const data = await response.json()
-//         setpersonaje(data.results)
-//         setloading(false)
-//       } catch (error) {
-//         console.log(error)
-//       }
-//     }
-//     getpersonaje()
-//   }, [])
-
-//   const personajebuscar = personaje.filter((personaje) =>
-//     personaje.name.toLocaleLowerCase().includes(buscar.toLocaleLowerCase())
-//   )
-
-//   return (
-//     <div>
-//       <Buscar filter={buscar} setbuscar={setbuscar} />
-//       <section className='ContainerProgram'>
-//         {loading ? (
-//           <p>Cargando</p>
-//         ) : personajebuscar.length > 0 ? (
-//           personajebuscar.map((personaje) => (
-//             <Card key={personaje.id} personaje={personaje} />
-//           ))
-//         ) : (
-//           <p>No se encontro el Personaje {' '}<strong>"{buscar}"</strong>.</p>
-//         )}
-//       </section>
-//     </div>
-//   )
-// }
+  );
+};

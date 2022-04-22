@@ -1,0 +1,11 @@
+.mainCard{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 130px);
+    gap: 15px;
+    width: 70%;
+    margin: -350px 220px;
+    border-top: 2px solid #1d9df6;
+    border-left: 2px solid #1d9df6;
+    padding: 30px;
+}
+

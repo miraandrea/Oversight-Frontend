@@ -1,13 +1,38 @@
-/* @media (max-width:460px){ */
+/* @media (max-width:460px){
     .perfile{
-        position: relative;
-        width: 39px;
-        height: 28px;
+        margin: 11px 100%;
+        width: 60px;
+        height: 50px;
         overflow: hidden;
         border-radius: 87%;
+        background-color: brown;
         
     }
     .imgperfile{
+        float: right;
+        
         width: 100%;
     }
-/* } */
+
+
+    @media(max-width:780px){
+
+        .perfile{
+            margin: 11px 95%;
+            width: 60px;
+            height: 50px;
+            overflow: hidden;
+            border-radius: 87%;
+            background-color: brown;
+            
+        }
+        .imgperfile{
+            float: right;
+            
+            width: 100%;
+        }
+
+
+
+    }
+/* } */ 

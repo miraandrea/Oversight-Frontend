@@ -1,0 +1,45 @@
+.nameGroup {
+    margin-top: 13%;
+    font-size: 27px;
+    color: black;
+    font-family: "Pacifico", cursive;
+    position: relative;
+    right: 11%;
+}
+.iconGroup{
+  color: #1d9df6;
+  position: relative;
+  top: -59px;
+  left: 32%;
+  width: 11%;
+  height: 0%;
+}
+.line5 {
+  border: 1px solid #1d9df6;
+}
+.mainGroup{
+  position: relative;
+  top: -66px;
+}
+.photoGroup button{
+  color: #fff;
+  background-color: #1d9df6;
+  border: none;
+  width: 92%;
+  height: 30px;
+  
+}
+.desple {
+  border-radius: 5px;
+  border: 1px solid #1d9df6;
+  width: 93%;
+  height: 28px;
+  color: #949292;
+}
+.userNameGroup {
+    border-radius: 5px;
+    border: 1px solid #1d9df6;
+    width: 100%;
+    color: #949292;
+}
+  
