@@ -3,11 +3,11 @@ import "./ImgProfile.css";
 import Logo from "./ejemplo.jpg";
 import { NavLink } from "react-router-dom";
 
-export const ImgProfile = () => {
+export const ImgProfile = ({img}) => {
   return (
-    <div className="perfile">
+    <div>
       <NavLink to="/Perfil/Administrador">
-        <img src={Logo} alt="Perfile" className="imgperfile" />
+        <img src={Logo} alt="Perfile" className={img} />
       </NavLink>
     </div>
   );

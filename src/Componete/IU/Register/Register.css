@@ -1,31 +1,43 @@
+/* text register */
 .Register {
-  margin-top: 14%;
-  font-size: 39px;
+  margin-top: 12%;
+  font-size: 40px;
   font-weight: 40;
   color: black;
   font-family: "Pacifico", cursive;
   position: relative;
-  right: 12%;
+  right: -23%;
+}
+/*icon register */
+.iconregster{
+  color: #1d9df6;
+  position: relative;
+  top: -90px;
+  left: 63%;
+  width: 7%;
+  height: 0%;
 }
 
-.line5 {
+.lineRegister {
   border: 1px solid #1d9df6;
+  width: 90%;
 }
 
 .userNameRegistre {
   border-radius: 5px;
   border: 1px solid #1d9df6;
-  width: 94px;
-  color: #949292;
+  width: 43%;
 }
 
 .lastName {
   border-radius: 5px;
   border: 1px solid #1d9df6;
-  width: 94px;
+  width: 44%;
 }
 
 .last {
+  margin-left: 4%;
+  width: 90%;
   display: flex;
   justify-content: space-between;
 }
@@ -71,14 +83,7 @@
   height: 28px;
   color: #949292;
 }
-.iconregster{
-  color: #1d9df6;
-  position: relative;
-  top: -81px;
-  left: 32%;
-  width: 9%;
-  height: 0%;
-}
+
 .mainRegister{
   position: relative;
   top: -66px;

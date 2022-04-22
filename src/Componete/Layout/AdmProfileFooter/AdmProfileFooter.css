@@ -1,0 +1,154 @@
+.oversight-profile{
+    margin-left: 250px; 
+    margin-bottom: -35px;
+    margin-top: -500px;
+    height: 0;
+}
+
+
+.ImgAdm{
+    
+    width: 200px;
+    height: 200px;
+    border-radius:150px;
+}
+.iAdm{
+    width: 18%;
+    position: relative;
+    margin: 50px ;
+    height: 0%;
+}
+
+
+.aviso{
+    background-color: red;
+    font-size: 21px;
+    margin: -10% 90px;
+    width: 0;
+    margin-bottom: -75px;
+}
+
+
+.admi{
+    color: #1d9df6;
+    margin: -10px 100px;
+
+    font-size: 30px;
+}
+
+
+
+.textoOver{
+    border-top: 2px solid #1d9df6;
+    width: 75%;
+    margin-left: 290px;
+    margin-top: -75px;
+}
+
+
+.Text{
+    border-left: 2px solid #1d9df6;
+    margin-left: 200px;
+    margin-bottom: -650px;
+    width: 50%;
+    height: 1000px;
+    margin-top: 100px;
+
+
+}
+
+
+.Texto1{
+    margin-left: 150px;
+}
+
+
+
+
+@media(max-width:780px){
+
+    .oversight-profile{
+        font-size: 150%;
+        margin-left: 280px; 
+        margin-bottom: -45px;
+        margin-top: -300px;
+        height: 0;
+
+    }
+
+
+    .Text{
+        border-left: 2px solid #1d9df6;
+        margin-left: 50px;
+        width: 50%;
+        height: 1000px;
+        margin-top: 70px;
+    
+    
+    }
+
+    .textoOver{
+        border-top: 2px solid #1d9df6;
+        width: 75%;
+        margin-left: 290px;
+        margin-top: -95px;
+    }
+
+
+    
+.aviso{
+    font-size: 21px;
+    margin: 30% 90px;
+    width: 0;
+    display: flex;
+    justify-content:row ;
+    margin-bottom: -75px;
+}
+
+}
+
+
+@media(max-width:340px){
+
+    .oversight-profile{
+        font-size: 150%;
+        margin-left: 150px; 
+        margin-bottom: -45px;
+        margin-top: -300px;
+        height: 0;
+
+    }
+
+
+    .Text{
+        border-left: 2px solid #1d9df6;
+        margin-left: 50px;
+        width: 50%;
+        height: 1000px;
+        margin-top: 70px;
+    
+    
+    }
+
+    .textoOver{
+        border-top: 2px solid #1d9df6;
+        width: 75%;
+        margin-left: 290px;
+        margin-top: -95px;
+    }
+
+
+    
+.aviso{
+    font-size: 21px;
+    margin: 30% 90px;
+    width: 0;
+    display: flex;
+    justify-content:row ;
+    margin-bottom: -75px;
+}
+
+
+
+
+}

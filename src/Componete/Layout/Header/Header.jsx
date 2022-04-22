@@ -12,7 +12,9 @@ export const Header = () => {
         <div className="headercenter">
           <TextOversight text="oversight-text" />
           <Search />
-          <ImgProfile />
+          <div className="ContAdm">
+            <ImgProfile img="imgperfile" />
+          </div>
     </div>
         </div>
   );
