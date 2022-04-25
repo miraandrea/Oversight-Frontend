@@ -6,7 +6,8 @@ import axios from "axios";
 export const Register = () => {
   
   // Rol courses
-  const urlCurse = "http://localhost:4000/v1/courses";
+  let llamarToken = localStorage.getItem('tokenCurse');
+  const urlCurse = "http://localhost:4000/v1/decode/" + llamarToken;
   const [data, setData] = useState([" "]);
 
   useEffect(() => {
@@ -49,7 +50,6 @@ export const Register = () => {
     if (rolUsuarios == "") {
       const paragrapg = "Es necesario escoger el rol";
       setMessage(paragrapg);
-      console.log("Es necesario escoger el rol");
     }
     console.log(URL);
     e.preventDefault();
@@ -92,12 +92,14 @@ export const Register = () => {
               className="userNameRegistre"
               type="text"
               placeholder="Nombres"
+              required
             />
             <input
               onChange={(e) => setLastName(e.target.value)}
               className="lastName"
               type="text"
               placeholder="Apellidos"
+              required
             />
           </div>
 
@@ -109,25 +111,32 @@ export const Register = () => {
               placeholder="Documento Identidad"
             />
           </div>
+          
+          <div className="containerData">
+
           <input
-            type="datetime"
+            className="date"
+            type="date"
             placeholder="fecha"
             onChange={(e) => setDateBirth(e.target.value)}
           />
+          </div>
+          <div className="containerSelect">
+
           <select className="desple" onChange={(e) => setSex(e.target.value)}>
             <option value="null">Genero</option>
             <option value="F">Feminino</option>
             <option value="M">Masculino</option>
           </select>
-          <p>{message}</p>
           <select
             className="desple"
             onChange={(e) => setRolUsuarios(e.target.value)}
-          >
+            >
             <option value="1">Seleccione un rol</option>
             <option value="2">Estudiante</option>
             <option value="3">Docente</option>
           </select>
+          <p className="message">{message}</p>
           <select
             className="desple"
             onChange={(e) => setCourse(e.target.value)}
@@ -141,6 +150,8 @@ export const Register = () => {
               );
             })}
           </select>
+          </div>
+          
         </div>
         <p>{messageRegister}</p>
         <div className="btn_Registrar">

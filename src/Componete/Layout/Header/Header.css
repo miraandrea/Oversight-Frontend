@@ -1,9 +1,33 @@
+.imgperfile{
+    float: right;
+    width: 100%;
+}
+.ContAdm{
+    margin: 3.5% -46%;
+        width: 60px;
+        height: 50px;
+        overflow: hidden;
+        border-radius: 87%;
+        background-color: brown;
+}
+.oversight-text{
+    font-size: 27px;
+    position: relative;
+    top: -31%;
+    left: -52%;
+}
+.headercenter{
+    display: flex;
+    justify-content: space-between;
+}
+.center{
+    width: 60%;
+}
 
+/* 
     .headercenter{
-        margin: 60px 40px;
+        margin: -28px ;
         height: 0%;
-    
-
     }
 
     .center{
@@ -26,12 +50,14 @@
         width: 100%;
     }
     .ContAdm{
-        margin: 11px 100%;
         width: 60px;
         height: 50px;
         overflow: hidden;
         border-radius: 87%;
         background-color: brown;
+        position: relative;
+        top: 10%;
+        left: 10%;
         
     }
     .imgperfile{
@@ -46,8 +72,8 @@
 
     .oversight-text{
         font-size: 25px;
-        margin-left: -800px;
-        margin-top: -200px;
+        margin-left: -69rem;
+        margin-top: 35%;
         
         
         
@@ -116,4 +142,4 @@
 
 
 
-    }
+    } */
