@@ -112,7 +112,8 @@
 
     .oversight-profile{
         font-size: 150%;
-        margin-left: 150px; 
+        margin-left: 30px; 
+        width: 150px;
         margin-bottom: -45px;
         margin-top: -300px;
         height: 0;
@@ -122,7 +123,7 @@
 
     .Text{
         border-left: 2px solid #1d9df6;
-        margin-left: 50px;
+        margin-left: -10px;
         width: 50%;
         height: 1000px;
         margin-top: 70px;
@@ -141,11 +142,22 @@
     
 .aviso{
     font-size: 21px;
-    margin: 30% 90px;
+    margin: 60% 90px;
     width: 0;
     display: flex;
     justify-content:row ;
     margin-bottom: -75px;
+}
+
+.ImgAdm{
+    
+    width: 140px;
+    height: 140px;
+    border-radius:150px;
+}
+
+.Texto1{
+    margin-left: 60px;
 }
 
 

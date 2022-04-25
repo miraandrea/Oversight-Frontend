@@ -6,7 +6,10 @@ import './Session.css'
 export const Session = () => {
   return (
     <div>
+      <div className='contText'>
       <TextOversight text="textOversight" />
+
+      </div>
       <Login />
     </div>
   )

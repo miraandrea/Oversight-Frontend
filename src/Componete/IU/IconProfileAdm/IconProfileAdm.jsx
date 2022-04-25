@@ -4,8 +4,10 @@ import { IoMdHome } from "react-icons/io";
 import Cookies from "universal-cookie/es6";
 import { NavLink } from "react-router-dom";
 import '../../Layout/AdmProfileFooter/AdmProfileFooter.css'
+import axios from "axios";
 
 export const IconProfileAdm = () => {
+
   const cookies = new Cookies();
 
   const cerrarSesion = () => {
@@ -14,6 +16,7 @@ export const IconProfileAdm = () => {
     cookies.remove("nombre", { path: "/" });
     cookies.remove("apellido", { path: "/" });
     cookies.remove("fecha", { path: "/" });
+    localStorage.clear()
     window.location.href = "/";
   };
 

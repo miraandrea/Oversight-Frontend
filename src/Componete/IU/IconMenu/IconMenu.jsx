@@ -21,12 +21,29 @@ export const IconMenu = () => {
   const handleClose = () => {
     setOpen(false);
   };
-  const body = (
+  const bodyRegister = (
     <div className="paper">
       <Register />
-      <button onClick={handleClose}>Cancelar</button>
+      <div className="btn_Cancel">
+        <button className="cancel" onClick={handleClose}>Cancelar</button>
+      </div>
     </div>
   );
+  const [openGroup, setOpenGroup] = React.useState(false);
+  const handleOpenGroup = () => {
+    setOpenGroup(true);
+  };
+  const handleCloseGroup = () => {
+    setOpenGroup(false);
+  };
+  const bodyGroup = (
+    <div className="paper">
+      <GroupAdd />
+      <div className="btn_Cancel">
+        <button className="cancel" onClick={handleCloseGroup}>Cancelar</button>
+      </div>
+    </div>
+  )
 
   return (
     <div className="menu">
@@ -36,27 +53,18 @@ export const IconMenu = () => {
       <p>Inicio</p>
       <IoMdPersonAdd onClick={handleOpen} className="iconmenu" />
       <p>Registrar</p>
-      <MdGroupAdd onClick={() => showGroup()} className="iconmenu" />
+      <MdGroupAdd onClick={handleOpenGroup} className="iconmenu" />
       <p className="group">Agregar grupo</p>
       <IoExitOutline onClick={() => cerrarSesion()} className="iconmenu" />
       <p>Salir</p>
-      <NavLink to="/prueba1">
-        <button>grupo</button>
-      </NavLink>
       <Modal open={open} onClose={handleClose}>
-        {body}
+        {bodyRegister}
+      </Modal>
+      <Modal open={openGroup} onClose={handleCloseGroup}>
+        {bodyGroup}
       </Modal>
     </div>
   );
-};
-
-const showGroup = (btn) => {
-  swal({
-    buttons: {
-      confirm: { text: "Cancelar", className: "sweet-warning" },
-    },
-    content: <GroupAdd></GroupAdd>,
-  });
 };
 
 const cookies = new Cookies();
@@ -67,5 +75,6 @@ const cerrarSesion = () => {
   cookies.remove("nombre", { path: "/" });
   cookies.remove("apellido", { path: "/" });
   cookies.remove("fecha", { path: "/" });
+  localStorage.clear()
   window.location.href = "/";
 };

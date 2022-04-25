@@ -9,13 +9,12 @@ export const Header = () => {
   return (
 
     <div className="center">
-        <div className="headercenter">
-          <TextOversight text="oversight-text" />
-          <Search />
-          <div className="ContAdm">
-            <ImgProfile img="imgperfile" />
-          </div>
-    </div>
+      <div className="headercenter">
+        <TextOversight text="oversight-text" />
+        <div className="ContAdm">
+          <ImgProfile img="imgperfile" />
         </div>
+      </div>
+    </div>
   );
 };

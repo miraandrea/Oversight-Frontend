@@ -38,7 +38,20 @@ p{
 	box-shadow: 5px ;
 	padding: 2px 4px 3px ;
 }
-
+.cancel {
+    color: rgb(255, 255, 255);
+    background-color: #f61d1d;
+    border: none;
+    width: 105px;
+    height: 35px;
+    position: relative;
+    top: -2.3rem;
+    left: 12rem;
+}
+.btn_Cancel {
+    width: 10px;
+    height: 20px;
+}
 
 @media(max-width:780px){
 
