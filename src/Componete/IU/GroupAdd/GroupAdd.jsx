@@ -1,15 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./GroupAdd.css";
 import { MdGroupAdd } from "react-icons/md";
+import axios from "axios";
 
 export const GroupAdd = () => {
 
-  const URL = 'http://localhost:8080/api/courses'
+  const [data, setData] = useState([" "]);
+
+  let llamarToken = localStorage.getItem('tokenTeachers');
+  const urlTeachers = "http://localhost:4000/v1/decode/" + llamarToken;
+
+  useEffect(() => {
+    axios.get(urlTeachers).then((response) => {
+      console.log("response", Object.keys(response.data).length);
+      let dataArray = [];
+      for (let index = 0; index < Object.keys(response.data).length; index++) {
+        console.log("response2");
+        dataArray.push(response.data[index]);
+      }
+      setData(dataArray);
+    });
+  }, []);
 
   return (
     <div>
       <p className="nameGroup">Agregar grupo</p>
-      <MdGroupAdd className='iconGroup'/>
+      <MdGroupAdd className='iconGroup' />
       <div className="mainGroup">
         <br />
         <hr className="line5" />
@@ -21,11 +37,17 @@ export const GroupAdd = () => {
           {/* para la imagenes <input type="file" /> */}
         </div>
         <br />
-
-        <select className="desple">
-          <option value="1">Seleccione un director de grupo</option>
-          <option value="2">Paola Andrea Mira</option>
-          <option value="3">Elian Jaramillo</option>
+        <select
+          className="desple">
+          <option>Seleccione un director de grupo</option>
+          {data.map((el, index) => {
+            return (
+              <option key={index} > 
+              {/* value={el.idcurso} */}
+                {el.nombre}
+              </option>
+            );
+          })}
         </select>
       </div>
       <div className="btn_Registrar">

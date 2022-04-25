@@ -68,8 +68,7 @@
     }
     
     .copy{
-    
-        padding-top: 70%;
+        margin-top: 145px
     
     }
     .componente{
@@ -114,6 +113,7 @@
     }
     
     .Copy2{
+        margin-bottom: 60px;
         display: flex;
         justify-content: center;
     }
@@ -173,11 +173,14 @@
             width: 650px;
             height: 1100px;
             margin-top: -1100px;
+            image-rendering: auto;
         }
+
 
         .conteinerLogo{
             margin-right: 300%;
             width: 1%;
+
         }
     .paragrapg{
         color: #ff0000;
