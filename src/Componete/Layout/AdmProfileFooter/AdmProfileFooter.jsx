@@ -10,10 +10,13 @@ export const AdmProfileFooter = () => {
     <div>
     <div className="iAdm">
       <ImgProfile  img="ImgAdm"  />
-
     </div>
 
-      <TextOversight text="oversight-profile" />
+    <div className='contTextoOver'>
+    <TextOversight text="oversight-profile" />
+    </div>
+
+     
       <div className="hrtop">
       <AdmProfile className={Text} />
       </div>

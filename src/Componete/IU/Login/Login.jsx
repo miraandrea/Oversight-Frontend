@@ -6,6 +6,7 @@ import Cookies from 'universal-cookie/es6';
 import { TiLockClosed } from "react-icons/ti";
 import logo from '../../../Img/Logo.jpg'
 import { IoPersonAddOutline } from "react-icons/io5";
+import { TextOversight } from '../../IU/TextOversight/TextOversight'
 
 export const Login = () => {
 
@@ -37,32 +38,6 @@ export const Login = () => {
             cookies.set('nombre', respuesta.nombre, { path: "/" })
             cookies.set('apellido', respuesta.apellido, { path: "/" })
             cookies.set('fecha', respuesta.fecnac, { path: "/" })
-
-            //token
-            const URL1 = "http://localhost:4000/v3/courses";
-
-            axios.get(URL1)
-                .then((res) => user(res.data))
-                .catch((error) => console.log(error))
-
-
-            const user = (data) => {
-                localStorage.setItem('tokenCurse', data);
-            }
-
-            //token teacher
-
-            const api = 'http://localhost:4000/v1/teachers';
-
-            axios.get(api)
-                .then((res) => user1(res.data))
-                .catch((error) => console.log(error))
-
-            const user1 = (data) => {
-                localStorage.setItem('tokenTeachers', data);
-            }
-
-
             window.location.href = "/Administrador"
         }
         if (data.rol === "Teacher") {
@@ -97,6 +72,7 @@ export const Login = () => {
             <div className='container'>
                 <div className='entry'>
                     <div className='contPadre'>
+                    <TextOversight text="textOversight" />
                         <div className='user'>
                             <IoPersonAddOutline className='username' />
                             <input id="input1" onChange={e => setUsername(e.target.value)} type="text" name="username" required placeholder='Usuario' />
