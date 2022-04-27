@@ -19,7 +19,7 @@ function App() {
         <Route path='/' element={<MaintStart/>} />
         <Route path='/Administrador' element={<AdmiMainMenu />} />
         <Route path='/Docente' element={<TeachMainMenu />} />
-        <Route path='/Estudiantes_Administrador' element={<AdmiMainStudent />} />
+        <Route path='/Estudiantes_Administrador/:name' element={<AdmiMainStudent />} />
         <Route path='/Perfil/Administrador' element={<AdmSeeProfile />} />
 
         <Route path='/prueba1' element={<GroupAdd/>} />

@@ -5,13 +5,23 @@ import axios from "axios";
 
 export const GroupAdd = () => {
 
-  const [data, setData] = useState([" "]);
+  //token teacher
 
-  let llamarToken = localStorage.getItem('tokenTeachers');
-  const urlTeachers = "http://localhost:4000/v1/decode/" + llamarToken;
+  const UrlTokenTeacher = 'http://localhost:4000/v1/teachers';
 
   useEffect(() => {
-    axios.get(urlTeachers).then((response) => {
+    const getTeacher = () => {
+      axios.get(UrlTokenTeacher)
+        .then((res) => userTeacher(res.data))
+        .catch((error) => console.log(error))
+    }
+    getTeacher();
+  }, []);
+  const [data, setData] = useState([" "]);
+
+  const userTeacher = (data) => {
+    const urlTeacher = "http://localhost:4000/v1/decode/" + data;
+    axios.get(urlTeacher).then((response) => {
       console.log("response", Object.keys(response.data).length);
       let dataArray = [];
       for (let index = 0; index < Object.keys(response.data).length; index++) {
@@ -20,7 +30,7 @@ export const GroupAdd = () => {
       }
       setData(dataArray);
     });
-  }, []);
+  }
 
   return (
     <div>
@@ -42,8 +52,8 @@ export const GroupAdd = () => {
           <option>Seleccione un director de grupo</option>
           {data.map((el, index) => {
             return (
-              <option key={index} > 
-              {/* value={el.idcurso} */}
+              <option key={index} >
+                {/* value={el.idcurso} */}
                 {el.nombre}
               </option>
             );

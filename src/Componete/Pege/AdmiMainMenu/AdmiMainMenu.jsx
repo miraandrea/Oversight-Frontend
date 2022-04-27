@@ -5,7 +5,7 @@ import { Main } from '../../Layout/Main/Main'
 import '../AdmiMainMenu/AdmiMainMenu.css'
 
   export const AdmiMainMenu = () => {
-      
+
   return (
     <div className='conter'>
     <Header ></Header>

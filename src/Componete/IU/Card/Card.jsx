@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import foto from '../ImgProfile/ejemplo.jpg'
 
 export const Card = ({ course }) => {
+
   return (
     <div className="maincard1">
       <div className="card">
