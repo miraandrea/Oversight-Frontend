@@ -1,9 +1,10 @@
 .imgperfile{
     float: right;
     width: 100%;
+
 }
 .ContAdm{
-    margin: 3.5% -46%;
+    margin: 30% -540%;
         width: 60px;
         height: 50px;
         overflow: hidden;
@@ -13,15 +14,15 @@
 .oversight-text{
     font-size: 27px;
     position: relative;
-    top: -31%;
-    left: -52%;
+    top: 23%;
+    left: 1500%;
 }
 .headercenter{
     display: flex;
     justify-content: space-between;
 }
 .center{
-    width: 60%;
+   display: flex;
 }
 
 /* 

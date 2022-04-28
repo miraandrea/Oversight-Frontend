@@ -1,13 +1,12 @@
 import React from 'react'
 import './Card.css'
-import { NavLink } from 'react-router-dom'
-import foto from '../ImgProfile/ejemplo.jpg'
 
 export const Card = ({ course }) => {
+
   return (
     <div className="maincard1">
       <div className="card">
-        <NavLink to="/Estudiantes_Administrador"><img src={foto} alt={course.nombre} /> </NavLink>
+        <img src={course.foto} alt={course.nombre} /> 
         <p>{course.nombre}</p>
         <p>{course.directorGrupo}</p>
       </div>

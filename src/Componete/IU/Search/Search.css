@@ -1,7 +1,8 @@
 /* @media (max-width:460px){ */
     .search{
-        height: 50px;
-        padding-left: -10%;
+        height: 100;
+        padding-left: -40%;
+        margin:-520px 340px;
         width: 55%;
         
     }
@@ -9,6 +10,8 @@
         width: 100%;
         font-size: 80%;
     }
+
+
 
     .iconsearch{
         margin-right: 100px;
@@ -34,10 +37,11 @@
     
     }
 
-    @media(max-width:780px){
-
-        .iconsearch{
-            margin: -10px -36px ;
+    @media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+  .iconsearch{
+            margin: -1px -36px ;
             position: relative;
         }
 
@@ -45,6 +49,7 @@
             width: 90%;
             font-size: 80%;
             margin-left: -50px;
+ 
         }
         .iconsearchCont{
             margin: -10% 82%;
@@ -54,7 +59,8 @@
             height: 50px;
             padding-left: -10%;
             width: 55%;
-            margin: -60px 360px;
+            margin: -330px 280px;
+
             
             
         }
@@ -69,4 +75,49 @@
 
     }
 
+    @media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+    .iconsearch{
+        margin: -1px -30px ;
+
+        position: relative;
+    }
+
+    .search input{
+        width: 100%;
+        font-size: 80%;
+        margin-left: -50px;
+
+    }
+    .iconsearchCont{
+        margin: -21% 82%;
+    }
+
+    .search{
+        height: 50px;
+        padding-left: -10%;
+        width: 55%;
+        margin: -320px 200px;
+
+        
+        
+    }
+    .mainCard {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 240px);
+        gap: 6px;
+        place-content: center;
+        margin: 20px 50px;
+
+    }
+
+}
+
+
+
+
 /* } */
+
+
+

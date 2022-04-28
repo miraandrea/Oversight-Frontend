@@ -4,23 +4,37 @@ import "./Register.css";
 import axios from "axios";
 
 export const Register = () => {
-  
-  // Rol courses
-  let llamarToken = localStorage.getItem('tokenCurse');
-  const urlCurse = "http://localhost:4000/v1/decode/" + llamarToken;
-  const [data, setData] = useState([" "]);
+
+  //token course
+  const UrlTokenCourse = "http://localhost:4000/v3/courses";
 
   useEffect(() => {
-    axios.get(urlCurse).then((response) => {
-      console.log("response", Object.keys(response.data).length);
+    const getCourses = () => {
+      axios.get(UrlTokenCourse)
+        .then((res) => user(res.data))
+        .catch((error) => console.log(error))
+
+    };
+    getCourses();
+  }, []);
+
+
+  // Rol courses
+  const [data, setData] = useState([" "]);
+
+  const user = (data) => {
+    const urlCourse = "http://localhost:4000/v1/decode/" + data;
+    axios.get(urlCourse).then((response) => {
+      console.log(response.data[0]);
+      console.log("response", Object.keys(response.data[0]).length);
       let dataArray = [];
-      for (let index = 0; index < Object.keys(response.data).length; index++) {
+      for (let index = 0; index < Object.keys(response.data[0]).length; index++) {
         console.log("response2");
-        dataArray.push(response.data[index]);
+        dataArray.push(response.data[0][index]);
       }
       setData(dataArray);
     });
-  }, []);
+  }
 
   // Rol usuarios
   const [rolUsuarios, setRolUsuarios] = useState("");
