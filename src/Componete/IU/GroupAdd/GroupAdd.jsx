@@ -22,12 +22,7 @@ export const GroupAdd = () => {
   const userTeacher = (data) => {
     const urlTeacher = "http://localhost:4000/v1/decode/" + data;
     axios.get(urlTeacher).then((response) => {
-<<<<<<< HEAD
-      console.log(response.data[0]);
-      console.log("response", Object.keys(response.data[0]).length);
-=======
       console.log("response", Object.keys(response.data).length);
->>>>>>> 68acad9f889d6a6b67f79204990d23ac0de663aa
       let dataArray = [];
       for (let index = 0; index < Object.keys(response.data[0]).length; index++) {
         console.log("response2");
@@ -36,9 +31,7 @@ export const GroupAdd = () => {
       setData(dataArray);
     });
   }
-<<<<<<< HEAD
 
-  //imagen
   const [archivos, setArchivos] = useState(null)
 
   const subir = e => {
@@ -61,9 +54,30 @@ export const GroupAdd = () => {
   }
 
 
+  //imagen
+  const [archivos1, setArchivos1] = useState(null)
 
-=======
->>>>>>> 68acad9f889d6a6b67f79204990d23ac0de663aa
+  const subir1 = e => {
+    console.log(e);
+    setArchivos(e)
+  }
+
+  const insertar1 = () => {
+    const f = new FormData()
+
+    for (let index = 0; index < archivos.length; index++) {
+      console.log(f.append('result', archivos[index]));
+      f.append('path', archivos[index])
+    }
+    axios.post("http://localhost:4000/v2/courses", f)
+    .then(res =>{
+      console.log(res.data);
+    })
+    .catch(error => console.log(error))
+  }
+
+
+
 
   return (
     <div>
