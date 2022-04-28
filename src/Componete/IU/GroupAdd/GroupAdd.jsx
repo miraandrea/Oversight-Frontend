@@ -22,8 +22,12 @@ export const GroupAdd = () => {
   const userTeacher = (data) => {
     const urlTeacher = "http://localhost:4000/v1/decode/" + data;
     axios.get(urlTeacher).then((response) => {
+<<<<<<< HEAD
       console.log(response.data[0]);
       console.log("response", Object.keys(response.data[0]).length);
+=======
+      console.log("response", Object.keys(response.data).length);
+>>>>>>> 68acad9f889d6a6b67f79204990d23ac0de663aa
       let dataArray = [];
       for (let index = 0; index < Object.keys(response.data[0]).length; index++) {
         console.log("response2");
@@ -32,6 +36,7 @@ export const GroupAdd = () => {
       setData(dataArray);
     });
   }
+<<<<<<< HEAD
 
   //imagen
   const [archivos, setArchivos] = useState(null)
@@ -57,6 +62,8 @@ export const GroupAdd = () => {
 
 
 
+=======
+>>>>>>> 68acad9f889d6a6b67f79204990d23ac0de663aa
 
   return (
     <div>
