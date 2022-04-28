@@ -5,22 +5,65 @@ import axios from "axios";
 
 export const GroupAdd = () => {
 
-  const [data, setData] = useState([" "]);
+  //token teacher
 
-  let llamarToken = localStorage.getItem('tokenTeachers');
-  const urlTeachers = "http://localhost:4000/v1/decode/" + llamarToken;
+  const UrlTokenTeacher = 'http://localhost:4000/v1/teachers';
 
   useEffect(() => {
-    axios.get(urlTeachers).then((response) => {
+    const getTeacher = () => {
+      axios.get(UrlTokenTeacher)
+        .then((res) => userTeacher(res.data))
+        .catch((error) => console.log(error))
+    }
+    getTeacher();
+  }, []);
+  const [data, setData] = useState([" "]);
+
+  const userTeacher = (data) => {
+    const urlTeacher = "http://localhost:4000/v1/decode/" + data;
+    axios.get(urlTeacher).then((response) => {
+<<<<<<< HEAD
+      console.log(response.data[0]);
+      console.log("response", Object.keys(response.data[0]).length);
+=======
       console.log("response", Object.keys(response.data).length);
+>>>>>>> 68acad9f889d6a6b67f79204990d23ac0de663aa
       let dataArray = [];
-      for (let index = 0; index < Object.keys(response.data).length; index++) {
+      for (let index = 0; index < Object.keys(response.data[0]).length; index++) {
         console.log("response2");
-        dataArray.push(response.data[index]);
+        dataArray.push(response.data[0][index]);
       }
       setData(dataArray);
     });
-  }, []);
+  }
+<<<<<<< HEAD
+
+  //imagen
+  const [archivos, setArchivos] = useState(null)
+
+  const subir = e => {
+    console.log(e);
+    setArchivos(e)
+  }
+
+  const insertar = () => {
+    const f = new FormData()
+
+    for (let index = 0; index < archivos.length; index++) {
+      console.log(f.append('result', archivos[index]));
+      f.append('image', archivos[index])
+    }
+    axios.post("http://localhost:4000/v2/courses", f)
+    .then(res =>{
+      console.log(res.data);
+    })
+    .catch(error => console.log(error))
+  }
+
+
+
+=======
+>>>>>>> 68acad9f889d6a6b67f79204990d23ac0de663aa
 
   return (
     <div>
@@ -33,8 +76,8 @@ export const GroupAdd = () => {
           <input className="userNameGroup" type="text" placeholder="Nombre Grupo" />
         </div>
         <div className="photoGroup">
-          <button>Foto</button>
-          {/* para la imagenes <input type="file" /> */}
+          <input type="file" name="files" multiple onChange={(e)=>subir(e.target.files)}/>
+          <button onClick={()=>insertar()}>Foto</button>
         </div>
         <br />
         <select
@@ -42,8 +85,8 @@ export const GroupAdd = () => {
           <option>Seleccione un director de grupo</option>
           {data.map((el, index) => {
             return (
-              <option key={index} > 
-              {/* value={el.idcurso} */}
+              <option key={index} >
+                {/* value={el.idcurso} */}
                 {el.nombre}
               </option>
             );
