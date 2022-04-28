@@ -8,6 +8,8 @@ import { NavLink } from 'react-router-dom'
 
 export const Main = () => {
 
+  // const {busqueda} = useParams()
+
   //token course
   const UrlTokenCourse = "http://localhost:4000/v3/courses";
 
@@ -29,6 +31,7 @@ export const Main = () => {
 
   const user = (data) => {
     const token = jwtDecode(data)
+
     setloading(false)
 
     setCourses(token.results[0])

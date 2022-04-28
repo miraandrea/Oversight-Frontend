@@ -22,8 +22,7 @@ export const GroupAdd = () => {
   const userTeacher = (data) => {
     const urlTeacher = "http://localhost:4000/v1/decode/" + data;
     axios.get(urlTeacher).then((response) => {
-      console.log(response.data[0]);
-      console.log("response", Object.keys(response.data[0]).length);
+      console.log("response", Object.keys(response.data).length);
       let dataArray = [];
       for (let index = 0; index < Object.keys(response.data[0]).length; index++) {
         console.log("response2");
@@ -33,7 +32,6 @@ export const GroupAdd = () => {
     });
   }
 
-  //imagen
   const [archivos, setArchivos] = useState(null)
 
   const subir = e => {
@@ -42,6 +40,29 @@ export const GroupAdd = () => {
   }
 
   const insertar = () => {
+    const f = new FormData()
+
+    for (let index = 0; index < archivos.length; index++) {
+      console.log(f.append('result', archivos[index]));
+      f.append('image', archivos[index])
+    }
+    axios.post("http://localhost:4000/v2/courses", f)
+    .then(res =>{
+      console.log(res.data);
+    })
+    .catch(error => console.log(error))
+  }
+
+
+  //imagen
+  const [archivos1, setArchivos1] = useState(null)
+
+  const subir1 = e => {
+    console.log(e);
+    setArchivos(e)
+  }
+
+  const insertar1 = () => {
     const f = new FormData()
 
     for (let index = 0; index < archivos.length; index++) {

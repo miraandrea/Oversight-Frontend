@@ -25,6 +25,7 @@ export const Register = () => {
   const user = (data) => {
     const urlCourse = "http://localhost:4000/v1/decode/" + data;
     axios.get(urlCourse).then((response) => {
+
       console.log(response.data[0]);
       console.log("response", Object.keys(response.data[0]).length);
       let dataArray = [];
