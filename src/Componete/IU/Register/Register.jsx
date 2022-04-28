@@ -4,22 +4,41 @@ import "./Register.css";
 import axios from "axios";
 
 export const Register = () => {
-  
-  // Rol courses
-  const urlCurse = "http://localhost:4000/v1/courses";
-  const [data, setData] = useState([" "]);
+
+  //token course
+  const UrlTokenCourse = "http://localhost:4000/v3/courses";
 
   useEffect(() => {
-    axios.get(urlCurse).then((response) => {
+    const getCourses = () => {
+      axios.get(UrlTokenCourse)
+        .then((res) => user(res.data))
+        .catch((error) => console.log(error))
+
+    };
+    getCourses();
+  }, []);
+
+
+  // Rol courses
+  const [data, setData] = useState([" "]);
+
+  const user = (data) => {
+    const urlCourse = "http://localhost:4000/v1/decode/" + data;
+    axios.get(urlCourse).then((response) => {
+<<<<<<< HEAD
+      console.log(response.data[0]);
+      console.log("response", Object.keys(response.data[0]).length);
+=======
       console.log("response", Object.keys(response.data).length);
+>>>>>>> 68acad9f889d6a6b67f79204990d23ac0de663aa
       let dataArray = [];
-      for (let index = 0; index < Object.keys(response.data).length; index++) {
+      for (let index = 0; index < Object.keys(response.data[0]).length; index++) {
         console.log("response2");
-        dataArray.push(response.data[index]);
+        dataArray.push(response.data[0][index]);
       }
       setData(dataArray);
     });
-  }, []);
+  }
 
   // Rol usuarios
   const [rolUsuarios, setRolUsuarios] = useState("");
@@ -49,7 +68,6 @@ export const Register = () => {
     if (rolUsuarios == "") {
       const paragrapg = "Es necesario escoger el rol";
       setMessage(paragrapg);
-      console.log("Es necesario escoger el rol");
     }
     console.log(URL);
     e.preventDefault();
@@ -92,12 +110,14 @@ export const Register = () => {
               className="userNameRegistre"
               type="text"
               placeholder="Nombres"
+              required
             />
             <input
               onChange={(e) => setLastName(e.target.value)}
               className="lastName"
               type="text"
               placeholder="Apellidos"
+              required
             />
           </div>
 
@@ -109,25 +129,32 @@ export const Register = () => {
               placeholder="Documento Identidad"
             />
           </div>
+          
+          <div className="containerData">
+
           <input
-            type="datetime"
+            className="date"
+            type="date"
             placeholder="fecha"
             onChange={(e) => setDateBirth(e.target.value)}
           />
+          </div>
+          <div className="containerSelect">
+
           <select className="desple" onChange={(e) => setSex(e.target.value)}>
             <option value="null">Genero</option>
             <option value="F">Feminino</option>
             <option value="M">Masculino</option>
           </select>
-          <p>{message}</p>
           <select
             className="desple"
             onChange={(e) => setRolUsuarios(e.target.value)}
-          >
+            >
             <option value="1">Seleccione un rol</option>
             <option value="2">Estudiante</option>
             <option value="3">Docente</option>
           </select>
+          <p className="message">{message}</p>
           <select
             className="desple"
             onChange={(e) => setCourse(e.target.value)}
@@ -141,6 +168,8 @@ export const Register = () => {
               );
             })}
           </select>
+          </div>
+          
         </div>
         <p>{messageRegister}</p>
         <div className="btn_Registrar">

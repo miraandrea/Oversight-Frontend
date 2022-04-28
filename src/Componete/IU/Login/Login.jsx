@@ -4,10 +4,13 @@ import swal from 'sweetalert';
 import React, { useState } from 'react'
 import Cookies from 'universal-cookie/es6';
 import { TiLockClosed } from "react-icons/ti";
-import logo from '../../../Img/logoOverSight.jpg'
+import logo from '../../../Img/Logo.jpeg'
 import { IoPersonAddOutline } from "react-icons/io5";
+import { TextOversight } from '../../IU/TextOversight/TextOversight'
 
 export const Login = () => {
+
+
 
     const URL = "http://localhost:4000/v3/authenticate";
 
@@ -69,6 +72,7 @@ export const Login = () => {
             <div className='container'>
                 <div className='entry'>
                     <div className='contPadre'>
+                    <TextOversight text="textOversight" />
                         <div className='user'>
                             <IoPersonAddOutline className='username' />
                             <input id="input1" onChange={e => setUsername(e.target.value)} type="text" name="username" required placeholder='Usuario' />

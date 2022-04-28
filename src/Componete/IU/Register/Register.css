@@ -1,3 +1,8 @@
+/* container */
+.mainRegister{
+  position: relative;
+  top: -66px;
+}
 /* text register */
 .Register {
   margin-top: 12%;
@@ -42,22 +47,47 @@
   justify-content: space-between;
 }
 
+/* identity card */
+.number1 {
+  padding-left: 19px;
+}
 .number {
   border-radius: 5px;
   border: 1px solid #1d9df6;
-  width: 240px;
+  width: 400px;
 }
 
-.number1 {
-  display: flex;
-  justify-content: center;
+.containerData{
+  padding-left: 19px;
 }
-.cancel {
+.date{
   border-radius: 5px;
-  border: none;
-  background-color: #fa1200;
+  border: 1px solid #1d9df6;
+  width: 405px;
+  height: 28px;
+  color: #949292;
 }
 
+/* container from select gender, role, group */
+.containerSelect{
+  padding-left: 25px;
+  width: 93.5%;
+}
+.desple {
+  border-radius: 5px;
+  border: 1px solid #1d9df6;
+  width: 405px;
+  height: 28px;
+  color: #949292;
+  margin: 5px;
+}
+.message{
+  color: #fa1200;
+  font-size: 0.7rem;
+  padding-left: 8px;
+}
+
+/* button register a new user */
 .Registrar {
   color: rgb(255, 255, 255);
   background-color: #1d9df6;
@@ -65,26 +95,10 @@
   width: 105px;
   height: 35px;
   position: relative;
-  top: 250%;
-  left: 1550%;
+  top: -1rem;
+  left: 20rem;
 }
-
 .btn_Registrar {
   width: 10px;
   height: 20px;
-}
-.despleRol{
-  padding-top: 4%;
-}
-.desple {
-  border-radius: 5px;
-  border: 1px solid #1d9df6;
-  width: 93%;
-  height: 28px;
-  color: #949292;
-}
-
-.mainRegister{
-  position: relative;
-  top: -66px;
 }
