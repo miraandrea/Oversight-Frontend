@@ -25,11 +25,12 @@ export const Register = () => {
   const user = (data) => {
     const urlCourse = "http://localhost:4000/v1/decode/" + data;
     axios.get(urlCourse).then((response) => {
-      console.log("response", Object.keys(response.data).length);
+      console.log(response.data[0]);
+      console.log("response", Object.keys(response.data[0]).length);
       let dataArray = [];
-      for (let index = 0; index < Object.keys(response.data).length; index++) {
+      for (let index = 0; index < Object.keys(response.data[0]).length; index++) {
         console.log("response2");
-        dataArray.push(response.data[index]);
+        dataArray.push(response.data[0][index]);
       }
       setData(dataArray);
     });
