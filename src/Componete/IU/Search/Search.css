@@ -1,24 +1,38 @@
 /* @media (max-width:460px){ */
     .search{
-        height: 100;
+        height: 100px;
         padding-left: -40%;
-        width: 55%;
+       margin:-520px 340px; 
+
+        width: 60%;
         
     }
     .search input{
-        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
         font-size: 80%;
+
+    }
+
+
+    .ConterInput{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: blue;
     }
 
 
 
     .iconsearch{
-        margin-right: 100px;
+        margin-right: 120px;
         width: -40px;
     }
 
     .iconsearchCont{
-        margin: -5% 98%;
+        margin: -5% 88%;
     }
 
     .conterIcon{
@@ -37,8 +51,8 @@
     }
 
     @media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) {
+and (max-width : 780px) 
+ {
   .iconsearch{
             margin: -1px -36px ;
             position: relative;
@@ -58,10 +72,15 @@ and (max-device-width : 1024px) {
             height: 50px;
             padding-left: -10%;
             width: 55%;
-            margin: -330px 280px;
+            margin: -520px 350px;
+            
+        }
 
-            
-            
+        .ConterInput{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: blue;
         }
         .mainCard {
             display: grid;
@@ -75,8 +94,8 @@ and (max-device-width : 1024px) {
     }
 
     @media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) {
+and (max-width : 320px) 
+ {
     .iconsearch{
         margin: -1px -30px ;
 

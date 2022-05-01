@@ -1,17 +1,23 @@
-@media (max-width:320px){
+
     .teachercard{
-        height: 1px;
-        width: 10vw;
-        padding-left: 25%;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        position: relative;
-        top: -200px;
+        grid-template-columns: repeat(auto-fill, 130px);
+        gap: 15px;
+        width: 70%;
+        margin: -300px 220px;
+        border-top: 2px solid #1d9df6;
+        border-left: 2px solid #1d9df6;
+        padding: 30px;
+        height: 100%;
     }
+
+
+
     .card{ 
         grid-area: 1 / 2 / 2 / 5; 
     }
     .card {
+
         width: 3rem;
         height: 7rem;
         border-radius: 7px;
@@ -25,6 +31,9 @@
     .card img {
         width: 4rem;
         border-radius: 13px;  
+        image-rendering: auto;
+        object-fit: cover;
+        object-position: center;
     }
     .card p {
         padding-top: 1% ;
@@ -39,4 +48,3 @@
         margin-right: -25%;
         background-color: rgb(255, 255, 255);
     }
-}

@@ -14,14 +14,14 @@
 
 /* iPads (portrait & landscape) */
 @media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) {
+and (max-width : 768px) 
+ {
     .mainCard{
         display: grid;
         grid-template-columns: repeat(auto-fill, 130px);
         gap: 15px;
         width: 70%;
-        margin: 350px 220px;
+        margin: 580px 220px;
         border-top: 2px solid #1d9df6;
         border-left: 2px solid #1d9df6;
         padding: 30px;
@@ -30,9 +30,9 @@ and (max-device-width : 1024px) {
 
 }
 
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) {
+@media only screen
+and (max-width : 320px) 
+ {
     .mainCard{
         display: grid;
         grid-template-columns: repeat(auto-fill, 130px);
