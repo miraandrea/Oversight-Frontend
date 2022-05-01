@@ -17,7 +17,7 @@ export const GroupAdd = () => {
     }
     getTeacher();
   }, []);
-  
+
   const [data, setData] = useState([" "]);
 
   const userTeacher = (data) => {
@@ -32,7 +32,7 @@ export const GroupAdd = () => {
       setData(dataArray);
     });
   }
-  
+
   //imagen
 
   const [teacher, setTeacher] = useState("")
@@ -62,7 +62,6 @@ export const GroupAdd = () => {
       })
       .catch(error => console.log(error))
   }
-
   return (
     <form onSubmit={insertar}>
     <div>

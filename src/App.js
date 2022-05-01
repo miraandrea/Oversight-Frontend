@@ -10,7 +10,6 @@ import {
   Routes,
   Route
 } from "react-router-dom"
-import { GroupAdd } from './Componete/IU/GroupAdd/GroupAdd';
 
 function App() {
   return (
@@ -21,9 +20,6 @@ function App() {
         <Route path='/Docente' element={<TeachMainMenu />} />
         <Route path='/Estudiantes_Administrador/:name' element={<AdmiMainStudent />} />
         <Route path='/Perfil/Administrador' element={<AdmSeeProfile />} />
-
-        <Route path='/prueba1' element={<GroupAdd/>} />
-
       </Routes>
     </BrowserRouter>
 
