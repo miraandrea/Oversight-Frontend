@@ -1,8 +1,22 @@
 .oversight-profile{
-    margin-left: 250px; 
-    margin-bottom: -35px;
-    margin-top: -500px;
-    height: 0;
+
+    font-size: 250%;
+    margin-left: 150px; 
+    margin-bottom: -45px;
+    margin-top: 70px;
+    height:100%;
+
+}
+
+.contTextoOver{
+
+  /*   width: 100%; */
+    display: flex;
+}
+
+.contTextoOver{
+
+    height: 300px;
 }
 
 
@@ -11,6 +25,9 @@
     width: 200px;
     height: 200px;
     border-radius:150px;
+    image-rendering: auto;
+    object-fit: cover;
+    object-position: center;
 }
 .iAdm{
     width: 18%;
@@ -21,7 +38,7 @@
 
 
 .aviso{
-    background-color: red;
+
     font-size: 21px;
     margin: -10% 90px;
     width: 0;
@@ -38,16 +55,11 @@
 
 
 
-.textoOver{
-    border-top: 2px solid #1d9df6;
-    width: 75%;
-    margin-left: 290px;
-    margin-top: -75px;
-}
 
 
 .Text{
-    border-left: 2px solid #1d9df6;
+/*     border-top: 2px solid #1d9df6;
+    border-left: 2px solid #1d9df6; */
     margin-left: 200px;
     margin-bottom: -650px;
     width: 50%;
@@ -68,18 +80,40 @@
 @media(max-width:780px){
 
     .oversight-profile{
-        font-size: 150%;
-        margin-left: 280px; 
+
+        font-size: 250%;
+        margin-left: -50px; 
         margin-bottom: -45px;
-        margin-top: -300px;
-        height: 0;
+        margin-top: -20px;
+        height:100%;
 
     }
 
+    .contTextoOver{
+
+      /*   width: 100%; */
+        display: flex;
+    }
+
+    .contTextoOver{
+
+        height: 300px;
+    }
+    
+
+    .admi{
+        color: #1d9df6;
+        margin: -10px 80px;
+    
+        font-size: 30px;
+    }
+    
+
 
     .Text{
-        border-left: 2px solid #1d9df6;
-        margin-left: 50px;
+    
+    
+        margin-left: 170px;
         width: 50%;
         height: 1000px;
         margin-top: 70px;
@@ -88,17 +122,19 @@
     }
 
     .textoOver{
-        border-top: 2px solid #1d9df6;
+
         width: 75%;
         margin-left: 290px;
-        margin-top: -95px;
+        margin-top: 50px;
+
     }
+
 
 
     
 .aviso{
     font-size: 21px;
-    margin: 30% 90px;
+    margin: -20% 70px;
     width: 0;
     display: flex;
     justify-content:row ;
@@ -111,19 +147,40 @@
 @media(max-width:340px){
 
     .oversight-profile{
-        font-size: 150%;
-        margin-left: 30px; 
-        width: 150px;
+
+        font-size: 250%;
+        margin-left: -50px; 
         margin-bottom: -45px;
-        margin-top: -300px;
-        height: 0;
+        margin-top: -20px;
+        height:100%;
 
     }
 
+    .contTextoOver{
+
+      /*   width: 100%; */
+        display: flex;
+    }
+
+    .contTextoOver{
+
+        height: 300px;
+    }
+    
+
+    .admi{
+        color: #1d9df6;
+        margin: -10px 80px;
+    
+        font-size: 30px;
+    }
+    
+
 
     .Text{
-        border-left: 2px solid #1d9df6;
-        margin-left: -10px;
+    
+    
+        margin-left: 170px;
         width: 50%;
         height: 1000px;
         margin-top: 70px;
@@ -132,33 +189,25 @@
     }
 
     .textoOver{
-        border-top: 2px solid #1d9df6;
+
         width: 75%;
         margin-left: 290px;
-        margin-top: -95px;
+        margin-top: 50px;
+
     }
 
 
+
     
-.aviso{
-    font-size: 21px;
-    margin: 60% 90px;
-    width: 0;
-    display: flex;
-    justify-content:row ;
-    margin-bottom: -75px;
+    .aviso{
+        font-size: 21px;
+        margin: -20% 70px;
+        width: 0;
+        display: flex;
+        justify-content:row ;
+        margin-bottom: -75px;
 }
 
-.ImgAdm{
-    
-    width: 140px;
-    height: 140px;
-    border-radius:150px;
-}
-
-.Texto1{
-    margin-left: 60px;
-}
 
 
 

@@ -3,9 +3,46 @@
     grid-template-columns: repeat(auto-fill, 130px);
     gap: 15px;
     width: 70%;
-    margin: -350px 220px;
+    margin: 600px 220px;
     border-top: 2px solid #1d9df6;
     border-left: 2px solid #1d9df6;
     padding: 30px;
+    height: 100%;
 }
 
+
+
+/* iPads (portrait & landscape) */
+@media only screen 
+and (max-width : 768px) 
+ {
+    .mainCard{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 130px);
+        gap: 15px;
+        width: 70%;
+        margin: 580px 220px;
+        border-top: 2px solid #1d9df6;
+        border-left: 2px solid #1d9df6;
+        padding: 30px;
+        height: 100%;
+    }
+
+}
+
+@media only screen 
+and (max-width : 320px) 
+ {
+    .mainCard{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 130px);
+        gap: 15px;
+        width: 100%;
+        margin: 350px 140px;
+        border-top: 2px solid #1d9df6;
+        border-left: 2px solid #1d9df6;
+        padding: 30px;
+        height: 100%;
+    }
+
+}
