@@ -15,13 +15,13 @@ export const AdmProfile = (Text) => {
   return (
 
     <div className='Text'>
-    <div className='Texto1'>
-      <p>{documento}</p>
-      <p>{nombre}</p>
-      <p>{apellido}</p>
-      <p>{fecha}</p>
+      <div className='Texto1'>
+        <p>{documento}</p>
+        <p>{nombre}</p>
+        <p>{apellido}</p>
+        <p>{fecha}</p>
 
-    </div>
+      </div>
     </div>
   )
 }

@@ -1,9 +1,10 @@
-@media (max-width:320px){
+
     .iconmenu{
         color: #1d9df6 ;
     }
     .menuteacher{
         width: 18%;
+        margin-top: 100px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -22,4 +23,3 @@
         margin-right: 35%;
         background-color: rgb(255, 255, 255);
     }
-}

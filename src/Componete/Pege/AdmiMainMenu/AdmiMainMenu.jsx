@@ -8,7 +8,10 @@ import '../AdmiMainMenu/AdmiMainMenu.css'
 
   return (
     <div className='conter'>
+    <div className='HeaderCont'>
     <Header ></Header>
+
+    </div>
       <BarMenu ></BarMenu>
       <Main ></Main>
   

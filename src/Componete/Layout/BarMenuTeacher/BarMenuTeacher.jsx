@@ -6,9 +6,6 @@ export const BarMenuTeacher = () => {
   return (
     <div>
       <IconMenuTeacher />
-      <div className="menuhr1">
-        <hr />
-      </div>
     </div>
   );
 };
