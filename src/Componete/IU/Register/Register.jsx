@@ -53,6 +53,8 @@ export const Register = () => {
   const [sex, setSex] = useState("");
   const [course, setCourse] = useState("");
 
+  let formdata = new FormData()
+
   const response = (e) => {
     if (rolUsuarios == 2) {
       console.log("Estudiante");
@@ -68,15 +70,15 @@ export const Register = () => {
     }
     console.log(URL);
     e.preventDefault();
+    formdata.append("document", document)
+    formdata.append("name", name)
+    formdata.append("lastName", lastName)
+    formdata.append("dateBirth", dateBirth)
+    formdata.append("sex", sex)
+    formdata.append("course", course)
+
     axios
-      .post(URL, {
-        document: document,
-        name: name,
-        lastName: lastName,
-        dateBirth: dateBirth,
-        sex: sex,
-        course: course,
-      })
+      .post(URL, formdata)
       .then((response) => userRegister(response.data))
       .catch((error) => console.log(error));
   };
@@ -96,7 +98,7 @@ export const Register = () => {
 
   return (
     <div>
-      <form action="">
+      <form onSubmit={response}>
         <p className="Register">Registrar</p>
         <IoMdPersonAdd className="iconregster" />
         <div className="mainRegister">
@@ -124,6 +126,7 @@ export const Register = () => {
               className="number"
               type="number"
               placeholder="Documento Identidad"
+              required
             />
           </div>
           
@@ -170,7 +173,7 @@ export const Register = () => {
         </div>
         <p>{messageRegister}</p>
         <div className="btn_Registrar">
-          <button className="Registrar" onClick={response}>
+          <button type="submit" className="Registrar">
             Registrar
           </button>
         </div>

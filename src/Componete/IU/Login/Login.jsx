@@ -4,7 +4,7 @@ import swal from 'sweetalert';
 import React, { useState } from 'react'
 import Cookies from 'universal-cookie/es6';
 import { TiLockClosed } from "react-icons/ti";
-import logo from '../../../Img/Logo.jpeg'
+import logo from '../../../Img/Logo.jpg'
 import { IoPersonAddOutline } from "react-icons/io5";
 import { TextOversight } from '../../IU/TextOversight/TextOversight'
 

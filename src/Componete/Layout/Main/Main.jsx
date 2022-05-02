@@ -1,6 +1,6 @@
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
-import React, { useEffect, useState } from "react";
 import { Card } from "../../IU/Card/Card";
 import { Search } from "../../IU/Search/Search";
 import "./Main.css";
@@ -16,7 +16,11 @@ export const Main = () => {
   useEffect(() => {
     const getCourses = () => {
       axios.get(UrlTokenCourse)
-        .then((res) => user(res.data))
+        .then((res) => {
+          const token = jwtDecode(res.data)
+          setloading(false)
+          setCourses(token.results[0])
+        })
         .catch((error) => console.log(error))
 
     };
@@ -29,12 +33,21 @@ export const Main = () => {
 
   const [courses, setCourses] = useState([]);
 
+  const UrlBuscarCourse = "http://localhost:4000/v1/courses/0"+ buscar;
+
+  useEffect(() => {
+    const getBuscar = () => {
+  axios.get(UrlBuscarCourse)
+        .then((res) => user(res.data))
+        .catch((error) => console.log(error))
+
+    }
+    getBuscar();
+  }, []);
+  
   const user = (data) => {
-    const token = jwtDecode(data)
-
     setloading(false)
-
-    setCourses(token.results[0])
+    setCourses(data.results[0])
   }
 
 
