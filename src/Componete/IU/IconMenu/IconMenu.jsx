@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { IoMdHome } from "react-icons/io";
 import { IoMdPersonAdd } from "react-icons/io";
 import { Register } from "../Register/Register";
 import { IoExitOutline } from "react-icons/io5";
 import { MdGroupAdd } from "react-icons/md";
 import { NavLink } from "react-router-dom";
-import swal from "@sweetalert/with-react";
 import { GroupAdd } from "../GroupAdd/GroupAdd";
 import Cookies from "universal-cookie/es6";
 import Modal from "@material-ui/core/Modal";
