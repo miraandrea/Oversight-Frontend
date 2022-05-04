@@ -46,10 +46,6 @@ export const IconMenu = () => {
 
   return (
     <div className="menu">
-      <NavLink to="/prueba1">
-
-      <button>grupo</button>
-      </NavLink>
       <NavLink to="/Administrador">
         <IoMdHome className="iconmenu" />
       </NavLink>
