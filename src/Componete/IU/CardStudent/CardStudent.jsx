@@ -1,24 +1,17 @@
 import React from 'react'
-import viewFotophoto from '../ImgProfile/ejemplo.jpg'
+import './CardStudent.css'
 import { AiOutlineFileSearch } from "react-icons/ai";
-import './ViewProfileAdmi.css'
 
-export const ViewProfileAdmi = () => {
 
+export const CardStudent = () => {
   return (
-    <div>
-      <img src={viewFotophoto} alt="photo" className="photoView" />
-      <div className='information'>
-      <p>Paola Andrea Mira</p>
-      <p>1007603426</p>
-      <p>Docente</p>
-      </div>
-      <hr className='lineIn' />
-      <div className="iconRecord">
-      <AiOutlineFileSearch />
-      <p>Historial</p>
-      </div>
-      <div className="cards">
+      <div className="studentCard">
+          <div className="history">
+            <AiOutlineFileSearch className='FileSearch'/>
+            <h3>Historial</h3>
+          </div>
+          <div className="cards">
+            
             <div className="cardInfo">
               <div className="inputsInfo">
                 <input type="text" name="" id="inputTitle" placeholder='Titulo'/>
@@ -34,6 +27,7 @@ export const ViewProfileAdmi = () => {
               </div>
             </div>
             </div>
-    </div>
+        </div>
+
   )
 }

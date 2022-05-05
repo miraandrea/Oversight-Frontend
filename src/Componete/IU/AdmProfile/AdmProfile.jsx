@@ -6,7 +6,7 @@ export const AdmProfile = (Text) => {
 
   const cookies = new Cookies();
 
-  const documento = ('Documento: ' + cookies.get("idadministrador"))
+  const documento = ('Documento: ' + cookies.get("documento"))
   const foto =('Foto: '+ cookies.get("foto"));
   const nombre = ('Nombre: '+ cookies.get("nombre"))
   const apellido =('Apellido: '+ cookies.get("apellido"))
@@ -15,13 +15,13 @@ export const AdmProfile = (Text) => {
   return (
 
     <div className='Text'>
-    <div className='Texto1'>
-      <p>{documento}</p>
-      <p>{nombre}</p>
-      <p>{apellido}</p>
-      <p>{fecha}</p>
+      <div className='Texto1'>
+        <p>{documento}</p>
+        <p>{nombre}</p>
+        <p>{apellido}</p>
+        <p>{fecha}</p>
 
-    </div>
+      </div>
     </div>
   )
 }

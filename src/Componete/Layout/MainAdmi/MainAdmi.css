@@ -3,11 +3,7 @@
     grid-template-columns: repeat(auto-fill, 130px);
     gap: 15px;
     width: 70%;
-<<<<<<< HEAD
     margin: 600px 220px;
-=======
-    margin: 440px 220px;
->>>>>>> 68acad9f889d6a6b67f79204990d23ac0de663aa
     border-top: 2px solid #1d9df6;
     border-left: 2px solid #1d9df6;
     padding: 30px;
@@ -18,14 +14,14 @@
 
 /* iPads (portrait & landscape) */
 @media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) {
+and (max-width : 768px) 
+ {
     .mainCard{
         display: grid;
         grid-template-columns: repeat(auto-fill, 130px);
         gap: 15px;
         width: 70%;
-        margin: 350px 220px;
+        margin: 580px 220px;
         border-top: 2px solid #1d9df6;
         border-left: 2px solid #1d9df6;
         padding: 30px;
@@ -34,9 +30,9 @@ and (max-device-width : 1024px) {
 
 }
 
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) {
+@media only screen
+and (max-width : 320px) 
+ {
     .mainCard{
         display: grid;
         grid-template-columns: repeat(auto-fill, 130px);

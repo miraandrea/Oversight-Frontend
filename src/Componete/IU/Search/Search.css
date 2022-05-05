@@ -1,29 +1,95 @@
-/* @media (max-width:460px){ */
+.search{
+        
+    height: 100px;
+    padding-left: -40%;
+   margin:-600px 340px; 
+
+    width: 60%;
+    
+}
+.search input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+    font-size: 70%;
+
+}
+
+
+.ConterInput{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+}
+
+
+
+.iconsearch{
+
+
+    margin-right: 120px;
+    width: -50px;
+}
+
+.iconsearchCont{
+    margin: -3% 64%;
+}
+
+.conterIcon{
+
+    height: 0;
+    width: 30px;
+    margin:-15px  550px;
+}
+.mainCard {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 140px);
+    gap: 26px;
+    place-content: center;
+    display: flex;
+
+}
+
+@media (max-width:1200px){
     .search{
-        height: 100;
+        
+        height: 100px;
         padding-left: -40%;
-<<<<<<< HEAD
-        margin:-520px 340px;
-=======
-        margin:-370px 200px;
->>>>>>> 68acad9f889d6a6b67f79204990d23ac0de663aa
-        width: 55%;
+       margin:-520px 340px; 
+
+        width: 60%;
         
     }
     .search input{
-        width: 100%;
-        font-size: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 65%;
+        font-size: 70%;
+
+    }
+
+
+    .ConterInput{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: blue;
     }
 
 
 
     .iconsearch{
-        margin-right: 100px;
-        width: -40px;
+      
+
+        margin-right: 120px;
+        width: -50px;
     }
 
     .iconsearchCont{
-        margin: -5% 98%;
+        margin: -7% 64%;
     }
 
     .conterIcon{
@@ -40,10 +106,11 @@
         display: flex;
     
     }
+}
 
     @media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1024px) {
+and (max-width : 780px) 
+ {
   .iconsearch{
             margin: -1px -36px ;
             position: relative;
@@ -63,10 +130,15 @@ and (max-device-width : 1024px) {
             height: 50px;
             padding-left: -10%;
             width: 55%;
-            margin: -330px 280px;
+            margin: -520px 350px;
+            
+        }
 
-            
-            
+        .ConterInput{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: blue;
         }
         .mainCard {
             display: grid;
@@ -80,11 +152,11 @@ and (max-device-width : 1024px) {
     }
 
     @media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 480px) {
+and (max-width : 340px) 
+ {
     .iconsearch{
         margin: -1px -30px ;
-
+        background-color: red;
         position: relative;
     }
 
@@ -95,14 +167,16 @@ and (max-device-width : 480px) {
 
     }
     .iconsearchCont{
+        
         margin: -21% 82%;
     }
 
     .search{
+        background-color: blue;
         height: 50px;
-        padding-left: -10%;
-        width: 55%;
-        margin: -320px 200px;
+        padding-left: -20%;
+        width: 75%;
+        margin: -500px 300px;
 
         
         

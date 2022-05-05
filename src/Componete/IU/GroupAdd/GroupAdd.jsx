@@ -17,17 +17,13 @@ export const GroupAdd = () => {
     }
     getTeacher();
   }, []);
+
   const [data, setData] = useState([" "]);
 
   const userTeacher = (data) => {
     const urlTeacher = "http://localhost:4000/v1/decode/" + data;
     axios.get(urlTeacher).then((response) => {
-<<<<<<< HEAD
-      console.log(response.data[0]);
-      console.log("response", Object.keys(response.data[0]).length);
-=======
       console.log("response", Object.keys(response.data).length);
->>>>>>> 68acad9f889d6a6b67f79204990d23ac0de663aa
       let dataArray = [];
       for (let index = 0; index < Object.keys(response.data[0]).length; index++) {
         console.log("response2");
@@ -36,36 +32,37 @@ export const GroupAdd = () => {
       setData(dataArray);
     });
   }
-<<<<<<< HEAD
 
   //imagen
-  const [archivos, setArchivos] = useState(null)
 
-  const subir = e => {
-    console.log(e);
-    setArchivos(e)
+  const [teacher, setTeacher] = useState("")
+  const [name, setName] = useState("")
+  const [image, setImage] = useState(null)
+  
+  let f = new FormData()
+  const insertar = (e) => {
+    
+    
+    e.preventDefault()
+
+      f.append("name", name)
+      f.append("image", image)
+      f.append("documentTeacher", teacher)
+
+      console.log(image)
+
+      axios.post("http://localhost:4000/v5/courses", f, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+      })
+      .then(res =>{
+        console.log(res);
+      })
+      .catch(error => console.log(error))
   }
-
-  const insertar = () => {
-    const f = new FormData()
-
-    for (let index = 0; index < archivos.length; index++) {
-      console.log(f.append('result', archivos[index]));
-      f.append('image', archivos[index])
-    }
-    axios.post("http://localhost:4000/v2/courses", f)
-    .then(res =>{
-      console.log(res.data);
-    })
-    .catch(error => console.log(error))
-  }
-
-
-
-=======
->>>>>>> 68acad9f889d6a6b67f79204990d23ac0de663aa
-
   return (
+    <form onSubmit={insertar}>
     <div>
       <p className="nameGroup">Agregar grupo</p>
       <MdGroupAdd className='iconGroup' />
@@ -73,20 +70,20 @@ export const GroupAdd = () => {
         <br />
         <hr className="line5" />
         <div className="last">
-          <input className="userNameGroup" type="text" placeholder="Nombre Grupo" />
+          <input className="userNameGroup" id="name" type="text" placeholder="Nombre Grupo" onChange={(e) => setName(e.target.value)}/>
         </div>
         <div className="photoGroup">
-          <input type="file" name="files" multiple onChange={(e)=>subir(e.target.files)}/>
-          <button onClick={()=>insertar()}>Foto</button>
+          <input type="file" onChange={e => setImage(e.target.files[0])}/>
         </div>
         <br />
         <select
-          className="desple">
+          className="desple"
+          onChange={(e) => setTeacher(e.target.value)}>
           <option>Seleccione un director de grupo</option>
           {data.map((el, index) => {
             return (
-              <option key={index} >
-                {/* value={el.idcurso} */}
+              <option key={index} 
+                      value={el.documento}>
                 {el.nombre}
               </option>
             );
@@ -94,8 +91,10 @@ export const GroupAdd = () => {
         </select>
       </div>
       <div className="btn_Registrar">
-        <button className="Registrar">Registrar</button>
+        <button type="submit" className="Registrar">Registrar</button>
       </div>
     </div>
+    </form>
   );
 };
+
