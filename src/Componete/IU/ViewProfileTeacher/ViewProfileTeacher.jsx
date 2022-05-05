@@ -1,9 +1,9 @@
 import React from 'react'
 import viewFotophoto from '../ImgProfile/ejemplo.jpg'
 import { AiOutlineFileSearch } from "react-icons/ai";
-import './ViewProfileAdmi.css'
+import './ViewProfileTeacher.css'
 
-export const ViewProfileAdmi = () => {
+export const ViewProfileTeacher = () => {
 
   return (
     <div>

@@ -1,4 +1,6 @@
 import './Login.css'
+import Swal from 'sweetalert2'
+
 import axios from 'axios'
 import swal from 'sweetalert';
 import React, { useState } from 'react'
@@ -53,14 +55,14 @@ export const Login = () => {
         }
         if (data.rol === "Student") {
             var respuesta = data.data[0]
-            cookies.set('idadministrador', respuesta.idadministrador, { path: "/" })
+            cookies.set('documento', respuesta.documento, { path: "/" })
             cookies.set('foto', respuesta.foto, { path: "/" })
             cookies.set('nombre', respuesta.nombre, { path: "/" })
             cookies.set('apellido', respuesta.apellido, { path: "/" })
             cookies.set('fecha', respuesta.fecnac, { path: "/" })
-            cookies.set('sexo', respuesta.sexo, { path: "/" })
+            cookies.set('genero', respuesta.genero, { path: "/" })
             cookies.set('firma', respuesta.firma, { path: "/" })
-            // window.location.href = "/Estudiante"
+            window.location.href = "/Estudiante"
         }
         else {
             const paragrapg = "El usuario o contraseña son incorretos"
@@ -82,7 +84,14 @@ export const Login = () => {
                             <input id="input2" onChange={e => setPassword(e.target.value)} type="password" name='password' required placeholder='Contraseña' />
                         </div>
                     </div>
-                    <button onClick={validateLogin} className='button1' type="submit" value="Iniciar Sesión">Iniciar Sesión </button>
+                    
+                    <div onClick={cargar} className="cargar" >
+                    <button onClick={validateLogin} class="btn btn-white btn-				 animate" type="submit" value="Iniciar Sesión">Iniciar Sesión </button>
+
+                    </div>
+
+
+                    
                 </div>
                 <p className='paragrapg'>{message}</p>
                 <div className='containerline'>
@@ -122,3 +131,17 @@ const MostrarAlerta = () => {
         text: "Su usuario y contraseña es el documento de identidad"
     })
 }
+
+
+const cargar = () => {
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Cargando...',
+        showConfirmButton: false,
+        timer: 5000,
+        background: ''
+        
+        
+    })
+    }
