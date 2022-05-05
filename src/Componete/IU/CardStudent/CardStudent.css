@@ -1,75 +1,136 @@
 .studentCard{
-    display: grid;
-    grid-template-columns: repeat(1, 130px);
-    gap: 15px;
-    margin: -140px 220px;
-    border-top: 2px solid #1d9df6;
-    border-left: 2px solid #1d9df6;
-    padding: 30px;
-    border-radius: 4px;
-    
+  display: grid;
+  grid-template-columns: repeat(1, 400px);
+  gap: 15px;
+  margin: -140px 220px;
+  border-top: 2px solid #1d9df6;
+  border-left: 2px solid #1d9df6;
+  padding: 30px;
+  border-radius: 4px;
 }
 #inputTitle{
-  border: none;
-  border-bottom: 2px solid #1d9df6;
-  border-radius: 0px;
+border: none;
+border-bottom: 2px solid #1d9df6;
+border-radius: 0px;
 }
 #inputDatetime{
-  border: 2px solid #1d9df6;
-  border-radius: 4px;
+border: 2px solid #1d9df6;
+border-radius: 4px;
 }
 .cardInfo{
-  border: 1px solid #1d9df6 ;
-  width: 300%;
-  height: 400px;
-  border-radius: 4px;
+border: 1px solid #1d9df6 ;
+height: 400px;
+border-radius: 4px;
 }
 .inputsInfo{
-  display: flex;
+display: flex;
 }
 .inputsDescription{
-  display: flex;
-  gap: 10px;
-  align-items: center;
+display: flex;
+gap: 10px;
+align-items: center;
+margin-top: 80px;
 }
 .descriptionTeacher{
-  width: 170px;
-  margin-left: 10px;
-  resize: none;
-  border-radius: 4px;
+width: 170px;
+margin-left: 10px;
+resize: none;
+border-radius: 4px;
 }
 .descriptionStudent{
-  width: 170px;
-  margin-left: 10px;
-  resize: none;
-  border-radius: 4px;
+width: 170px;
+margin-left: 10px;
+resize: none;
+border-radius: 4px;
 }
 .history{
-  display: flex;
-  width: 200%;
-  justify-content: center;
-  margin-left: 200px;
+display: flex;
+width: 200%;
+justify-content: center;
+margin-left: 200px;
 }
 .history h3{
-  font-size: 30px;
+font-size: 30px;
 }
 .FileSearch{
-  margin-top: 14px;
-  height: 50px;
-  width: 50px;
+margin-top: 14px;
+height: 50px;
+width: 50px;
 }
 .inputSignature{
-  display: flex;
-  margin-top: 90px;
+display: flex;
+margin-top: 50px;
 }
 #signTeacher{
-  border: none;
-  border-bottom: 2px solid #1d9df6;
-  border-radius: 0px;
-  
+border: none;
+border-bottom: 2px solid #1d9df6;
+border-radius: 0px;
+
 }
 #signStudent{
-  border: none;
-  border-bottom: 2px solid #1d9df6;
-  border-radius: 0px;
+border: none;
+border-bottom: 2px solid #1d9df6;
+border-radius: 0px;
+}
+.cards{
+display: flex;
+gap: 35px;
+width: 1500px;
+flex-wrap: wrap;
+
+}
+@media(max-width:1200px){
+.cards{
+  width: 900px;
+}
+.studentCard{
+  margin-left: 130px;
+}
+}
+@media(max-width:780px){
+.studentCard{
+  width: 100%;
+  margin-left: 90px;
+}  
+.cards{
+  width: 550px;
+
+}
+
+.history{
+  margin-left: -90px;
+}
+.cardInfo{
+  width: 100%;
+
+}
+.descriptionTeacher{
+  width: 230px;
+}
+.inputsDescription{
+  margin-top: 60px;
+}
+.descriptionStudent{
+  width: 250px;
+  margin-right: 10px;
+}
+#inputTitle{
+  width: 220px;
+}
+#inputDatetime{
+  width: 240px;
+}
+#signTeacher{
+  width: 220px;
+}
+#signStudent{
+  width: 240px;
+}
+
+}
+@media(max-width:320px){
+.studentCard{
+  width: 250%;
+
+}
 }

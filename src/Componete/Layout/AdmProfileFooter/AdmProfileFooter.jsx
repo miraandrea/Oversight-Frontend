@@ -19,9 +19,7 @@ export const AdmProfileFooter = () => {
     </div>
 
     </div>
-
-     
-      <div className="hrtop">
+    <div className="hrtop">
       <AdmProfile className={Text} />
       </div>
       <IconProfileAdm  />
