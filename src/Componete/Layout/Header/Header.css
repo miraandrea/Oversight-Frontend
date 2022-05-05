@@ -8,7 +8,8 @@
 
 }
 .ContAdm{
-    margin: 30% -540%;
+
+    margin: 40% -570%;
         width: 60px;
         height: 50px;
         overflow: hidden;
@@ -53,8 +54,8 @@
 
     .oversight-text{
         font-size: 25px;
-        margin-left: -91px;
-        margin-top: 25px;
+        margin-left: -86px;
+        margin-top: 65px;
         
         
         
@@ -71,7 +72,7 @@
     
     }
     .ContAdm{
-        margin: 30% -540%;
+        margin: 30% -440%;
             width: 60px;
             height: 50px;
             overflow: hidden;
@@ -149,6 +150,7 @@
 
 
         .ContAdm{
+           
             margin: 50px 20px;
             width: 160px;
             height: 60px;
@@ -168,6 +170,7 @@
     @media(max-width:340px){
 
         .oversight-text{
+            
             font-size: 20px;
             margin-left: -1500px;
             margin-top: 110px;
@@ -178,6 +181,7 @@
 
         
         .ContAdm{
+            
             margin: 50px -150px;
             width: 160px;
             height: 60px;
@@ -186,7 +190,79 @@
             
         }
 
+/*         .imgperfile{
+            float: right;
+            width: 100%;
+            height: 100%;
+            image-rendering: auto;
+            object-fit: cover;
+            object-position: center;
+        
+        } */
+/*         .ContAdm{
+            margin: 30% -540%;
+                width: 60px;
+                height: 50px;
+                overflow: hidden;
+                border-radius: 100%;
+    
+        } */
+    
+        .HeaderCont{
+            
+            width: 100%;
+            height: 100%;
+            
+    
+            display: flex;
+    
+    
+        }
+    
+    
+        .ContSearch{
+            
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+        }
+/*         .oversight-text{
+            font-size: 27px;
+            position: relative;
+            top: 23%;
+            left: 1500%;
+        } */
+        .headercenter{
+            
+            display: flex;
+            justify-content: space-between;
+        }
+        .center{
+    
+            display: flex;
+        }
+        
+            .headercenter{
+                
+                margin: 10px ;
+                height: 0%;
+            }
+    
+    
+/*             .oversight-text{
+                font-size: 25px;
+                margin-left: -91px;
+                margin-top: 25px;
+                
+                
+                
+            } */
+        
+    }
 
 
 
-    } 
+
+    

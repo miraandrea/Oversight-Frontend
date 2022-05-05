@@ -6,7 +6,7 @@ export const AdmProfile = (Text) => {
 
   const cookies = new Cookies();
 
-  const documento = ('Documento: ' + cookies.get("idadministrador"))
+  const documento = ('Documento: ' + cookies.get("documento"))
   const foto =('Foto: '+ cookies.get("foto"));
   const nombre = ('Nombre: '+ cookies.get("nombre"))
   const apellido =('Apellido: '+ cookies.get("apellido"))

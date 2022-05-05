@@ -51,7 +51,7 @@ export const GroupAdd = () => {
 
       console.log(image)
 
-      axios.post("http://localhost:4000/v4/courses", f, {
+      axios.post("http://localhost:4000/v5/courses", f, {
           headers: {
             "Content-Type": "multipart/form-data",
           },

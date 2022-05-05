@@ -91,7 +91,6 @@
     margin-left: 424px;
     background-color: red;
 }
-
 .teacher{
     font-size: 20px;
     background-color: rgba(255, 255, 255, 0);
@@ -113,18 +112,8 @@
     border-bottom: 2px solid #1D9DF6;
 
 }
-
-
-
-
-
 textarea {
     width: 250px;
     border: 2px solid #1D9DF6;
 
-}
-.swal-modal{
-    width: 90%;
-    height: 70%;
-    background-color: #f8f9f9;
 }
