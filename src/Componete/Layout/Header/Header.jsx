@@ -7,14 +7,16 @@ import "./Header.css";
 
 export const Header = () => {
   return (
-
-    <div className="center">
-      <div className="headercenter">
-        <TextOversight text="oversight-text" />
-        <div className="ContAdm">
-          <ImgProfile img="imgperfile" />
-        </div>
+    <div className="headerStudent">
+      <div className="contTitleStudent">
+        <TextOversight text='textStudent'/>
       </div>
-    </div>
+      {/* <div className="contPrueba">
+        <input type="text" placeholder="a" className="inputPrueba" />
+      </div> */}
+      <div className="contImageStudent">
+        <ImgProfile img='imgStudent'/>
+      </div>
+  </div>
   );
 };

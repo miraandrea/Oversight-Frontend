@@ -1,11 +1,7 @@
-.search{
-        
+.search{  
     height: 100px;
-    padding-left: -40%;
-   margin:-600px 340px; 
-
+    margin: -580px 540px; 
     width: 60%;
-    
 }
 .search input{
     display: flex;
@@ -13,7 +9,6 @@
     align-items: center;
     width: 65%;
     font-size: 70%;
-
 }
 
 
@@ -54,13 +49,10 @@
 
 @media (max-width:1200px){
     .search{
-        
         height: 100px;
         padding-left: -40%;
-       margin:-520px 340px; 
-
-        width: 60%;
-        
+        margin: -490px 350px; 
+        width: 65%;
     }
     .search input{
         display: flex;
@@ -131,7 +123,6 @@ and (max-width : 780px)
             padding-left: -10%;
             width: 55%;
             margin: -520px 350px;
-            
         }
 
         .ConterInput{
@@ -156,7 +147,6 @@ and (max-width : 340px)
  {
     .iconsearch{
         margin: -1px -30px ;
-        background-color: red;
         position: relative;
     }
 
@@ -172,14 +162,9 @@ and (max-width : 340px)
     }
 
     .search{
-        background-color: blue;
-        height: 50px;
         padding-left: -20%;
-        width: 75%;
+        width: 100%;
         margin: -500px 300px;
-
-        
-        
     }
     .mainCard {
         display: grid;
@@ -191,11 +176,3 @@ and (max-width : 340px)
     }
 
 }
-
-
-
-
-/* } */
-
-
-

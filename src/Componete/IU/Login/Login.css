@@ -92,11 +92,10 @@
         
         h1{
             padding: 30%;
-            margin-left: -100px;
+
             font-size: 250%;
             color:black ;
             font-family: 'Pacifico', cursive;
-        
         }
         
         .textoOver{
@@ -377,7 +376,7 @@
     
         h1{
             padding: 30%;
-            margin-left: -100px;
+
             color:black ;
             font-family: 'Pacifico', cursive;
         
@@ -632,7 +631,6 @@
     
     .btn-white {
         background-color: #1D9DF6;
-        /* background-color: #fff; */
         color: rgb(255, 255, 255);
     }
     
@@ -678,7 +676,6 @@
     
         h1{
             padding: 30%;
-            margin-left: -100px;
             color:black ;
             font-family: 'Pacifico', cursive;
         
