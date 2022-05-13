@@ -1,268 +1,84 @@
-.imgperfile{
-    float: right;
-    width: 100%;
-    height: 100%;
-    image-rendering: auto;
-    object-fit: cover;
-    object-position: center;
+.textStudent{
 
 }
-.ContAdm{
-
-    margin: 40% -570%;
-        width: 60px;
-        height: 50px;
-        overflow: hidden;
-        border-radius: 87%;
-
+.headerStudent{
+  display: grid;
+  grid-template-columns: repeat(6, 300px);
+}
+.imgStudent{
+  height: 120px;
+  width: 150px;
+  border-radius: 100%;
+  margin-top: 40px;
+}
+.contTitleStudent{
+  grid-column: 2;
+}
+.inputPrueba{
+  width: 100%;
 }
 
-.HeaderCont{
-/*         background-color: red; */
-    display: flex;
-
-
+.contPrueba{
+  width: 100%;
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+.imagenprueba{
+  height: 100%;
+  width: 100%;
 }
 
-
-.ContSearch{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-}
-.oversight-text{
-    font-size: 27px;
-    position: relative;
-    top: 23%;
-    left: 1500%;
-}
-.headercenter{
-    display: flex;
-    justify-content: space-between;
-}
-.center{
-
-    display: flex;
+.contImageStudent{
+  grid-column: 6;
 }
 
-    .headercenter{
-        margin: 10px ;
-        height: 0%;
-    }
-
-
-    .oversight-text{
-        font-size: 25px;
-        margin-left: -86px;
-        margin-top: 65px;
-        
-        
-        
-    }
-
-@media (max-width:1200px) {
-    .imgperfile{
-        float: right;
-        width: 100%;
-        height: 100%;
-        image-rendering: auto;
-        object-fit: cover;
-        object-position: center;
-    
-    }
-    .ContAdm{
-        margin: 30% -440%;
-            width: 60px;
-            height: 50px;
-            overflow: hidden;
-            border-radius: 100%;
-
-    }
-
-    .HeaderCont{
-
-        display: flex;
-
-
-    }
-
-
-    .ContSearch{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-    }
-    .oversight-text{
-        font-size: 27px;
-        position: relative;
-        top: 23%;
-        left: 1500%;
-    }
-    .headercenter{
-        display: flex;
-        justify-content: space-between;
-    }
-    .center{
-
-        display: flex;
-    }
-    
-        .headercenter{
-            margin: 10px ;
-            height: 0%;
-        }
-
-
-        .oversight-text{
-            font-size: 25px;
-            margin-left: -91px;
-            margin-top: 25px;
-            
-            
-            
-        }
-    
+@media(max-width:1200px){
+  .headerStudent{
+    display: grid;
+    grid-template-columns: repeat(4, 300px);
+  }
+  .contTitleStudent{
+    grid-column: 1;
+  }
+  .contImageStudent{
+    grid-column: 4;
+  }
+  .imgStudent{
+    height: 80px;
+    width: 90px;
+    margin-top: 10px;
+  }
 }
 
+@media(max-width:780px){
+  .headerStudent{
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+  }
+  .textStudent{
+    margin-left: -300px;
+  }
+  .imgStudent{
+    margin-top: 90px;
+  }
+  .contTitleStudent{
+    grid-column: 1;
+  }
+  .contImageStudent{
+    grid-column: 3;
+  }
 
+}
+@media(max-width:320px){
+  .headerStudent{
+  }
+  .contTitleStudent{
+    grid-column: 1;
+  }
+  .contImageStudent{
+    grid-column: 3;
+  }
+  .contTitleStudent{
 
-    @media(max-width : 780px) 
-{
-        .headercenter{
-            margin-right: -60px;
-            display: flex;
-
-
-        }
-
-        .oversight-text{
-            font-size: 20px;
-            width: 100%;
-            margin-left:-1600%;
-            margin-top: -60px;
-            
-            
-            
-        }
-
-
-
-        .ContAdm{
-           
-            margin: 50px 20px;
-            width: 160px;
-            height: 60px;
-            overflow: hidden;
-            border-radius: 87%;
-            
-        }
-        .imgperfile{
-            height: 59px;
-            
-            width: 100%;
-        }
-
-
-    }
-
-    @media(max-width:340px){
-
-        .oversight-text{
-            
-            font-size: 20px;
-            margin-left: -1500px;
-            margin-top: 110px;
-            
-            
-            
-        }
-
-        
-        .ContAdm{
-            
-            margin: 50px -150px;
-            width: 160px;
-            height: 60px;
-            overflow: hidden;
-            border-radius: 87%;
-            
-        }
-
-/*         .imgperfile{
-            float: right;
-            width: 100%;
-            height: 100%;
-            image-rendering: auto;
-            object-fit: cover;
-            object-position: center;
-        
-        } */
-/*         .ContAdm{
-            margin: 30% -540%;
-                width: 60px;
-                height: 50px;
-                overflow: hidden;
-                border-radius: 100%;
-    
-        } */
-    
-        .HeaderCont{
-            
-            width: 100%;
-            height: 100%;
-            
-    
-            display: flex;
-    
-    
-        }
-    
-    
-        .ContSearch{
-            
-            
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-        }
-/*         .oversight-text{
-            font-size: 27px;
-            position: relative;
-            top: 23%;
-            left: 1500%;
-        } */
-        .headercenter{
-            
-            display: flex;
-            justify-content: space-between;
-        }
-        .center{
-    
-            display: flex;
-        }
-        
-            .headercenter{
-                
-                margin: 10px ;
-                height: 0%;
-            }
-    
-    
-/*             .oversight-text{
-                font-size: 25px;
-                margin-left: -91px;
-                margin-top: 25px;
-                
-                
-                
-            } */
-        
-    }
-
-
-
-
-    
+  }
+}

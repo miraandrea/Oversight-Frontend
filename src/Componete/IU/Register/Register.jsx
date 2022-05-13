@@ -52,17 +52,18 @@ export const Register = () => {
   const [dateBirth, setDateBirth] = useState("");
   const [sex, setSex] = useState("");
   const [course, setCourse] = useState("");
+  const [studentImage, setStudentImage] = useState(null)
 
   let formdata = new FormData()
 
   const response = (e) => {
     if (rolUsuarios == 2) {
       console.log("Estudiante");
-      URL = "http://localhost:4000/v2/students";
+      URL = "http://localhost:4000/v3/students";
     }
     if (rolUsuarios == 3) {
       console.log("Docente");
-      URL = "http://localhost:4000/v2/teachers";
+      URL = "http://localhost:4000/v3/teachers";
     }
     if (rolUsuarios == "") {
       const paragrapg = "Es necesario escoger el rol";
@@ -73,9 +74,11 @@ export const Register = () => {
     formdata.append("document", document)
     formdata.append("name", name)
     formdata.append("lastName", lastName)
-    formdata.append("dateBirth", dateBirth)
-    formdata.append("sex", sex)
-    formdata.append("course", course)
+    formdata.append("dateOfBirth", dateBirth)
+    formdata.append("genre", sex)
+    formdata.append("idcourse", course)
+    formdata.append("studentImage", studentImage)
+    formdata.append("signature", null)
 
     axios
       .post(URL, formdata)
@@ -141,6 +144,10 @@ export const Register = () => {
           </div>
           <div className="containerSelect">
 
+          <div className="photoGroup">
+          <input type="file" onChange={e => setStudentImage(e.target.files[0])}/>
+        </div>
+
           <select className="desple" onChange={(e) => setSex(e.target.value)}>
             <option value="null">Genero</option>
             <option value="F">Feminino</option>
@@ -161,6 +168,7 @@ export const Register = () => {
           >
             <option>Seleccione un grupo</option>
             {data.map((el, index) => {
+              console.log(data);
               return (
                 <option key={index} value={el.idcurso}>
                   {el.nombre}
