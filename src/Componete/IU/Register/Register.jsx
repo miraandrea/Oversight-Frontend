@@ -18,7 +18,6 @@ export const Register = () => {
     getCourses();
   }, []);
 
-
   // Rol courses
   const [data, setData] = useState([" "]);
 
@@ -91,12 +90,6 @@ export const Register = () => {
       const paragrapg = "se registro";
       setMessageRegister(paragrapg);
     }
-    //falta que no deje registrar si esta null
-    // if (data == null){
-    //   const paragrapg = "no se pudo registro"
-    //   setMessage1(paragrapg)
-    //   console.log(data);
-    // }
   };
 
   return (
@@ -122,7 +115,6 @@ export const Register = () => {
               required
             />
           </div>
-
           <div className="number1">
             <input
               onChange={(e) => setDocument(e.target.value)}
@@ -132,52 +124,47 @@ export const Register = () => {
               required
             />
           </div>
-          
           <div className="containerData">
-
-          <input
-            className="date"
-            type="date"
-            placeholder="fecha"
-            onChange={(e) => setDateBirth(e.target.value)}
-          />
+            <input
+              className="date"
+              type="date"
+              placeholder="fecha"
+              onChange={(e) => setDateBirth(e.target.value)}
+            />
           </div>
           <div className="containerSelect">
-
-          <div className="photoGroup">
-          <input type="file" onChange={e => setStudentImage(e.target.files[0])}/>
-        </div>
-
-          <select className="desple" onChange={(e) => setSex(e.target.value)}>
-            <option value="null">Genero</option>
-            <option value="F">Feminino</option>
-            <option value="M">Masculino</option>
-          </select>
-          <select
-            className="desple"
-            onChange={(e) => setRolUsuarios(e.target.value)}
+            <div className="photoGroup">
+              <input type="file" onChange={e => setStudentImage(e.target.files[0])} />
+            </div>
+            <select className="desple" onChange={(e) => setSex(e.target.value)}>
+              <option value="null">Genero</option>
+              <option value="F">Feminino</option>
+              <option value="M">Masculino</option>
+            </select>
+            <select
+              className="desple"
+              onChange={(e) => setRolUsuarios(e.target.value)}
             >
-            <option value="1">Seleccione un rol</option>
-            <option value="2">Estudiante</option>
-            <option value="3">Docente</option>
-          </select>
-          <p className="message">{message}</p>
-          <select
-            className="desple"
-            onChange={(e) => setCourse(e.target.value)}
-          >
-            <option>Seleccione un grupo</option>
-            {data.map((el, index) => {
-              console.log(data);
-              return (
-                <option key={index} value={el.idcurso}>
-                  {el.nombre}
-                </option>
-              );
-            })}
-          </select>
+              <option value="1">Seleccione un rol</option>
+              <option value="2">Estudiante</option>
+              <option value="3">Docente</option>
+            </select>
+            <p className="message">{message}</p>
+            <select
+              className="desple"
+              onChange={(e) => setCourse(e.target.value)}
+            >
+              <option>Seleccione un grupo</option>
+              {data.map((el, index) => {
+                console.log(data);
+                return (
+                  <option key={index} value={el.idcurso}>
+                    {el.nombre}
+                  </option>
+                );
+              })}
+            </select>
           </div>
-          
         </div>
         <p>{messageRegister}</p>
         <div className="btn_Registrar">

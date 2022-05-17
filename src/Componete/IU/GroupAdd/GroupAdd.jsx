@@ -38,63 +38,62 @@ export const GroupAdd = () => {
   const [teacher, setTeacher] = useState("")
   const [name, setName] = useState("")
   const [image, setImage] = useState(null)
-  
+
   let f = new FormData()
   const insertar = (e) => {
-    
-    
+
     e.preventDefault()
 
-      f.append("name", name)
-      f.append("image", image)
-      f.append("documentTeacher", teacher)
+    f.append("name", name)
+    f.append("image", image)
+    f.append("documentTeacher", teacher)
 
-      console.log(image)
+    console.log(image)
 
-      axios.post("http://localhost:4000/v5/courses", f, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-      })
-      .then(res =>{
+    axios.post("http://localhost:4000/v5/courses", f, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    })
+      .then(res => {
         console.log(res);
       })
       .catch(error => console.log(error))
   }
+
   return (
     <form onSubmit={insertar}>
-    <div>
-      <p className="nameGroup">Agregar grupo</p>
-      <MdGroupAdd className='iconGroup' />
-      <div className="mainGroup">
-        <br />
-        <hr className="line5" />
-        <div className="last">
-          <input className="userNameGroup" id="name" type="text" placeholder="Nombre Grupo" onChange={(e) => setName(e.target.value)}/>
+      <div>
+        <p className="nameGroup">Agregar grupo</p>
+        <MdGroupAdd className='iconGroup' />
+        <div className="mainGroup">
+          <br />
+          <hr className="line5" />
+          <div className="last">
+            <input className="userNameGroup" id="name" type="text" placeholder="Nombre Grupo" onChange={(e) => setName(e.target.value)} />
+          </div>
+          <div className="photoGroup">
+            <input type="file" onChange={e => setImage(e.target.files[0])} />
+          </div>
+          <br />
+          <select
+            className="desple"
+            onChange={(e) => setTeacher(e.target.value)}>
+            <option>Seleccione un director de grupo</option>
+            {data.map((el, index) => {
+              return (
+                <option key={index}
+                  value={el.documento}>
+                  {el.nombre}
+                </option>
+              );
+            })}
+          </select>
         </div>
-        <div className="photoGroup">
-          <input type="file" onChange={e => setImage(e.target.files[0])}/>
+        <div className="btn_Registrar">
+          <button type="submit" className="Registrar">Registrar</button>
         </div>
-        <br />
-        <select
-          className="desple"
-          onChange={(e) => setTeacher(e.target.value)}>
-          <option>Seleccione un director de grupo</option>
-          {data.map((el, index) => {
-            return (
-              <option key={index} 
-                      value={el.documento}>
-                {el.nombre}
-              </option>
-            );
-          })}
-        </select>
       </div>
-      <div className="btn_Registrar">
-        <button type="submit" className="Registrar">Registrar</button>
-      </div>
-    </div>
     </form>
   );
 };
-

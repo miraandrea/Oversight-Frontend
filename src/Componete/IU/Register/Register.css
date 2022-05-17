@@ -1,8 +1,9 @@
 /* container */
-.mainRegister{
+.mainRegister {
   position: relative;
   top: -66px;
 }
+
 /* text register */
 .Register {
   margin-top: 12%;
@@ -13,8 +14,9 @@
   position: relative;
   right: -23%;
 }
+
 /*icon register */
-.iconregster{
+.iconregster {
   color: #1d9df6;
   position: relative;
   top: -90px;
@@ -51,16 +53,18 @@
 .number1 {
   padding-left: 19px;
 }
+
 .number {
   border-radius: 5px;
   border: 1px solid #1d9df6;
   width: 400px;
 }
 
-.containerData{
+.containerData {
   padding-left: 19px;
 }
-.date{
+
+.date {
   border-radius: 5px;
   border: 1px solid #1d9df6;
   width: 405px;
@@ -69,10 +73,11 @@
 }
 
 /* container from select gender, role, group */
-.containerSelect{
+.containerSelect {
   padding-left: 25px;
   width: 93.5%;
 }
+
 .desple {
   border-radius: 5px;
   border: 1px solid #1d9df6;
@@ -81,7 +86,8 @@
   color: #949292;
   margin: 5px;
 }
-.message{
+
+.message {
   color: #fa1200;
   font-size: 0.7rem;
   padding-left: 8px;
@@ -98,6 +104,7 @@
   top: -1rem;
   left: 20rem;
 }
+
 .btn_Registrar {
   width: 10px;
   height: 20px;
