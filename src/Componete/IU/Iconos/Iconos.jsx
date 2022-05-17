@@ -4,6 +4,7 @@ import { IoPersonAddOutline } from "react-icons/io5";
 import "./Iconos.css";
 
 export const Iconos = () => {
+  
   return (
     <div>
       <div className="icons">
