@@ -5,11 +5,14 @@ import { CardAdmi } from "../../IU/CardAdmi/CardAdmi";
 import "./MainAdmi.css";
 import { useParams } from "react-router";
 import { Search } from "../../IU/Search/Search";
+import { NavLink } from "react-router-dom";
 
 export const MainAdmi = () => {
 
 
   const { name } = useParams()
+
+  console.log(name);
 
   const URL = "http://localhost:4000/v1/courses/" + name;
 
@@ -42,10 +45,12 @@ export const MainAdmi = () => {
           <p>Cargando</p>
         ) : personaje.length > 0 ? (
           personaje.map((courseStudent, index) => (
-            <CardAdmi key={index} courseStudent={courseStudent} />
+            <NavLink to={`/Estudiantes_Administrador/${courseStudent.documento}`}>
+              <CardAdmi key={index} courseStudent={courseStudent} />
+            </NavLink>
           ))
         ) : (
-          <p>No se encontro la persona {' '}<strong>"{buscar}"</strong>.</p>
+          <p>No se encontro <strong>{buscar}</strong>.</p>
         )}
       </section>
     </div>

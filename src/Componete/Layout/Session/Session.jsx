@@ -7,7 +7,6 @@ import './Session.css'
 export const Session = ({ text }) => {
   return (
     <div>
-
       <Login />
     </div>
   )
