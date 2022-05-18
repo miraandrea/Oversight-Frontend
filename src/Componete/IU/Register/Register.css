@@ -13,6 +13,7 @@
   font-family: "Pacifico", cursive;
   position: relative;
   right: -23%;
+  width: 40%;
 }
 
 /*icon register */
@@ -44,7 +45,7 @@
 
 .last {
   margin-left: 4%;
-  width: 90%;
+  width: 92%;
   display: flex;
   justify-content: space-between;
 }
@@ -89,7 +90,7 @@
 
 .message {
   color: #fa1200;
-  font-size: 0.7rem;
+  font-size: 1rem;
   padding-left: 8px;
 }
 
@@ -108,4 +109,20 @@
 .btn_Registrar {
   width: 10px;
   height: 20px;
+}
+
+/*upload image button*/
+.inputfile {
+  width: 90%;
+  height: 10%;
+  overflow: hidden;
+  font-size: 1em;
+  font-weight: 200;
+  color: #fff;
+  background-color: #1d9df6;
+}
+
+.inputfile:focus,
+.inputfile:hover {
+  background-color: #949292;
 }

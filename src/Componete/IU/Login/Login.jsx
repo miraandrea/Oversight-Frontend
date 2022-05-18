@@ -66,7 +66,6 @@ export const Login = () => {
             setMessage(paragrapg)
         }
     }
-
     return (
         <div>
             <div className='container'>
@@ -84,7 +83,6 @@ export const Login = () => {
                     </div>
                     <div onClick={cargar} className="cargar" >
                         <button onClick={validateLogin} class="btn btn-white btn-				 animate" type="submit" value="Iniciar Sesión">Iniciar Sesión </button>
-
                     </div>
                 </div>
                 <p className='paragrapg'>{message}</p>
@@ -112,6 +110,7 @@ export const Login = () => {
                     <img className='logo' src={logo}></img>
                 </div>
             </div>
+            <script src='../PrivaterRoute/Noback.js' />
         </div>
     )
 }

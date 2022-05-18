@@ -1,20 +1,15 @@
 import React from 'react'
 import './CardStudent.css'
-import { AiOutlineFileSearch } from "react-icons/ai";
 
-export const CardStudent = () => {
+export const CardStudent = ({record}) => {
 
   return (
-    <div className="studentCard">
-      <div className="history">
-        <AiOutlineFileSearch className='FileSearch' />
-        <h3>Historial</h3>
-      </div>
+    <div>
       <div className="cards">
         <div className="cardInfo">
           <div className="inputsInfo">
-            <input type="text" name="" id="inputTitle" placeholder='Titulo' />
-            <input type="datetime-local" name="" id="inputDatetime" />
+          <input type="text" value={record.titulo} readonly onmousedown="return false;" id="inputTitle"/>
+            <p>{record.fecha}</p>
           </div>
           <div className="inputsDescription">
             <textarea name="" className='descriptionTeacher' cols="30" rows="10" placeholder='Descripcion docente'></textarea>
