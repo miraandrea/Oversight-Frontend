@@ -38,6 +38,7 @@ export const GroupAdd = () => {
   const [teacher, setTeacher] = useState("")
   const [name, setName] = useState("")
   const [image, setImage] = useState(null)
+  const [messageGroup, setMessageGroup] = useState("");
 
   let f = new FormData()
   const insertar = (e) => {
@@ -56,10 +57,21 @@ export const GroupAdd = () => {
       },
     })
       .then(res => {
-        console.log(res);
+        userGroup(res.data);
       })
       .catch(error => console.log(error))
-  }
+
+    }
+    const userGroup = (data) =>{
+      if (data) {
+        const paragrapg = "Se registro";
+        setMessageGroup(paragrapg);
+      }
+      else {
+        const paragrapg = "No se pudo registrar";
+        setMessageGroup(paragrapg);
+      }
+    }
 
   return (
     <form onSubmit={insertar}>
@@ -69,26 +81,31 @@ export const GroupAdd = () => {
         <div className="mainGroup">
           <br />
           <hr className="line5" />
-          <div className="last">
-            <input className="userNameGroup" id="name" type="text" placeholder="Nombre Grupo" onChange={(e) => setName(e.target.value)} />
+          <div className="containerGroup">
+            <div className="last">
+              <input className="userNameGroup" id="name" type="text" placeholder="Nombre Grupo" required onChange={(e) => setName(e.target.value)} />
+            </div>
+            <div className="photoGroup">
+              <input type="file" className="inputfile" onChange={e => setImage(e.target.files[0])} />
+            </div>
+            <br />
+            <div className="selectDirector">
+              <select
+                className="desple"
+                onChange={(e) => setTeacher(e.target.value)}>
+                <option>Seleccione un director de grupo</option>
+                {data.map((el, index) => {
+                  return (
+                    <option key={index}
+                      value={el.documento}>
+                      {el.nombre}
+                    </option>
+                  );
+                })}
+              </select>
+              <p className="message">{messageGroup}</p>
+            </div>
           </div>
-          <div className="photoGroup">
-            <input type="file" onChange={e => setImage(e.target.files[0])} />
-          </div>
-          <br />
-          <select
-            className="desple"
-            onChange={(e) => setTeacher(e.target.value)}>
-            <option>Seleccione un director de grupo</option>
-            {data.map((el, index) => {
-              return (
-                <option key={index}
-                  value={el.documento}>
-                  {el.nombre}
-                </option>
-              );
-            })}
-          </select>
         </div>
         <div className="btn_Registrar">
           <button type="submit" className="Registrar">Registrar</button>

@@ -1,6 +1,4 @@
-.textStudent{
 
-}
 .headerStudent{
   display: grid;
   grid-template-columns: repeat(6, 300px);
@@ -70,15 +68,11 @@
 
 }
 @media(max-width:320px){
-  .headerStudent{
-  }
+  
   .contTitleStudent{
     grid-column: 1;
   }
   .contImageStudent{
     grid-column: 3;
-  }
-  .contTitleStudent{
-
   }
 }
