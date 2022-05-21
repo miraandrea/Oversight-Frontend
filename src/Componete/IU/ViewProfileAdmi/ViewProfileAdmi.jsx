@@ -42,12 +42,18 @@ export const ViewProfileAdmi = () => {
         <AiOutlineFileSearch />
         <p>Historial</p>
       </div>
-      <div className="cards" >
-        <div className="cardInfo">
+      <div className='OverFlow'>
+      <div className="cards1" >
+        <div className="cardInfo1">
           {record.map((record, index) => (
             <CardStudent key={index} record={record}/>
           ))}
         </div>
+      </div>
+      </div>
+      <div className="btn_Cancel">
+        <button className="update">Actualizar</button>
+        <button className="disable">Deshabilitar</button>
       </div>
     </div>
   )

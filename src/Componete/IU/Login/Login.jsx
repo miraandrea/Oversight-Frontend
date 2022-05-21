@@ -11,7 +11,7 @@ import { TextOversight } from '../../IU/TextOversight/TextOversight'
 
 export const Login = () => {
 
-    const URL = "http://localhost:4000/v4/authenticate";
+    const URL = "http://localhost:4000/v5/authenticate";
 
     const cookies = new Cookies();
 
@@ -25,7 +25,11 @@ export const Login = () => {
             username: username,
             password: password
         })
-            .then(response => userLogged(response.data))
+            .then(response => {
+                userLogged(response.data)
+                window.localStorage.setItem('authentication', response.data.authentication)
+                window.localStorage.setItem('rol', response.data.rol)
+            })
             .catch(error => console.log(error))
     }
 
@@ -66,8 +70,17 @@ export const Login = () => {
             setMessage(paragrapg)
         }
     }
+    //btn bloquiado 
+    function nobackbutton(){
+        window.location.hash = "no-back-button";
+        window.location.hash = "Again-No-back-button";
+    
+        window.onhashchange = function () {window.location.hash = "no-back-button";}
+    }
+
     return (
         <div>
+            {nobackbutton()}
             <div className='container'>
                 <div className='entry'>
                     <div className='contPadre'>
@@ -110,7 +123,6 @@ export const Login = () => {
                     <img className='logo' src={logo}></img>
                 </div>
             </div>
-            <script src='../PrivaterRoute/Noback.js' />
         </div>
     )
 }

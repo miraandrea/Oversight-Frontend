@@ -45,6 +45,7 @@ export const Register = () => {
   const [course, setCourse] = useState("");
   const [image, setImage] = useState(null)
 
+  console.log(dateBirth);
   let formdata = new FormData()
 
   const response = (e) => {
@@ -123,6 +124,7 @@ export const Register = () => {
               className="date"
               type="date"
               placeholder="fecha"
+              pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
               onChange={(e) => setDateBirth(e.target.value)}
             />
           </div>
@@ -150,8 +152,9 @@ export const Register = () => {
             >
               <option>Seleccione un grupo</option>
               {data.map((el, index) => {
+                console.log(el.idcurso);
                 return (
-                  <option key={index} value={index}>
+                  <option key={index} value={el.idcurso}>
                     {el.nombre}
                   </option>
                 );
