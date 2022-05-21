@@ -6,14 +6,13 @@ import { Main } from '../../Layout/Main/Main'
 import '../AdmiMainMenu/AdmiMainMenu.css'
 
   export const AdmiMainMenu = () => {
-
+   
   return (
     <div className='conter'>
-        
       <Header />
       <BarMenu />
       <Main />
-      <script src={<Noback />}/>
+      {/* <script src={<Noback />}/> */}
   
     </div>
   )
