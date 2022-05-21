@@ -7,6 +7,7 @@ import Cookies from 'universal-cookie/es6'
 import "./IconMenuTeacher.css";
 
 export const IconMenuTeacher = () => {
+  
   return (
     <div className="menuteacher">
       <NavLink to="/Docente">
@@ -24,12 +25,11 @@ export const IconMenuTeacher = () => {
 const cookies = new Cookies()
 
 const cerrarSesion = () => {
-  
-  cookies.remove('idadministrador', {path: "/"})
-  cookies.remove('foto', {path: "/"});
-  cookies.remove('nombre', {path: "/"})
-  cookies.remove('apellido', {path: "/"})
-  cookies.remove('fecha', {path: "/"})
+
+  cookies.remove('idadministrador', { path: "/" })
+  cookies.remove('foto', { path: "/" });
+  cookies.remove('nombre', { path: "/" })
+  cookies.remove('apellido', { path: "/" })
+  cookies.remove('fecha', { path: "/" })
   window.location.href = "/"
-  
 }

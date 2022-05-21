@@ -1,55 +1,61 @@
+.photoView {
+    width: 98px;
+    height: 92px;
+    border-radius: 5px;
+    margin-left: 22px;
+    margin-top: 15px;
+}
 
-
-.photoView{
-    width: 5%;
-    position: relative;
-    left: -35%;
-    top: 20px;
-    display: none;
-    background-color: red;
+.information {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 234px;
+    margin-left: 182px;
+    margin-top: -104px;
 }
 
 
-.information{
-    position: relative;
-    left: 20%;
-    top: -66px;
+.OverFlow{
+    width: 450px;
+    overflow: auto;
 }
 
+.cards1 {
+    
+    width: 410px;
+    display: flex;
+    gap:20px; 
+    margin-bottom: 50px;
+}
 
+.cardInfo1 {
+    border: none;
+    height: 400px;
+    width: 100px;
 
-.iconRecord{
+    border-radius: 4px;
+  }
+
+.iconRecord {
     position: relative;
-    top: -68px;
+    top: 5px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-
-.iconRecord p{
+.iconRecord p {
     position: relative;
-    top: -13px;
+    top: -2px;
 }
 
-
-
-/* .title{
-    width: 0%;
-    height: 0%;
-    padding: 20%;
-    margin: -100px -120px;
-    color: black;
-} */
-
-/* .clotTitle{
-    width: 0%;
+button.cancel {
+    margin-top: 50px;
 }
- */
 
-
-.studet{
-    width: 250px;
-    font-size: 20px;
+.studet {
     background-color: rgba(255, 255, 255, 0);
     margin-top: -300px;
     margin-left: 550px;
@@ -60,31 +66,27 @@
     border-bottom: 2px solid #1D9DF6;
 }
 
-
-.contStudent{
+.contStudent {
     margin-top: 30px;
     background-color: blue;
     height: 0%;
     width: 00%;
 }
 
-.ContDescripstudent{
+.ContDescripstudent {
     width: 0;
     height: 0;
     margin-left: 1100px;
-    margin-top:50px;
-
+    margin-top: 50px;
 }
 
-.contTeacher{
+.contTeacher {
     margin-top: 300px;
     width: 0;
     height: 0;
 }
 
-
-.ContDeTeacher{
-    
+.ContDeTeacher {
     width: 0;
     height: 0;
     margin-top: 100px;
@@ -92,10 +94,8 @@
     background-color: red;
 }
 
-.teacher{
-    font-size: 20px;
+.teacher {
     background-color: rgba(255, 255, 255, 0);
-    width: 250px;
     margin-top: -100px;
     margin-left: 220px;
     border-radius: 0;
@@ -103,18 +103,40 @@
     border-left: none;
     border-right: none;
     border-bottom: 2px solid #1D9DF6;
-
 }
-.title{
+
+.title {
     border-radius: 0;
     border-top: none;
     border-left: none;
     border-right: none;
     border-bottom: 2px solid #1D9DF6;
-
 }
+
 textarea {
     width: 250px;
     border: 2px solid #1D9DF6;
+}
 
+/* btn */
+.disable {
+    color: rgb(255, 255, 255);
+    background-color: #f61d1d;
+    border: none;
+    width: 109px;
+    height: 35px;
+    position: relative;
+    top: -1.5rem;
+    left: 19rem;
+}
+
+.update{
+    color: rgb(255, 255, 255);
+    background-color: #1D9DF6;
+    border: none;
+    width: 109px;
+    height: 35px;
+    position: relative;
+    top: 11px;
+    left: 11.5rem;
 }

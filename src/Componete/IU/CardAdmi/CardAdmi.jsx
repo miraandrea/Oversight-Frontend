@@ -2,8 +2,8 @@
 import React from 'react'
 import './CardAdmi.css'
 import { ViewProfileAdmi } from '../ViewProfileAdmi/ViewProfileAdmi'
-import { useParams } from "react-router";
 import Modal from "@material-ui/core/Modal";
+import foto from '../ImgProfile/student.jpg'
 
 export const CardAdmi = ({ courseStudent }) => {
 
@@ -19,20 +19,18 @@ export const CardAdmi = ({ courseStudent }) => {
         <div className="paper1">
           <ViewProfileAdmi />
           <div className="btn_Cancel">
-            <button className="cancel" onClick={handleCloseGroup}>Cancelar</button>
+            <p className="cancel1" onClick={handleCloseGroup}>X</p>
           </div>
         </div>
       )
-
-  const { name } = useParams()
-
+      console.log(courseStudent);
     return (
         <div className="maincard">
             <div className="card">
-                <img src={courseStudent.foto} alt={courseStudent.nombre} onClick={handleOpenGroup} /> 
+                <img src={courseStudent.foto || foto } alt={courseStudent.nombre} onClick={handleOpenGroup} /> 
                 <p>{courseStudent.nombre} {courseStudent.apellido}</p>
-                <p>{courseStudent.documento}</p>
-                <p>{name}</p>
+                <p>{courseStudent.estudianteDocument}</p>
+                <p>{courseStudent.curso}</p>
             </div>
             <Modal open={openGroup} onClose={handleCloseGroup}>
                 {viewProfile}

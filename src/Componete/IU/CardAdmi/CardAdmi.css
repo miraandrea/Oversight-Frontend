@@ -1,11 +1,11 @@
-.maincard{
+.maincard {
     padding-top: -63%;
     left: 164%;
     top: -700px;
     width: 80px;
 }
+
 .card {
-    background: red;
     border: 2px solid #1d9df6;
     width: 5rem;
     height: 9rem;
@@ -17,26 +17,43 @@
     background-color: #fff;
     box-shadow: 0 0 4px #1d9df6;
 }
+
 .card img {
     width: 7rem;
     height: 5rem;
-    border-radius: 4px; 
-    margin-top: -15.5px; 
+    border-radius: 4px;
+    margin-top: -15.5px;
 }
+
 .card p {
-    padding-top: 1% ;
+    padding-top: 1%;
     text-align: center;
     font-size: 75%;
     margin-top: 0.1rem;
 }
-.paper1{
-	position: absolute;
-	top: 10%;
-	left: 10%;
-	width: 70%;
-	background-color: #fff ;
-	box-shadow: 5px ;
-	padding: 2px 4px 3px ;
+
+.paper1 {
+    margin-top: 100px;
+    margin-left: 100px;
+
 }
 
+.cancel1{
+    color: #f61d1d;
+    font-size: 2.1rem;
+    position: relative;
+    top: -43rem;
+    left: 15.6rem;
+}
 
+@media(max-width:1200px) {
+    .paper1 {
+        width: 800px;
+        height: 700px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(245, 245, 245);
+    }
+}

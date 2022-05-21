@@ -1,6 +1,5 @@
 import './Login.css'
 import Swal from 'sweetalert2'
-
 import axios from 'axios'
 import swal from 'sweetalert';
 import React, { useState } from 'react'
@@ -12,9 +11,7 @@ import { TextOversight } from '../../IU/TextOversight/TextOversight'
 
 export const Login = () => {
 
-
-
-    const URL = "http://localhost:4000/v4/authenticate";
+    const URL = "http://localhost:4000/v5/authenticate";
 
     const cookies = new Cookies();
 
@@ -28,7 +25,11 @@ export const Login = () => {
             username: username,
             password: password
         })
-            .then(response => userLogged(response.data))
+            .then(response => {
+                userLogged(response.data)
+                window.localStorage.setItem('authentication', response.data.authentication)
+                window.localStorage.setItem('rol', response.data.rol)
+            })
             .catch(error => console.log(error))
     }
 
@@ -69,12 +70,21 @@ export const Login = () => {
             setMessage(paragrapg)
         }
     }
+    //btn bloquiado 
+    function nobackbutton(){
+        window.location.hash = "no-back-button";
+        window.location.hash = "Again-No-back-button";
+    
+        window.onhashchange = function () {window.location.hash = "no-back-button";}
+    }
+
     return (
         <div>
+            {nobackbutton()}
             <div className='container'>
                 <div className='entry'>
                     <div className='contPadre'>
-                    <TextOversight text="textOversight" />
+                        <TextOversight text="textOversight" />
                         <div className='user'>
                             <IoPersonAddOutline className='username' />
                             <input id="input1" onChange={e => setUsername(e.target.value)} type="text" name="username" required placeholder='Usuario' />
@@ -84,14 +94,9 @@ export const Login = () => {
                             <input id="input2" onChange={e => setPassword(e.target.value)} type="password" name='password' required placeholder='Contraseña' />
                         </div>
                     </div>
-                    
                     <div onClick={cargar} className="cargar" >
-                    <button onClick={validateLogin} class="btn btn-white btn-				 animate" type="submit" value="Iniciar Sesión">Iniciar Sesión </button>
-
+                        <button onClick={validateLogin} class="btn btn-white btn-				 animate" type="submit" value="Iniciar Sesión">Iniciar Sesión </button>
                     </div>
-
-
-                    
                 </div>
                 <p className='paragrapg'>{message}</p>
                 <div className='containerline'>
@@ -132,7 +137,6 @@ const MostrarAlerta = () => {
     })
 }
 
-
 const cargar = () => {
     Swal.fire({
         position: 'center',
@@ -141,7 +145,5 @@ const cargar = () => {
         showConfirmButton: false,
         timer: 5000,
         background: ''
-        
-        
     })
-    }
+}
