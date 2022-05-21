@@ -4,6 +4,7 @@ import foto from '../ImgProfile/group.webp'
 
 export const Card = ({ course }) => {
 
+  console.log(course);
   return (
     <div className="maincard1">
       <div className="card">
