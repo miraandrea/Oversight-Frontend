@@ -10,7 +10,7 @@ export const MainStudent = () => {
 
   const cookies = new Cookies();
 
-  const documento = (cookies.get("documento"))
+  const documento = (cookies.get("idStudent"))
 
   console.log(documento);
 
