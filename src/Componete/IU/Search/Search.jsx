@@ -1,5 +1,5 @@
-import React from "react";
 import "./Search.css";
+import React from "react";
 import { MdPersonSearch } from "react-icons/md";
 
 export const Search = ({ buscar, setBuscar, ClassInputSearch }) => {

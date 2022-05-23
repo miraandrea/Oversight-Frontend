@@ -1,14 +1,14 @@
+import "./IconMenu.css";
 import React from "react";
 import { IoMdHome } from "react-icons/io";
+import { NavLink } from "react-router-dom";
+import Cookies from "universal-cookie/es6";
+import Modal from "@material-ui/core/Modal";
+import { MdGroupAdd } from "react-icons/md";
 import { IoMdPersonAdd } from "react-icons/io";
 import { Register } from "../Register/Register";
 import { IoExitOutline } from "react-icons/io5";
-import { MdGroupAdd } from "react-icons/md";
-import { NavLink } from "react-router-dom";
 import { GroupAdd } from "../GroupAdd/GroupAdd";
-import Cookies from "universal-cookie/es6";
-import Modal from "@material-ui/core/Modal";
-import "./IconMenu.css";
 
 export const IconMenu = () => {
 
@@ -21,7 +21,7 @@ export const IconMenu = () => {
     setOpen(false);
   };
   const bodyRegister = (
-    <div className="paper">
+    <div className="modal">
       <Register />
       <div className="btn_Cancel">
         <button className="cancel" onClick={handleClose}>Cancelar</button>
@@ -36,7 +36,7 @@ export const IconMenu = () => {
     setOpenGroup(false);
   };
   const bodyGroup = (
-    <div className="paper">
+    <div className="modal">
       <GroupAdd />
       <div className="btn_Cancel">
         <button className="cancel" onClick={handleCloseGroup}>Cancelar</button>
@@ -54,7 +54,7 @@ export const IconMenu = () => {
       <p>Registrar</p>
       <MdGroupAdd onClick={handleOpenGroup} className="iconmenu" />
       <p className="group">Agregar grupo</p>
-      <IoExitOutline onClick={() => cerrarSesion()} className="iconmenu" />
+      <IoExitOutline onClick={() => signOff()} className="iconmenu" />
       <p>Salir</p>
       <Modal open={open} onClose={handleClose}>
         {bodyRegister}
@@ -68,7 +68,7 @@ export const IconMenu = () => {
 
 const cookies = new Cookies();
 
-const cerrarSesion = () => {
+const signOff = () => {
   cookies.remove("idadministrador", { path: "/" });
   cookies.remove("foto", { path: "/" });
   cookies.remove("nombre", { path: "/" });

@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
+import "./Main.css";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 import { Card } from "../../IU/Card/Card";
+import { NavLink } from 'react-router-dom';
 import { Search } from "../../IU/Search/Search";
-import "./Main.css";
-import { NavLink } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
 
 export const Main = () => {
-
-  // const {busqueda} = useParams()
 
   //token course
   const UrlTokenCourse = "http://localhost:4000/v3/courses";
@@ -30,26 +28,24 @@ export const Main = () => {
 
   const [loading, setloading] = useState(true)
   const [buscar, setBuscar] = useState("")
-
   const [courses, setCourses] = useState([]);
 
-  const UrlBuscarCourse = "http://localhost:4000/v1/courses/0"+ buscar;
+  const UrlBuscarCourse = "http://localhost:4000/v1/courses/0" + buscar;
 
   useEffect(() => {
     const getBuscar = () => {
-  axios.get(UrlBuscarCourse)
+      axios.get(UrlBuscarCourse)
         .then((res) => user(res.data))
         .catch((error) => console.log(error))
 
     }
     getBuscar();
   }, []);
-  
+
   const user = (data) => {
     setloading(false)
     setCourses(data.results[0])
   }
-
 
   const personaje = courses.filter((personaje) =>
     personaje.nombre.toLocaleLowerCase().includes(buscar.toLocaleLowerCase())
