@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { IoMdPersonAdd } from "react-icons/io";
 import "./Register.css";
 import axios from "axios";
+import { IoMdPersonAdd } from "react-icons/io";
+import React, { useEffect, useState } from "react";
 
 export const Register = () => {
 
@@ -45,10 +45,9 @@ export const Register = () => {
   const [course, setCourse] = useState("");
   const [image, setImage] = useState(null)
 
-  console.log(dateBirth);
   let formdata = new FormData()
 
-  const response = (e) => {
+  const format = (e) => {
     if (rolUsuarios == 2) {
       URL = "http://localhost:4000/v4/students";
     }
@@ -59,7 +58,7 @@ export const Register = () => {
       const paragrapg = "Es necesario escoger el rol";
       setMessage(paragrapg);
     }
-    console.log(URL);
+    
     e.preventDefault();
     formdata.append("document", document)
     formdata.append("name", name)
@@ -89,7 +88,7 @@ export const Register = () => {
 
   return (
     <div>
-      <form onSubmit={response}>
+      <form onSubmit={format}>
         <p className="Register">Registrar</p>
         <IoMdPersonAdd className="iconregster" />
         <div className="mainRegister">
@@ -152,7 +151,6 @@ export const Register = () => {
             >
               <option>Seleccione un grupo</option>
               {data.map((el, index) => {
-                console.log(el.idcurso);
                 return (
                   <option key={index} value={el.idcurso}>
                     {el.nombre}

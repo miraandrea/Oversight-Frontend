@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
 import "./GroupAdd.css";
-import { MdGroupAdd } from "react-icons/md";
 import axios from "axios";
+import { MdGroupAdd } from "react-icons/md";
+import React, { useEffect, useState } from "react";
 
 export const GroupAdd = () => {
 
@@ -23,10 +23,8 @@ export const GroupAdd = () => {
   const userTeacher = (data) => {
     const urlTeacher = "http://localhost:4000/v1/decode/" + data;
     axios.get(urlTeacher).then((response) => {
-      console.log("response", Object.keys(response.data).length);
       let dataArray = [];
       for (let index = 0; index < Object.keys(response.data[0]).length; index++) {
-        console.log("response2");
         dataArray.push(response.data[0][index]);
       }
       setData(dataArray);
@@ -40,18 +38,16 @@ export const GroupAdd = () => {
   const [image, setImage] = useState(null)
   const [messageGroup, setMessageGroup] = useState("");
 
-  let f = new FormData()
-  const insertar = (e) => {
+  let formdata = new FormData()
+  const insert = (e) => {
 
     e.preventDefault()
 
-    f.append("name", name)
-    f.append("image", image)
-    f.append("documentTeacher", teacher)
+    formdata.append("name", name)
+    formdata.append("image", image)
+    formdata.append("documentTeacher", teacher)
 
-    console.log(image)
-
-    axios.post("http://localhost:4000/v5/courses", f, {
+    axios.post("http://localhost:4000/v5/courses", formdata, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -74,7 +70,7 @@ export const GroupAdd = () => {
     }
 
   return (
-    <form onSubmit={insertar}>
+    <form onSubmit={insert}>
       <div>
         <p className="nameGroup">Agregar grupo</p>
         <MdGroupAdd className='iconGroup' />

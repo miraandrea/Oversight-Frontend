@@ -34,7 +34,7 @@ p {
     background-color: rgb(255, 255, 255);
 }
 
-.paper {
+.modal {
     position: absolute;
     top: 10%;
     left: 10%;

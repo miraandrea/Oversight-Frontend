@@ -1,19 +1,15 @@
 import React from 'react'
-import { Noback } from '../../IU/PrivaterRoute/Noback'
-import { BarMenu } from '../../Layout/BarMenu/BarMenu'
-import { Header } from '../../Layout/Header/Header'
 import { Main } from '../../Layout/Main/Main'
-import '../AdmiMainMenu/AdmiMainMenu.css'
+import { Header } from '../../Layout/Header/Header'
+import { BarMenu } from '../../Layout/BarMenu/BarMenu'
 
-  export const AdmiMainMenu = () => {
+export const AdmiMainMenu = () => {
    
   return (
-    <div className='conter'>
+    <div>
       <Header />
       <BarMenu />
       <Main />
-      {/* <script src={<Noback />}/> */}
-  
     </div>
   )
 }

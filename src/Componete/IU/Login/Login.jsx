@@ -36,33 +36,17 @@ export const Login = () => {
     const userLogged = (data) => {
         if (data.rol === "Administrator") {
             var respuesta = data.data[0]
-            cookies.set('idadministrador', respuesta.idadministrador, { path: "/" })
-            cookies.set('foto', respuesta.foto, { path: "/" })
-            cookies.set('nombre', respuesta.nombre, { path: "/" })
-            cookies.set('apellido', respuesta.apellido, { path: "/" })
-            cookies.set('fecha', respuesta.fecnac, { path: "/" })
+            cookies.set('idAdministrador', respuesta.documento, { path: "/" })
             window.location.href = "/Administrador"
         }
         if (data.rol === "Teacher") {
             var respuesta = data.data[0]
-            cookies.set('idadministrador', respuesta.idadministrador, { path: "/" })
-            cookies.set('foto', respuesta.foto, { path: "/" })
-            cookies.set('nombre', respuesta.nombre, { path: "/" })
-            cookies.set('apellido', respuesta.apellido, { path: "/" })
-            cookies.set('fecha', respuesta.fecnac, { path: "/" })
-            cookies.set('sexo', respuesta.sexo, { path: "/" })
-            cookies.set('firma', respuesta.firma, { path: "/" })
+            cookies.set('idTeacher', respuesta.documento, { path: "/" })
             window.location.href = "/Docente"
         }
         if (data.rol === "Student") {
             var respuesta = data.data[0]
-            cookies.set('documento', respuesta.documento, { path: "/" })
-            cookies.set('foto', respuesta.foto, { path: "/" })
-            cookies.set('nombre', respuesta.nombre, { path: "/" })
-            cookies.set('apellido', respuesta.apellido, { path: "/" })
-            cookies.set('fecha', respuesta.fecnac, { path: "/" })
-            cookies.set('genero', respuesta.genero, { path: "/" })
-            cookies.set('firma', respuesta.firma, { path: "/" })
+            cookies.set('idStudent', respuesta.documento, { path: "/" })
             window.location.href = "/Estudiante"
         }
         else {
