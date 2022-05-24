@@ -7,14 +7,14 @@
 .menu {
     width: 20%;
     height: 50%;
-    margin-top: 8%;
+    margin: 8px 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .menu .group {
-    padding-left: 10%;
+    padding-left: 0px;
     text-align: center;
 }
 
@@ -30,7 +30,7 @@ p {
 
 .swal-footer {
     width: 10px;
-    margin-right: 35%;
+    margin-right: 30%;
     background-color: rgb(255, 255, 255);
 }
 
@@ -65,5 +65,25 @@ p {
         width: 20%;
         margin-left: 50px;
         margin-top: 80px;
+    }
+}
+@media(max-width:900px){
+    .menu {
+        width: 20%;
+        height: 50%;
+        margin-top: 8%;
+        margin-left: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+
+@media(max-width:1200px) {
+    .menu {
+        width: 20%;
+        margin-left: 1px;
+        margin-top: 70px;
     }
 }

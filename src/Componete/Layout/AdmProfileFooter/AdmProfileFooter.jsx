@@ -34,7 +34,7 @@ export const AdmProfileFooter = () => {
     }
     if (rol === "Student"){
       const documento = (cookies.get("idStudent"))
-      const URL = "http://localhost:4000/v1/student/" + documento
+      const URL = "http://localhost:4000/v2/students/" + documento
   
       axios.get(URL)
            .then((res) => setUser(res.data))
