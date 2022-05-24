@@ -1,7 +1,9 @@
 .search {
     height: 100px;
-    margin: -580px 540px;
     width: 60%;
+    position: relative;
+    top: 10px;
+    left: 65px;
 }
 
 .search input {
@@ -45,9 +47,9 @@
 @media (max-width:1200px) {
 
     .search {
-        height: 100px;
+        height: 120px;
         padding-left: -40%;
-        margin: -490px 350px;
+        margin: -463px 360px;
         width: 65%;
     }
     .search input {
@@ -64,8 +66,11 @@
         background-color: blue;
     }
     .iconsearch {
-        margin-right: 120px;
-        width: -50px;
+        width: 24px;
+        height: 7%;
+        position: relative;
+        top: 15px;
+        left: -6px;
     }
     .iconsearchCont {
         margin: -7% 64%;

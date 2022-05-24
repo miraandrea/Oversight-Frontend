@@ -1,4 +1,3 @@
-//cambiar en proceso
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { CardAdmi } from "../../IU/CardAdmi/CardAdmi";
@@ -6,6 +5,9 @@ import "./MainAdmi.css";
 import { useParams } from "react-router";
 import { Search } from "../../IU/Search/Search";
 import { NavLink } from "react-router-dom";
+import foto from '../../IU/ImgProfile/student.jpg'
+import { ViewProfileAdmi } from "../../IU/ViewProfileAdmi/ViewProfileAdmi";
+import Modal from "@material-ui/core/Modal";
 
 export const MainAdmi = () => {
 
@@ -38,6 +40,24 @@ export const MainAdmi = () => {
   const personaje = courses.filter((personaje) =>
     personaje.nombre.toLocaleLowerCase().includes(buscar.toLocaleLowerCase())
   )
+
+  //modal
+  const [openGroup, setOpenGroup] = React.useState(false);
+    const handleOpenGroup = () => {
+        setOpenGroup(true);
+      };
+    const handleCloseGroup = () => {
+        setOpenGroup(false);
+      };
+
+      const viewProfile = (
+        <div className="paper1">
+          <ViewProfileAdmi />
+          <div className="btn_Cancel">
+            <p className="cancel1" onClick={handleCloseGroup}>X</p>
+          </div>
+        </div>
+      )
   
   return (
 
@@ -45,17 +65,20 @@ export const MainAdmi = () => {
       <Search filter={buscar} setBuscar={setBuscar} />
       <section className="mainCard">
             <div className="cardTeacher">
-                {/* <img src={teacher.foto || foto } alt={teacher.nombreDocente} onClick={handleOpenGroup} />  */}
+                <img src={teacher.fotoDocente || foto } alt={teacher.nombreDocente} onClick={handleOpenGroup} /> 
                 <p>{teacher.nombreDocente} {teacher.apellidoDocente}</p>
                 <p>{teacher.documentoDocente}</p>
                 <p>{teacher.curso}</p>
             </div>
+            <Modal open={openGroup} onClose={handleCloseGroup}>
+                {viewProfile}
+            </Modal>
         
         {loading ? (
           <p>Cargando</p>
         ) : personaje.length > 0 ? (
           personaje.map((courseStudent, index) => (
-            <NavLink to={`/Estudiantes_Administrador/${courseStudent.estudianteDocument}`}>
+            <NavLink to={`/Estudiantes_Administrador/${courseStudent.estudianteDocumento}`}>
               <CardAdmi key={index} courseStudent={courseStudent} />
             </NavLink>
           ))

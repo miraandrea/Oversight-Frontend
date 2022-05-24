@@ -242,9 +242,9 @@ body {
 
 .logo {
     display: block;
-    width: 680px;
+    width: 690px;
     height: 1000px;
-    margin-top: -812px;
+    margin-top: -838px;
     image-rendering: auto;
     object-fit: cover;
     object-position: center;
@@ -495,7 +495,7 @@ body {
         display: block;
         width: 640px;
         height: 900px;
-        margin-top: -810px;
+        margin-top: -840px;
         image-rendering: auto;
         object-fit: cover;
         object-position: center;
