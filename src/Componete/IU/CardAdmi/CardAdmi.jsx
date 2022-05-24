@@ -23,13 +23,12 @@ export const CardAdmi = ({ courseStudent }) => {
           </div>
         </div>
       )
-      console.log(courseStudent);
     return (
         <div className="maincard">
             <div className="card">
-                <img src={courseStudent.foto || foto } alt={courseStudent.nombre} onClick={handleOpenGroup} /> 
+                <img src={courseStudent.fotoEstudiante || foto } alt={courseStudent.nombre} onClick={handleOpenGroup} /> 
                 <p>{courseStudent.nombre} {courseStudent.apellido}</p>
-                <p>{courseStudent.estudianteDocument}</p>
+                <p>{courseStudent.estudianteDocumento}</p>
                 <p>{courseStudent.curso}</p>
             </div>
             <Modal open={openGroup} onClose={handleCloseGroup}>
