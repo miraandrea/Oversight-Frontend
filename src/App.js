@@ -1,12 +1,14 @@
 import './App.css';
 import { useState } from 'react';
-import { MaintStart } from './Componete/Pege/MainStart/MainStart';
-import { AdmiMainMenu } from './Componete/Pege/AdmiMainMenu/AdmiMainMenu';
+
+// Import Components
+import { AdmiMainMenu } from './Componete/Pages/AdmiMainMenu/AdmiMainMenu';
 import { PrivaterRoute } from './Componete/IU/PrivaterRoute/PrivaterRoute';
-import { AdmSeeProfile } from './Componete/Pege/AdmSeeProfile/AdmSeeProfile';
-import { TeachMainMenu } from './Componete/Pege/TeachMainMenu/TeachMainMenu';
-import { AdmiMainStudent } from './Componete/Pege/AdmiMainStudent/AdmiMainStudent';
-import { StudentMainMenu } from './Componete/Pege/StudentMainMenu/StudentMainMenu';
+import { AdmSeeProfile } from './Componete/Pages/AdmSeeProfile/AdmSeeProfile';
+import { TeachMainMenu } from './Componete/Pages/TeachMainMenu/TeachMainMenu';
+import { AdmiMainStudent } from './Componete/Pages/AdmiMainStudent/AdmiMainStudent';
+import { StudentMainMenu } from './Componete/Pages/StudentMainMenu/StudentMainMenu';
+import { Login } from './Componete/Pages/Login/Login';
 
 import {
   BrowserRouter,
@@ -23,7 +25,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route>
-          <Route path='/' element={<MaintStart />} />
+          <Route path='/' element={<Login />} />
           <Route element={<PrivaterRoute isLogged={isLogged} />} >
             <Route path='/Administrador' element={<AdmiMainMenu />} />
             <Route path='/Estudiantes_Administrador/:name' element={<AdmiMainStudent />} />
