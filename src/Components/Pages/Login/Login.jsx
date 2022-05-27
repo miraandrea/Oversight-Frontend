@@ -66,18 +66,18 @@ export const Login = () => {
     cookies.set("idAdministrador", respuesta.documento, { path: "/" });
     return (window.location.href = "/Administrador");
   };
-
+  
   // Stores teacher credentials within cookies
   const saveCredentialsOfTeacher = (data) => {
-    const respuesta = data.data[0];
-    cookies.set("idAdministrador", respuesta.documento, { path: "/" });
+    const respuesta = data.data.data[0];
+    cookies.set("idDocente", respuesta.documento, { path: "/" });
     return (window.location.href = "/Docente");
   };
 
   // Stores student credentials within cookies
   const saveCredentialsOfStudent = (data) => {
-    const respuesta = data.data[0];
-    cookies.set("idAdministrador", respuesta.documento, { path: "/" });
+    const respuesta = data.data.data[0];
+    cookies.set("idEstudiante", respuesta.documento, { path: "/" });
     return (window.location.href = "/Estudiante");
   };
 

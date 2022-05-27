@@ -2,13 +2,13 @@ import './App.css';
 import { useState } from 'react';
 
 // Import Components
-import { AdmiMainMenu } from './Componete/Pages/AdmiMainMenu/AdmiMainMenu';
-import { PrivaterRoute } from './Componete/IU/PrivaterRoute/PrivaterRoute';
-import { AdmSeeProfile } from './Componete/Pages/AdmSeeProfile/AdmSeeProfile';
-import { TeachMainMenu } from './Componete/Pages/TeachMainMenu/TeachMainMenu';
-import { AdmiMainStudent } from './Componete/Pages/AdmiMainStudent/AdmiMainStudent';
-import { StudentMainMenu } from './Componete/Pages/StudentMainMenu/StudentMainMenu';
-import { Login } from './Componete/Pages/Login/Login';
+import { AdmiMainMenu } from './Components/Pages/AdmiMainMenu/AdmiMainMenu';
+import { PrivaterRoute } from './Components/IU/PrivaterRoute/PrivaterRoute';
+import { AdmSeeProfile } from './Components/Pages/AdmSeeProfile/AdmSeeProfile';
+import { TeachMainMenu } from './Components/Pages/TeachMainMenu/TeachMainMenu';
+import { AdmiMainStudent } from './Components/Pages/AdmiMainStudent/AdmiMainStudent';
+import { StudentMainMenu } from './Components/Pages/StudentMainMenu/StudentMainMenu';
+import { Login } from './Components/Pages/Login/Login';
 
 import {
   BrowserRouter,
