@@ -1,27 +1,29 @@
 /* container */
 .mainRegister {
   position: relative;
-  top: -66px;
+  top: -25px;
+}
+.containerRegister{
+  position: relative;
+  left: 25px;
+  width: 85%;
 }
 
 /* text register */
 .Register {
-  margin-top: 12%;
-  font-size: 40px;
-  font-weight: 40;
-  color: black;
-  font-family: "Pacifico", cursive;
+  margin-top: 6%;
+  font-size: 34px;
+  font-family: "Pacifico";
   position: relative;
-  right: -23%;
-  width: 40%;
+  right: -20%;
 }
 
 /*icon register */
-.iconregster {
+.iconregister {
   color: #1d9df6;
   position: relative;
-  top: -90px;
-  left: 63%;
+  top: -36px;
+  left: 64%;
   width: 7%;
   height: 0%;
 }
@@ -29,63 +31,89 @@
 .lineRegister {
   border: 1px solid #1d9df6;
   width: 90%;
+  margin: 10px 17px;
 }
 
-.userNameRegistre {
+/*name y lastname*/
+.last {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name {
   border-radius: 5px;
   border: 1px solid #1d9df6;
-  width: 43%;
+  width: 40%;
+  height: 25px;
 }
 
 .lastName {
   border-radius: 5px;
   border: 1px solid #1d9df6;
-  width: 44%;
+  width: 40%;
+  height: 25px;
 }
 
-.last {
-  margin-left: 4%;
-  width: 92%;
-  display: flex;
-  justify-content: space-between;
+/*document identity  */
+.containerDocement {
+  padding-top: 3%;
 }
 
-/* identity card */
-.number1 {
-  padding-left: 19px;
-}
-
-.number {
+.docement {
   border-radius: 5px;
   border: 1px solid #1d9df6;
-  width: 400px;
+  width: 100%;
+  height: 25px;
 }
 
+/*data*/
 .containerData {
-  padding-left: 19px;
+  padding-top: 3%;
 }
 
 .date {
   border-radius: 5px;
   border: 1px solid #1d9df6;
-  width: 405px;
-  height: 28px;
+  width: 100%;
+  height: 25px;
   color: #949292;
+}
+
+/*upload image button*/
+.photoRegister{
+  padding-top: 3%;
+}
+
+.inputfile {
+  width: 100%;
+  height: 25px;
+  border-radius: 5px;
+  overflow: hidden;
+  font-size: 1em;
+  color: #fff;
+  background-color: #1d9df6;
+}
+
+.inputfile:focus,
+.inputfile:hover {
+  background-color: #949292;
 }
 
 /* container from select gender, role, group */
-.containerSelect {
-  padding-left: 25px;
-  width: 93.5%;
+.containerSelect{
+  padding-top: 3%;
+  height: 106px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.desple {
+.select {
   border-radius: 5px;
   border: 1px solid #1d9df6;
-  width: 405px;
-  height: 28px;
+  width: 100%;
+  height: 25px;
   color: #949292;
-  margin: 5px;
 }
 
 .message {
@@ -102,27 +130,52 @@
   width: 105px;
   height: 35px;
   position: relative;
-  top: -1rem;
-  left: 20rem;
+  top: 1rem;
+  left: 12rem;
+  border-radius: 5px;
 }
 
-.btn_Registrar {
-  width: 10px;
-  height: 20px;
-}
-
-/*upload image button*/
-.inputfile {
-  width: 90%;
-  height: 10%;
-  overflow: hidden;
-  font-size: 1em;
-  font-weight: 200;
-  color: #fff;
-  background-color: #1d9df6;
-}
-
-.inputfile:focus,
-.inputfile:hover {
-  background-color: #949292;
+@media (min-width: 720px) {
+  .Register {
+    margin-top: 4%;
+    font-size: 41px;
+    position: relative;
+    right: -27%;
+  }
+  .iconregister {
+    position: relative;
+    top: -46px;
+    left: 61%;
+    width: 6%;
+  }
+  .containerRegister{
+    left: 36px;
+    width: 85%;
+  }
+  .lineRegister {
+    width: 90%;
+    margin: 8px 23px;
+  }
+  .name {
+    height: 29px;
+  }
+  .lastName {
+    height: 29px;
+  }
+  .docement {
+    height: 29px;
+  }
+  .date {
+    height: 29px;
+  }
+  .containerSelect{
+    height: 130px;
+  }
+  .select {
+    height: 29px;
+  }
+  .Registrar {
+    top: 1rem;
+    left: 18rem;
+  }
 }

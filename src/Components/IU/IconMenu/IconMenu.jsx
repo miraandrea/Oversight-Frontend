@@ -9,6 +9,9 @@ import { IoMdPersonAdd } from "react-icons/io";
 import { Register } from "../Register/Register";
 import { IoExitOutline } from "react-icons/io5";
 import { GroupAdd } from "../GroupAdd/GroupAdd";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemButton from "@mui/material/ListItemButton";
 
 export const IconMenu = () => {
 
@@ -36,7 +39,7 @@ export const IconMenu = () => {
     setOpenGroup(false);
   };
   const bodyGroup = (
-    <div className="modal">
+    <div className="modalGroup">
       <GroupAdd />
       <div className="btn_Cancel">
         <button className="cancel" onClick={handleCloseGroup}>Cancelar</button>
@@ -46,16 +49,35 @@ export const IconMenu = () => {
 
   return (
     <div className="menu">
-      <NavLink to="/Administrador">
-        <IoMdHome className="iconmenu" />
-      </NavLink>
-      <p>Inicio</p>
-      <IoMdPersonAdd onClick={handleOpen} className="iconmenu" />
-      <p>Registrar</p>
-      <MdGroupAdd onClick={handleOpenGroup} className="iconmenu" />
-      <p className="group">Agregar grupo</p>
-      <IoExitOutline onClick={() => signOff()} className="iconmenu" />
-      <p>Salir</p>
+      <ListItemButton >
+        <ListItemIcon>
+          <NavLink to="/Administrador">
+            <IoMdHome className="iconmenu" />
+          </NavLink>
+        </ListItemIcon>
+        <ListItemText primary="Inicio" />
+      </ListItemButton>
+
+      <ListItemButton >
+        <ListItemIcon>
+          <IoMdPersonAdd onClick={handleOpen} className="iconmenu" />
+        </ListItemIcon>
+        <ListItemText primary="Registrar usuario" />
+      </ListItemButton>
+
+      <ListItemButton >
+        <ListItemIcon>
+          <MdGroupAdd onClick={handleOpenGroup} className="iconmenu" />
+        </ListItemIcon>
+        <ListItemText primary="Agregar grupo" />
+      </ListItemButton>
+
+      <ListItemButton >
+        <ListItemIcon>
+          <IoExitOutline onClick={() => signOff()} className="iconmenu" />
+        </ListItemIcon>
+        <ListItemText primary="Salir" />
+      </ListItemButton>
       <Modal open={open} onClose={handleClose}>
         {bodyRegister}
       </Modal>
@@ -69,11 +91,7 @@ export const IconMenu = () => {
 const cookies = new Cookies();
 
 const signOff = () => {
-  cookies.remove("idadministrador", { path: "/" });
-  cookies.remove("foto", { path: "/" });
-  cookies.remove("nombre", { path: "/" });
-  cookies.remove("apellido", { path: "/" });
-  cookies.remove("fecha", { path: "/" });
+  cookies.remove("idAdministrador", { path: "/" });
   localStorage.clear()
   window.location.href = "/";
 };

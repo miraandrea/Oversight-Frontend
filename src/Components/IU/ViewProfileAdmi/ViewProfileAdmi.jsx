@@ -51,7 +51,7 @@ export const ViewProfileAdmi = () => {
         </div>
       </div>
       </div>
-      <div className="btn_Cancel">
+      <div className="btn_Cancel1">
         <button className="update">Actualizar</button>
         <button className="disable">Deshabilitar</button>
       </div>
