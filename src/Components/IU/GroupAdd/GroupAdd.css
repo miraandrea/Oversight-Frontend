@@ -1,66 +1,71 @@
-.nameGroup {
-  margin-top: 11%;
+.textGroup {
+  margin-top: 8%;
   font-size: 32px;
   font-family: "Pacifico", cursive;
   position: relative;
-  right: -20%;
-  width: 58%;
+  right: -8%;
 }
 
 .iconGroup {
   color: #1d9df6;
   position: relative;
-  top: -75px;
-  left: 66%;
-  width: 8%;
+  top: -37px;
+  left: 69%;
+  width: 10%;
   height: 0%;
 }
 
-.line5 {
+.lineGroup {
   border: 1px solid #1d9df6;
   width: 90%;
+  margin: -20px 17px;
 }
 
 .mainGroup {
   position: relative;
-  top: -66px;
+  left: 25px;
+  width: 85%;
 }
 
-.photoGroup button {
-  color: #fff;
-  background-color: #1d9df6;
-  border: none;
-  width: 92%;
-  height: 30px;
-
+.containerNameGroup {
+  padding-top: 35px;
 }
 
-.desple {
-  border-radius: 5px;
-  border: 1px solid #1d9df6;
-  width: 94%;
-  height: 28px;
-  color: #949292;
-}
-
-.userNameGroup {
-  border-radius: 5px;
-  border: 1px solid #1d9df6;
+.nameGroup {
   width: 100%;
+  height: 25px;
+  border-radius: 5px;
   color: #949292;
-}
-
-.containerGroup {
-  margin-left: 4%;
-  width: 90%;
+  border: 1px solid #1d9df6;
 }
 
 .photoGroup {
-  width: 97%;
-  padding-left: 4%;
+  padding-top: 15px;
 }
 
-.selectDirector {
-  width: 93%;
-  padding-left: 5%;
+@media (min-width: 720px) {
+  .mainGroup {
+    left: 30px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .textGroup {
+    margin-top: 4%;
+    font-size: 44px;
+    right: -11%;
+  }
+
+  .iconGroup {
+    top: -56px;
+    left: 67%;
+  }
+
+  .lineGroup {
+    margin: -30px 17px;
+  }
+
+  .containerNameGroup {
+    padding-top: 45px;
+  }
 }

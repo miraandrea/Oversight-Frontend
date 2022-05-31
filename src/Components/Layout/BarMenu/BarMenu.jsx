@@ -1,4 +1,3 @@
-import "./BarMenu.css";
 import React from "react";
 import { IconMenu } from "../../IU/IconMenu/IconMenu";
 
