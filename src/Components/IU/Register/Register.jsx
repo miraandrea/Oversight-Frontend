@@ -13,7 +13,6 @@ export const Register = () => {
       axios.get(UrlTokenCourse)
         .then((res) => user(res.data))
         .catch((error) => console.log(error))
-
     };
     getCourses();
   }, []);
@@ -29,7 +28,7 @@ export const Register = () => {
   }
 
   // Rol usuarios
-  const [rolUsuarios, setRolUsuarios] = useState("");
+  const [rolUsers, setRolUsers] = useState("");
   let URL;
 
   //mensages
@@ -48,17 +47,17 @@ export const Register = () => {
   let formdata = new FormData()
 
   const format = (e) => {
-    if (rolUsuarios == 2) {
+    if (rolUsers == 2) {
       URL = "http://localhost:4000/v4/students";
     }
-    if (rolUsuarios == 3) {
+    if (rolUsers == 3) {
       URL = "http://localhost:4000/v4/teachers";
     }
-    if (rolUsuarios == "") {
+    if (rolUsers == "") {
       const paragrapg = "Es necesario escoger el rol";
       setMessage(paragrapg);
     }
-    
+
     e.preventDefault();
     formdata.append("document", document)
     formdata.append("name", name)
@@ -90,74 +89,76 @@ export const Register = () => {
     <div>
       <form onSubmit={format}>
         <p className="Register">Registrar</p>
-        <IoMdPersonAdd className="iconregster" />
+        <IoMdPersonAdd className="iconregister" />
         <div className="mainRegister">
           <hr className="lineRegister" />
-          <div className="last">
-            <input
-              onChange={(e) => setName(e.target.value)}
-              className="userNameRegistre"
-              type="text"
-              placeholder="Nombres"
-              required
-            />
-            <input
-              onChange={(e) => setLastName(e.target.value)}
-              className="lastName"
-              type="text"
-              placeholder="Apellidos"
-              required
-            />
-          </div>
-          <div className="number1">
-            <input
-              onChange={(e) => setDocument(e.target.value)}
-              className="number"
-              type="number"
-              placeholder="Documento Identidad"
-              required
-            />
-          </div>
-          <div className="containerData">
-            <input
-              className="date"
-              type="date"
-              placeholder="fecha"
-              pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-              onChange={(e) => setDateBirth(e.target.value)}
-            />
-          </div>
-          <div className="containerSelect">
+          <div className="containerRegister">
+            <div className="last">
+              <input
+                onChange={(e) => setName(e.target.value)}
+                className="name"
+                type="text"
+                placeholder="Nombres"
+                required
+              />
+              <input
+                onChange={(e) => setLastName(e.target.value)}
+                className="lastName"
+                type="text"
+                placeholder="Apellidos"
+                required
+              />
+            </div>
+            <div className="containerDocement">
+              <input
+                onChange={(e) => setDocument(e.target.value)}
+                className="docement"
+                type="number"
+                placeholder="Documento Identidad"
+                required
+              />
+            </div>
+            <div className="containerData">
+              <input
+                className="date"
+                type="date"
+                placeholder="fecha"
+                pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                onChange={(e) => setDateBirth(e.target.value)}
+              />
+            </div>
             <div className="photoRegister">
               <input type="file" className="inputfile" onChange={e => setImage(e.target.files[0])} />
             </div>
-            <select className="desple" onChange={(e) => setSex(e.target.value)}>
-              <option value="null">Genero</option>
-              <option value="F">Feminino</option>
-              <option value="M">Masculino</option>
-            </select>
-            <select
-              className="desple"
-              onChange={(e) => setRolUsuarios(e.target.value)}
-            >
-              <option value="1">Seleccione un rol</option>
-              <option value="2">Estudiante</option>
-              <option value="3">Docente</option>
-            </select>
-            <p className="message">{message}</p>
-            <select
-              className="desple"
-              onChange={(e) => setCourse(e.target.value)}
-            >
-              <option>Seleccione un grupo</option>
-              {data.map((el, index) => {
-                return (
-                  <option key={index} value={el.idcurso}>
-                    {el.nombre}
-                  </option>
-                );
-              })}
-            </select>
+            <div className="containerSelect">
+              <select className="select" onChange={(e) => setSex(e.target.value)}>
+                <option value="null">Genero</option>
+                <option value="F">Feminino</option>
+                <option value="M">Masculino</option>
+              </select>
+              <select
+                className="select"
+                onChange={(e) => setRolUsers(e.target.value)}
+              >
+                <option value="1">Seleccione un rol</option>
+                <option value="2">Estudiante</option>
+                <option value="3">Docente</option>
+              </select>
+              <p className="message">{message}</p>
+              <select
+                className="select"
+                onChange={(e) => setCourse(e.target.value)}
+              >
+                <option>Seleccione un grupo</option>
+                {data.map((el, index) => {
+                  return (
+                    <option key={index} value={el.idcurso}>
+                      {el.nombre}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
             <p className="message">{messageRegister}</p>
           </div>
         </div>

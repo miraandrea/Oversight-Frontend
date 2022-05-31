@@ -1,31 +1,4 @@
-.card {
-    width: 50px;
-    height: 8rem;
-    border-radius: 7px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    background-color: #fff;
-    box-shadow: 0 0 6px #1d9df6;
-}
-
-.card img {
-    width: 4rem;
-    border-radius: 13px;
-}
-
-.card p {
-    padding-top: 1%;
+.containerCard {
+    box-shadow: 0 0 10px #1d9df6;
     text-align: center;
-    font-size: 60%;
-    margin-top: 0.1rem;
-}
-
-.sweetwarning {
-    background-color: #f61d1d;
-    font-weight: 40;
-    width: 80%;
-    margin-right: -25%;
-    background-color: rgb(255, 255, 255);
 }
