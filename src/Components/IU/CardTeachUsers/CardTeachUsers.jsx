@@ -1,3 +1,14 @@
+// import React from 'react'
+
+// export const CardTeachUsers = () => {
+//   return (
+//     <div>
+
+//     </div>
+//   )
+// }
+
+
 import React from 'react';
 import Card1 from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -7,8 +18,9 @@ import { CardActionArea } from '@mui/material';
 import Modal from "@material-ui/core/Modal";
 import foto from '../ImgProfile/group.webp'
 import { ViewProfileAdmi } from '../ViewProfileAdmi/ViewProfileAdmi';
+import { ViewProfileTeacher } from '../ViewProfileTeacher/ViewProfileTeacher';
 
-export const CardAdmi = ({ courseStudent }) => {
+export const CardTeachUsers = ({ courseStudent }) => {
 
   const [openGroup, setOpenGroup] = React.useState(false);
 
@@ -21,7 +33,7 @@ export const CardAdmi = ({ courseStudent }) => {
 
     const viewProfile = (
       <div className="paper1">
-        <ViewProfileAdmi />
+        <ViewProfileTeacher/>
         <div className="btn_Cancel">
           <p className="cancel1" onClick={handleCloseGroup}>X</p>
         </div>
