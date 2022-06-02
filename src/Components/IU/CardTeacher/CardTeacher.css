@@ -1,4 +1,4 @@
-.teachercard {
+/* .teachercard {
     display: grid;
     grid-template-columns: repeat(auto-fill, 130px);
     gap: 15px;
@@ -47,4 +47,9 @@
     width: 87%;
     margin-right: -25%;
     background-color: rgb(255, 255, 255);
+} */
+
+.containerTeacherCard{
+    box-shadow: 0 0 10px #1d9df6;
+    text-align: center;
 }

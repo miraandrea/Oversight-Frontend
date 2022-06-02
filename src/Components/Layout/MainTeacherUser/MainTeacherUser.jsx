@@ -1,4 +1,13 @@
-import "./MainAdmi.css";
+// import React from 'react'
+
+// export const MainTeacherUser = () => {
+//   return (
+//     <div>MainTeacherUser</div>
+//   )
+// }
+
+
+// import "./MainAdmi.css";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { CardAdmi } from "../../IU/CardAdmi/CardAdmi";
@@ -8,13 +17,13 @@ import { NavLink } from "react-router-dom";
 import foto from '../../IU/ImgProfile/student.jpg'
 import { ViewProfileAdmi } from "../../IU/ViewProfileAdmi/ViewProfileAdmi";
 import Modal from "@material-ui/core/Modal";
+import { CardTeacher } from "../../IU/CardTeacher/CardTeacher";
+import { CardTeachUsers } from "../../IU/CardTeachUsers/CardTeachUsers";
 
-export const MainAdmi = () => {
+export const MainTeacherUser = () => {
 
 
   const { name } = useParams()
-
-  console.log(name);
 
   const URL = "http://localhost:4000/v1/courses/" + name;
 
@@ -72,8 +81,8 @@ export const MainAdmi = () => {
         ) : personaje.length >  0 ? (
           personaje.map((courseStudent, index) => (
             <>
-            <NavLink to={`/Usuario_Administrador/${courseStudent.estudianteDocumento}`} style={{ textDecoration: 'none' }}>
-              <CardAdmi key={index} courseStudent={courseStudent} />
+            <NavLink to={`/Usuario_Docente/${courseStudent.estudianteDocumento}`} style={{ textDecoration: 'none' }}>
+              <CardTeachUsers key={index} courseStudent={courseStudent} />
             </NavLink>
             {/* <div className="cardTeacher">
             <img src={teacher.fotoDocente || foto } alt={teacher.nombreDocente} onClick={handleOpenGroup} /> 

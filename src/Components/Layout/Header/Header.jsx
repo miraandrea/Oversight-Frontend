@@ -27,7 +27,7 @@ export const Header = ({ search, setSearch }) => {
   const getAllPhotos = (data) => {
     axios
       .get(`http://localhost:4000/v1/decode/${data}`)
-      .then((response) => setPhotos(response.data[0].foto))
+      .then((response) => setPhotos(response.data))
       .catch((error) => console.log(error));
   };
 
@@ -44,9 +44,9 @@ export const Header = ({ search, setSearch }) => {
       </Typography>
       <Search search={search} setSearch={setSearch} />
       <IconButton color="inherit" onClick={handleGoViewProfile}>
-        {photos > 0 ? (
-          photos.map((photo) => {
-            return <AvatarProfile key={photo.photo} name={photo.name} photo={photo.photo} />;
+        {photos.length > 0 ? (
+          photos.map((photo, index) => {
+            return <AvatarProfile key={index} name={photo.nombre} photo={photo.foto} />;
           })
         ) : (
           <AvatarProfile />

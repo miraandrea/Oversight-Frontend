@@ -1,12 +1,9 @@
 .studentCard {
-    display: grid;
-    grid-template-columns: repeat(1, 400px);
-    gap: 15px;
-    margin: -140px 220px;
-    border-top: 2px solid #1d9df6;
-    border-left: 2px solid #1d9df6;
-    padding: 30px;
-    border-radius: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 100vw;
+  margin: -140px 220px;
   }
   .history {
     display: flex;
