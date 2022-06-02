@@ -33,6 +33,7 @@ export const Register = () => {
 
   //mensages
   const [message, setMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState(false);
   const [messageRegister, setMessageRegister] = useState("");
 
   //Registar
@@ -75,15 +76,16 @@ export const Register = () => {
   };
 
   const userRegister = (data) => {
-    if (data) {
-      const paragrapg = "Se registro";
-      setMessageRegister(paragrapg);
-    }
-    else {
-      const paragrapg = "No se pudo registrar";
-      setMessageRegister(paragrapg);
-    }
-  };
+    const { registered } = data;
+    registered ? showMessageRegisterError() : validateRegister();
+  }
+  const validateRegister = () =>{
+    setErrorMessage(true)
+    setMessageRegister("No se pudo registar");
+  }
+  const showMessageRegisterError = () =>{
+    setMessageRegister("Se registro correctamente");
+  }
 
   return (
     <div>
@@ -120,9 +122,9 @@ export const Register = () => {
             </div>
             <div className="containerData">
               <input
+                placeholder="Fecha nacimiento"
                 className="date"
                 type="date"
-                placeholder="fecha"
                 pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
                 onChange={(e) => setDateBirth(e.target.value)}
               />
@@ -159,7 +161,7 @@ export const Register = () => {
                 })}
               </select>
             </div>
-            <p className="message">{messageRegister}</p>
+            <p>{messageRegister}</p>
           </div>
         </div>
         <div className="btn_Registrar">

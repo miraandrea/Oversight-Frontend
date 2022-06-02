@@ -1,38 +1,47 @@
 // import React from 'react'
+
+// export const IconMenuTeac = () => {
+//   return (
+//     <div>IconMenuTeac</div>
+//   )
+// }
+
+
+// import React from "react";
 // import { IoMdHome } from "react-icons/io";
+// import { MdGroups } from "react-icons/md";
 // import { IoExitOutline } from "react-icons/io5";
 // import { NavLink } from "react-router-dom";
 // import Cookies from 'universal-cookie/es6'
-// import "./IconMenuStudent.css";
+// import "./IconMenuTeacher.css";
 
-// export const IconMenuStudent = () => {
-
+// export const IconMenuTeacher = () => {
+  
 //   return (
-//     <div className='menuStudent'>
-//       <NavLink to="/Estudiante">
+//     <div className="menuteacher">
+//       <NavLink to="/Docente">
 //         <IoMdHome className="iconmenu" />
 //       </NavLink>
 //       <p>Inicio</p>
+//       <MdGroups className="iconmenu" />
+//       <p>Grupos</p>
 //       <IoExitOutline onClick={() => cerrarSesion()} className="iconmenu" />
 //       <p>Salir</p>
 //     </div>
-//   )
-// }
+//   );
+// };
 
 // const cookies = new Cookies()
 
 // const cerrarSesion = () => {
 
-//   cookies.remove('documento', { path: "/" })
+//   cookies.remove('idadministrador', { path: "/" })
 //   cookies.remove('foto', { path: "/" });
 //   cookies.remove('nombre', { path: "/" })
 //   cookies.remove('apellido', { path: "/" })
 //   cookies.remove('fecha', { path: "/" })
-//   cookies.remove('genero', { path: "/" })
-//   cookies.remove('firma', { path: "/" })
 //   window.location.href = "/"
 // }
-
 
 
 import React from "react";
@@ -44,13 +53,13 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemButton from "@mui/material/ListItemButton";
 
-export const IconMenuStudent = () => {
+export const IconMenuTeac = () => {
 
   return (
     <div className="menu">
       <ListItemButton >
         <ListItemIcon>
-          <NavLink to="/Estudiante">
+          <NavLink to="/Docente">
             <IoMdHome className="iconmenu" />
           </NavLink>
         </ListItemIcon>

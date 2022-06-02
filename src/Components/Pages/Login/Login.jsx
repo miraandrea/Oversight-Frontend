@@ -2,11 +2,10 @@ import "./Login.css";
 import axios from "axios";
 import swal from "sweetalert";
 import React, { useState } from "react";
+import logo from "../../../Img/Logo.jpg";
 import Cookies from "universal-cookie/es6";
 import { TiLockClosed } from "react-icons/ti";
-import logo from "../../../Img/Logo.jpg";
 import { IoPersonAddOutline } from "react-icons/io5";
-import { TextOversight } from "../../IU/TextOversight/TextOversight";
 import { TextField, Button, Typography } from "@mui/material";
 
 export const Login = () => {
@@ -50,6 +49,7 @@ export const Login = () => {
 
   // Validates the user role to send it to different urls depending on this role
   const validateRolUser = (data) => {
+    window.localStorage.setItem("rol",data.data.rol);
     const { rol } = data.data;
     if (rol == "Student") {
       return saveCredentialsOfStudent(data);
@@ -166,6 +166,6 @@ const MostrarAlerta = () => {
       confirm: { text: "Entendido", className: "swal-button1" },
     },
     title: "Querido Usuario",
-    text: "Su usuario y contraseña es el documento de identidad",
+    text: "Tu usuario y contraseña es el documento de identidad",
   });
 };
