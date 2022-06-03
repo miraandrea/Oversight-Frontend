@@ -1,0 +1,72 @@
+/* .mainCard{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 130px);
+    gap: 15px;
+    width: 70%;
+    margin: 474px 250px;
+    border-top: 2px solid #1d9df6;
+    border-left: 2px solid #1d9df6;
+    padding: 30px;
+    height: 100%;
+} */
+
+.cardTeacher {
+    border: 2px solid #1d9df6;
+    width: 5rem;
+    height: 9rem;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 0 4px #1d9df6;
+}
+
+.cardTeacher img {
+    width: 7rem;
+    height: 5rem;
+    border-radius: 4px;
+    margin-top: -15.5px;
+}
+
+.cardTeacher p {
+    padding-top: 1%;
+    text-align: center;
+    font-size: 75%;
+    margin-top: 0.1rem;
+}
+
+/* iPads (portrait & landscape) */
+/* @media only screen 
+and (max-width : 768px) 
+ {
+    .mainCard{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 130px);
+        gap: 15px;
+        width: 70%;
+        margin: 580px 220px;
+        border-top: 2px solid #1d9df6;
+        border-left: 2px solid #1d9df6;
+        padding: 30px;
+        height: 100%;
+    }
+
+}
+
+@media only screen
+and (max-width : 320px) 
+ {
+    .mainCard{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 130px);
+        gap: 15px;
+        width: 100%;
+        margin: 550px 140px;
+        border-top: 2px solid #1d9df6;
+        border-left: 2px solid #1d9df6;
+        padding: 30px;
+        height: 100%;
+    }
+} */
