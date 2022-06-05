@@ -9,7 +9,7 @@
     top: 11%;
     left: 9%;
     width: 85%;
-    height: 50%;
+    height: 105vw;
     background-color: #fff;
 }
 
@@ -18,7 +18,7 @@
     top: 11%;
     left: 9%;
     width: 85%;
-    height: 38%;
+    height: 77vw;
     background-color: #fff;
 }
 
@@ -42,7 +42,7 @@
     .modal {
         left: 13%;
         width: 80%;
-        height: 60%;
+        height: 70vw;
     }
 
     .cancel {
@@ -54,7 +54,7 @@
         top: 14%;
         left: 25%;
         width: 62%;
-        height: 43%;
+        height: 45vw;
     }
 }
 
@@ -62,7 +62,7 @@
     .modal {
         left: 23%;
         width: 50%;
-        height: 60%;
+        height: 45vw;
     }
 
     .cancel {
@@ -74,6 +74,6 @@
         top: 15%;
         left: 32%;
         width: 46%;
-        height: 43%;
+        height: 30vw;
     }
 }

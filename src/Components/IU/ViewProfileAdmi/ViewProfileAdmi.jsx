@@ -45,8 +45,8 @@ export const ViewProfileAdmi = () => {
       <div className='OverFlow'>
       <div className="cards1" >
         <div className="cardInfo1">
-          {record.map((record, index) => (
-            <CardStudent key={index} record={record}/>
+          {record.map((course2, index) => (
+            <CardStudent key={index} course2={course2}/>
           ))}
         </div>
       </div>

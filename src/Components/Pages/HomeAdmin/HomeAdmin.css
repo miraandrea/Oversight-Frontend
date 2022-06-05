@@ -1,0 +1,17 @@
+.nav_drawer{
+  display: none;
+}
+.nav_bar{
+  display: none;
+}
+@media (min-width: 720px) {
+  .nav_drawer{
+    display: flex;
+  }
+  .nav_bar{
+    display: block;
+  }
+  .nav_menu-phone{
+    display: none;
+  }
+}

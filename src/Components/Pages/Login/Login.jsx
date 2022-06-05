@@ -122,6 +122,7 @@ export const Login = () => {
                 label="Contraseña"
                 variant="outlined"
                 name="password"
+                type="password"
                 error={errorMessage}
                 helperText={messageHelperText}
                 onChange={handlePassword}
