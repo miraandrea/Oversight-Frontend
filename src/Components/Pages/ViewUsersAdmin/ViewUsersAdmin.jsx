@@ -18,6 +18,18 @@ import {
   MdMenu,
   MdKeyboardArrowLeft,
 } from "react-icons/md";
+import { Register } from "../../IU/Register/Register";
+import { GroupAdd } from "../../IU/GroupAdd/GroupAdd";
+
+
+import { MdGroupAdd } from "react-icons/md";
+import BottomNavigation from "@mui/material/BottomNavigation";
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import { IoMdHome, IoMdPersonAdd } from "react-icons/io";
+import { IoExitOutline } from "react-icons/io5";
+import Modal from "@material-ui/core/Modal";
+import { NavLink } from "react-router-dom";
+
 
 const drawerWidth = 220;
 
@@ -69,6 +81,42 @@ const mdTheme = createTheme();
 
 export const ViewUsersAdmin = () => {
   
+  const [modalRegisterUsers, setModalRegisterUsers] = useState(false);
+  const [value, setValue] = useState(0);
+  const handleOpen = () => {
+    setModalRegisterUsers(true);
+  };
+  const handleClose = () => {
+    setModalRegisterUsers(false);
+  };
+  const bodyRegister = (
+    <div className="modal">
+      <Register />
+      <div className="btn_Cancel">
+        <button className="cancel" onClick={handleClose}>
+          Cancelar
+        </button>
+      </div>
+    </div>
+  );
+  const [openGroup, setOpenGroup] = useState(false);
+  const handleOpenGroup = () => {
+    setOpenGroup(true);
+  };
+  const handleCloseGroup = () => {
+    setOpenGroup(false);
+  };
+  const bodyGroup = (
+    <div className="modalGroup">
+      <GroupAdd />
+      <div className="btn_Cancel">
+        <button className="cancel" onClick={handleCloseGroup}>
+          Cancelar
+        </button>
+      </div>
+    </div>
+  );
+  
   const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
@@ -97,9 +145,9 @@ export const ViewUsersAdmin = () => {
   
   return (
     <ThemeProvider theme={mdTheme}>
-      <Box sx={{ display: "flex" }}>
+      <Box sx={{ display: "flex",heigh:"40vh" }}>
         <CssBaseline />
-        <AppBar position="absolute" open={open} >
+        <AppBar open={open} >
           <Toolbar
             sx={{
               pr: "24px",
@@ -115,29 +163,33 @@ export const ViewUsersAdmin = () => {
                 ...(open && { display: "none" }),
               }}
             >
+              <div className="nav_bar">
               <MdMenu />
+              </div>
             </IconButton>
             <Header />
           </Toolbar>
         </AppBar>
-        <Drawer variant="permanent" open={open}>
-          <Toolbar
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "flex-end",
-              px: [1],
-            }}
-          >
-            <IconButton onClick={toggleDrawer}>
-              <MdKeyboardArrowLeft />
-            </IconButton>
-          </Toolbar>
-          <Divider />
-          <List component="nav">
+        <div className="nav_drawer">
+          <Drawer variant="permanent" open={open}>
+            <Toolbar
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-end",
+                px: [1],
+              }}
+            >
+              <IconButton onClick={toggleDrawer}>
+                <MdKeyboardArrowLeft />
+              </IconButton>
+            </Toolbar>
+            <Divider />
+            <List component="nav">
               <BarMenu />
-          </List>
-        </Drawer>
+            </List>
+          </Drawer>
+        </div>
         <Box
           component="main"
           sx={{
@@ -156,6 +208,53 @@ export const ViewUsersAdmin = () => {
           </Container>
         </Box>
       </Box>
+      <div className="nav_menu-phone">
+        <Box
+          sx={{
+            width: "100vw",
+            display: "absolute",
+            borderTop: "1px solid #808080",
+          }}
+        >
+          <BottomNavigation
+            showLabels
+            value={value}
+            onChange={(event, newValue) => {
+              setValue(newValue);
+            }}
+          >
+            <BottomNavigationAction label="" icon={
+              <NavLink to="/Administrador">
+                <IoMdHome />
+              </NavLink>} />
+            <BottomNavigationAction
+              label=""
+              icon={<IoMdPersonAdd onClick={handleOpen} />}
+            />
+            <BottomNavigationAction
+              label=""
+              icon={<MdGroupAdd onClick={handleOpenGroup} />}
+            />
+            <BottomNavigationAction
+              label=""
+              icon={<IoExitOutline onClick={() => signOff()} />}
+            />
+          </BottomNavigation>
+          <Modal open={modalRegisterUsers} onClose={handleClose}>
+            {bodyRegister}
+          </Modal>
+          <Modal open={openGroup} onClose={handleCloseGroup}>
+            {bodyGroup}
+          </Modal>
+        </Box>
+      </div>
     </ThemeProvider>
   );
 }
+const cookies = new Cookies();
+
+const signOff = () => {
+  cookies.remove("idAdministrador", { path: "/" });
+  localStorage.clear();
+  window.location.href = "/";
+};

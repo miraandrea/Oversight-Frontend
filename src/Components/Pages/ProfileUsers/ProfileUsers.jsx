@@ -27,6 +27,11 @@ import {
   MdKeyboardArrowLeft,
 } from "react-icons/md";
 
+
+import BottomNavigation from "@mui/material/BottomNavigation";
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+
+
 const drawerWidth = 220;
 
 const AppBar = styled(MuiAppBar, {
@@ -76,6 +81,8 @@ const Drawer = styled(MuiDrawer, {
 const mdTheme = createTheme();
 
 export const ProfileUsers = () => {
+
+  const [value, setValue] = useState(0);
 
   const [open, setOpen] = useState(false);
   const toggleDrawer = () => {
@@ -144,9 +151,9 @@ export const ProfileUsers = () => {
 
   return (
     <ThemeProvider theme={mdTheme}>
-      <Box sx={{ display: "flex" }}>
+      <Box sx={{ display: "flex",heigh:"40vh" }}>
         <CssBaseline />
-        <AppBar position="absolute" open={open} >
+        <AppBar open={open} >
           <Toolbar
             sx={{
               pr: "24px",
@@ -160,7 +167,9 @@ export const ProfileUsers = () => {
                 marginRight: "36px",
                 ...(open && { display: "none" }),
               }}>
+              <div className="nav_bar">
               <MdMenu />
+              </div>
             </IconButton>
             <Typography
                 component="h1"
@@ -182,20 +191,22 @@ export const ProfileUsers = () => {
       </IconButton>
           </Toolbar>
         </AppBar>
-        <Drawer variant="permanent" open={open}>
-          <Toolbar
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "flex-end",
-              px: [1],
-            }}>
-            <IconButton onClick={toggleDrawer}>
-              <MdKeyboardArrowLeft />
-            </IconButton>
-          </Toolbar>
-          <Divider />
-          <List component="nav">
+        <div className="nav_drawer">
+          <Drawer variant="permanent" open={open}>
+            <Toolbar
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-end",
+                px: [1],
+              }}
+            >
+              <IconButton onClick={toggleDrawer}>
+                <MdKeyboardArrowLeft />
+              </IconButton>
+            </Toolbar>
+            <Divider />
+            <List component="nav">
              <div className="menu">
               <ListItemButton >
                 <ListItemIcon>
@@ -214,7 +225,8 @@ export const ProfileUsers = () => {
               </ListItemButton>
             </div>
           </List>
-        </Drawer>
+          </Drawer>
+        </div>
         <Box
           component="main"
           sx={{
@@ -232,6 +244,32 @@ export const ProfileUsers = () => {
           </Container>
         </Box>
       </Box>
+      <div className="nav_menu-phone">
+        <Box
+          sx={{
+            width: "100vw",
+            display: "absolute",
+            borderTop: "1px solid #808080",
+          }}
+        >
+          <BottomNavigation
+            showLabels
+            value={value}
+            onChange={(event, newValue) => {
+              setValue(newValue);
+            }}
+          >
+            <BottomNavigationAction label="" icon={
+              <NavLink to="/Administrador">
+                <IoMdHome />
+              </NavLink>} />
+            <BottomNavigationAction
+              label=""
+              icon={<IoExitOutline onClick={() => signOff()} />}
+            />
+          </BottomNavigation>
+        </Box>
+      </div>
     </ThemeProvider>
   );
 }

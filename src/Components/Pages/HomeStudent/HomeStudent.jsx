@@ -34,6 +34,13 @@ import {
 import { BarMenuStudent } from "../../Layout/BarMenuStudent/BarMenuStudent";
 import { MainStudent } from "../../Layout/MainStudent.jsx/MainStudent";
 
+
+import BottomNavigation from "@mui/material/BottomNavigation";
+import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import { IoExitOutline } from "react-icons/io5";
+import { IoMdHome } from "react-icons/io";
+import { NavLink } from "react-router-dom";
+
 const drawerWidth = 220;
 
 const AppBar = styled(MuiAppBar, {
@@ -83,6 +90,9 @@ const Drawer = styled(MuiDrawer, {
 const mdTheme = createTheme();
 
 export const HomeStudent = () => {
+
+  const [value, setValue] = useState(0);
+
 
   const [open, setOpen] = useState(false);
   const toggleDrawer = () => {
@@ -140,9 +150,9 @@ export const HomeStudent = () => {
 
   return (
     <ThemeProvider theme={mdTheme}>
-      <Box sx={{ display: "flex" }}>
+      <Box sx={{ display: "flex",heigh:"40vh" }}>
         <CssBaseline />
-        <AppBar position="absolute" open={open} >
+        <AppBar open={open} >
           <Toolbar
             sx={{
               pr: "24px",
@@ -156,28 +166,33 @@ export const HomeStudent = () => {
                 marginRight: "36px",
                 ...(open && { display: "none" }),
               }}>
+                <div className="nav_bar">
               <MdMenu />
+              </div>
             </IconButton>
             {/* <Header filter={search} setSearch={setSearch} /> */}
           </Toolbar>
         </AppBar>
-        <Drawer variant="permanent" open={open}>
-          <Toolbar
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "flex-end",
-              px: [1],
-            }}>
-            <IconButton onClick={toggleDrawer}>
-              <MdKeyboardArrowLeft />
-            </IconButton>
-          </Toolbar>
-          <Divider />
-          <List component="nav">
-            <BarMenuStudent />
-          </List>
-        </Drawer>
+        <div className="nav_drawer">
+          <Drawer variant="permanent" open={open}>
+            <Toolbar
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-end",
+                px: [1],
+              }}
+            >
+              <IconButton onClick={toggleDrawer}>
+                <MdKeyboardArrowLeft />
+              </IconButton>
+            </Toolbar>
+            <Divider />
+            <List component="nav">
+              <BarMenuStudent />
+            </List>
+          </Drawer>
+        </div>
         <Box
           component="main"
           sx={{
@@ -215,6 +230,40 @@ export const HomeStudent = () => {
           </Container>
         </Box>
       </Box>
+      <div className="nav_menu-phone">
+        <Box
+          sx={{
+            width: "100vw",
+            display: "absolute",
+            borderTop: "1px solid #808080",
+          }}
+        >
+          <BottomNavigation
+            showLabels
+            value={value}
+            onChange={(event, newValue) => {
+              setValue(newValue);
+            }}
+          >
+            <BottomNavigationAction label="" icon={
+              <NavLink to="/Estudiante">
+                <IoMdHome />
+              </NavLink>} />
+            <BottomNavigationAction
+              label=""
+              icon={<IoExitOutline onClick={() => signOff()} />}
+            />
+          </BottomNavigation>
+        </Box>
+      </div>
     </ThemeProvider>
   );
 }
+
+const cookies = new Cookies();
+
+const signOff = () => {
+  cookies.remove("idAdministrador", { path: "/" });
+  localStorage.clear()
+  window.location.href = "/";
+};
