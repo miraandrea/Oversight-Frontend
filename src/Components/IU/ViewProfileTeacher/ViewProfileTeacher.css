@@ -1,4 +1,4 @@
-.photoView1 {
+/* .photoView1 {
     width: 70px;
     height: 70px;
     border-radius: 50px;
@@ -46,7 +46,7 @@
     margin-left: -490px;
     background-color: red;
 }
-
+------
 .docent {
     width: 200px;
     border-radius: 6px;
@@ -79,9 +79,155 @@
     background-color: rgba(240, 248, 255, 0);
     border-bottom: 2px solid #1D9DF6;
 }
-
+-----
 .Data1 {
     border: 2px solid #1D9DF6;
     margin-left: 80px;
     width: 220px;
+} */
+
+.photoView1 {
+    width: 91px;
+    height: 80px;
+    position: relative;
+    top: 27px;
+    left: 5%;
+}
+
+.information1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -62px;
+    left: 39px;
+}
+
+.iconRecord1 {
+    position: relative;
+    top: -28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Cont {
+    border: 1px solid #1D9DF6;
+    width: 83vw;
+    height: 65vw;
+    margin-left: 8px;
+    /* display: flex; */
+    border-radius: 5px;
+}
+
+.ContDeTeacher1 {
+    margin-top: 15px;
+    margin-left: 5px;
+}
+
+.ContDescripstudent1 {
+    margin-left: 174px;
+    margin-top: -157px;
+}
+
+.ContDescripstudent1 textarea {
+    width: 156px;
+    height: 30vw;
+    border: 2px solid #1D9DF6;
+}
+
+.docent {
+    width: 156px;
+    height: 30vw;
+    border: 2px solid #1D9DF6;
+}
+
+.Stident2 {
+    width: 156px;
+    height: 30vw;
+    border: 2px solid #1D9DF6;
+}
+
+.FirmaDocent {
+    margin-left: -210px;
+    margin-top: 10px;
+}
+
+.FirmaStudent {
+    margin-left: -365px;
+    margin-top: -23px;
+}
+
+.btnRegister{
+    color: rgb(255, 255, 255);
+    background-color: #1D9DF6;
+    border: none;
+    width: 109px;
+    height: 35px;
+    position: relative;
+    top: 11px;
+    left: 8.5rem;
+}
+
+@media (min-width: 720px) {
+    .Cont {
+        height: 65vw;
+        display: flex;
+    }
+    .title1 {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        background-color: rgba(240, 248, 255, 0);
+        border-bottom: 2px solid #1D9DF6;
+    }
+    .Data1 {
+        border: 2px solid #1D9DF6;
+        margin-left: 197px;
+        width: 220px;
+    }
+        
+    .ContDeTeacher1 {
+        margin-top: 50px;
+        margin-left: -572px;
+    }
+
+    .ContDescripstudent1 {
+        margin-left: 87px;
+        margin-top: 50px;
+    }
+
+    .ContDescripstudent1 textarea {
+        width: 239px;
+    }
+    .Stident2 {
+        width: 239px;
+    }
+    
+        
+    .FirmaDocent {
+        margin-left: -780px;
+        margin-top: 300px;
+    }
+
+    .FirmaStudent {
+        margin-top: 300px;
+    }
+
+    .btnRegister{
+        width: 122px;
+        height: 39px;
+        top: 26px;
+        left: 15.5rem;
+    }
+
+}
+
+@media (min-width: 720px) {
+
+    .Cont {
+        height: 43vw;
+        display: flex;
+    }
 }
