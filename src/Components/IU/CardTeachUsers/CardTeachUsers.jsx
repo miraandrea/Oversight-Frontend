@@ -19,6 +19,7 @@ import Modal from "@material-ui/core/Modal";
 import foto from '../ImgProfile/group.webp'
 import { ViewProfileAdmi } from '../ViewProfileAdmi/ViewProfileAdmi';
 import { ViewProfileTeacher } from '../ViewProfileTeacher/ViewProfileTeacher';
+import './CardTeachUsers.css'
 
 export const CardTeachUsers = ({ courseStudent }) => {
 
@@ -32,10 +33,10 @@ export const CardTeachUsers = ({ courseStudent }) => {
     };
 
     const viewProfile = (
-      <div className="paper1">
+      <div className="modalTeacher">
         <ViewProfileTeacher/>
         <div className="btn_Cancel">
-          <p className="cancel1" onClick={handleCloseGroup}>X</p>
+          <p className="cancelTeacher" onClick={handleCloseGroup}>X</p>
         </div>
       </div>
     )

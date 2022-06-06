@@ -1,0 +1,39 @@
+.modalTeacher{
+    position: absolute;
+    top: 9%;
+    left: 7%;
+    width: 88%;
+    height: 123vw;
+    background-color: #fff;
+}
+
+.cancelTeacher {
+    color: #f61d1d;
+    position: relative;
+    top: -30.5rem;
+    left: 21rem;
+    font-size: 2rem;
+}
+
+@media (min-width: 720px) {
+
+    .modalTeacher{
+        height: 103vw;
+    }
+    
+    .cancelTeacher {
+        top: -42.5rem;
+        left: 37rem;
+    }
+}
+
+@media (min-width: 720px) {
+    .modalTeacher{
+        height: 74vw;
+    }
+    .cancelTeacher {
+        top: -62.5rem;
+        left: 63rem;
+        font-size: 2.5rem;
+    }
+}

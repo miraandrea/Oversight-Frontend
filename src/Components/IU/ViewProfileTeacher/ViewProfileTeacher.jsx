@@ -116,7 +116,7 @@ export const ViewProfileTeacher = () => {
           </div>
         </div>
       </div>
-      <button onClick={() => getHistory()}>Registrar</button>
+      <button className='btnRegister' onClick={() => getHistory()}>Registrar</button>
     </div>
   )
 }
