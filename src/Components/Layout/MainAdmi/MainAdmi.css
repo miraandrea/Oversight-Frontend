@@ -70,3 +70,11 @@ and (max-width : 320px)
         height: 100%;
     }
 } */
+.paper1{
+    position: absolute;
+    top: 11%;
+    left: 9%;
+    width: 85%;
+    height: 105vw;
+    background-color: #fff;
+}
