@@ -6,9 +6,14 @@ import { useParams } from "react-router";
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 
-export const ViewProfileTeacher = () => {
+export const ViewProfileTeacher = ({ courseStudent }) => {
+
+  console.log(courseStudent);
 
   const { name } = useParams()
+  const [errorMessage, setErrorMessage] = useState(false);
+  const [messageRegister, setMessageRegister] = useState("");
+
   const cookies = new Cookies();
   const documentTeacher = (cookies.get("idDocente"))
 
@@ -39,16 +44,30 @@ export const ViewProfileTeacher = () => {
   const token = ( data ) =>{
     console.log(data);
     axios.get(`http://localhost:4000/v1/decode/${data}`)
-    .then((res) => console.log(res))
+    .then((res) => userHistory(res.data))
+  }
+
+  const userHistory = (data) => {
+    const { message } = data;
+    message ? showMessageHistoryError() : validateHistory();
+  }
+
+  const validateHistory = () =>{
+    setErrorMessage(true)
+    setMessageRegister("No se pudo agregar la anotacion");
+  }
+
+  const showMessageHistoryError = () =>{
+    setMessageRegister("Se agrego la anotacion exitosamente");
   }
 
   return (
     <div>
       <img src={viewFotophoto} alt="photo" className="photoView1" />
       <div className='information1'>
-        <p className="letra"> <b> Paola Andrea Mira </b></p>
-        <p className="letra" > <b> 1007603426 </b> </p>
-        <p className="letra" > <b>Docente </b> </p>
+        <p className="letra"> <b>{courseStudent.estudianteNombre} {courseStudent.estudianteApellido}</b></p>
+        <p className="letra" > <b> {courseStudent.estudianteDocumento} </b> </p>
+        <p className="letra" > <b>Estudiante</b> </p>
       </div>
       <div className="iconRecord1">
         <AiOutlineFileSearch />
@@ -115,6 +134,7 @@ export const ViewProfileTeacher = () => {
               />
           </div>
         </div>
+        <p>{messageRegister}</p>
       </div>
       <button className='btnRegister' onClick={() => getHistory()}>Registrar</button>
     </div>
