@@ -21,7 +21,7 @@ export const CardAdmi = ({ courseStudent }) => {
 
     const viewProfile = (
       <div className="paper1">
-        <ViewProfileAdmi />
+        <ViewProfileAdmi courseStudent={courseStudent} />
         <div className="btn_Cancel">
           <p className="cancel1" onClick={handleCloseGroup}>X</p>
         </div>
