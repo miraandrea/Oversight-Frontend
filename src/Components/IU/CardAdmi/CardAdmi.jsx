@@ -21,7 +21,7 @@ export const CardAdmi = ({ courseStudent }) => {
 
     const viewProfile = (
       <div className="paper1">
-        <ViewProfileAdmi />
+        <ViewProfileAdmi courseStudent={courseStudent} />
         <div className="btn_Cancel">
           <p className="cancel1" onClick={handleCloseGroup}>X</p>
         </div>
@@ -35,13 +35,13 @@ export const CardAdmi = ({ courseStudent }) => {
         <CardMedia
           component="img"
           height="120"
-          image={courseStudent.foto || foto} 
+          image={courseStudent.fotoEstudiante || foto} 
           alt={courseStudent.nombre}
           onClick={handleOpenGroup}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {courseStudent.nombre}
+            {courseStudent.estudianteNombre}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {courseStudent.curso}

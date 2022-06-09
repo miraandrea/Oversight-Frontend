@@ -70,3 +70,38 @@ and (max-width : 320px)
         height: 100%;
     }
 } */
+.paper1{
+    position: absolute;
+    top: 11%;
+    left: 16%;
+    width: 75%;
+    height: 105vw;
+    background-color: #fff;
+}
+
+
+@media(max-width:420px){
+
+    .paper1{
+        position: absolute;
+        top: 11%;
+        left: 2%;
+        width: 96%;
+        height: 160vw;
+        background-color: #fff;
+    }
+
+}
+
+@media(max-width:1200px){
+
+    .paper1{
+        position: absolute;
+        top: 11%;
+        left: 2%;
+        width: 96%;
+        height: 160vw;
+        background-color: #fff;
+    }
+
+}

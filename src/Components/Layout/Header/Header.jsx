@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import React, { useState, useEffect } from "react";
 import { AvatarProfile } from "../../IU/AvatarProfile/AvatarProfile";
+import { logRoles } from "@testing-library/react";
 
 export const Header = ({ search, setSearch }) => {
 

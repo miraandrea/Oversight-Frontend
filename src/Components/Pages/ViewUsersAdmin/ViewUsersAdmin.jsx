@@ -1,35 +1,41 @@
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import { MdGroupAdd } from "react-icons/md";
+import { IoMdHome, IoMdPersonAdd } from "react-icons/io";
+import { IoExitOutline } from "react-icons/io5";
+import { NavLink } from "react-router-dom";
 import axios from "axios";
+import Cookies from "universal-cookie";
+import { MdMenu, MdKeyboardArrowLeft } from "react-icons/md";
+
+//components
+import foto from "../../IU/ImgProfile/student.jpg";
+import { Header } from "../../Layout/Header/Header";
+import { Register } from "../../IU/Register/Register";
+import { GroupAdd } from "../../IU/GroupAdd/GroupAdd";
+import { BarMenu } from "../../Layout/BarMenu/BarMenu";
+import { MainAdmi } from "../../Layout/MainAdmi/MainAdmi";
+import { ViewProfileAdmiTeacher } from "../../IU/ViewProfileAdmi/ViewProfileAdmiTeacher";
+
+//material ui
+import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
+import Divider from "@mui/material/Divider";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
-import Cookies from "universal-cookie";
-import Divider from "@mui/material/Divider";
 import Toolbar from "@mui/material/Toolbar";
 import MuiDrawer from "@mui/material/Drawer";
 import MuiAppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
-import { React, useState, useEffect } from "react";
-import { Header } from '../../Layout/Header/Header';
 import CssBaseline from "@mui/material/CssBaseline";
-import { BarMenu } from '../../Layout/BarMenu/BarMenu';
-import { MainAdmi } from '../../Layout/MainAdmi/MainAdmi';
-import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
-import {
-  MdMenu,
-  MdKeyboardArrowLeft,
-} from "react-icons/md";
-import { Register } from "../../IU/Register/Register";
-import { GroupAdd } from "../../IU/GroupAdd/GroupAdd";
-
-
-import { MdGroupAdd } from "react-icons/md";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import { IoMdHome, IoMdPersonAdd } from "react-icons/io";
-import { IoExitOutline } from "react-icons/io5";
 import Modal from "@material-ui/core/Modal";
-import { NavLink } from "react-router-dom";
-
+import Card1 from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { CardActionArea } from "@mui/material";
 
 const drawerWidth = 220;
 
@@ -81,6 +87,64 @@ const mdTheme = createTheme();
 
 export const ViewUsersAdmin = () => {
   
+  const [open, setOpen] = useState(false);
+  const toggleDrawer = () => {
+    setOpen(!open);
+  };
+
+  const logOut = () => {
+    return (window.location = "/");
+  };
+
+  //view students in a course
+  const { name } = useParams();
+
+  const UrlTokenStudent = "http://localhost:4000/v1/courses/" + name;
+
+  const [teacher, setTeacher] = useState([]);
+
+  useEffect(() => {
+    const getStudent = () => {
+      axios.get(UrlTokenStudent).then((response) => {
+        setCourses(response.data);
+        setTeacher(response.data[0]);
+        setloading(false);
+      });
+    };
+    getStudent();
+  }, []);
+
+  const [search, setSearch] = useState("");
+  const [loading, setloading] = useState(true);
+  const [courses, setCourses] = useState([]);
+  
+  //seeker
+  const UrlSearchCourse = "http://localhost:4000/v1/students/0" + search;
+
+  useEffect(() => {
+    const getSearch = () => {
+      axios
+        .get(UrlSearchCourse)
+        .then((res) => user(res.data))
+        .catch((error) => console.log(error));
+    };
+    getSearch();
+  }, []);
+
+  const user = (data) => {
+    console.log(data);
+    setloading(false);
+    setCourses(data.results[0]);
+  };
+
+  const character = courses.filter((character) =>
+    character.estudianteNombre
+      .toLocaleLowerCase()
+      .includes(search.toLocaleLowerCase())
+  );
+
+  //modal
+
   const [modalRegisterUsers, setModalRegisterUsers] = useState(false);
   const [value, setValue] = useState(0);
   const handleOpen = () => {
@@ -116,38 +180,32 @@ export const ViewUsersAdmin = () => {
       </div>
     </div>
   );
-  
-  const [photos, setPhotos] = useState([]);
 
-  useEffect(() => {
-    const cookies = new Cookies();
-    const idUser = cookies.get("idAdministrador");
-    axios
-      .get(`http://localhost:4000/v1/administrators/${idUser}`)
-      .then((response) => getAllPhotos(response.data))
-      .catch((error) => console.log(error));
-  });
+  const [openTeacher, setOpenTeacher] = React.useState(false);
 
-  const getAllPhotos = (data) => {
-    axios
-      .get(`http://localhost:4000/v1/decode/${data}`)
-      .then((response) => setPhotos(response.data[0].foto))
-      .catch((error) => console.log(error));
+  const handleOpenTeacher = () => {
+    setOpenTeacher(true);
+  };
+  const handleCloseTeacher = () => {
+    setOpenTeacher(false);
   };
 
-  const [open, setOpen] = useState(false);
-  const toggleDrawer = () => {
-    setOpen(!open);
-  };
-  const logOut = () => {
-    return (window.location = "/");
-  };
-  
+  const viewProfile = (
+    <div className="paper1">
+      <ViewProfileAdmiTeacher teacher={teacher} />
+      <div className="btn_Cancel">
+        <p className="cancel1" onClick={handleCloseTeacher}>
+          X
+        </p>
+      </div>
+    </div>
+  );
+
   return (
     <ThemeProvider theme={mdTheme}>
-      <Box sx={{ display: "flex",heigh:"40vh" }}>
+      <Box sx={{ display: "flex", heigh: "40vh" }}>
         <CssBaseline />
-        <AppBar open={open} >
+        <AppBar open={open}>
           <Toolbar
             sx={{
               pr: "24px",
@@ -164,10 +222,10 @@ export const ViewUsersAdmin = () => {
               }}
             >
               <div className="nav_bar">
-              <MdMenu />
+                <MdMenu />
               </div>
             </IconButton>
-            <Header />
+            <Header filter={search} setSearch={setSearch} />
           </Toolbar>
         </AppBar>
         <div className="nav_drawer">
@@ -204,7 +262,55 @@ export const ViewUsersAdmin = () => {
         >
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <MainAdmi />
+            <section className="mainCard">
+              {loading ? (
+                <p>Cargando</p>
+              ) : character.length > 0 ? (
+                <>
+                  <div className="borde">
+                    <NavLink
+                      to={`/Usuario_Administrador/${teacher.documentoDocente}`}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <Card1 sx={{ maxWidth: 170 }}>
+                        <CardActionArea>
+                          <CardMedia
+                            component="img"
+                            height="120"
+                            image={teacher.fotoDocente || foto}
+                            alt={teacher.nombreDocente}
+                            onClick={handleOpenTeacher}
+                          />
+                          <CardContent>
+                            <Typography
+                              gutterBottom
+                              variant="h5"
+                              component="div"
+                            >
+                              {teacher.nombreDocente}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                              {teacher.curso}
+                            </Typography>
+                          </CardContent>
+                        </CardActionArea>
+                      </Card1>
+                    </NavLink>
+                  </div>
+                  <Modal open={openTeacher} onClose={handleCloseTeacher}>
+                    {viewProfile}
+                  </Modal>
+                  {character.map((course, index) => (
+                    <MainAdmi key={index} course={course} />
+                  ))}
+                </>
+              ) : (
+                <p>
+                  No Tiene estudiantes <strong>"{search}"</strong>.
+                </p>
+              )}
+            </section>
+            {/* <MainAdmi /> */}
           </Container>
         </Box>
       </Box>
@@ -223,10 +329,14 @@ export const ViewUsersAdmin = () => {
               setValue(newValue);
             }}
           >
-            <BottomNavigationAction label="" icon={
-              <NavLink to="/Administrador">
-                <IoMdHome />
-              </NavLink>} />
+            <BottomNavigationAction
+              label=""
+              icon={
+                <NavLink to="/Administrador">
+                  <IoMdHome />
+                </NavLink>
+              }
+            />
             <BottomNavigationAction
               label=""
               icon={<IoMdPersonAdd onClick={handleOpen} />}
@@ -250,7 +360,7 @@ export const ViewUsersAdmin = () => {
       </div>
     </ThemeProvider>
   );
-}
+};
 const cookies = new Cookies();
 
 const signOff = () => {

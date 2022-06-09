@@ -34,7 +34,7 @@ export const CardTeachUsers = ({ courseStudent }) => {
 
     const viewProfile = (
       <div className="modalTeacher">
-        <ViewProfileTeacher/>
+        <ViewProfileTeacher courseStudent={courseStudent}/>
         <div className="btn_Cancel">
           <p className="cancelTeacher" onClick={handleCloseGroup}>X</p>
         </div>
@@ -48,13 +48,13 @@ export const CardTeachUsers = ({ courseStudent }) => {
         <CardMedia
           component="img"
           height="120"
-          image={courseStudent.foto || foto} 
-          alt={courseStudent.nombre}
+          image={courseStudent.fotoEstudiante || foto} 
+          alt={courseStudent.estudianteNombre}
           onClick={handleOpenGroup}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {courseStudent.nombre}
+            {courseStudent.estudianteNombre}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {courseStudent.curso}

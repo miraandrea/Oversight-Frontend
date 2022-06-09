@@ -47,9 +47,9 @@ export const MainTeacherUser = () => {
   }, []);
 
   
-  const personaje = courses.filter((personaje) =>
-    personaje.nombre.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-  )
+  // const personaje = courses.filter((personaje) =>
+  //   personaje.nombre.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+  // )
 
   //modal
   const [openGroup, setOpenGroup] = React.useState(false);
@@ -73,13 +73,13 @@ export const MainTeacherUser = () => {
   return (
 
     <div>
-      <Search filter={search} setSeacrh={setSearch} />
+      {/* <Search filter={search} setSeacrh={setSearch} /> */}
       <section className="mainCard">
         
         {loading ? (
           <p>Cargando</p>
-        ) : personaje.length >  0 ? (
-          personaje.map((courseStudent, index) => (
+        ) : courses.length >  0 ? (
+          courses.map((courseStudent, index) => (
             <>
             <NavLink to={`/Usuario_Docente/${courseStudent.estudianteDocumento}`} style={{ textDecoration: 'none' }}>
               <CardTeachUsers key={index} courseStudent={courseStudent} />
