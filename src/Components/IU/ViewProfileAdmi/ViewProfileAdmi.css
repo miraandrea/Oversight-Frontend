@@ -12,15 +12,53 @@
     justify-content: center;
     align-items: center;
     width: 234px;
-    margin-left: 182px;
-    margin-top: -104px;
 }
 
+.centerOver{
+    display: flex;
+    justify-content: center;
+}
+
+.centerInfor{
+    display: flex;
+    justify-content: center;
+    
+    margin-bottom: 35px;
+    margin-top: -70px;
+}
 
 .OverFlow{
-    width: 450px;
+  /*   border: 2px solid #1D9DF6; */
+    background-color: #0303030a;
+    width: 600px;
+    height: 500px;
     overflow: auto;
+/*     margin-left: 262px;
+    margin-top: 20px; */
 }
+
+.btn_Cancel{
+    display: flex;
+    justify-content:end;
+    position: absolute;
+    width: 100%;
+    font-size: 40px;
+    color: #f61d1d;
+    margin-left: 0px;
+    margin-top: -730px;  
+}
+
+
+.btn_Cancel1{
+    display: flex;
+    margin-top: 50px;
+    height: 50px;
+    gap: 170px;
+    margin-left: 50px;
+
+}
+
+
 
 .cards1 {
     
@@ -34,7 +72,7 @@
     border: none;
     height: 400px;
     width: 100px;
-
+    margin-left: 30px;
     border-radius: 4px;
   }
 
@@ -51,9 +89,6 @@
     top: -2px;
 }
 
-button.cancel1 {
-    margin-top: 50px;
-}
 
 .studet {
     background-color: rgba(255, 255, 255, 0);
@@ -113,21 +148,29 @@ button.cancel1 {
     border-bottom: 2px solid #1D9DF6;
 }
 
+.prueba{
+    
+    display: flex;
+    justify-content: center;
+}
+
 textarea {
     width: 250px;
     border: 2px solid #1D9DF6;
 }
 
 /* btn */
-.disable {
+ .disable {
     color: rgb(255, 255, 255);
     background-color: #f61d1d;
     border: none;
     width: 109px;
     height: 35px;
-    position: relative;
-    top: -1.5rem;
-    left: 19rem;
+    gap: 30px;
+
+    
+/*     top: -1.5rem;
+    left: 34rem; */
 }
 
 .update{
@@ -136,7 +179,234 @@ textarea {
     border: none;
     width: 109px;
     height: 35px;
-    position: relative;
-    top: 11px;
-    left: 11.5rem;
+    gap: 30px;
+    
+}
+
+
+
+
+@media(max-width:1200px){
+
+    .photoView {
+        width: 98px;
+        height: 92px;
+        border-radius: 5px;
+        margin-left: 22px;
+        margin-top: 15px;
+    }
+    
+    .information {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 234px;
+        margin-bottom: -30px;
+        margin-top: -32px;
+    /*     margin-left: 400px;
+        margin-top: -104px;
+        margin-bottom: 20px; */
+    }
+    
+    .centerOver{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .mensaje2{
+        
+        display: flex;
+        width: 600px;
+        justify-content: center;
+        align-items:center ;
+    } 
+
+
+    .mensaje{
+        border: none;
+        border-bottom: 2px solid #1D9DF6;
+        font-size: 30px;
+        flex-direction: column;
+        margin-top: 120px;
+        color: black;
+        display: flex;
+
+    }
+
+    .centerInfor{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+    
+    .OverFlow{
+      /*   border: 2px solid #1D9DF6; */
+        background-color: #0303030a;
+        width: 600px;
+        height: 500px;
+        overflow: auto;
+    /*     margin-left: 262px;
+        margin-top: 20px; */
+    }
+    
+    .btn_Cancel{
+        display: flex;
+        justify-content:end;
+        position: absolute;
+        width: 100%;
+        font-size: 40px;
+        color: #f61d1d;
+        margin-left: 0px;
+        margin-top: -730px;  
+    }
+
+
+    
+    .btn_Cancel1{
+        margin-top: 50px;
+
+    }
+
+    .prueba{
+        display: flex;
+        justify-content: center;
+        align-items: center ;
+    }
+    
+    .cards1 {
+        
+        width: 410px;
+        display: flex;
+        gap:20px; 
+        margin-bottom: 50px;
+    }
+    
+    .cardInfo1 {
+        border: none;
+        height: 400px;
+        width: 100px;
+    
+        border-radius: 4px;
+      }
+    
+    .iconRecord {
+        position: relative;
+        top: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .iconRecord p {
+        position: relative;
+        top: -2px;
+    }
+    
+    
+    .studet {
+        background-color: rgba(255, 255, 255, 0);
+        margin-top: -300px;
+        margin-left: 550px;
+        border-radius: 0;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 2px solid #1D9DF6;
+    }
+    
+    .contStudent {
+        margin-top: 30px;
+        background-color: blue;
+        height: 0%;
+        width: 00%;
+    }
+    
+    .ContDescripstudent {
+        width: 0;
+        height: 0;
+        margin-left: 1100px;
+        margin-top: 50px;
+    }
+    
+    .contTeacher {
+        margin-top: 300px;
+        width: 0;
+        height: 0;
+    }
+    
+    .ContDeTeacher {
+        width: 0;
+        height: 0;
+        margin-top: 100px;
+        margin-left: 424px;
+        background-color: red;
+    }
+    
+    .teacher {
+        background-color: rgba(255, 255, 255, 0);
+        margin-top: -100px;
+        margin-left: 220px;
+        border-radius: 0;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 2px solid #1D9DF6;
+    }
+    
+    .title {
+        border-radius: 0;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 2px solid #1D9DF6;
+    }
+    
+    textarea {
+        width: 250px;
+        border: 2px solid #1D9DF6;
+    }
+    
+
+
+
+}
+
+
+@media(max-width:420px){
+
+    .cardInfo1 {
+        border: none;
+        height: 400px;
+        width: 110px;
+        margin-left: -10px;
+        border-radius: 4px;
+      }
+
+      .btn_Cancel1{
+        display: flex;
+        margin-top: 10px;
+        height: 50px;
+        gap: 170px;
+        margin-left: -10px;
+    
+    }
+
+    .btn_Cancel{
+        display: flex;
+        justify-content:end;
+        position: absolute;
+        width: 100%;
+        font-size: 35px;
+        color: #f61d1d;
+        margin-left: 0px;
+        margin-top: -690px;  
+    }
+    
+
+
+
+
+
+
 }

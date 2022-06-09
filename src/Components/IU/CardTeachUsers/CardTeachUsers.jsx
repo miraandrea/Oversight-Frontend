@@ -48,7 +48,7 @@ export const CardTeachUsers = ({ courseStudent }) => {
         <CardMedia
           component="img"
           height="120"
-          image={courseStudent.foto || foto} 
+          image={courseStudent.fotoEstudiante || foto} 
           alt={courseStudent.estudianteNombre}
           onClick={handleOpenGroup}
         />
