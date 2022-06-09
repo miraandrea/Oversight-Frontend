@@ -73,8 +73,35 @@ and (max-width : 320px)
 .paper1{
     position: absolute;
     top: 11%;
-    left: 9%;
-    width: 85%;
+    left: 16%;
+    width: 75%;
     height: 105vw;
     background-color: #fff;
+}
+
+
+@media(max-width:420px){
+
+    .paper1{
+        position: absolute;
+        top: 11%;
+        left: 2%;
+        width: 96%;
+        height: 160vw;
+        background-color: #fff;
+    }
+
+}
+
+@media(max-width:1200px){
+
+    .paper1{
+        position: absolute;
+        top: 11%;
+        left: 2%;
+        width: 96%;
+        height: 160vw;
+        background-color: #fff;
+    }
+
 }
