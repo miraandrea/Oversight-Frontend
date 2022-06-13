@@ -28,6 +28,10 @@ import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import { Register } from "../../IU/Register/Register";
 import { GroupAdd } from "../../IU/GroupAdd/GroupAdd";
 
+
+import Skeleton from '@mui/material/Skeleton';
+
+
 const drawerWidth = 220;
 
 const AppBar = styled(MuiAppBar, {
@@ -221,7 +225,9 @@ export const HomeAdmin = () => {
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <section className="mainCard">
               {loading ? (
-                <p>Cargando</p>
+                <div id="contenedor">
+                <div class="loader" id="loader">Loading...</div>
+                </div>
               ) : character.length > 0 ? (
                 character.map((course, index) => (
                   <Main key={index} course={course} />

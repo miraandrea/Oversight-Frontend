@@ -1,4 +1,83 @@
 .imgProfile{
-    width: 89vw;
-    height: 30vw;
+    border-radius: 50%;
+    width: 15vw;
+    height: 15vw;
+}
+
+.containerImgProfile{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+
+}
+.prueba2{
+    display: none;
+}
+.ContInfor{
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.cursor{
+    cursor: not-allowed;
+}
+
+.cursor1{
+    cursor: not-allowed;
+}
+
+.cursor2{
+    cursor: not-allowed;
+}
+
+.cursor3{
+    cursor: not-allowed;
+}
+
+.ContImput{
+    /* cursor: not-allowed; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.TextField{
+    
+    pointer-events: none;
+    border: 2px solid #1d9df6;
+    width: 300px;
+    font-size: 20px
+}
+
+.Actualizar{
+    height: 50px;
+    background-color: #1d9df6;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    border: 1px solid #1d9df6;
+    border-radius: 5px
+}
+
+@media(max-width:420px){
+
+    .imgProfile{
+        border-radius: 50%;
+        width: 30vw;
+        height: 30vw;
+    }
+
+}
+
+
+@media(max-width:780px){
+
+    .imgProfile{
+        border-radius: 50%;
+        width: 20vw;
+        height: 20vw;
+    }
+
 }
