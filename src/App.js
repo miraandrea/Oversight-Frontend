@@ -33,7 +33,6 @@ function App() {
             <Route path='/Usuario_Administrador/:name' element={<ViewUsersAdmin />} />
             <Route path='/Perfil' element={<ProfileUsers />} />
             <Route path='/Docente' element={<HomeTeac/>} />
-            {/* <Route path='/Estudiante' element={<StudentMainMenu />} /> */}
             <Route path='/Estudiante' element={<HomeStudent />} />
             <Route path='/Usuario_Docente/:name' element={<ViewUsersDocente />} />
           </Route>

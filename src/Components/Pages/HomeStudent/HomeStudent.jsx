@@ -40,6 +40,7 @@ import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import { IoExitOutline } from "react-icons/io5";
 import { IoMdHome } from "react-icons/io";
 import { NavLink } from "react-router-dom";
+import { Header } from "../../Layout/Header/Header";
 
 const drawerWidth = 220;
 
@@ -91,42 +92,42 @@ const mdTheme = createTheme();
 
 export const HomeStudent = () => {
 
-  const [value, setValue] = useState(0);
+  // const [value, setValue] = useState(0);
 
 
-  const [open, setOpen] = useState(false);
-  const toggleDrawer = () => {
-    setOpen(!open);
-  };
+  // const [open, setOpen] = useState(false);
+  // const toggleDrawer = () => {
+  //   setOpen(!open);
+  // };
 
-  const [courses, setCourses] = useState([]);
-  const cookies = new Cookies()
-  const idUser = cookies.get("idEstudiante")
+  // const [courses, setCourses] = useState([]);
+  // const cookies = new Cookies()
+  // const idUser = cookies.get("idEstudiante")
 
-  const UrlTokenCourse = `http://localhost:4000/v2/students/${idUser}/observers`;
+  // const UrlTokenCourse = `http://localhost:4000/v2/students/${idUser}/observers`;
   
-  useEffect(() => {
-    const getCourses = () => {
-      axios.get(UrlTokenCourse)
-        .then((res) => {
-          getToken(res.data)
-        })
-        .catch((error) => console.log(error))
+  // useEffect(() => {
+  //   const getCourses = () => {
+  //     axios.get(UrlTokenCourse)
+  //       .then((res) => {
+  //         getToken(res.data)
+  //       })
+  //       .catch((error) => console.log(error))
 
-    };
-    getCourses();
-  }, []);
+  //   };
+  //   getCourses();
+  // }, []);
 
-  const getToken = (data) => {
-    axios.get(`http://localhost:4000/v1/decode/${data}`)
-        .then((res) => setCourses(res.data))
-        .catch((error) => console.log(error))
-  }
+  // const getToken = (data) => {
+  //   axios.get(`http://localhost:4000/v1/decode/${data}`)
+  //       .then((res) => setCourses(res.data))
+  //       .catch((error) => console.log(error))
+  // }
 
   // const [search, setSearch] = useState("")
   // const [loading, setloading] = useState(true)
 
-  console.log(courses);
+  // console.log(courses);
   // const UrlSearchCourse = "http://localhost:4000/v1/courses/0" + search;
 
   // useEffect(() => {
@@ -147,6 +148,64 @@ export const HomeStudent = () => {
   // const character = courses.filter((character) =>
   //   character.nombre.toLocaleLowerCase().includes(search.toLocaleLowerCase())
   // )
+
+
+
+
+  const [value, setValue] = useState(0);
+
+  const [open, setOpen] = useState(false);
+  const toggleDrawer = () => {
+    setOpen(!open);
+  };
+
+  const cookies = new Cookies()
+  const idUser = cookies.get("idEstudiante")
+
+  const UrlTokenCourse = `http://localhost:4000/v2/students/${idUser}/observers`;
+
+  useEffect(() => {
+    const getCourses = () => {
+      axios.get(UrlTokenCourse)
+        .then((res) => {
+          getToken(res.data)
+        })
+        .catch((error) => console.log(error))
+
+    };
+    getCourses();
+  }, []);
+
+  const getToken = (data) => {
+    axios.get(`http://localhost:4000/v1/decode/${data}`)
+      .then((res) => setCourses(res.data))
+      .catch((error) => console.log(error))
+  }
+
+  const [search, setSearch] = useState("")
+  const [loading, setloading] = useState(true)
+  const [courses, setCourses] = useState([]);
+
+  // const UrlSearchCourse = "http://localhost:4000/v1/courses/0" + search;
+
+  // useEffect(() => {
+  //   const getSearch = () => {
+  //     axios.get(UrlSearchCourse)
+  //       .then((res) => user(res.data))
+  //       .catch((error) => console.log(error))
+
+  //   }
+  //   getSearch();
+  // }, []);
+
+  // const user = (data) => {
+  //   setloading(false)
+  //   setCourses(data.results[0])
+  // }
+
+  const character = courses.filter((character) =>
+    character.titulo.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+  )
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -170,7 +229,7 @@ export const HomeStudent = () => {
               <MdMenu />
               </div>
             </IconButton>
-            {/* <Header filter={search} setSearch={setSearch} /> */}
+              <Header filter={search} setSearch={setSearch} />
           </Toolbar>
         </AppBar>
         <div className="nav_drawer">
@@ -206,18 +265,21 @@ export const HomeStudent = () => {
           }}>
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            {/* <section className="mainCard">
+            <section className="mainCard">
               {loading ? (
-                <p>Cargando</p>
+                <div id="contenedor">
+                <div class="loader" id="loader">Loading...</div>
+                </div>
               ) : character.length > 0 ? (
-                character.map((course, index) => (
-                  <MainTeacher key={index} course={course} />
+                character.map((course2, index) => (
+                  <MainStudent key={index} course2={course2} />
                   ))
               ) : (
                 <p>No se encontro el Grupo {' '}<strong>"{search}"</strong>.</p>
               )}
-            </section> */}
-            <section className="studentCard">
+            </section>
+
+            {/* <section className="studentCard">
             <div className="history">
               <AiOutlineFileSearch className='FileSearch' />
               <h3>Historial</h3>
@@ -225,7 +287,7 @@ export const HomeStudent = () => {
             {courses.map((course2, index) => (
                   <MainStudent key={index} course2={course2} />
                   ))}
-              </section>
+              </section> */}
               {/* <MainTeacher key={courses.idcurso} courses={courses} /> */}
           </Container>
         </Box>

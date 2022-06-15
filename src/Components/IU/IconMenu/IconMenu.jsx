@@ -26,7 +26,7 @@ export const IconMenu = () => {
   const bodyRegister = (
     <div className="modal">
       <Register />
-      <div className="btn_Cancel">
+      <div className="btn_CancelRegister">
         <button className="cancel" onClick={handleClose}>Cancelar</button>
       </div>
     </div>
@@ -41,7 +41,7 @@ export const IconMenu = () => {
   const bodyGroup = (
     <div className="modalGroup">
       <GroupAdd />
-      <div className="btn_Cancel">
+      <div className="btn_CancelRegister">
         <button className="cancel" onClick={handleCloseGroup}>Cancelar</button>
       </div>
     </div>

@@ -264,7 +264,9 @@ export const ViewUsersAdmin = () => {
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <section className="mainCard">
               {loading ? (
-                <p>Cargando</p>
+                <div id="contenedor">
+                <div class="loader" id="loader">Loading...</div>
+                </div>
               ) : character.length > 0 ? (
                 <>
                   <div className="borde">
