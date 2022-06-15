@@ -1,35 +1,35 @@
 import axios from "axios";
-import jwtDecode from "jwt-decode";
-import Box from "@mui/material/Box";
-import List from "@mui/material/List";
 import Cookies from "universal-cookie";
 import { IoMdHome } from "react-icons/io";
 import { NavLink } from "react-router-dom";
-import Toolbar from "@mui/material/Toolbar";
-import Divider from "@mui/material/Divider";
-import MuiDrawer from "@mui/material/Drawer";
-import MuiAppBar from "@mui/material/AppBar";
-import Container from "@mui/material/Container";
 import { IoExitOutline } from "react-icons/io5";
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
 import React, { useEffect, useState } from "react";
-import CssBaseline from "@mui/material/CssBaseline";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemButton from "@mui/material/ListItemButton";
-import { AvatarProfile } from "../../IU/AvatarProfile/AvatarProfile";
-import { ProfileFooter } from "../../Layout/ProfileFooter/ProfileFooter";
-import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
-
 import {
   MdMenu,
   MdKeyboardArrowLeft,
 } from "react-icons/md";
-
-
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+
+//components
+import { AvatarProfile } from "../../IU/AvatarProfile/AvatarProfile";
+import { ProfileFooter } from "../../Layout/ProfileFooter/ProfileFooter";
+
+//material ui
+import List from "@mui/material/List";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Container from "@mui/material/Container";
+import Divider from "@mui/material/Divider";
+import MuiDrawer from "@mui/material/Drawer";
+import MuiAppBar from "@mui/material/AppBar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import CssBaseline from "@mui/material/CssBaseline";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemButton from "@mui/material/ListItemButton";
+import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 
 
 const drawerWidth = 220;
@@ -89,57 +89,36 @@ export const ProfileUsers = () => {
     setOpen(!open);
   };
 
-  const UrlTokenCourse = "http://localhost:4000/v3/courses";
-
-  useEffect(() => {
-    const getCourses = () => {
-      axios.get(UrlTokenCourse)
-        .then((res) => {
-          const token = jwtDecode(res.data)
-          setloading(false)
-          setCourses(token.results[0])
-        })
-        .catch((error) => console.log(error))
-
-    };
-    getCourses();
-  }, []);
-
-
-  const [search, setSearch] = useState("")
-  const [loading, setloading] = useState(true)
-  const [courses, setCourses] = useState([]);
-
-  const UrlSearchCourse = "http://localhost:4000/v1/courses/0" + search;
-
-  useEffect(() => {
-    const getSearch = () => {
-      axios.get(UrlSearchCourse)
-        .then((res) => user(res.data))
-        .catch((error) => console.log(error))
-
-    }
-    getSearch();
-  }, []);
-
-  const user = (data) => {
-    setloading(false)
-    setCourses(data.results[0])
-  }
-
-  const character = courses.filter((character) =>
-    character.nombre.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-  )
+  const cookies = new Cookies();
+  const rol = window.localStorage.getItem("rol")
+  let routes = ""
 
   const [photos, setPhotos] = useState([]);
-  useEffect(() => {
-    const cookies = new Cookies();
-    const idUser = cookies.get("idAdministrador");
+  
+  if ( rol == "Administrator" ) {
+    routes = "/Administrador"
+    const idUserAdm = cookies.get("idAdministrador");
     axios
-      .get(`http://localhost:4000/v1/administrators/${idUser}`)
+    .get(`http://localhost:4000/v1/administrators/${idUserAdm}`)
+    .then((response) => getAllPhotos(response.data))
+    .catch((error) => console.log(error));
+  }
+  else if ( rol == "Teacher" ) {
+    routes = "/Docente"
+    const idUserDoce = cookies.get("idDocente")
+    axios
+    .get(`http://localhost:4000/v1/teachers/${idUserDoce}`)
+    .then((response) => getAllPhotos(response.data))
+    .catch((error) => console.log(error));
+  } 
+  else if ( rol == "Student" ) {
+    routes = "/Estudiante"
+    const idUserEstu = cookies.get("idEstudiante")
+    axios
+      .get(`http://localhost:4000/v2/students/${idUserEstu}`)
       .then((response) => getAllPhotos(response.data))
       .catch((error) => console.log(error));
-  });
+  }
 
   const getAllPhotos = (data) => {
     axios
@@ -210,7 +189,7 @@ export const ProfileUsers = () => {
              <div className="menu">
               <ListItemButton >
                 <ListItemIcon>
-                  <NavLink to="/Administrador">
+                  <NavLink to={routes}>
                     <IoMdHome className="iconmenu" />
                   </NavLink>
                 </ListItemIcon>
@@ -260,7 +239,7 @@ export const ProfileUsers = () => {
             }}
           >
             <BottomNavigationAction label="" icon={
-              <NavLink to="/Administrador">
+              <NavLink to={routes}>
                 <IoMdHome />
               </NavLink>} />
             <BottomNavigationAction
@@ -278,6 +257,8 @@ const cookies = new Cookies();
 
 const signOff = () => {
   cookies.remove("idAdministrador", { path: "/" });
+  cookies.remove("idDocente", { path: "/" });
+  cookies.remove("idEstudiante", { path: "/" });
   localStorage.clear()
   window.location.href = "/";
 };

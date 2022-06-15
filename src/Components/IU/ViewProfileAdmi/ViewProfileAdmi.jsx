@@ -6,7 +6,7 @@ import axios from "axios";
 import jwtDecode from "jwt-decode";
 import { useParams } from "react-router";
 import { CardStudent } from '../CardStudent/CardStudent';
-
+import foto from '../ImgProfile/student.jpg'
 export const ViewProfileAdmi = ({ courseStudent }) => {
 
   //historial 
@@ -30,7 +30,7 @@ export const ViewProfileAdmi = ({ courseStudent }) => {
 
   return (
     <div>
-      <img src={viewFotophoto} alt="photo" className="photoView" />
+      <img src={courseStudent.fotoEstudiante || foto} alt="photo" className="photoView" />
       <div className='centerInfor'>
       <div className='information'>
         <p>{courseStudent.estudianteNombre} {courseStudent.estudianteApellido}</p>

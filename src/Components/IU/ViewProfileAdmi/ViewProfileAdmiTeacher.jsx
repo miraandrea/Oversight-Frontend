@@ -38,15 +38,18 @@ export const ViewProfileAdmiTeacher = ({ teacher }) => {
   return (
     <div>
       <img src={teacher.fotoDocente || foto} alt="photo" className="photoView" />
+      <div className='centerInfor'>
       <div className='information'>
         <p>{teacher.nombreDocente} {teacher.apellidoDocente}</p>
         <p>{teacher.documentoDocente }</p>
         <p>Docente</p>
       </div>
+      </div>
       <div className="iconRecord">
         <AiOutlineFileSearch />
         <p>Historial</p>
       </div>
+      <div className='centerOver'>
       <div className='OverFlow'>
       <div className="cards1" >
         <div className="cardInfo1">
@@ -55,15 +58,22 @@ export const ViewProfileAdmiTeacher = ({ teacher }) => {
               <CardStudent key={index} course2={course2}/>
             ))
           ): (
+            <div className='mensaje2' >
             <p>No tiene anotaciones</p>
+            </div>
           )}
         </div>
       </div>
       </div>
+      </div>
+      <div className='prueba'>
+      <div className='centerBtn' >
       <div className="btn_Cancel1">
         <button className="update">Actualizar</button>
         <button className="disable">Deshabilitar</button>
       </div>
+    </div>
+    </div>
     </div>
   )
 }

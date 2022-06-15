@@ -82,9 +82,12 @@ export const ViewProfileTeacher = ({ courseStudent }) => {
     )
 
   return (
-    <div>
-      <img src={courseStudent.fotoEstudiante || foto} alt="photo" className="photoView1" onClick={handleOpenGroup}/>
+    <div className='contertotal'>
       <div className='information1'>
+      <div className='photo'>
+      <img src={courseStudent.fotoEstudiante || foto} alt="photo" className="photoView1" onClick={handleOpenGroup}/>
+
+      </div>
         <p className="letra"> <b>{courseStudent.estudianteNombre} {courseStudent.estudianteApellido}</b></p>
         <p className="letra" > <b> {courseStudent.estudianteDocumento} </b> </p>
         <p className="letra" > <b>Estudiante</b> </p>
@@ -94,7 +97,8 @@ export const ViewProfileTeacher = ({ courseStudent }) => {
         <p>Historial</p>
       </div>
       <div className='contTitle1'>
-        <div className='Cont'>
+      <div className='cont1'>
+      <div className='Cont'>
           <div>
             <input 
               type="text" 
@@ -154,6 +158,9 @@ export const ViewProfileTeacher = ({ courseStudent }) => {
               />
           </div>
         </div>
+
+      </div>
+
         <p>{messageRegister}</p>
       </div>
       <button className='btnRegister' onClick={() => getHistory()}>Registrar</button>

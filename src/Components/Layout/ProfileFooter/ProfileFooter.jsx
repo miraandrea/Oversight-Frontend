@@ -11,8 +11,6 @@ export const ProfileFooter = () => {
 
     let rol = localStorage.getItem("rol")
     const cookies = new Cookies()
-
-    
     
     const profileAdmi = (idUser) => {
         axios
@@ -23,7 +21,7 @@ export const ProfileFooter = () => {
     
     const profileTeach = (idUser) => {
         axios
-        .get(`http://localhost:4000/v1/teacher/${idUser}`)
+        .get(`http://localhost:4000/v1/teachers/${idUser}`)
         .then((response) => getToken(response.data))
         .catch((error) => console.log(error))
     }
@@ -46,10 +44,10 @@ export const ProfileFooter = () => {
         const idUser = cookies.get("idAdministrador")
         profileAdmi(idUser)
     }else if (rol === "Teacher"){
-        const idUser = cookies.get("idTeacher")
+        const idUser = cookies.get("idDocente")
         profileTeach(idUser)
     }else if (rol === "Student"){
-        const idUser = cookies.get("idStudent")
+        const idUser = cookies.get("idEstudiante")
         profileStude(idUser)
     }
 
