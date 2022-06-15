@@ -1,30 +1,29 @@
 import axios from "axios";
+import { NavLink } from "react-router-dom";
+import { IoMdHome } from "react-icons/io";
+import Cookies from "universal-cookie/es6";
+import { IoExitOutline } from "react-icons/io5";
+import React, { useEffect, useState } from "react";
+import { MdMenu, MdKeyboardArrowLeft } from "react-icons/md";
+
+//components
+import { NavBar } from "../../Layout/NavBar/NavBar";
+import { Header } from "../../Layout/Header/Header";
+import { MainTeacher } from "../../Layout/MainTeacher/MainTeacher";
+
+//material ui
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
-import Cookies from "universal-cookie/es6";
 import Toolbar from "@mui/material/Toolbar";
 import Divider from "@mui/material/Divider";
 import MuiDrawer from "@mui/material/Drawer";
 import MuiAppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
-import React, { useEffect, useState } from "react";
-import { NavBar } from "../../Layout/NavBar/NavBar";
 import CssBaseline from "@mui/material/CssBaseline";
-import { MainTeacher } from "../../Layout/MainTeacher/MainTeacher";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
-
-import {
-  MdMenu,
-  MdKeyboardArrowLeft,
-} from "react-icons/md";
-
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import { IoExitOutline } from "react-icons/io5";
-import { IoMdHome } from "react-icons/io";
-import { NavLink } from "react-router-dom";
-
 
 const drawerWidth = 220;
 
@@ -83,12 +82,11 @@ export const HomeTeac = () => {
     setOpen(!open);
   };
 
-  const [courses, setCourses] = useState([]);
   const cookies = new Cookies()
   const idUser = cookies.get("idDocente")
 
   const UrlTokenCourse = `http://localhost:4000/v1/teachers/${idUser}/courses`;
-  
+
   useEffect(() => {
     const getCourses = () => {
       axios.get(UrlTokenCourse)
@@ -103,44 +101,46 @@ export const HomeTeac = () => {
 
   const getToken = (data) => {
     axios.get(`http://localhost:4000/v1/decode/${data}`)
-        .then((res) => setCourses(res.data))
-        .catch((error) => console.log(error))
+      .then((res) => setCourses(res.data))
+      .catch((error) => console.log(error))
   }
 
-  // const [search, setSearch] = useState("")
-  // const [loading, setloading] = useState(true)
+  const [search, setSearch] = useState("")
+  const [loading, setloading] = useState(true)
+  const [courses, setCourses] = useState([]);
 
-  console.log(courses);
-  // const UrlSearchCourse = "http://localhost:4000/v1/courses/0" + search;
+  const UrlSearchCourse = "http://localhost:4000/v1/courses/0" + search;
 
-  // useEffect(() => {
-  //   const getSearch = () => {
-  //     axios.get(UrlSearchCourse)
-  //       .then((res) => user(res.data))
-  //       .catch((error) => console.log(error))
+  useEffect(() => {
+    const getSearch = () => {
+      axios.get(UrlSearchCourse)
+        .then((res) => user(res.data))
+        .catch((error) => console.log(error))
 
-  //   }
-  //   getSearch();
-  // }, []);
+    }
+    getSearch();
+  }, []);
 
-  // const user = (data) => {
-  //   setloading(false)
-  //   setCourses(data.results[0])
-  // }
+  const user = (data) => {
+    setloading(false)
+    setCourses(data.results[0])
+  }
 
-  // const character = courses.filter((character) =>
-  //   character.nombre.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-  // )
+  const character = courses.filter((character) =>
+    character.curso.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+  )
+
 
   return (
     <ThemeProvider theme={mdTheme}>
-      <Box sx={{ display: "flex",heigh:"40vh" }}>
+      <Box sx={{ display: "flex", heigh: "40vh" }}>
         <CssBaseline />
-        <AppBar open={open} >
+        <AppBar open={open}>
           <Toolbar
             sx={{
               pr: "24px",
-            }}>
+            }}
+          >
             <IconButton
               edge="start"
               color="inherit"
@@ -149,12 +149,13 @@ export const HomeTeac = () => {
               sx={{
                 marginRight: "36px",
                 ...(open && { display: "none" }),
-              }}>
-                <div className="nav_bar">
-              <MdMenu />
+              }}
+            >
+              <div className="nav_bar">
+                <MdMenu />
               </div>
             </IconButton>
-            {/* <Header filter={search} setSearch={setSearch} /> */}
+            <Header filter={search} setSearch={setSearch} />
           </Toolbar>
         </AppBar>
         <div className="nav_drawer">
@@ -187,26 +188,25 @@ export const HomeTeac = () => {
             flexGrow: 1,
             height: "100vh",
             overflow: "auto",
-          }}>
+          }}
+        >
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            {/* <section className="mainCard">
-              {loading ? (
-                <p>Cargando</p>
-              ) : character.length > 0 ? (
-                character.map((course, index) => (
-                  <MainTeacher key={index} course={course} />
-                  ))
-              ) : (
-                <p>No se encontro el Grupo {' '}<strong>"{search}"</strong>.</p>
-              )}
-            </section> */}
             <section className="mainCard">
-            {courses.map((course1, index) => (
+              {loading ? (
+                <div id="contenedor">
+                  <div class="loader" id="loader">Loading...</div>
+                </div>
+              ) : character.length > 0 ? (
+                character.map((course1, index) => (
                   <MainTeacher key={index} course1={course1} />
-                  ))}
-              </section>
-              {/* <MainTeacher key={courses.idcurso} courses={courses} /> */}
+                ))
+              ) : (
+                <p>
+                  No se encontro el Grupo <strong>"{search}"</strong>.
+                </p>
+              )}
+            </section>
           </Container>
         </Box>
       </Box>
@@ -238,14 +238,11 @@ export const HomeTeac = () => {
       </div>
     </ThemeProvider>
   );
-}
-
-
-
+};
 const cookies = new Cookies();
 
 const signOff = () => {
-  cookies.remove("idAdministrador", { path: "/" });
-  localStorage.clear()
+  cookies.remove("idDocente", { path: "/" });
+  localStorage.clear();
   window.location.href = "/";
 };
