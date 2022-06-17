@@ -1,4 +1,52 @@
 .imgProfile{
-    width: 89vw;
-    height: 30vw;
+    border-radius: 50%;
+    width: 15vw;
+    height: 15vw;
+}
+
+.containerImgProfile{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+
+}
+
+
+.cont_profile{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:20px
+}
+
+.input_profile{
+    width: 270px;
+    height: 45px;
+    text-align: center;
+    border: 1px solid #1d9df6;
+    border-radius: 3px;
+    
+}
+
+.Actualizar{
+    background-color: #1d9df6;
+    border: none;
+    width: 270px;
+    height: 40px;
+    color: #ffff;
+    font-size: 18px;
+    border-radius: 3px;
+
+}
+
+.input_profile1{
+    background-color: #ffff;
+    width: 270px;
+    height: 45px;
+    text-align: center;
+    border: 1px solid #1d9df6;
+    border-radius: 3px;
+    
 }

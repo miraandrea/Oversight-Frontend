@@ -28,13 +28,10 @@
 }
 
 .OverFlow{
-  /*   border: 2px solid #1D9DF6; */
     background-color: #0303030a;
     width: 600px;
     height: 500px;
     overflow: auto;
-/*     margin-left: 262px;
-    margin-top: 20px; */
 }
 
 .btn_Cancel{
@@ -159,7 +156,6 @@ textarea {
     border: 2px solid #1D9DF6;
 }
 
-/* btn */
  .disable {
     color: rgb(255, 255, 255);
     background-color: #f61d1d;
@@ -167,10 +163,6 @@ textarea {
     width: 109px;
     height: 35px;
     gap: 30px;
-
-    
-/*     top: -1.5rem;
-    left: 34rem; */
 }
 
 .update{
@@ -204,9 +196,6 @@ textarea {
         width: 234px;
         margin-bottom: -30px;
         margin-top: -32px;
-    /*     margin-left: 400px;
-        margin-top: -104px;
-        margin-bottom: 20px; */
     }
     
     .centerOver{
@@ -241,13 +230,10 @@ textarea {
     }
     
     .OverFlow{
-      /*   border: 2px solid #1D9DF6; */
         background-color: #0303030a;
         width: 600px;
         height: 500px;
         overflow: auto;
-    /*     margin-left: 262px;
-        margin-top: 20px; */
     }
     
     .btn_Cancel{
@@ -402,11 +388,5 @@ textarea {
         margin-left: 0px;
         margin-top: -690px;  
     }
-    
-
-
-
-
-
-
 }
+
