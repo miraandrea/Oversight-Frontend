@@ -145,17 +145,25 @@ export const Profile = ({ user }) => {
       <div className="containerImgProfile">
         <img src={user.foto} alt={user.nombre} className="imgProfile"/>
       </div>
-      <input type="text" value={user.curso}  />  
-      <form onSubmit={format}>
-        <input type="file"  onChange={e => setImage(e.target.files[0])} />
-        <input type="number" defaultValue={user.documento} onChange={(e) => setDocument(e.target.value)} />
-        <input type="text" defaultValue={user.nombre} onChange={(e) => setName(e.target.value)} />
-        <input type="text" defaultValue={user.apellido} onChange={(e) => setLastName(e.target.value)} />
-        <input type="text" defaultValue={user.fecnac} onChange={(e) => setDateOfBirth(e.target.value)} />
-        <input type="text" defaultValue={user.genero} onChange={(e) => setGenre(e.target.value)} />
-        <input type="text" defaultValue={user.firma} onChange={(e) => setSignature(e.target.value)} />
+      <form className='cont_profile' onSubmit={format}>
+        <p>Curso</p>
+        <input className='input_profile' type="text" value={user.curso}  />  
+        <p>Imagen</p>
+        <input className='input_profile1' type="file"  onChange={e => setImage(e.target.files[0])} />
+        <p>Documento</p>
+        <input className='input_profile' type="number" defaultValue={user.documento} onChange={(e) => setDocument(e.target.value)} />
+        <p>Nombre</p>
+        <input className='input_profile' type="text" defaultValue={user.nombre} onChange={(e) => setName(e.target.value)} />
+        <p>Apellido</p>
+        <input className='input_profile' type="text" defaultValue={user.apellido} onChange={(e) => setLastName(e.target.value)} />
+        <p>Fecha de nacimiento </p>
+        <input className='input_profile' type="text" defaultValue={user.fecnac} onChange={(e) => setDateOfBirth(e.target.value)} />
+        <p>Sexo</p>
+        <input className='input_profile' type="text" defaultValue={user.genero} onChange={(e) => setGenre(e.target.value)} />
+        <p>Firma</p>
+        <input className='input_profile' type="text" defaultValue={user.firma} onChange={(e) => setSignature(e.target.value)} />
 
-        <button  type="submit" className='Actualizar' >Actualizar</button>
+        <button   type="submit" className='Actualizar' >Actualizar</button>
       </form>
     </div>
   )
