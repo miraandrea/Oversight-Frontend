@@ -10,74 +10,43 @@
     margin-bottom: 35px;
 
 }
-.prueba2{
-    display: none;
-}
-.ContInfor{
+
+
+.cont_profile{
+    
     display: flex;
-    justify-content:center ;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
-
+    gap:20px
 }
 
-.cursor{
-    cursor: not-allowed;
-}
-
-.cursor1{
-    cursor: not-allowed;
-}
-
-.cursor2{
-    cursor: not-allowed;
-}
-
-.cursor3{
-    cursor: not-allowed;
-}
-
-.ContImput{
-    /* cursor: not-allowed; */
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.TextField{
+.input_profile{
+    width: 270px;
+    height: 45px;
+    text-align: center;
+    border: 1px solid #1d9df6;
+    border-radius: 3px;
     
-    pointer-events: none;
-    border: 2px solid #1d9df6;
-    width: 300px;
-    font-size: 20px
 }
 
 .Actualizar{
-    height: 50px;
     background-color: #1d9df6;
-    color: rgb(255, 255, 255);
-    font-size: 20px;
+    border: none;
+    width: 270px;
+    height: 40px;
+    color: #ffff;
+    font-size: 18px;
+    border-radius: 3px;
+
+}
+
+.input_profile1{
+    background-color: #ffff;
+    width: 270px;
+    height: 45px;
+    text-align: center;
     border: 1px solid #1d9df6;
-    border-radius: 5px
-}
-
-@media(max-width:420px){
-
-    .imgProfile{
-        border-radius: 50%;
-        width: 30vw;
-        height: 30vw;
-    }
-
-}
-
-
-@media(max-width:780px){
-
-    .imgProfile{
-        border-radius: 50%;
-        width: 20vw;
-        height: 20vw;
-    }
-
+    border-radius: 3px;
+    
 }
