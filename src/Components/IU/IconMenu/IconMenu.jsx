@@ -3,14 +3,18 @@ import React from "react";
 import { IoMdHome } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 import Cookies from "universal-cookie/es6";
-import Modal from "@material-ui/core/Modal";
 import { MdGroupAdd } from "react-icons/md";
 import { IoMdPersonAdd } from "react-icons/io";
-import { Register } from "../Register/Register";
 import { IoExitOutline } from "react-icons/io5";
+
+//components
+import { Register } from "../Register/Register";
 import { GroupAdd } from "../GroupAdd/GroupAdd";
-import ListItemIcon from "@mui/material/ListItemIcon";
+
+//material ui
+import Modal from "@material-ui/core/Modal";
 import ListItemText from "@mui/material/ListItemText";
+import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemButton from "@mui/material/ListItemButton";
 
 export const IconMenu = () => {
@@ -37,6 +41,7 @@ export const IconMenu = () => {
   };
   const handleCloseGroup = () => {
     setOpenGroup(false);
+    window.location.reload()
   };
   const bodyGroup = (
     <div className="modalGroup">
@@ -57,21 +62,18 @@ export const IconMenu = () => {
         </ListItemIcon>
         <ListItemText primary="Inicio" />
       </ListItemButton>
-
       <ListItemButton >
         <ListItemIcon>
           <IoMdPersonAdd onClick={handleOpen} className="iconmenu" />
         </ListItemIcon>
         <ListItemText primary="Registrar usuario" />
       </ListItemButton>
-
       <ListItemButton >
         <ListItemIcon>
           <MdGroupAdd onClick={handleOpenGroup} className="iconmenu" />
         </ListItemIcon>
         <ListItemText primary="Agregar grupo" />
       </ListItemButton>
-
       <ListItemButton >
         <ListItemIcon>
           <IoExitOutline onClick={() => signOff()} className="iconmenu" />

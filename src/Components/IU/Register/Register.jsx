@@ -1,5 +1,6 @@
 import "./Register.css";
 import axios from "axios";
+import swal from '@sweetalert/with-react';
 import { IoMdPersonAdd } from "react-icons/io";
 import React, { useEffect, useState } from "react";
 
@@ -34,7 +35,6 @@ export const Register = () => {
   //mensages
   const [message, setMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState(false);
-  const [messageRegister, setMessageRegister] = useState("");
 
   //Registar
   const [document, setDocument] = useState("");
@@ -79,12 +79,12 @@ export const Register = () => {
     const { registered } = data;
     registered ? showMessageRegisterError() : validateRegister();
   }
-  const validateRegister = () =>{
+  const validateRegister = () => {
     setErrorMessage(true)
-    setMessageRegister("No se pudo registar");
+    swal("Oops!", "No se pudo registar", "error");
   }
-  const showMessageRegisterError = () =>{
-    setMessageRegister("Se registro correctamente");
+  const showMessageRegisterError = () => {
+    swal("Exito!", "Se registro exitosamente", "success")
   }
 
   return (
@@ -151,7 +151,7 @@ export const Register = () => {
                 className="select"
                 onChange={(e) => setCourse(e.target.value)}
               >
-                <option>Seleccione un grupo</option>
+                <option>Seleccione un curso</option>
                 {data.map((el, index) => {
                   return (
                     <option key={index} value={el.idcurso}>
@@ -161,7 +161,6 @@ export const Register = () => {
                 })}
               </select>
             </div>
-            <p>{messageRegister}</p>
           </div>
         </div>
         <div className="btn_Registrar">

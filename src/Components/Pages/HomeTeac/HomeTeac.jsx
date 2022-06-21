@@ -9,6 +9,7 @@ import { MdMenu, MdKeyboardArrowLeft } from "react-icons/md";
 //components
 import { NavBar } from "../../Layout/NavBar/NavBar";
 import { Header } from "../../Layout/Header/Header";
+import fotoBuscar from "../../../Img/buscador.jfif";
 import { MainTeacher } from "../../Layout/MainTeacher/MainTeacher";
 
 //material ui
@@ -21,8 +22,8 @@ import MuiAppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import CssBaseline from "@mui/material/CssBaseline";
-import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import BottomNavigation from "@mui/material/BottomNavigation";
+import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 
 const drawerWidth = 220;
@@ -94,7 +95,6 @@ export const HomeTeac = () => {
           getToken(res.data)
         })
         .catch((error) => console.log(error))
-
     };
     getCourses();
   }, []);
@@ -116,7 +116,6 @@ export const HomeTeac = () => {
       axios.get(UrlSearchCourse)
         .then((res) => user(res.data))
         .catch((error) => console.log(error))
-
     }
     getSearch();
   }, []);
@@ -129,7 +128,6 @@ export const HomeTeac = () => {
   const character = courses.filter((character) =>
     character.curso.toLocaleLowerCase().includes(search.toLocaleLowerCase())
   )
-
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -202,34 +200,33 @@ export const HomeTeac = () => {
                   <MainTeacher key={index} course1={course1} />
                 ))
               ) : (
-                <p>
-                  No se encontro el Grupo <strong>"{search}"</strong>.
-                </p>
+                <div className="photoSearch">
+                  <img src={fotoBuscar} alt="buscar" />
+                  <p>
+                    El curso <strong>"{search}"</strong> no se encontro.
+                  </p>
+                </div>
               )}
             </section>
           </Container>
         </Box>
       </Box>
       <div className="nav_menu-phone">
-        <Box
-          sx={{
-            width: "100vw",
-            display: "absolute",
-            borderTop: "1px solid #808080",
-          }}
-        >
-          <BottomNavigation
-            showLabels
-            value={value}
-            onChange={(event, newValue) => {
-              setValue(newValue);
-            }}
-          >
-            <BottomNavigationAction label="" icon={
-              <NavLink to="/Docente">
-                <IoMdHome />
-              </NavLink>} />
+        <Box>
+          <BottomNavigation>
             <BottomNavigationAction
+              sx={{
+                color: "#1976d2"
+              }}
+              label=""
+              icon={
+                <NavLink to="/Docente">
+                  <IoMdHome />
+                </NavLink>} />
+            <BottomNavigationAction
+              sx={{
+                color: "#1976d2"
+              }}
               label=""
               icon={<IoExitOutline onClick={() => signOff()} />}
             />

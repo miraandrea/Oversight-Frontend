@@ -1,102 +1,63 @@
-.photoView1 {
-    width: 95px;
-    height: 90px;
-    position: relative;
-    top: 90px;
-    left: 5%;
+.photoViewTeacher {
+    width: 90px;
+    height: 86px;
+    border-radius: 5px;
+    margin-left: 23px;
+    margin-top: 12px;
 }
-
-.photo{
-    width: 100%;
-    height: 100px;
-    
+.informationTeacher {
+    text-align: center;
+    width: 50vw;
+    margin-top: -86px;
+    margin-left: 116px;
 }
-
-.information1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    top: -70px;
-    left: 39px;
-}
-.cancelTeacher{
-    width: 100px;
-    margin-left: 500px;
-    margin-top: 200px;
-}
-.iconRecord1 {
-        
-    position: relative;
-    top: -60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.Cont {
+.containerTeacher {
     border: 1px solid #1D9DF6;
-    width: 60vw;
-    height: 32vw;
-    margin-left: 300px;
-    margin-top: -55px;
-
+    width: 83vw;
+    height: 79vw;
+    margin-left: 2vw;
+    margin-top: 7vw;
     border-radius: 5px;
 }
-
-.DataCont1{
-    margin-left:830px;
-    margin-top: -20px; 
-}
-
-.title1{
+.titleTeacher{
     border: none;
     border-bottom: 2px solid #1D9DF6;
-    font-size: 18px;
+    font-size: 15px;
+    width: 35vw;
 }
-
-.ContDeTeacher1 {
-    margin-top: 120px;
-    width: 300px;
-    margin-left: 150px;
-}
-.Stident2 {
-
-    width: 350px;
-    height: 11vw;
-    border: 2px solid #1D9DF6;
-}
-.docent {
-    width: 350px;
-    height: 11vw;
-    border: 2px solid #1D9DF6;
-}
-
-.ContDescripstudent1 {
-    width: 300px;
-    margin-left: 650px;
-    margin-top: -242px;
-}
-
-.Data1{
+.dataTe{
     border: none;
     border-bottom: 2px solid #1D9DF6;
-    font-size: 18px;
+    font-size: 15px;
+    width: 37vw;
 }
-
-
-
-.FirmaDocent {
-    margin-left: -70px;
-    margin-top: 100px;
+.dataContTe{
+    margin-left: 180px;
+    margin-top: -25px; 
 }
-
-.FirmaStudent {
-    margin-left: 100px;
-    margin-top:-20px;
+.description{
+    width: 83vw;
+    height: 60vw;
+    margin-top: 19px;
+    text-align: center;
 }
-
+.descrip {
+    width: 67vw;
+    height: 21vw;
+}
+.firms{
+    width: 78vw;
+    margin-left: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.studet{
+    width: 37vw;
+}
+.teacher{
+    width: 37vw;
+}
 .btnRegister{
     color: rgb(255, 255, 255);
     background-color: #1D9DF6;
@@ -104,1206 +65,93 @@
     width: 109px;
     height: 35px;
     position: relative;
-    top: 11px;
-    left: 80rem;
+    top: 17px;
+    left: 246px;
 }
-
-@media(max-width:1611px){
-    .photoView1 {
-        width: 91px;
-        height: 80px;
+@media (min-width: 720px) {
+    .photoViewTeacher {
+        width: 134px;
+        height: 116px;
+    }
+    .informationTeacher {
+        margin-top: -110px;
+        margin-left: 177px;
+        font-size: 1.2rem;
+    }
+    .containerTeacher {
+        height: 59vw;
+    }
+    .titleTeacher{
+        font-size: 24px;
+        width: 38vw;
+    }
+    .dataTe{
+        font-size: 24px;
+        width: 40vw;
+    }
+    .dataContTe{
+        margin-left: 304px;
+        margin-top: -29px; 
+    }
+    .description{
+        width: 43vw;
+        height: 38vw;
+        margin-top: 52px;
+    }
+    .descrip {
+        width: 39vw;
+        height: 25vw;
+    }
+    .descriptionStuden{
         position: relative;
-        top: 100px;
-        left: 5%;
+        top: -29vw;
+        left: 40vw;
     }
-
-    .photo{
-        width: 100%;
-        height: 100px;
-        
-    }
-
-    .cancelTeacher{
-        width: 100px;
-        margin-left: -20px;
-        margin-top: 270px;
-    }
-
-
-    
-    .information1 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        top: -92px;
-        left: 39px;
-    }
-    
-    .iconRecord1 {
-        position: relative;
-        top: -90px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .Cont {
-        border: 1px solid #1D9DF6;
-        width: 84vw;
-        height: 42vw;
-        margin-left: 8px;
-        margin-top: -80px;
-    
-        border-radius: 5px;
-    }
-    
-    .DataCont1{
-        margin-left:1040px;
-        margin-top: -20px; 
-    }
-    
-    .title1{
-        border: none;
-        border-bottom: 2px solid #1D9DF6;
-        font-size: 18px;
-    }
-    
-    .ContDeTeacher1 {
-        margin-top: 80px;
-        width: 300px;
-        margin-left: 170px;
-    }
-    .Stident2 {
-    
-        width: 500px;
-        height: 20vw;
-        border: 2px solid #1D9DF6;
-    }
-    .docent {
-        width: 500px;
-        height: 20vw;
-        border: 2px solid #1D9DF6;
-    }
-    
-    .ContDescripstudent1 {
-        width: 400px;
-        margin-left: 800px;
-        margin-top: -350px;
-    }
-    
-    .Data1{
-        border: none;
-        border-bottom: 2px solid #1D9DF6;
-        font-size: 18px;
-    }
-    
-    
-    
-    .FirmaDocent {
-        margin-left: -40px;
-        margin-top: 50px;
-    }
-    
-    .FirmaStudent {
-        margin-left: 300px;
-        margin-top:-22px;
-    }
-    
     .btnRegister{
-        color: rgb(255, 255, 255);
-        background-color: #1D9DF6;
-        border: none;
-        width: 109px;
-        height: 35px;
-        position: relative;
-        top: 11px;
-        left: 55rem;
-    }
-    
-
-}
-@media(max-width:1641px){
-    .photoView1 {
-        width: 91px;
-        height: 80px;
-        position: relative;
-        top: 100px;
-        left: 5%;
-    }
-
-    .photo{
-        width: 100%;
-        height: 100px;
-        
-    }
-
-    .cancelTeacher{
-        width: 100px;
-        margin-left: -20px;
-        margin-top: 270px;
-    }
-
-
-    
-    .information1 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        top: -92px;
-        left: 39px;
-    }
-    
-    .iconRecord1 {
-        position: relative;
-        top: -90px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .Cont {
-        border: 1px solid #1D9DF6;
-        width: 84vw;
-        height: 42vw;
-        margin-left: 8px;
-        margin-top: -80px;
-    
-        border-radius: 5px;
-    }
-    
-    .DataCont1{
-        margin-left:1040px;
-        margin-top: -20px; 
-    }
-    
-    .title1{
-        border: none;
-        border-bottom: 2px solid #1D9DF6;
-        font-size: 18px;
-    }
-    
-    .ContDeTeacher1 {
-        margin-top: 80px;
-        width: 300px;
-        margin-left: 170px;
-    }
-    .Stident2 {
-    
-        width: 500px;
-        height: 20vw;
-        border: 2px solid #1D9DF6;
-    }
-    .docent {
-        width: 500px;
-        height: 20vw;
-        border: 2px solid #1D9DF6;
-    }
-    
-    .ContDescripstudent1 {
-        width: 400px;
-        margin-left: 800px;
-        margin-top: -350px;
-    }
-    
-    .Data1{
-        border: none;
-        border-bottom: 2px solid #1D9DF6;
-        font-size: 18px;
-    }
-    
-    
-    
-    .FirmaDocent {
-        margin-left: -40px;
-        margin-top: 50px;
-    }
-    
-    .FirmaStudent {
-        margin-left: 300px;
-        margin-top:-22px;
-    }
-    
-    .btnRegister{
-        color: rgb(255, 255, 255);
-        background-color: #1D9DF6;
-        border: none;
-        width: 109px;
-        height: 35px;
-        position: relative;
-        top: 11px;
-        left: 55rem;
-    }
-    
-
-}
-
-
-
-@media(max-width:1613px){
-    .photoView1 {
-        width: 91px;
-        height: 80px;
-        position: relative;
-        top: 100px;
-        left: 5%;
-    }
-
-    .photo{
-        width: 100%;
-        height: 100px;
-        
-    }
-
-    .cancelTeacher{
-        width: 100px;
-        margin-left: -20px;
-        margin-top: 270px;
-    }
-
-
-    
-    .information1 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        top: -92px;
-        left: 39px;
-    }
-    
-    .iconRecord1 {
-        position: relative;
-        top: -90px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .Cont {
-        border: 1px solid #1D9DF6;
-        width: 84vw;
-        height: 42vw;
-        margin-left: 8px;
-        margin-top: -80px;
-    
-        border-radius: 5px;
-    }
-    
-    .DataCont1{
-        margin-left:1040px;
-        margin-top: -20px; 
-    }
-    
-    .title1{
-        border: none;
-        border-bottom: 2px solid #1D9DF6;
-        font-size: 18px;
-    }
-    
-    .ContDeTeacher1 {
-        margin-top: 80px;
-        width: 300px;
-        margin-left: 170px;
-    }
-    .Stident2 {
-    
-        width: 500px;
-        height: 20vw;
-        border: 2px solid #1D9DF6;
-    }
-    .docent {
-        width: 500px;
-        height: 20vw;
-        border: 2px solid #1D9DF6;
-    }
-    
-    .ContDescripstudent1 {
-        width: 400px;
-        margin-left: 800px;
-        margin-top: -350px;
-    }
-    
-    .Data1{
-        border: none;
-        border-bottom: 2px solid #1D9DF6;
-        font-size: 18px;
-    }
-    
-    
-    
-    .FirmaDocent {
-        margin-left: -40px;
-        margin-top: 50px;
-    }
-    
-    .FirmaStudent {
-        margin-left: 300px;
-        margin-top:-22px;
-    }
-    
-    .btnRegister{
-        color: rgb(255, 255, 255);
-        background-color: #1D9DF6;
-        border: none;
-        width: 109px;
-        height: 35px;
-        position: relative;
-        top: 11px;
-        left: 55rem;
-    }
-    
-
-}
-
-
-
-@media(max-width:1497px){
-    .photoView1 {
-        width: 91px;
-        height: 80px;
-        position: relative;
-        top: 100px;
-        left: 5%;
-    }
-
-    .photo{
-        width: 100%;
-        height: 100px;
-        
-    }
-
-    .cancelTeacher{
-        width: 100px;
-        margin-left: -20px;
-        margin-top: 270px;
-    }
-
-
-    
-    .information1 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        top: -92px;
-        left: 39px;
-    }
-    
-    .iconRecord1 {
-        position: relative;
-        top: -90px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .Cont {
-        border: 1px solid #1D9DF6;
-        width: 84vw;
-        height: 42vw;
-        margin-left: 8px;
-        margin-top: -80px;
-    
-        border-radius: 5px;
-    }
-    
-    .DataCont1{
-        margin-left:666px;
-        margin-top: -20px; 
-    }
-    
-    .title1{
-        border: none;
-        border-bottom: 2px solid #1D9DF6;
-        font-size: 18px;
-    }
-    
-    .ContDeTeacher1 {
-        margin-top: 80px;
-        width: 300px;
-        margin-left: 170px;
-    }
-    .Stident2 {
-    
-        width: 300px;
-        height: 20vw;
-        border: 2px solid #1D9DF6;
-    }
-    .docent {
-        width: 300px;
-        height: 20vw;
-        border: 2px solid #1D9DF6;
-    }
-    
-    .ContDescripstudent1 {
-        width: 300px;
-        margin-left: 700px;
-        margin-top: -335px;
-    }
-    
-    .Data1{
-        border: none;
-        border-bottom: 2px solid #1D9DF6;
-        font-size: 18px;
-    }
-    
-    
-    
-    .FirmaDocent {
-        margin-left: -40px;
-        margin-top: 50px;
-    }
-    
-    .FirmaStudent {
-        margin-left: 200px;
-        margin-top:-22px;
-    }
-    
-    .btnRegister{
-        color: rgb(255, 255, 255);
-        background-color: #1D9DF6;
-        border: none;
-        width: 109px;
-        height: 35px;
-        position: relative;
-        top: 11px;
-        left: 55rem;
-    }
-    
-
-}
-
-
-
-
-@media(max-width:1285px){
-    .photoView1 {
-        width: 91px;
-        height: 80px;
-        position: relative;
-        top: 100px;
-        left: 5%;
-    }
-
-    .photo{
-        width: 100%;
-        height: 100px;
-        
-    }
-
-    .cancelTeacher{
-        width: 100px;
-        margin-left: -20px;
-        margin-top: 270px;
-    }
-
-
-    
-    .information1 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        top: -92px;
-        left: 39px;
-    }
-    
-    .iconRecord1 {
-        position: relative;
-        top: -90px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .Cont {
-        border: 1px solid #1D9DF6;
-        width: 84vw;
-        height: 42vw;
-        margin-left: 8px;
-        margin-top: -80px;
-    
-        border-radius: 5px;
-    }
-    
-    .DataCont1{
-        margin-left:666px;
-        margin-top: -20px; 
-    }
-    
-    .title1{
-        border: none;
-        border-bottom: 2px solid #1D9DF6;
-        font-size: 18px;
-    }
-    
-    .ContDeTeacher1 {
-        margin-top: 80px;
-        width: 300px;
-        margin-left: 100px;
-    }
-    .Stident2 {
-    
-        width: 300px;
-        height: 20vw;
-        border: 2px solid #1D9DF6;
-    }
-    .docent {
-        width: 300px;
-        height: 20vw;
-        border: 2px solid #1D9DF6;
-    }
-    
-    .ContDescripstudent1 {
-        width: 300px;
-        margin-left: 570px;
-        margin-top: -285px;
-    }
-    
-    .Data1{
-        border: none;
-        border-bottom: 2px solid #1D9DF6;
-        font-size: 18px;
-    }
-    
-    
-    
-    .FirmaDocent {
-        margin-left: -123px;
-        margin-top: 50px;
-    }
-    
-    .FirmaStudent {
-        margin-left: 30px;
-        margin-top:-22px;
-    }
-    
-    .btnRegister{
-        color: rgb(255, 255, 255);
-        background-color: #1D9DF6;
-        border: none;
-        width: 109px;
-        height: 35px;
-        position: relative;
-        top: 11px;
-        left: 55rem;
-    }
-    
-
-}
-
-@media(max-width:1100px){
-    .photoView1 {
-        width: 91px;
-        height: 80px;
-        position: relative;
-        top: 80px;
-        left: 5%;
-    }
-
-    .cancelTeacher{
-        width: 100px;
-        margin-left: -20px;
-        margin-top: 270px;
-    }
-
-
-    
-    .information1 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        top: -62px;
-        left: 39px;
-    }
-    
-    .iconRecord1 {
-        position: relative;
-        top: -28px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .Cont {
-        border: 1px solid #1D9DF6;
-        width: 83vw;
-        height: 45vw;
-        margin-left: 8px;
-    
-        border-radius: 5px;
-    }
-    
-    .DataCont1{
-        margin-left:600px;
-        margin-top: -20px; 
-    }
-    
-    .title1{
-        border: none;
-        border-bottom: 2px solid #1D9DF6;
-        font-size: 18px;
-    }
-    
-    .ContDeTeacher1 {
-        margin-top: 80px;
-        width: 300px;
-        margin-left: 60px;
-    }
-    .Stident2 {
-    
-        width: 300px;
-        height: 20vw;
-        border: 2px solid #1D9DF6;
-    }
-    .docent {
-        width: 300px;
-        height: 20vw;
-        border: 2px solid #1D9DF6;
-    }
-    
-    .ContDescripstudent1 {
-        width: 300px;
-        margin-left: 440px;
-        margin-top: -230px;
-    }
-    
-    .Data1{
-        border: none;
-        border-bottom: 2px solid #1D9DF6;
-        font-size: 18px;
-    }
-    
-    
-    
-    .FirmaDocent {
-        margin-left: -123px;
-        margin-top: 50px;
-    }
-    
-    .FirmaStudent {
-        margin-left: 30px;
-        margin-top:-22px;
-    }
-    
-    .btnRegister{
-        color: rgb(255, 255, 255);
-        background-color: #1D9DF6;
-        border: none;
-        width: 109px;
-        height: 35px;
-        position: relative;
-        top: 11px;
-        left: 45rem;
-    }
-    
-
-}
-
-
-@media(max-width:780px){
-    .photoView1 {
-        width: 91px;
-        height: 80px;
-        position: relative;
-        top: 80px;
-        left: 5%;
-    }
-    
-    .information1 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        top: -62px;
-        left: 39px;
-    }
-    
-    .cancelTeacher{
-        width: 100px;
-        margin-left: -400px;
-        margin-top: 450px;
-    }
-    .iconRecord1 {
-        position: relative;
-        top: -28px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .Cont {
-        border: 1px solid #1D9DF6;
-        width: 83vw;
-        height: 45vw;
-        margin-left: 8px;
-    
-        border-radius: 5px;
-    }
-    
-    .DataCont1{
-        margin-left:380px;
-        margin-top: -20px; 
-    }
-    
-    .title1{
-        border: none;
-        border-bottom: 2px solid #1D9DF6;
-        font-size: 18px;
-        width: 170px;
-    }
-    
-    .ContDeTeacher1 {
-        margin-top: 70px;
-        width: 300px;
-        margin-left: 60px;
-    }
-    .Stident2 {
-    
-        width: 240px;
-        height: 20vw;
-        border: 2px solid #1D9DF6;
-    }
-    .docent {
-        width: 240px;
-        height: 20vw;
-        border: 2px solid #1D9DF6;
-    }
-    
-    .ContDescripstudent1 {
-        width: 300px;
-        margin-left: 350px;
-        margin-top: -186px;
-    }
-    
-    .Data1{
-        border: none;
-        border-bottom: 2px solid #1D9DF6;
-        font-size: 16px;
-    }
-    
-    
-    
-    .FirmaDocent {
-        margin-left: -158px;
-        margin-top: 20px;
-    }
-    
-    .FirmaStudent {
-        margin-left: -200px;
-        margin-top:-22px;
-    }
-    
-    .btnRegister{
-        color: rgb(255, 255, 255);
-        background-color: #1D9DF6;
-        border: none;
-        width: 109px;
-        height: 35px;
-        position: relative;
-        top: 2px;
-        left: 33.5rem;
-    }
-    
-}
-
-
-@media(max-width:970px)
-{
-    .DataCont1{
-        margin-left:480px;
-        margin-top: -20px; 
-    }
-
-}
-
-@media(max-width:924px)
-{
-    .btnRegister{
-        color: rgb(255, 255, 255);
-        background-color: #1D9DF6;
-        border: none;
-        width: 109px;
-        height: 35px;
-        position: relative;
-        top: 2px;
-        left: 33.5rem;
-    }
-
-
-}
-
-
-@media(max-width:880px){
-    .DataCont1{
-        margin-left: 450px;
-    }
-
-    .ContDescripstudent1 {
-        width: 300px;
-        margin-left: 400px;
-        margin-top: -205px;
-    }
-    .FirmaDocent {
-        margin-left: -158px;
-        margin-top: 20px;
-    }
-    
-    .FirmaStudent {
-        margin-left: -150px;
-        margin-top:-22px;
+        top: 32px;
+        left: 491px;
     }
 }
-
-@media(max-width:840px){
-    .DataCont1{
-        margin-left: 420px;
+@media (min-width: 1200px) {
+    .photoViewTeacher {
+        width: 183px;
+        height: 151px;
+        margin-left: 57px;
     }
-
-    .ContDescripstudent1 {
-        width: 300px;
-        margin-left: 380px;
-        margin-top: -200px;
+    .informationTeacher {
+        margin-top: -139px;
+        margin-left: 278px;
+        font-size: 1.5rem;
     }
-}
-
-@media(max-width:800px){
-    .DataCont1{
-        margin-left: 365px;
+    .containerTeacher {
+        height: 41vw;
+        margin-top: 3vw;
     }
-
-    .ContDescripstudent1 {
-        width: 300px;
-        margin-left: 350px;
-        margin-top: -190px;
+    .dataContTe{
+        margin-left: 556px;
+        margin-top: -29px; 
     }
-    .ContDeTeacher1 {
-        margin-top: 70px;
-        width: 300px;
-        margin-left: 20px;
+    .dataTe{
+        font-size: 27px;
+        width: 35vw;
     }
-}
-
-@media(max-width:715px){
-    .DataCont1{
-        margin-left: 340px;
-    }
-
-    .ContDescripstudent1 {
-        width: 300px;
-        margin-left: 320px;
-        margin-top: -180px;
-    }
-    .ContDeTeacher1 {
-        margin-top: 60px;
-        width: 300px;
-        margin-left: 20px;
-    }
-
-    .btnRegister{
-        color: rgb(255, 255, 255);
-        background-color: #1D9DF6;
-        border: none;
-        width: 109px;
-        height: 35px;
-        position: relative;
-        top: 2px;
-        left: 30.5rem;
-    }
-}
-
-
-@media(max-width:680px){
-    .DataCont1{
-        margin-left: 300px;
-    }
-
-    .ContDescripstudent1 {
-        width: 300px;
-        margin-left: 300px;
-        margin-top: -165px;
-    }
-    .ContDeTeacher1 {
-        margin-top: 60px;
-        width: 300px;
-        margin-left: 20px;
-    }
-
-    .btnRegister{
-        color: rgb(255, 255, 255);
-        background-color: #1D9DF6;
-        border: none;
-        width: 109px;
-        height: 35px;
-        position: relative;
-        top: 2px;
-        left: 25.5rem;
-    }
-    .FirmaDocent {
-        margin-left: -188px;
-        margin-top: 20px;
-    }
-    
-    .FirmaStudent {
-        margin-left: -250px;
-        margin-top:-22px;
-    }
-}
-
-@media(max-width:624px){
-    .DataCont1{
-        margin-left: 250px;
-    }
-
-    .ContDescripstudent1 {
-        width: 300px;
-        margin-left: 300px;
-        margin-top: -155px;
-    }
-    .ContDeTeacher1 {
-        margin-top: 40px;
-        width: 300px;
-        margin-left: 20px;
-    }
-
-    .btnRegister{
-        color: rgb(255, 255, 255);
-        background-color: #1D9DF6;
-        border: none;
-        width: 109px;
-        height: 35px;
-        position: relative;
-        top: 2px;
-        left: 25.5rem;
-    }
-    .FirmaDocent {
-        margin-left: -188px;
-        margin-top: 20px;
-    }
-    
-    .FirmaStudent {
-        margin-left: -250px;
-        margin-top:-22px;
-    }
-
-    .Stident2 {
-    
-        width: 200px;
-        height: 20vw;
-        border: 2px solid #1D9DF6;
-    }
-    .docent {
-        width: 200px;
-        height: 20vw;
-        border: 2px solid #1D9DF6;
-    }
-}
-
-
-@media(max-width:570px){
-    .DataCont1{
-        margin-left: 220px;
-    }
-
-    .ContDescripstudent1 {
-        width: 300px;
-        margin-left: 250px;
-        margin-top: -145px;
-    }
-    .ContDeTeacher1 {
-        margin-top: 30px;
-        width: 300px;
-        margin-left: 20px;
-    }
-
-    .btnRegister{
-        color: rgb(255, 255, 255);
-        background-color: #1D9DF6;
-        border: none;
-        width: 109px;
-        height: 35px;
-        position: relative;
-        top: 2px;
-        left: 20rem;
-    }
-    .FirmaDocent {
-        margin-left: -188px;
-        margin-top: 20px;
-    }
-    
-    .FirmaStudent {
-        margin-left: -290px;
-        margin-top:-22px;
-    }
-
-    .Stident2 {
-    
-        width: 200px;
-        height: 20vw;
-        border: 2px solid #1D9DF6;
-    }
-    .docent {
-        width: 200px;
-        height: 20vw;
-        border: 2px solid #1D9DF6;
-    }
-}
-
-
-@media(max-width:520px){
-    .DataCont1{
-        margin-left: 200px;
-    }
-
-    .ContDescripstudent1 {
-        width: 300px;
-        margin-left: 220px;
-        margin-top: -135px;
-    }
-    .ContDeTeacher1 {
-        margin-top: 30px;
-        width: 300px;
-        margin-left: 20px;
-    }
-
-    .btnRegister{
-        color: rgb(255, 255, 255);
-        background-color: #1D9DF6;
-        border: none;
-        width: 109px;
-        height: 35px;
-        position: relative;
-        top: 20px;
-        left: 20rem;
-    }
-    .FirmaDocent {
-        margin-left: -188px;
-        margin-top: 10px;
-    }
-    
-    .FirmaStudent {
-        margin-left: -300px;
-        margin-top:-25px;
-    }
-
-    .Data1{
-        border: none;
-        border-bottom: 2px solid #1D9DF6;
-        font-size: 13px;
-    }
-
-    .Stident2 {
-    
-        width: 160px;
-        height: 20vw;
-        border: 2px solid #1D9DF6;
-    }
-    .docent {
-        width: 160px;
-        height: 20vw;
-        border: 2px solid #1D9DF6;
-    }
-}
-
-
-@media(max-width:420px){
-
-    .photoView1 {
-        width: 95px;
-        height: 90px;
-        position: relative;
-        top: 70px;
-        left: -6%;
-    }
-
-    .DataCont1{
-        margin-left: 170px;
-    }
-
-    .ContDescripstudent1 {
-        width: 270px;
-        margin-left: 180px;
-        margin-top: -155px;
-    }
-    .ContDeTeacher1 {
-        margin-top: 40px;
-        width: 300px;
-        margin-left: 10px;
-    }
-
-    .title1{
-        font-size: 15px;
-        width: 100px;
-    }
-
-    .btnRegister{
-        color: rgb(255, 255, 255);
-        background-color: #1D9DF6;
-        border: none;
-        width: 109px;
-        height: 35px;
-        position: relative;
-        top: 20px;
-        left: 15rem;
-    }
-    .FirmaDocent {
-        margin-left: -210px;
-        margin-top: 10px;
-    }
-    
-    .FirmaStudent {
-        margin-left: -350px;
-        margin-top:-25px;
-    }
-
-    .Data1{
-        border: none;
-        border-bottom: 2px solid #1D9DF6;
-        font-size: 11px;
-    }
-
-    .Stident2 {
-    
-        width: 160px;
+    .description{
         height: 30vw;
-        border: 2px solid #1D9DF6;
+        margin-top: 39px;
+        font-size: 25px;
     }
-    .docent {
-        width: 160px;
-        height: 30vw;
-        border: 2px solid #1D9DF6;
+    .descrip {
+        height: 21vw;
+        font-size: 25px;
     }
-    .Cont {
-        border: 1px solid #1D9DF6;
-        height: 65vw;
-        margin-top: -20px;
-    
-        border-radius: 5px;
+    .descriptionStuden{
+        top: -25vw;
     }
-
-    .studet{
-        width: 130px;
+    .btnRegister{
+        width: 138px;
+        height: 42px;
+        font-size: 24px;
+        left: 73vw;
+        top: 2vw;
     }
-
-    .teacher{
-        width: 140px;
-    }
-
-    .cancelTeacher{
-        width: 70px;
-        margin-left: 1px;
-        margin-top: 5px;
-
-    }
-    
 }
