@@ -24,6 +24,7 @@ import { NavBar } from "../../Layout/NavBar/NavBar";
 import CssBaseline from "@mui/material/CssBaseline";
 import { MainTeacher } from "../../Layout/MainTeacher/MainTeacher";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
+import fotoBuscar from "../../../Img/buscador.jfif";
 
 import { AiOutlineFileSearch } from "react-icons/ai";
 
@@ -175,16 +176,16 @@ export const HomeStudent = () => {
     };
     getCourses();
   }, []);
-
-  const getToken = (data) => {
-    axios.get(`http://localhost:4000/v1/decode/${data}`)
-      .then((res) => setCourses(res.data))
-      .catch((error) => console.log(error))
-  }
-
+  
   const [search, setSearch] = useState("")
   const [loading, setloading] = useState(true)
   const [courses, setCourses] = useState([]);
+
+  const getToken = (data) => {
+    axios.get(`http://localhost:4000/v1/decode/${data}`)
+      .then((res) => user(res.data))
+      .catch((error) => console.log(error))
+  }
 
   // const UrlSearchCourse = "http://localhost:4000/v1/courses/0" + search;
 
@@ -198,11 +199,12 @@ export const HomeStudent = () => {
   //   getSearch();
   // }, []);
 
-  // const user = (data) => {
-  //   setloading(false)
-  //   setCourses(data.results[0])
-  // }
+  const user = (data) => {
+    setloading(false)
+    setCourses(data.results[0])
+  }
 
+  console.log(courses);
   const character = courses.filter((character) =>
     character.titulo.toLocaleLowerCase().includes(search.toLocaleLowerCase())
   )
@@ -265,17 +267,22 @@ export const HomeStudent = () => {
           }}>
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <section className="mainCard">
+          <section className="mainCard">
               {loading ? (
                 <div id="contenedor">
-                <div class="loader" id="loader">Loading...</div>
+                  <div class="loader" id="loader">Loading...</div>
                 </div>
               ) : character.length > 0 ? (
                 character.map((course2, index) => (
                   <MainStudent key={index} course2={course2} />
-                  ))
+                ))
               ) : (
-                <p>No se encontro el Grupo {' '}<strong>"{search}"</strong>.</p>
+                <div className="photoSearch">
+                  <img src={fotoBuscar} alt="buscar" />
+                  <p>
+                    No tiene anotacione <strong>"{search}"</strong>.
+                  </p>
+                </div>
               )}
             </section>
 

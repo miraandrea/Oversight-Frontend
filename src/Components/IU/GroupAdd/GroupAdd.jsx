@@ -1,5 +1,6 @@
 import "./GroupAdd.css";
 import axios from "axios";
+import swal from '@sweetalert/with-react';
 import { MdGroupAdd } from "react-icons/md";
 import React, { useEffect, useState } from "react";
 
@@ -35,7 +36,6 @@ export const GroupAdd = () => {
   const [teacher, setTeacher] = useState("")
   const [name, setName] = useState("")
   const [image, setImage] = useState(null)
-  const [messageGroup, setMessageGroup] = useState("");
 
   let formdata = new FormData()
   const insert = (e) => {
@@ -59,19 +59,17 @@ export const GroupAdd = () => {
   }
   const userGroup = (data) => {
     if (data) {
-      const paragrapg = "Se registro";
-      setMessageGroup(paragrapg);
+      swal("Exito!", "Se registro exitosamente", "success")
     }
     else {
-      const paragrapg = "No se pudo registrar";
-      setMessageGroup(paragrapg);
+      swal("Oops!", "No se pudo ragistrar el curso", "error");
     }
   }
 
   return (
     <form onSubmit={insert}>
       <div>
-        <p className="textGroup">Agregar grupo</p>
+        <p className="textGroup">Agregar curso</p>
         <MdGroupAdd className='iconGroup' />
         <br />
         <hr className="lineGroup" />
@@ -97,7 +95,6 @@ export const GroupAdd = () => {
                 );
               })}
             </select>
-            <p className="message">{messageGroup}</p>
           </div>
         </div>
         <div className="btn_Registrar">

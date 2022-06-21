@@ -1,15 +1,3 @@
-/* .mainCard{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 130px);
-    gap: 15px;
-    width: 70%;
-    margin: 474px 250px;
-    border-top: 2px solid #1d9df6;
-    border-left: 2px solid #1d9df6;
-    padding: 30px;
-    height: 100%;
-} */
-
 .cardTeacher {
     border: 2px solid #1d9df6;
     width: 5rem;
@@ -37,71 +25,27 @@
     margin-top: 0.1rem;
 }
 
-/* iPads (portrait & landscape) */
-/* @media only screen 
-and (max-width : 768px) 
- {
-    .mainCard{
-        display: grid;
-        grid-template-columns: repeat(auto-fill, 130px);
-        gap: 15px;
-        width: 70%;
-        margin: 580px 220px;
-        border-top: 2px solid #1d9df6;
-        border-left: 2px solid #1d9df6;
-        padding: 30px;
-        height: 100%;
-    }
-
-}
-
-@media only screen
-and (max-width : 320px) 
- {
-    .mainCard{
-        display: grid;
-        grid-template-columns: repeat(auto-fill, 130px);
-        gap: 15px;
-        width: 100%;
-        margin: 550px 140px;
-        border-top: 2px solid #1d9df6;
-        border-left: 2px solid #1d9df6;
-        padding: 30px;
-        height: 100%;
-    }
-} */
-.paper1{
+.paper1 {
     position: absolute;
     top: 11%;
-    left: 16%;
-    width: 75%;
-    height: 105vw;
+    left: 5%;
+    width: 90%;
+    height: 132vw;
     background-color: #fff;
 }
 
-
-@media(max-width:420px){
-
-    .paper1{
-        position: absolute;
-        top: 11%;
-        left: 2%;
-        width: 96%;
-        height: 160vw;
-        background-color: #fff;
+@media (min-width: 720px) {
+    .paper1 {
+        left: 15%;
+        width: 80%;
+        height: 94vw;
     }
-
 }
 
-@media(max-width:1200px){
-
-    .paper1{
-        position: absolute;
-        top: 11%;
-        left: 2%;
-        width: 96%;
-        height: 160vw;
-        background-color: #fff;
+@media(min-width: 1200px) {
+    .paper1 {
+        left: 21%;
+        width: 62%;
+        height: 61vw;
     }
-
 }

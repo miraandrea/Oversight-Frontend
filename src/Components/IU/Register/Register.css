@@ -3,7 +3,8 @@
   position: relative;
   top: -25px;
 }
-.containerRegister{
+
+.containerRegister {
   position: relative;
   left: 25px;
   width: 85%;
@@ -80,7 +81,7 @@
 }
 
 /*upload image button*/
-.photoRegister{
+.photoRegister {
   padding-top: 3%;
 }
 
@@ -100,7 +101,7 @@
 }
 
 /* container from select gender, role, group */
-.containerSelect{
+.containerSelect {
   padding-top: 3%;
   height: 106px;
   display: flex;
@@ -142,38 +143,48 @@
     position: relative;
     right: -27%;
   }
+
   .iconregister {
     position: relative;
     top: -46px;
     left: 61%;
     width: 6%;
   }
-  .containerRegister{
+
+  .containerRegister {
     left: 36px;
     width: 85%;
   }
+
   .lineRegister {
     width: 90%;
     margin: 8px 23px;
   }
+
   .name {
     height: 29px;
   }
+
   .lastName {
     height: 29px;
   }
+
   .docement {
     height: 29px;
   }
+
   .date {
     height: 29px;
   }
-  .containerSelect{
+
+  .containerSelect {
     height: 130px;
   }
+
   .select {
     height: 29px;
   }
+
   .Registrar {
     top: 1rem;
     left: 18rem;
