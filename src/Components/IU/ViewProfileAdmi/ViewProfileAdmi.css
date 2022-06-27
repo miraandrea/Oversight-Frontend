@@ -48,6 +48,13 @@
     margin-left: 118px;
 }
 
+.information input {
+    border: none;
+    border-bottom: 2px solid #1D9DF6;
+    font-size: 15px;
+    width: 35vw;
+}
+
 .iconRecord {
     position: relative;
     top: 13px;
@@ -128,18 +135,34 @@ textarea {
 }
 
 @media (min-width: 1200px) {
+    .centerOver {
+        padding-top: 16px;
+    }
+
+    .information {
+        width: 15vw;
+        margin-top: -101px;
+        margin-left: 40%;
+    }
+
     .OverFlow {
-        width: 59vw;
-        height: 40vw;
+        width: 42vw;
+        height: 20vw;
     }
 
     .cardInfo1 {
-        margin-left: -13px;
-        margin-top: -30px;
+        margin-left: 16px;
+        margin-top: 14px;
     }
 
     .btn_Cancel {
-        margin-top: -53vw;
+        margin-top: -39.5vw;
+    }
+
+    .information input {
+        font-size: 15px;
+        width: 14vw;
+        text-align: center;
     }
 
     .mensaje2 {

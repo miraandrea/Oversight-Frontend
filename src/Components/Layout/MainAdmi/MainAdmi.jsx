@@ -10,8 +10,7 @@ export const MainAdmi = ({ course }) => {
     <div>
       <NavLink
         to={`/Usuario_Administrador/${course.estudianteDocumento}`}
-        style={{ textDecoration: "none" }}
-      >
+        style={{ textDecoration: "none" }}>
         <CardAdmi courseStudent={course} />
       </NavLink>
     </div>

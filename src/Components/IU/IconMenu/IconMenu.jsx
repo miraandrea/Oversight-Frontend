@@ -3,7 +3,7 @@ import React from "react";
 import { IoMdHome } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 import Cookies from "universal-cookie/es6";
-import { MdGroupAdd } from "react-icons/md";
+import { MdGroupAdd, MdDoNotDisturbAlt } from "react-icons/md";
 import { IoMdPersonAdd } from "react-icons/io";
 import { IoExitOutline } from "react-icons/io5";
 
@@ -73,6 +73,14 @@ export const IconMenu = () => {
           <MdGroupAdd onClick={handleOpenGroup} className="iconmenu" />
         </ListItemIcon>
         <ListItemText primary="Agregar grupo" />
+      </ListItemButton>
+      <ListItemButton >
+        <ListItemIcon>
+          <NavLink to="/Habilitar">
+            <MdDoNotDisturbAlt />
+          </NavLink>
+        </ListItemIcon>
+        <ListItemText primary="Habilitar" />
       </ListItemButton>
       <ListItemButton >
         <ListItemIcon>
