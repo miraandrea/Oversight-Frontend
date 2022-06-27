@@ -41,7 +41,6 @@ export const ViewProfileTeacher = ({ courseStudent }) => {
   }
 
   const token = (data) => {
-    console.log(data);
     axios.get(`http://localhost:4000/v1/decode/${data}`)
       .then((res) => userHistory(res.data))
   }
@@ -132,14 +131,14 @@ export const ViewProfileTeacher = ({ courseStudent }) => {
             type="text"
             name="title"
             placeholder='Firma Docente'
-            className='teacher'
+            className='firm'
             onChange={(e) => setSignaTeacher(e.target.value)}
           />
           <input
             type="text"
             name="title"
             placeholder='Firma Estudiante'
-            className='studet'
+            className='firm'
             onChange={(e) => setSignaStudent(e.target.value)}
           />
         </div>

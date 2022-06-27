@@ -1,6 +1,7 @@
 import axios from "axios";
 import './ViewProfileAdmi.css'
 import { useParams } from "react-router";
+import swal from '@sweetalert/with-react';
 import React, { useEffect, useState } from 'react'
 
 //components
@@ -28,6 +29,23 @@ export const ViewProfileAdmiTeacher = ({ teacher }) => {
     };
     getRecord();
   }, []);
+
+  //disable teachers
+  const Disable = () => {
+    const urlDisable = "http://localhost:4000/v1/teachers/" + teacher.documentoDocente;
+    axios.delete(urlDisable).then((response) => {
+      mensage(response.status);
+    });
+  }
+
+  const mensage = (data) => {
+    if (data == 202) {
+      swal("Exito!", "Se deshabilito exitosamente", "success")
+    }
+    else {
+      swal("Oops!", "No se pudo deshabilitar", "error");
+    }
+  }
 
   return (
     <div>
@@ -65,7 +83,7 @@ export const ViewProfileAdmiTeacher = ({ teacher }) => {
         <div className='centerBtn' >
           <div className="btn_Cancel1">
             <button className="update">Actualizar</button>
-            <button className="disable">Deshabilitar</button>
+            <button className="disable" onClick={Disable}>Deshabilitar</button>
           </div>
         </div>
       </div>

@@ -44,8 +44,9 @@
 
 @media(min-width: 1200px) {
     .paper1 {
+        top: 11%;
         left: 21%;
-        width: 62%;
-        height: 61vw;
+        width: 45%;
+        height: 39vw;
     }
 }

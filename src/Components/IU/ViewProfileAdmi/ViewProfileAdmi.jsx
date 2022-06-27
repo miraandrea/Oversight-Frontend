@@ -5,8 +5,8 @@ import React, { useEffect, useState } from 'react'
 import { AiOutlineFileSearch } from "react-icons/ai";
 
 //components
-import { CardStudent } from '../CardStudent/CardStudent';
 import foto from '../ImgProfile/student.jpg'
+import { CardStudent } from '../CardStudent/CardStudent';
 
 //librerias
 import jwtDecode from "jwt-decode";
@@ -64,7 +64,6 @@ export const ViewProfileAdmi = ({ courseStudent }) => {
   }
 
   //historial 
-
   const { name } = useParams()
   const [record, setRecord] = useState([]);
 
@@ -92,6 +91,24 @@ export const ViewProfileAdmi = ({ courseStudent }) => {
     getCourses();
   }, []);
 
+
+  //disable student
+  const Disable = () => {
+    const urlDisable = "http://localhost:4000/v1/students/" + courseStudent.estudianteDocumento;
+    axios.delete(urlDisable).then((response) => {
+      mensage(response.status);;
+    });
+  }
+
+  const mensage = (data) => {
+    if (data == 202) {
+      swal("Exito!", "Se deshabilito exitosamente", "success")
+    }
+    else {
+      swal("Oops!", "No se pudo deshabilitar", "error");
+    }
+  }
+
   // Rol courses
   const [data, setData] = useState([" "]);
 
@@ -111,7 +128,6 @@ export const ViewProfileAdmi = ({ courseStudent }) => {
             <input type="text" defaultValue={courseStudent.estudianteNombre} onChange={(e) => setNameStudent(e.target.value)} />
             <input type="text" defaultValue={courseStudent.estudianteApellido} onChange={(e) => setLastName(e.target.value)} />
             <input type="text" defaultValue={courseStudent.estudianteDocumento} onChange={(e) => setDocument(e.target.value)} />
-            <input type="file" onChange={e => setImage(e.target.files[0])} />
             <select
               className="select"
               onChange={(e) => setCourse(e.target.value)}
@@ -139,11 +155,10 @@ export const ViewProfileAdmi = ({ courseStudent }) => {
                 {record.length > 0 ? (
                   record.map((course2, index) => (
                     <CardStudent key={index} course2={course2} />
-                    ))
-                    ) : (
-                      <div className='mensaje2' >
+                  ))
+                ) : (
+                  <div className='mensaje2' >
                     <p className='mensaje' >No tiene anotaciones</p>
-
                   </div>
                 )}
               </div>
@@ -154,11 +169,11 @@ export const ViewProfileAdmi = ({ courseStudent }) => {
           <div className='centerBtn' >
             <div className="btn_Cancel1">
               <button type="submit" className='update' onClick={format} >Actualizar</button>
-              <button className="disable" >Deshabilitar</button>
             </div>
           </div>
         </div>
       </form>
+      <button className="disable" onClick={Disable}>Deshabilitar</button>
     </div>
   )
 };

@@ -44,3 +44,14 @@
         top: 51.5vw;
     }
 }
+
+@media (min-width: 1500px) {
+    .modalTeacher {
+        height: 49vw;
+    }
+
+    .cancelTeacher {
+        left: -18vw;
+        top: 51vw;
+    }
+}

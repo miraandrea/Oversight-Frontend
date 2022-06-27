@@ -5,8 +5,9 @@ import Cookies from "universal-cookie/es6";
 import { MdGroupAdd } from "react-icons/md";
 import { IoExitOutline } from "react-icons/io5";
 import { useEffect, useState, React } from "react";
-import { MdMenu, MdKeyboardArrowLeft } from "react-icons/md";
+import { MdDoNotDisturbAlt } from "react-icons/md";
 import { IoMdHome, IoMdPersonAdd } from "react-icons/io";
+import { MdMenu, MdKeyboardArrowLeft } from "react-icons/md";
 
 //components
 import { Main } from "../../Layout/Main/Main";
@@ -30,6 +31,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import { NavLink } from "react-router-dom";
 
 const drawerWidth = 220;
 
@@ -166,8 +168,7 @@ export const HomeAdmin = () => {
           <Toolbar
             sx={{
               pr: "24px",
-            }}
-          >
+            }}>
             <IconButton
               edge="start"
               color="inherit"
@@ -176,8 +177,7 @@ export const HomeAdmin = () => {
               sx={{
                 marginRight: "36px",
                 ...(open && { display: "none" }),
-              }}
-            >
+              }}>
               <div className="nav_bar">
                 <MdMenu />
               </div>
@@ -193,8 +193,7 @@ export const HomeAdmin = () => {
                 alignItems: "center",
                 justifyContent: "flex-end",
                 px: [1],
-              }}
-            >
+              }}>
               <IconButton onClick={toggleDrawer}>
                 <MdKeyboardArrowLeft />
               </IconButton>
@@ -215,8 +214,7 @@ export const HomeAdmin = () => {
             flexGrow: 1,
             height: "100vh",
             overflow: "auto",
-          }}
-        >
+          }}>
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <section className="mainCard">
@@ -263,6 +261,17 @@ export const HomeAdmin = () => {
               }}
               label=""
               icon={<MdGroupAdd onClick={handleOpenGroup} />}
+            />
+            <BottomNavigationAction
+              sx={{
+                color: "#1976d2"
+              }}
+              label=""
+              icon={
+                <NavLink to="/Habilitar">
+                  <MdDoNotDisturbAlt />
+                </NavLink>
+              }
             />
             <BottomNavigationAction
               sx={{

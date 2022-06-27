@@ -25,7 +25,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { MainTeacher } from "../../Layout/MainTeacher/MainTeacher";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import fotoBuscar from "../../../Img/buscador.jfif";
-
+import './HomeStudent.css'
 import { AiOutlineFileSearch } from "react-icons/ai";
 
 import {
@@ -201,10 +201,9 @@ export const HomeStudent = () => {
 
   const user = (data) => {
     setloading(false)
-    setCourses(data.results[0])
+    setCourses(data)
   }
 
-  console.log(courses);
   const character = courses.filter((character) =>
     character.titulo.toLocaleLowerCase().includes(search.toLocaleLowerCase())
   )
@@ -267,7 +266,7 @@ export const HomeStudent = () => {
           }}>
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-          <section className="mainCard">
+          <section className="mainCardStudent">
               {loading ? (
                 <div id="contenedor">
                   <div class="loader" id="loader">Loading...</div>
@@ -300,25 +299,21 @@ export const HomeStudent = () => {
         </Box>
       </Box>
       <div className="nav_menu-phone">
-        <Box
-          sx={{
-            width: "100vw",
-            display: "absolute",
-            borderTop: "1px solid #808080",
-          }}
-        >
-          <BottomNavigation
-            showLabels
-            value={value}
-            onChange={(event, newValue) => {
-              setValue(newValue);
+        <Box>
+          <BottomNavigation>
+            <BottomNavigationAction 
+            sx={{
+              color: "#1976d2"
             }}
-          >
-            <BottomNavigationAction label="" icon={
+            label="" 
+            icon={
               <NavLink to="/Estudiante">
                 <IoMdHome />
               </NavLink>} />
             <BottomNavigationAction
+            sx={{
+              color: "#1976d2"
+            }}
               label=""
               icon={<IoExitOutline onClick={() => signOff()} />}
             />
