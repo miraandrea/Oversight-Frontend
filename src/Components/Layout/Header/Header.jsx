@@ -54,9 +54,9 @@ export const Header = ({ search, setSearch }) => {
       <Search search={search} setSearch={setSearch} />
       <IconButton color="inherit" onClick={handleGoViewProfile}>
         {photos.length > 0 ? (
-          photos.map((photo, index) => {
-            return <AvatarProfile key={index} name={photo.nombre} photo={photo.foto} />;
-          })
+          <>
+            <AvatarProfile key={photos[0]} name={photos[0].nombre} photo={photos[0].foto} />
+          </>
         ) : (
           <AvatarProfile />
         )}
