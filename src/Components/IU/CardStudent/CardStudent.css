@@ -59,9 +59,13 @@
   border-bottom: 2px solid #1d9df6;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .cards {
     width: 41vw;
+    
+    display: flex;
+    justify-content: center;
+    margin-left: 200px;
   }
 
   .cardInfo {
@@ -73,6 +77,10 @@
     align-items: center;
     margin-left: 33px;
     margin-top: 50px;
+  }
+  
+  .title{
+    background-color: red;
   }
 
   .inputsDescription {

@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { IoExitOutline } from "react-icons/io5";
 import { IoMdHome } from "react-icons/io";
 import Cookies from "universal-cookie/es6";
-import { NavLink } from "react-router-dom";
 import '../../Layout/AdmProfileFooter/AdmProfileFooter.css'
 
 export const IconProfileAdm = () => {
