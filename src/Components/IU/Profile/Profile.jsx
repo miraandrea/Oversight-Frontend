@@ -1,99 +1,27 @@
-// import React from 'react'
-// import './Profile.css'
-// import Box from '@mui/material/Box';
-// import TextField from '@mui/material/TextField';
-
-// export const Profile = ({ user }) => {
-
-//   return (
-//     <div>
-//         <div className="containerImgProfile">
-//             <img src={user.foto} alt={user.nombre} className="imgProfile"/>
-//         </div>
-//         <div className='ContInfor'>
-//     <Box
-
-//     >
-//     <div className='ContImput'>
-//       <div className='cursor'>
-//         <TextField className='TextField'  not-allowed id="demo-helper-text-misaligned-no-helper"   value={user.documento} />
-//       </div>
-//       <div className='cursor1'>
-//         <TextField className='TextField'  id="demo-helper-text-misaligned-no-helper"  value={user.nombre} />
-
-//       </div>
-//       <div className='cursor2'>
-//         <TextField className='TextField'  id="demo-helper-text-misaligned-no-helper"  value={user.apellido} />
-
-//       </div>
-//       <div className='cursor3'>
-//         <TextField className='TextField'  id="demo-helper-text-misaligned-no-helper"  value={user.fecnac}/>
-//       </div>
-      
-
-//       <button className='Actualizar' >Actualizar</button>
-//     </div>
-//     </Box>
-//     <input className='prueba2' type="text" mozactionhint="next"></input>
-//         </div>
-//     </div>
-//   )
-// }
-
-
-// import React from 'react'
 import './Profile.css'
- import Box from '@mui/material/Box';
- import TextField from '@mui/material/TextField';
-
-// export const Profile = ({ user }) => {
-
-//   return (
-//     <div>
-//         <div className="containerImgProfile">
-//             <img src={user.foto} alt={user.nombre} className="imgProfile"/>
-//         </div>
-//         <div className='ContInfor'>
-    // <Box
-
-    // >
-    // <div className='ContImput'>
-    //   <div className='cursor'>
-    //     <TextField className='TextField'  not-allowed id="demo-helper-text-misaligned-no-helper"  defaultValue={user.documento} />
-    //   </div>
-    //   <div className='cursor1'>
-    //     <TextField className='TextField'  id="demo-helper-text-misaligned-no-helper"  value={user.nombre} />
-
-    //   </div>
-    //   <div className='cursor2'>
-    //     <TextField className='TextField'  id="demo-helper-text-misaligned-no-helper"  value={user.apellido} />
-
-    //   </div>
-    //   <div >
-    //     <TextField className='TextField'  id="demo-helper-text-misaligned-no-helper"  value={user.fecnac}/>
-    //   </div>
-      
-
-    //   <button className='Actualizar' >Actualizar</button>
-    // </div>
-    // </Box>
-//     <input className='prueba2' type="text" mozactionhint="next"></input>
-//         </div>
-//     </div>
-//   )
-// }
-
-import React from 'react'
-import { useState } from 'react';
 import axios from 'axios';
+import React, { useState } from 'react';
 import swal from '@sweetalert/with-react';
+import Cookies from 'universal-cookie/es6'
 
 export const Profile = ({ user }) => {
 
-  const UrlStudent = "http://localhost:4000/v1/students/" + user.documento;
+  let rol = localStorage.getItem("rol")
+  const cookies = new Cookies()
 
-  // newDocument, name, lastName, genre, signature,idcourse,dateOfBirth, imagen
-  
+  let UrlStudent = "";
+
+  if (rol === "Administrator") {
+    const idUser = cookies.get("idAdministrador")
+    UrlStudent = "https://oversigthapi.azurewebsites.net/v1/administrators/" + idUser;
+  } else if (rol === "Teacher") {
+    const idUser = cookies.get("idDocente")
+    UrlStudent = "https://oversigthapi.azurewebsites.net/v1/teachers/" + idUser;
+  } else if (rol === "Student") {
+    const idUser = cookies.get("idEstudiante")
+    UrlStudent = "https://oversigthapi.azurewebsites.net/v1/students/" + idUser;
+  }
+
   const [document, setDocument] = useState("")
   const [name, setName] = useState("")
   const [lastName, setLastName] = useState("")
@@ -115,57 +43,50 @@ export const Profile = ({ user }) => {
     formdata.append("signature", signature)
     formdata.append("idcourse", idCourse)
     formdata.append("image", image)
+    formdata.append("idasignature", 1)
 
     console.log(e.preventDefault());
     axios.put(UrlStudent, formdata)
-    .then((response) => getToken(response.data))
-    .catch((error) => console.log(error))
+      .then((response) => getToken(response.data))
+      .catch((error) => console.log(error))
   }
 
   const getToken = (data) => {
-    const urlToken = "http://localhost:4000/v1/decode/" + data;
+    const urlToken = "https://oversigthapi.azurewebsites.net/v1/decode/" + data;
     axios.get(urlToken).then((response) => {
       getMessage(response.status);
     });
   }
-  const getMessage = (data) =>{
+  const getMessage = (data) => {
     console.log(data);
-    if ( data == 200){
-      {swal("Exito!", "Se actualizo exitosamente", "success")
-      window.location.reload()}
-    }else {
+    if (data == 200) {
+      {
+        swal("Exito!", "Se actualizo exitosamente", "success")
+        window.location.reload()
+      }
+    } else {
       swal("Oops!", "No se pudo actualizar", "error");
     }
   }
-  
-  const n = name;
 
   return (
     <div>
       <div className="containerImgProfile">
-        <img src={user.foto} alt={user.nombre} className="imgProfile"/>
+        <img src={user.foto} alt={user.nombre} className="imgProfile" />
       </div>
       <form className='cont_profile' onSubmit={format}>
-        <p>Curso</p>
-        <input className='input_profile' type="text" value={user.curso}  />  
-        <p>Imagen</p>
-        <input className='input_profile1' type="file"  onChange={e => setImage(e.target.files[0])} />
-        <p>Documento</p>
+        <input className='input_profile' type="text" value={user.curso} />
         <input className='input_profile' type="number" defaultValue={user.documento} onChange={(e) => setDocument(e.target.value)} />
-        <p>Nombre</p>
         <input className='input_profile' type="text" defaultValue={user.nombre} onChange={(e) => setName(e.target.value)} />
-        <p>Apellido</p>
         <input className='input_profile' type="text" defaultValue={user.apellido} onChange={(e) => setLastName(e.target.value)} />
-        <p>Fecha de nacimiento </p>
         <input className='input_profile' type="text" defaultValue={user.fecnac} onChange={(e) => setDateOfBirth(e.target.value)} />
-        <p>Sexo</p>
         <input className='input_profile' type="text" defaultValue={user.genero} onChange={(e) => setGenre(e.target.value)} />
-        <p>Firma</p>
         <input className='input_profile' type="text" defaultValue={user.firma} onChange={(e) => setSignature(e.target.value)} />
-
-        <button   type="submit" className='Actualizar' >Actualizar</button>
+        <input className='input_profile1' type="file" onChange={e => setImage(e.target.files[0])} />
+        <div className="btnUpPerfile">
+          <button type="submit" className='Actualizar' >Actualizar</button>
+        </div>
       </form>
     </div>
   )
 }
-

@@ -1,12 +1,13 @@
 import "./Register.css";
 import axios from "axios";
+import swal from '@sweetalert/with-react';
 import { IoMdPersonAdd } from "react-icons/io";
 import React, { useEffect, useState } from "react";
 
 export const Register = () => {
 
   //token course
-  const UrlTokenCourse = "http://localhost:4000/v3/courses";
+  const UrlTokenCourse = "https://oversigthapi.azurewebsites.net/v3/courses";
 
   useEffect(() => {
     const getCourses = () => {
@@ -21,7 +22,7 @@ export const Register = () => {
   const [data, setData] = useState([" "]);
 
   const user = (data) => {
-    const urlCourse = "http://localhost:4000/v1/decode/" + data;
+    const urlCourse = "https://oversigthapi.azurewebsites.net/v1/decode/" + data;
     axios.get(urlCourse).then((response) => {
       setData(response.data[0]);
     });
@@ -34,7 +35,6 @@ export const Register = () => {
   //mensages
   const [message, setMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState(false);
-  const [messageRegister, setMessageRegister] = useState("");
 
   //Registar
   const [document, setDocument] = useState("");
@@ -49,10 +49,10 @@ export const Register = () => {
 
   const format = (e) => {
     if (rolUsers == 2) {
-      URL = "http://localhost:4000/v4/students";
+      URL = "https://oversigthapi.azurewebsites.net/v4/students";
     }
     if (rolUsers == 3) {
-      URL = "http://localhost:4000/v4/teachers";
+      URL = "https://oversigthapi.azurewebsites.net/v4/teachers";
     }
     if (rolUsers == "") {
       const paragrapg = "Es necesario escoger el rol";
@@ -68,6 +68,7 @@ export const Register = () => {
     formdata.append("idcourse", course)
     formdata.append("image", image)
     formdata.append("signature", null)
+    formdata.append("active", 1)
 
     axios
       .post(URL, formdata)
@@ -79,12 +80,12 @@ export const Register = () => {
     const { registered } = data;
     registered ? showMessageRegisterError() : validateRegister();
   }
-  const validateRegister = () =>{
+  const validateRegister = () => {
     setErrorMessage(true)
-    setMessageRegister("No se pudo registar");
+    swal("Oops!", "No se pudo registar", "error");
   }
-  const showMessageRegisterError = () =>{
-    setMessageRegister("Se registro correctamente");
+  const showMessageRegisterError = () => {
+    swal("Exito!", "Se registro exitosamente", "success")
   }
 
   return (
@@ -151,7 +152,7 @@ export const Register = () => {
                 className="select"
                 onChange={(e) => setCourse(e.target.value)}
               >
-                <option>Seleccione un grupo</option>
+                <option>Seleccione un curso</option>
                 {data.map((el, index) => {
                   return (
                     <option key={index} value={el.idcurso}>
@@ -161,7 +162,6 @@ export const Register = () => {
                 })}
               </select>
             </div>
-            <p>{messageRegister}</p>
           </div>
         </div>
         <div className="btn_Registrar">

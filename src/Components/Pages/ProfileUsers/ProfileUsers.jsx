@@ -3,7 +3,7 @@ import Cookies from "universal-cookie";
 import { IoMdHome } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 import { IoExitOutline } from "react-icons/io5";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   MdMenu,
   MdKeyboardArrowLeft,
@@ -30,7 +30,6 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemButton from "@mui/material/ListItemButton";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
-
 
 const drawerWidth = 220;
 
@@ -94,43 +93,42 @@ export const ProfileUsers = () => {
   let routes = ""
 
   const [photos, setPhotos] = useState([]);
-  
-  if ( rol == "Administrator" ) {
+
+  if (rol == "Administrator") {
     routes = "/Administrador"
     const idUserAdm = cookies.get("idAdministrador");
     axios
-    .get(`http://localhost:4000/v1/administrators/${idUserAdm}`)
-    .then((response) => getAllPhotos(response.data))
-    .catch((error) => console.log(error));
+      .get(`https://oversigthapi.azurewebsites.net/v1/administrators/${idUserAdm}`)
+      .then((response) => getAllPhotos(response.data))
+      .catch((error) => console.log(error));
   }
-  else if ( rol == "Teacher" ) {
+  else if (rol == "Teacher") {
     routes = "/Docente"
     const idUserDoce = cookies.get("idDocente")
     axios
-    .get(`http://localhost:4000/v1/teachers/${idUserDoce}`)
-    .then((response) => getAllPhotos(response.data))
-    .catch((error) => console.log(error));
-  } 
-  else if ( rol == "Student" ) {
+      .get(`https://oversigthapi.azurewebsites.net/v1/teachers/${idUserDoce}`)
+      .then((response) => getAllPhotos(response.data))
+      .catch((error) => console.log(error));
+  }
+  else if (rol == "Student") {
     routes = "/Estudiante"
     const idUserEstu = cookies.get("idEstudiante")
     axios
-      .get(`http://localhost:4000/v2/students/${idUserEstu}`)
+      .get(`https://oversigthapi.azurewebsites.net/v2/students/${idUserEstu}`)
       .then((response) => getAllPhotos(response.data))
       .catch((error) => console.log(error));
   }
 
   const getAllPhotos = (data) => {
     axios
-      .get(`http://localhost:4000/v1/decode/${data}`)
+      .get(`https://oversigthapi.azurewebsites.net/v1/decode/${data}`)
       .then((response) => setPhotos(response.data))
       .catch((error) => console.log(error));
   };
 
-
   return (
     <ThemeProvider theme={mdTheme}>
-      <Box sx={{ display: "flex",heigh:"40vh" }}>
+      <Box sx={{ display: "flex", heigh: "40vh" }}>
         <CssBaseline />
         <AppBar open={open} >
           <Toolbar
@@ -147,27 +145,27 @@ export const ProfileUsers = () => {
                 ...(open && { display: "none" }),
               }}>
               <div className="nav_bar">
-              <MdMenu />
+                <MdMenu />
               </div>
             </IconButton>
             <Typography
-                component="h1"
-                variant="h4"
-                color="inherit"
-                noWrap
-                sx={{ flexGrow: 1 }}
-                fontFamily="pacifico">
-                Oversigth
+              component="h1"
+              variant="h4"
+              color="inherit"
+              noWrap
+              sx={{ flexGrow: 1 }}
+              fontFamily="pacifico">
+              Oversigth
             </Typography>
             <IconButton color="inherit" >
-                {photos.length > 0 ? (
-                photos.map((photo, index) => {
-                    return <AvatarProfile key={index} name={photo.nombre} photo={photo.foto} />;
-                })
-                ) : (
+              {photos.length > 0 ? (
+                <>
+                  <AvatarProfile key={photos[0]} name={photos[0].nombre} photo={photos[0].foto} />
+                </>
+              ) : (
                 <AvatarProfile />
-                )}
-      </IconButton>
+              )}
+            </IconButton>
           </Toolbar>
         </AppBar>
         <div className="nav_drawer">
@@ -186,24 +184,24 @@ export const ProfileUsers = () => {
             </Toolbar>
             <Divider />
             <List component="nav">
-             <div className="menu">
-              <ListItemButton >
-                <ListItemIcon>
-                  <NavLink to={routes}>
-                    <IoMdHome className="iconmenu" />
-                  </NavLink>
-                </ListItemIcon>
-                <ListItemText primary="Inicio" />
-              </ListItemButton>
+              <div className="menu">
+                <ListItemButton >
+                  <ListItemIcon>
+                    <NavLink to={routes}>
+                      <IoMdHome className="iconmenu" />
+                    </NavLink>
+                  </ListItemIcon>
+                  <ListItemText primary="Inicio" />
+                </ListItemButton>
 
-              <ListItemButton >
-                <ListItemIcon>
-                  <IoExitOutline onClick={() => signOff()} className="iconmenu" />
-                </ListItemIcon>
-                <ListItemText primary="Salir" />
-              </ListItemButton>
-            </div>
-          </List>
+                <ListItemButton >
+                  <ListItemIcon>
+                    <IoExitOutline onClick={() => signOff()} className="iconmenu" />
+                  </ListItemIcon>
+                  <ListItemText primary="Salir" />
+                </ListItemButton>
+              </div>
+            </List>
           </Drawer>
         </div>
         <Box
@@ -224,25 +222,21 @@ export const ProfileUsers = () => {
         </Box>
       </Box>
       <div className="nav_menu-phone">
-        <Box
-          sx={{
-            width: "100vw",
-            display: "absolute",
-            borderTop: "1px solid #808080",
-          }}
-        >
-          <BottomNavigation
-            showLabels
-            value={value}
-            onChange={(event, newValue) => {
-              setValue(newValue);
-            }}
-          >
-            <BottomNavigationAction label="" icon={
-              <NavLink to={routes}>
-                <IoMdHome />
-              </NavLink>} />
+        <Box>
+          <BottomNavigation>
             <BottomNavigationAction
+              sx={{
+                color: "#1976d2"
+              }}
+              label=""
+              icon={
+                <NavLink to={routes}>
+                  <IoMdHome />
+                </NavLink>} />
+            <BottomNavigationAction
+              sx={{
+                color: "#1976d2"
+              }}
               label=""
               icon={<IoExitOutline onClick={() => signOff()} />}
             />

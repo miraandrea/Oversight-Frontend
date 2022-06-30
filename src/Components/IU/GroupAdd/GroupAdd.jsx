@@ -1,12 +1,13 @@
 import "./GroupAdd.css";
 import axios from "axios";
+import swal from '@sweetalert/with-react';
 import { MdGroupAdd } from "react-icons/md";
 import React, { useEffect, useState } from "react";
 
 export const GroupAdd = () => {
 
   //token teacher
-  const UrlTokenTeacher = 'http://localhost:4000/v1/teachers';
+  const UrlTokenTeacher = 'https://oversigthapi.azurewebsites.net/v1/teachers';
 
   useEffect(() => {
     const getTeacher = () => {
@@ -20,7 +21,7 @@ export const GroupAdd = () => {
   const [data, setData] = useState([" "]);
 
   const userTeacher = (data) => {
-    const urlTeacher = "http://localhost:4000/v1/decode/" + data;
+    const urlTeacher = "https://oversigthapi.azurewebsites.net/v1/decode/" + data;
     axios.get(urlTeacher).then((response) => {
       let dataArray = [];
       for (let index = 0; index < Object.keys(response.data[0]).length; index++) {
@@ -35,7 +36,6 @@ export const GroupAdd = () => {
   const [teacher, setTeacher] = useState("")
   const [name, setName] = useState("")
   const [image, setImage] = useState(null)
-  const [messageGroup, setMessageGroup] = useState("");
 
   let formdata = new FormData()
   const insert = (e) => {
@@ -46,7 +46,7 @@ export const GroupAdd = () => {
     formdata.append("image", image)
     formdata.append("documentTeacher", teacher)
 
-    axios.post("http://localhost:4000/v5/courses", formdata, {
+    axios.post("https://oversigthapi.azurewebsites.net/v5/courses", formdata, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -59,19 +59,17 @@ export const GroupAdd = () => {
   }
   const userGroup = (data) => {
     if (data) {
-      const paragrapg = "Se registro";
-      setMessageGroup(paragrapg);
+      swal("Exito!", "Se registro exitosamente", "success")
     }
     else {
-      const paragrapg = "No se pudo registrar";
-      setMessageGroup(paragrapg);
+      swal("Oops!", "No se pudo ragistrar el curso", "error");
     }
   }
 
   return (
     <form onSubmit={insert}>
       <div>
-        <p className="textGroup">Agregar grupo</p>
+        <p className="textGroup">Agregar curso</p>
         <MdGroupAdd className='iconGroup' />
         <br />
         <hr className="lineGroup" />
@@ -97,7 +95,6 @@ export const GroupAdd = () => {
                 );
               })}
             </select>
-            <p className="message">{messageGroup}</p>
           </div>
         </div>
         <div className="btn_Registrar">

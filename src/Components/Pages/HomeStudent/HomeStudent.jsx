@@ -1,14 +1,3 @@
-// import React from 'react'
-
-// export const HomeStudent = () => {
-//   return (
-//     <div>
-
-//     </div>
-//   )
-// }
-
-
 import axios from "axios";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
@@ -20,12 +9,10 @@ import MuiAppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import React, { useEffect, useState } from "react";
-import { NavBar } from "../../Layout/NavBar/NavBar";
 import CssBaseline from "@mui/material/CssBaseline";
-import { MainTeacher } from "../../Layout/MainTeacher/MainTeacher";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
-
-import { AiOutlineFileSearch } from "react-icons/ai";
+import fotoBuscar from "../../../Img/buscador.jfif";
+import './HomeStudent.css'
 
 import {
   MdMenu,
@@ -92,68 +79,6 @@ const mdTheme = createTheme();
 
 export const HomeStudent = () => {
 
-  // const [value, setValue] = useState(0);
-
-
-  // const [open, setOpen] = useState(false);
-  // const toggleDrawer = () => {
-  //   setOpen(!open);
-  // };
-
-  // const [courses, setCourses] = useState([]);
-  // const cookies = new Cookies()
-  // const idUser = cookies.get("idEstudiante")
-
-  // const UrlTokenCourse = `http://localhost:4000/v2/students/${idUser}/observers`;
-  
-  // useEffect(() => {
-  //   const getCourses = () => {
-  //     axios.get(UrlTokenCourse)
-  //       .then((res) => {
-  //         getToken(res.data)
-  //       })
-  //       .catch((error) => console.log(error))
-
-  //   };
-  //   getCourses();
-  // }, []);
-
-  // const getToken = (data) => {
-  //   axios.get(`http://localhost:4000/v1/decode/${data}`)
-  //       .then((res) => setCourses(res.data))
-  //       .catch((error) => console.log(error))
-  // }
-
-  // const [search, setSearch] = useState("")
-  // const [loading, setloading] = useState(true)
-
-  // console.log(courses);
-  // const UrlSearchCourse = "http://localhost:4000/v1/courses/0" + search;
-
-  // useEffect(() => {
-  //   const getSearch = () => {
-  //     axios.get(UrlSearchCourse)
-  //       .then((res) => user(res.data))
-  //       .catch((error) => console.log(error))
-
-  //   }
-  //   getSearch();
-  // }, []);
-
-  // const user = (data) => {
-  //   setloading(false)
-  //   setCourses(data.results[0])
-  // }
-
-  // const character = courses.filter((character) =>
-  //   character.nombre.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-  // )
-
-
-
-
-  const [value, setValue] = useState(0);
-
   const [open, setOpen] = useState(false);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -162,7 +87,7 @@ export const HomeStudent = () => {
   const cookies = new Cookies()
   const idUser = cookies.get("idEstudiante")
 
-  const UrlTokenCourse = `http://localhost:4000/v2/students/${idUser}/observers`;
+  const UrlTokenCourse = `https://oversigthapi.azurewebsites.net/v2/students/${idUser}/observers`;
 
   useEffect(() => {
     const getCourses = () => {
@@ -175,33 +100,21 @@ export const HomeStudent = () => {
     };
     getCourses();
   }, []);
-
-  const getToken = (data) => {
-    axios.get(`http://localhost:4000/v1/decode/${data}`)
-      .then((res) => setCourses(res.data))
-      .catch((error) => console.log(error))
-  }
-
+  
   const [search, setSearch] = useState("")
   const [loading, setloading] = useState(true)
   const [courses, setCourses] = useState([]);
 
-  // const UrlSearchCourse = "http://localhost:4000/v1/courses/0" + search;
+  const getToken = (data) => {
+    axios.get(`https://oversigthapi.azurewebsites.net/v1/decode/${data}`)
+      .then((res) => user(res.data))
+      .catch((error) => console.log(error))
+  }
 
-  // useEffect(() => {
-  //   const getSearch = () => {
-  //     axios.get(UrlSearchCourse)
-  //       .then((res) => user(res.data))
-  //       .catch((error) => console.log(error))
-
-  //   }
-  //   getSearch();
-  // }, []);
-
-  // const user = (data) => {
-  //   setloading(false)
-  //   setCourses(data.results[0])
-  // }
+  const user = (data) => {
+    setloading(false)
+    setCourses(data)
+  }
 
   const character = courses.filter((character) =>
     character.titulo.toLocaleLowerCase().includes(search.toLocaleLowerCase())
@@ -265,53 +178,43 @@ export const HomeStudent = () => {
           }}>
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <section className="mainCard">
+          <section className="mainCardStudent">
               {loading ? (
                 <div id="contenedor">
-                <div class="loader" id="loader">Loading...</div>
+                  <div class="loader" id="loader">Loading...</div>
                 </div>
               ) : character.length > 0 ? (
                 character.map((course2, index) => (
                   <MainStudent key={index} course2={course2} />
-                  ))
+                ))
               ) : (
-                <p>No se encontro el Grupo {' '}<strong>"{search}"</strong>.</p>
+                <div className="photoSearch">
+                  <img src={fotoBuscar} alt="buscar" />
+                  <p>
+                    No tiene anotacione <strong>"{search}"</strong>.
+                  </p>
+                </div>
               )}
             </section>
-
-            {/* <section className="studentCard">
-            <div className="history">
-              <AiOutlineFileSearch className='FileSearch' />
-              <h3>Historial</h3>
-            </div>
-            {courses.map((course2, index) => (
-                  <MainStudent key={index} course2={course2} />
-                  ))}
-              </section> */}
-              {/* <MainTeacher key={courses.idcurso} courses={courses} /> */}
           </Container>
         </Box>
       </Box>
       <div className="nav_menu-phone">
-        <Box
-          sx={{
-            width: "100vw",
-            display: "absolute",
-            borderTop: "1px solid #808080",
-          }}
-        >
-          <BottomNavigation
-            showLabels
-            value={value}
-            onChange={(event, newValue) => {
-              setValue(newValue);
+        <Box>
+          <BottomNavigation>
+            <BottomNavigationAction 
+            sx={{
+              color: "#1976d2"
             }}
-          >
-            <BottomNavigationAction label="" icon={
+            label="" 
+            icon={
               <NavLink to="/Estudiante">
                 <IoMdHome />
               </NavLink>} />
             <BottomNavigationAction
+            sx={{
+              color: "#1976d2"
+            }}
               label=""
               icon={<IoExitOutline onClick={() => signOff()} />}
             />

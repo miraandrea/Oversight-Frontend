@@ -1,28 +1,34 @@
 import axios from "axios";
-import Box from "@mui/material/Box";
-import List from "@mui/material/List";
 import Cookies from "universal-cookie";
-import Divider from "@mui/material/Divider";
-import Toolbar from "@mui/material/Toolbar";
-import MuiDrawer from "@mui/material/Drawer";
-import MuiAppBar from "@mui/material/AppBar";
-import Container from "@mui/material/Container";
-import IconButton from "@mui/material/IconButton";
+import { useParams } from "react-router";
+import { IoMdHome } from "react-icons/io";
+import { NavLink } from "react-router-dom";
+import { IoExitOutline } from "react-icons/io5";
 import { React, useState, useEffect } from "react";
-import CssBaseline from "@mui/material/CssBaseline";
-import { NavBar } from "../../Layout/NavBar/NavBar";
-import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
-import { MainTeacherUser } from "../../Layout/MainTeacherUser/MainTeacherUser";
 import {
   MdMenu,
   MdKeyboardArrowLeft,
 } from "react-icons/md";
 
+//components
+import { NavBar } from "../../Layout/NavBar/NavBar";
+import fotoBuscar from "../../../Img/buscador.jfif";
+import { Header } from "../../Layout/Header/Header";
+import { MainTeacherUser } from "../../Layout/MainTeacherUser/MainTeacherUser";
+
+//material iu 
+import Box from "@mui/material/Box";
+import List from "@mui/material/List";
+import Toolbar from "@mui/material/Toolbar";
+import Divider from "@mui/material/Divider";
+import MuiDrawer from "@mui/material/Drawer";
+import MuiAppBar from "@mui/material/AppBar";
+import Container from "@mui/material/Container";
+import IconButton from "@mui/material/IconButton";
+import CssBaseline from "@mui/material/CssBaseline";
 import BottomNavigation from "@mui/material/BottomNavigation";
+import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import { IoExitOutline } from "react-icons/io5";
-import { IoMdHome } from "react-icons/io";
-import { NavLink } from "react-router-dom";
 
 const drawerWidth = 220;
 
@@ -73,27 +79,8 @@ const Drawer = styled(MuiDrawer, {
 const mdTheme = createTheme();
 
 export const ViewUsersDocente = () => {
-  
+
   const [value, setValue] = useState(0);
-
-  // const [photos, setPhotos] = useState([]);
-
-  // useEffect(() => {
-  //   const cookies = new Cookies();
-  //   const idUser = cookies.get("idAdministrador");
-  //   axios
-  //     .get(`http://localhost:4000/v1/administrators/${idUser}`)
-  //     .then((response) => getAllPhotos(response.data))
-  //     .catch((error) => console.log(error));
-  // });
-
-  // const getAllPhotos = (data) => {
-  //   axios
-  //     .get(`http://localhost:4000/v1/decode/${data}`)
-  //     .then((response) => setPhotos(response.data[0].foto))
-  //     .catch((error) => console.log(error));
-  // };
-
   const [open, setOpen] = useState(false);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -101,7 +88,46 @@ export const ViewUsersDocente = () => {
   const logOut = () => {
     return (window.location = "/");
   };
-  
+
+  const { name } = useParams()
+
+  const URL = "https://oversigthapi.azurewebsites.net/v1/courses/" + name;
+
+  useEffect(() => {
+    const getCourses = () => {
+      axios.get(URL)
+        .then((res) => {
+          setCourses(res.data)
+        })
+        .catch((error) => console.log(error))
+    };
+    getCourses();
+  }, []);
+
+  const [search, setSearch] = useState("")
+  const [loading, setloading] = useState(true)
+  const [courses, setCourses] = useState([]);
+
+  const UrlSearchCourse = "https://oversigthapi.azurewebsites.net/v1/courses/0" + search;
+
+  useEffect(() => {
+    const getSearch = () => {
+      axios.get(UrlSearchCourse)
+        .then((res) => user(res.data))
+        .catch((error) => console.log(error))
+    }
+    getSearch();
+  }, []);
+
+  const user = (data) => {
+    setloading(false)
+    setCourses(data.results[0])
+  }
+
+  const character = courses.filter((character) =>
+    character.estudianteNombre.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+  )
+
   return (
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: "flex" }}>
@@ -123,10 +149,10 @@ export const ViewUsersDocente = () => {
               }}
             >
               <div className="nav_bar">
-              <MdMenu />
+                <MdMenu />
               </div>
             </IconButton>
-            {/* <Header /> */}
+            <Header filter={search} setSearch={setSearch} />
           </Toolbar>
         </AppBar>
         <div className="nav_drawer">
@@ -163,30 +189,43 @@ export const ViewUsersDocente = () => {
         >
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <MainTeacherUser />
+            <section className="mainCard">
+              {loading ? (
+                <div id="contenedor">
+                  <div class="loader" id="loader">Loading...</div>
+                </div>
+              ) : character.length > 0 ? (
+                character.map((courseStudent, index) => (
+                  <MainTeacherUser key={index} courseStudent={courseStudent} />
+                ))
+              ) : (
+                <div className="photoSearch">
+                  <img src={fotoBuscar} alt="buscar" />
+                  <p>
+                    El curso <strong>"{search}"</strong> no se encontro.
+                  </p>
+                </div>
+              )}
+            </section>
           </Container>
         </Box>
       </Box>
       <div className="nav_menu-phone">
-        <Box
-          sx={{
-            width: "100vw",
-            display: "absolute",
-            borderTop: "1px solid #808080",
-          }}
-        >
-          <BottomNavigation
-            showLabels
-            value={value}
-            onChange={(event, newValue) => {
-              setValue(newValue);
-            }}
-          >
-            <BottomNavigationAction label="" icon={
-              <NavLink to="/Docente">
-                <IoMdHome />
-              </NavLink>} />
+        <Box>
+          <BottomNavigation>
             <BottomNavigationAction
+              sx={{
+                color: "#1976d2"
+              }}
+              label=""
+              icon={
+                <NavLink to="/Docente">
+                  <IoMdHome />
+                </NavLink>} />
+            <BottomNavigationAction
+              sx={{
+                color: "#1976d2"
+              }}
               label=""
               icon={<IoExitOutline onClick={() => signOff()} />}
             />

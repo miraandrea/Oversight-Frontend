@@ -1,27 +1,25 @@
-import React, { useEffect, useState } from 'react'
-import viewFotophoto from '../ImgProfile/ejemplo.jpg'
-import { AiOutlineFileSearch } from "react-icons/ai";
-import './ViewProfileTeacher.css'
-import { useParams } from "react-router";
 import axios from 'axios';
+import './ViewProfileTeacher.css'
 import Cookies from 'universal-cookie';
+import React, { useState } from 'react'
+import { useParams } from "react-router";
+import swal from '@sweetalert/with-react';
 import foto from '../ImgProfile/group.webp'
-import { ViewProfileAdmi } from '../ViewProfileAdmi/ViewProfileAdmi';
 import Modal from "@material-ui/core/Modal";
+import { ViewProfileStudent } from './ViewProfileStudent';
 
 export const ViewProfileTeacher = ({ courseStudent }) => {
 
   const { name } = useParams()
   const [errorMessage, setErrorMessage] = useState(false);
-  const [messageRegister, setMessageRegister] = useState("");
 
   const cookies = new Cookies();
   const documentTeacher = (cookies.get("idDocente"))
 
-  const UrlHistory = "http://localhost:4000/v1/students/" + name + "/observers"
+  const UrlHistory = "https://oversigthapi.azurewebsites.net/v1/students/" + name + "/observers"
 
   const [title, setTitle] = useState("")
-  const [data, setData] = useState("2022-04-11")
+  const [data, setData] = useState("")
   const [descripTeacher, setDescripTeacher] = useState("")
   const [descripStudent, setDescripStudent] = useState("")
   const [signaTeacher, setSignaTeacher] = useState("")
@@ -29,23 +27,22 @@ export const ViewProfileTeacher = ({ courseStudent }) => {
 
 
   const getHistory = () => {
-      axios.post(UrlHistory, {
-        documentTeacher: documentTeacher,
-        title: title,
-        date: data,
-        descriptionTeacher: descripTeacher,
-        descriptionStudent: descripStudent,
-        signatureStudent: signaStudent,
-        signatureTeacher: signaTeacher
-      })
+    axios.post(UrlHistory, {
+      documentTeacher: documentTeacher,
+      title: title,
+      date: data,
+      descriptionTeacher: descripTeacher,
+      descriptionStudent: descripStudent,
+      signatureStudent: signaStudent,
+      signatureTeacher: signaTeacher
+    })
       .then((response) => token(response.data))
       .catch((error) => console.log(error))
-    }
+  }
 
-  const token = ( data ) =>{
-    console.log(data);
-    axios.get(`http://localhost:4000/v1/decode/${data}`)
-    .then((res) => userHistory(res.data))
+  const token = (data) => {
+    axios.get(`https://oversigthapi.azurewebsites.net/v1/decode/${data}`)
+      .then((res) => userHistory(res.data))
   }
 
   const userHistory = (data) => {
@@ -53,120 +50,103 @@ export const ViewProfileTeacher = ({ courseStudent }) => {
     message ? showMessageHistoryError() : validateHistory();
   }
 
-  const validateHistory = () =>{
+  const validateHistory = () => {
     setErrorMessage(true)
-    setMessageRegister("No se pudo agregar la anotacion");
+    swal("Oops!", "No se pudo agregar la anotacion", "error");
   }
 
-  const showMessageHistoryError = () =>{
-    setMessageRegister("Se agrego la anotacion exitosamente");
+  const showMessageHistoryError = () => {
+    swal("Exito!", "Se registro la anotacion exitosamente", "success")
   }
 
-  
   const [openGroup, setOpenGroup] = React.useState(false);
 
   const handleOpenGroup = () => {
-      setOpenGroup(true);
-    };
+    setOpenGroup(true);
+  };
   const handleCloseGroup = () => {
-      setOpenGroup(false);
-    };
+    setOpenGroup(false);
+  };
 
-    const viewProfileStudent = (
-      <div className="paper1">
-        <ViewProfileAdmi courseStudent={courseStudent}/>
-        <div className="btn_Cancel">
-          <p className="cancel1" onClick={handleCloseGroup}>X</p>
-        </div>
+  const viewProfileStudent = (
+    <div className="paper1">
+      <ViewProfileStudent courseStudent={courseStudent} />
+      <div className="btn_Cancel">
+        <p className="cancel1" onClick={handleCloseGroup}>X</p>
       </div>
-    )
+    </div>
+  )
 
   return (
-    <div className='contertotal'>
-      <div className='information1'>
-      <div className='photo'>
-      <img src={courseStudent.fotoEstudiante || foto} alt="photo" className="photoView1" onClick={handleOpenGroup}/>
-
+    <div>
+      <img src={courseStudent.fotoEstudiante || foto} alt="photo" className="photoViewTeacher" onClick={handleOpenGroup} />
+      <div className="informationTeacher">
+        <p> {courseStudent.estudianteNombre} {courseStudent.estudianteApellido}</p>
+        <p> {courseStudent.estudianteDocumento} </p>
+        <p> Estudiante </p>
       </div>
-        <p className="letra"> <b>{courseStudent.estudianteNombre} {courseStudent.estudianteApellido}</b></p>
-        <p className="letra" > <b> {courseStudent.estudianteDocumento} </b> </p>
-        <p className="letra" > <b>Estudiante</b> </p>
-      </div>
-      <div className="iconRecord1">
-        <AiOutlineFileSearch />
-        <p>Historial</p>
-      </div>
-      <div className='contTitle1'>
-      <div className='cont1'>
-      <div className='Cont'>
-          <div>
-            <input 
-              type="text" 
-              name="title1"  
-              placeholder='Titulo' 
-              className='title1' 
-              onChange={(e) => setTitle(e.target.value)}
-              />
-          </div>
-          <div className='DataCont1'>
-            <input 
-              className='Data1' 
-              type="datetime-local" 
-              id="inputDatetime" 
-              pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-              onChange={(e) => setData(e.target.value)}
-              />
-          </div>
-          <div className='ContDeTeacher1'>
-            <p>Descripcion Docente</p>
-            <textarea 
-              className='Stident2' 
-              name="docente" 
-              cols="30" 
-              rows="10" 
-              placeholder='Ingrese la descripcion del docente'
-              onChange={(e) => setDescripTeacher(e.target.value)}
-              ></textarea>
-          </div>
-          <div className='ContDescripstudent1'>
+      <div className='containerTeacher'>
+        <div>
+          <input
+            type="text"
+            name="titleTeacher"
+            placeholder='Titulo'
+            className='titleTeacher'
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </div>
+        <div className='dataContTe'>
+          <input
+            placeholder="Fecha nacimiento"
+            className="dataTe"
+            type="date"
+            pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+            onChange={(e) => setData(e.target.value)}
+          />
+        </div>
+        <div className='description'>
+          <p>Descripcion Docente</p>
+          <textarea
+            className='descrip'
+            name="docente"
+            cols="30"
+            rows="10"
+            placeholder='Ingrese la descripcion del docente'
+            onChange={(e) => setDescripTeacher(e.target.value)}
+          ></textarea>
+          <div className="descriptionStuden">
             <p>Descripcion Estudiante</p>
-            <textarea 
-              className='docent' 
-              name="docente" 
-              cols="30" 
-              rows="10" 
+            <textarea
+              className='descrip'
+              name="docente"
+              cols="30"
+              rows="10"
               placeholder='Ingrese la descripcion del estudiante'
               onChange={(e) => setDescripStudent(e.target.value)}
-              ></textarea>
-          </div>
-          <div className='FirmaDocent'>
-            <input 
-              type="text" 
-              name="title" 
-              placeholder='Firma Docente' 
-              className='teacher' 
-              onChange={(e) => setSignaTeacher(e.target.value)}
-              />
-          </div>
-          <div className='FirmaStudent'>
-            <input 
-              type="text" 
-              name="title" 
-              placeholder='Firma Estudiante' 
-              className='studet' 
-              onChange={(e) => setSignaStudent(e.target.value)}
-              />
+            ></textarea>
           </div>
         </div>
-
-      </div>
-
-        <p>{messageRegister}</p>
+        <div className='firms'>
+          <input
+            type="text"
+            name="title"
+            placeholder='Firma Docente'
+            className='firm'
+            onChange={(e) => setSignaTeacher(e.target.value)}
+          />
+          <input
+            type="text"
+            name="title"
+            placeholder='Firma Estudiante'
+            className='firm'
+            onChange={(e) => setSignaStudent(e.target.value)}
+          />
+        </div>
       </div>
       <button className='btnRegister' onClick={() => getHistory()}>Registrar</button>
       <Modal open={openGroup} onClose={handleCloseGroup}>
-          {viewProfileStudent}
-        </Modal>
+        {viewProfileStudent}
+      </Modal>
     </div>
   )
 }

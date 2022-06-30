@@ -1,36 +1,37 @@
-import { useEffect, useState, React } from "react";
+import "./HomeAdmin.css";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
+import Cookies from "universal-cookie/es6";
+import { MdGroupAdd } from "react-icons/md";
+import { IoExitOutline } from "react-icons/io5";
+import { useEffect, useState, React } from "react";
+import { MdDoNotDisturbAlt } from "react-icons/md";
+import { IoMdHome, IoMdPersonAdd } from "react-icons/io";
+import { MdMenu, MdKeyboardArrowLeft } from "react-icons/md";
+
+//components
+import { Main } from "../../Layout/Main/Main";
+import { Header } from "../../Layout/Header/Header";
+import fotoBuscar from "../../../Img/buscador.jfif";
+import { GroupAdd } from "../../IU/GroupAdd/GroupAdd";
+import { Register } from "../../IU/Register/Register";
+import { BarMenu } from "../../Layout/BarMenu/BarMenu";
+
+//material ui
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import Toolbar from "@mui/material/Toolbar";
 import Divider from "@mui/material/Divider";
+import Modal from "@material-ui/core/Modal";
 import MuiDrawer from "@mui/material/Drawer";
 import MuiAppBar from "@mui/material/AppBar";
-import { Main } from "../../Layout/Main/Main";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
-import { Header } from "../../Layout/Header/Header";
 import CssBaseline from "@mui/material/CssBaseline";
-import { BarMenu } from "../../Layout/BarMenu/BarMenu";
-import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
-import { MdMenu, MdKeyboardArrowLeft } from "react-icons/md";
-import { IoMdHome, IoMdPersonAdd } from "react-icons/io";
-import { IoExitOutline } from "react-icons/io5";
-import Cookies from "universal-cookie/es6";
-import Modal from "@material-ui/core/Modal";
-import "./HomeAdmin.css";
-
-import { MdGroupAdd } from "react-icons/md";
 import BottomNavigation from "@mui/material/BottomNavigation";
-
+import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import { Register } from "../../IU/Register/Register";
-import { GroupAdd } from "../../IU/GroupAdd/GroupAdd";
-
-
-import Skeleton from '@mui/material/Skeleton';
-
+import { NavLink } from "react-router-dom";
 
 const drawerWidth = 220;
 
@@ -83,7 +84,6 @@ const mdTheme = createTheme();
 export const HomeAdmin = () => {
   const [open, setOpen] = useState(false);
   const [modalRegisterUsers, setModalRegisterUsers] = useState(false);
-  const [value, setValue] = useState(0);
   const handleOpen = () => {
     setModalRegisterUsers(true);
   };
@@ -93,7 +93,7 @@ export const HomeAdmin = () => {
   const bodyRegister = (
     <div className="modal">
       <Register />
-      <div className="btn_Cancel">
+      <div className="btn_CancelRegister">
         <button className="cancel" onClick={handleClose}>
           Cancelar
         </button>
@@ -110,7 +110,7 @@ export const HomeAdmin = () => {
   const bodyGroup = (
     <div className="modalGroup">
       <GroupAdd />
-      <div className="btn_Cancel">
+      <div className="btn_CancelRegister">
         <button className="cancel" onClick={handleCloseGroup}>
           Cancelar
         </button>
@@ -121,7 +121,7 @@ export const HomeAdmin = () => {
     setOpen(!open);
   };
 
-  const UrlTokenCourse = "http://localhost:4000/v3/courses";
+  const UrlTokenCourse = "https://oversigthapi.azurewebsites.net/v3/courses";
 
   useEffect(() => {
     const getCourses = () => {
@@ -141,12 +141,10 @@ export const HomeAdmin = () => {
   const [loading, setloading] = useState(true);
   const [courses, setCourses] = useState([]);
 
-  const UrlSearchCourse = "http://localhost:4000/v1/courses/0" + search;
-
   useEffect(() => {
     const getSearch = () => {
       axios
-        .get(UrlSearchCourse)
+        .get(`https://oversigthapi.azurewebsites.net/v1/courses/${search}`)
         .then((res) => user(res.data))
         .catch((error) => console.log(error));
     };
@@ -164,14 +162,13 @@ export const HomeAdmin = () => {
 
   return (
     <ThemeProvider theme={mdTheme}>
-      <Box sx={{ display: "flex",heigh:"40vh" }}>
+      <Box sx={{ display: "flex", heigh: "40vh" }}>
         <CssBaseline />
         <AppBar open={open}>
           <Toolbar
             sx={{
               pr: "24px",
-            }}
-          >
+            }}>
             <IconButton
               edge="start"
               color="inherit"
@@ -180,10 +177,9 @@ export const HomeAdmin = () => {
               sx={{
                 marginRight: "36px",
                 ...(open && { display: "none" }),
-              }}
-            >
+              }}>
               <div className="nav_bar">
-              <MdMenu />
+                <MdMenu />
               </div>
             </IconButton>
             <Header filter={search} setSearch={setSearch} />
@@ -197,8 +193,7 @@ export const HomeAdmin = () => {
                 alignItems: "center",
                 justifyContent: "flex-end",
                 px: [1],
-              }}
-            >
+              }}>
               <IconButton onClick={toggleDrawer}>
                 <MdKeyboardArrowLeft />
               </IconButton>
@@ -219,53 +214,69 @@ export const HomeAdmin = () => {
             flexGrow: 1,
             height: "100vh",
             overflow: "auto",
-          }}
-        >
+          }}>
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <section className="mainCard">
               {loading ? (
                 <div id="contenedor">
-                <div class="loader" id="loader">Loading...</div>
+                  <div class="loader" id="loader">Loading...</div>
                 </div>
               ) : character.length > 0 ? (
                 character.map((course, index) => (
                   <Main key={index} course={course} />
                 ))
               ) : (
-                <p>
-                  No se encontro el Grupo <strong>"{search}"</strong>.
-                </p>
+                <div className="photoSearch">
+                  <img src={fotoBuscar} alt="buscar" />
+                  <p>
+                    El curso <strong>"{search}"</strong> no se encontro.
+                  </p>
+                </div>
               )}
             </section>
           </Container>
         </Box>
       </Box>
       <div className="nav_menu-phone">
-        <Box
-          sx={{
-            width: "100vw",
-            display: "absolute",
-            borderTop: "1px solid #808080",
-          }}
-        >
-          <BottomNavigation
-            showLabels
-            value={value}
-            onChange={(event, newValue) => {
-              setValue(newValue);
-            }}
-          >
-            <BottomNavigationAction label="" icon={<IoMdHome />} />
+        <Box>
+          <BottomNavigation>
             <BottomNavigationAction
+              sx={{
+                color: "#1976d2"
+              }}
+              label=""
+              icon={<IoMdHome />}
+            />
+            <BottomNavigationAction
+              sx={{
+                color: "#1976d2"
+              }}
               label=""
               icon={<IoMdPersonAdd onClick={handleOpen} />}
             />
             <BottomNavigationAction
+              sx={{
+                color: "#1976d2"
+              }}
               label=""
               icon={<MdGroupAdd onClick={handleOpenGroup} />}
             />
             <BottomNavigationAction
+              sx={{
+                color: "#1976d2"
+              }}
+              label=""
+              icon={
+                <NavLink to="/Habilitar">
+                  <MdDoNotDisturbAlt />
+                </NavLink>
+              }
+            />
+            <BottomNavigationAction
+              sx={{
+                color: "#1976d2"
+              }}
               label=""
               icon={<IoExitOutline onClick={() => signOff()} />}
             />
