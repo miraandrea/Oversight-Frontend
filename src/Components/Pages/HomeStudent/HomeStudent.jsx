@@ -1,14 +1,3 @@
-// import React from 'react'
-
-// export const HomeStudent = () => {
-//   return (
-//     <div>
-
-//     </div>
-//   )
-// }
-
-
 import axios from "axios";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
@@ -20,13 +9,10 @@ import MuiAppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import React, { useEffect, useState } from "react";
-import { NavBar } from "../../Layout/NavBar/NavBar";
 import CssBaseline from "@mui/material/CssBaseline";
-import { MainTeacher } from "../../Layout/MainTeacher/MainTeacher";
 import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import fotoBuscar from "../../../Img/buscador.jfif";
 import './HomeStudent.css'
-import { AiOutlineFileSearch } from "react-icons/ai";
 
 import {
   MdMenu,
@@ -93,68 +79,6 @@ const mdTheme = createTheme();
 
 export const HomeStudent = () => {
 
-  // const [value, setValue] = useState(0);
-
-
-  // const [open, setOpen] = useState(false);
-  // const toggleDrawer = () => {
-  //   setOpen(!open);
-  // };
-
-  // const [courses, setCourses] = useState([]);
-  // const cookies = new Cookies()
-  // const idUser = cookies.get("idEstudiante")
-
-  // const UrlTokenCourse = `http://localhost:4000/v2/students/${idUser}/observers`;
-  
-  // useEffect(() => {
-  //   const getCourses = () => {
-  //     axios.get(UrlTokenCourse)
-  //       .then((res) => {
-  //         getToken(res.data)
-  //       })
-  //       .catch((error) => console.log(error))
-
-  //   };
-  //   getCourses();
-  // }, []);
-
-  // const getToken = (data) => {
-  //   axios.get(`http://localhost:4000/v1/decode/${data}`)
-  //       .then((res) => setCourses(res.data))
-  //       .catch((error) => console.log(error))
-  // }
-
-  // const [search, setSearch] = useState("")
-  // const [loading, setloading] = useState(true)
-
-  // console.log(courses);
-  // const UrlSearchCourse = "http://localhost:4000/v1/courses/0" + search;
-
-  // useEffect(() => {
-  //   const getSearch = () => {
-  //     axios.get(UrlSearchCourse)
-  //       .then((res) => user(res.data))
-  //       .catch((error) => console.log(error))
-
-  //   }
-  //   getSearch();
-  // }, []);
-
-  // const user = (data) => {
-  //   setloading(false)
-  //   setCourses(data.results[0])
-  // }
-
-  // const character = courses.filter((character) =>
-  //   character.nombre.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-  // )
-
-
-
-
-  const [value, setValue] = useState(0);
-
   const [open, setOpen] = useState(false);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -163,7 +87,7 @@ export const HomeStudent = () => {
   const cookies = new Cookies()
   const idUser = cookies.get("idEstudiante")
 
-  const UrlTokenCourse = `http://localhost:4000/v2/students/${idUser}/observers`;
+  const UrlTokenCourse = `https://oversigthapi.azurewebsites.net/v2/students/${idUser}/observers`;
 
   useEffect(() => {
     const getCourses = () => {
@@ -182,22 +106,10 @@ export const HomeStudent = () => {
   const [courses, setCourses] = useState([]);
 
   const getToken = (data) => {
-    axios.get(`http://localhost:4000/v1/decode/${data}`)
+    axios.get(`https://oversigthapi.azurewebsites.net/v1/decode/${data}`)
       .then((res) => user(res.data))
       .catch((error) => console.log(error))
   }
-
-  // const UrlSearchCourse = "http://localhost:4000/v1/courses/0" + search;
-
-  // useEffect(() => {
-  //   const getSearch = () => {
-  //     axios.get(UrlSearchCourse)
-  //       .then((res) => user(res.data))
-  //       .catch((error) => console.log(error))
-
-  //   }
-  //   getSearch();
-  // }, []);
 
   const user = (data) => {
     setloading(false)
@@ -284,17 +196,6 @@ export const HomeStudent = () => {
                 </div>
               )}
             </section>
-
-            {/* <section className="studentCard">
-            <div className="history">
-              <AiOutlineFileSearch className='FileSearch' />
-              <h3>Historial</h3>
-            </div>
-            {courses.map((course2, index) => (
-                  <MainStudent key={index} course2={course2} />
-                  ))}
-              </section> */}
-              {/* <MainTeacher key={courses.idcurso} courses={courses} /> */}
           </Container>
         </Box>
       </Box>
