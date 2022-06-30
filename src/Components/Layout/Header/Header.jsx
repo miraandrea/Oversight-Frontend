@@ -1,5 +1,5 @@
 import React from 'react'
-import './CardStudent.css'
+import './Header.css'
 
 export const CardStudent = ({ course2 }) => {
 
