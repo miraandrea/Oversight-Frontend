@@ -1,26 +1,66 @@
-import React from 'react'
-import './CardStudent.css'
+import "./Header.css";
+import axios from "axios";
+import Cookies from "universal-cookie";
+import { Search } from "../../IU/Search/Search";
+import IconButton from "@mui/material/IconButton";
+import React, { useState } from "react";
+import { AvatarProfile } from "../../IU/AvatarProfile/AvatarProfile";
 
-export const CardStudent = ({ course2 }) => {
+export const Header = ({ search, setSearch }) => {
+
+  const handleGoViewProfile = () => {
+    return (window.location = "/perfil");
+  };
+
+  const cookies = new Cookies();
+  const rol = window.localStorage.getItem("rol")
+
+  const [photos, setPhotos] = useState([]);
+
+  if (rol == "Administrator") {
+    const idUserAdm = cookies.get("idAdministrador");
+    axios
+      .get(`http://localhost:4000/v1/administrators/${idUserAdm}`)
+      .then((response) => getAllPhotos(response.data))
+      .catch((error) => console.log(error));
+  }
+  else if (rol == "Teacher") {
+    const idUserDoce = cookies.get("idDocente")
+    axios
+      .get(`http://localhost:4000/v1/teachers/${idUserDoce}`)
+      .then((response) => getAllPhotos(response.data))
+      .catch((error) => console.log(error));
+  }
+  else if (rol == "Student") {
+    const idUserEstu = cookies.get("idEstudiante")
+    axios
+      .get(`http://localhost:4000/v2/students/${idUserEstu}`)
+      .then((response) => getAllPhotos(response.data))
+      .catch((error) => console.log(error));
+  }
+
+  const getAllPhotos = (data) => {
+    axios
+      .get(`http://localhost:4000/v1/decode/${data}`)
+      .then((response) => setPhotos(response.data))
+      .catch((error) => console.log(error));
+  };
 
   return (
-    <div className='contCards1'>
-      <div className="cards">
-        <div className="cardInfo">
-          <div className="inputsInfo">
-            <input disabled type="text" value={course2.titulo} readonly onmousedown="return false;" id="inputTitle" />
-            <p className='fecha'>{course2.fecha} </p>
-          </div>
-          <div className="inputsDescription">
-            <textarea disabled name="" className='descriptionTeacher' cols="30" rows="10" value={course2.descripcionDocente} readonly onmousedown="return false;"></textarea>
-            <textarea disabled name="" className='descriptionStudent' cols="30" rows="10" value={course2.descripcionEstudiante} readonly onmousedown="return false;"></textarea>
-          </div>
-          <div className="inputSignature">
-            <input disabled className='signTeacher' type="text" name="" id="signTeacher" value={course2.firmaDocente} readonly onmousedown="return false;" />
-            <input disabled className='signStudent' type="text" name="" id="signStudent" value={course2.firmaEstudiante} readonly onmousedown="return false;" />
-          </div>
-        </div>
+    <div className="containerHeader">
+      <div className="textLogo">
+        <h1>Oversigth</h1>
       </div>
+      <Search search={search} setSearch={setSearch} />
+      <IconButton color="inherit" onClick={handleGoViewProfile}>
+        {photos.length > 0 ? (
+          <>
+            <AvatarProfile key={photos[0]} name={photos[0].nombre} photo={photos[0].foto} />
+          </>
+        ) : (
+          <AvatarProfile />
+        )}
+      </IconButton>
     </div>
-  )
-}
+  );
+};
