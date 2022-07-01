@@ -1,0 +1,14 @@
+.borde1{
+    margin-left: 40%;
+}
+.habilitar{
+    color: rgb(255, 255, 255);
+    background-color: #1d9df6;
+    border: none;
+    width: 105px;
+    height: 35px;
+    /* position: relative;
+    top: 1rem;
+    left: 12rem; */
+    border-radius: 5px;
+}

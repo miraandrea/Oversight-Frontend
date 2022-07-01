@@ -1,12 +1,3 @@
-// import React from 'react'
-
-// export const DisableUsers = () => {
-//   return (
-//     <div>DisableUsers</div>
-//   )
-// }
-
-
 import axios from "axios";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
@@ -43,6 +34,8 @@ import { Header } from "../../Layout/Header/Header";
 import { BarMenu } from "../../Layout/BarMenu/BarMenu";
 import { Register } from "../../IU/Register/Register";
 import { GroupAdd } from "../../IU/GroupAdd/GroupAdd";
+import { MainAdmi } from "../../Layout/MainAdmi/MainAdmi";
+import { CardDisable } from "../../IU/CardDisable/CardDisable";
 
 const drawerWidth = 220;
 
@@ -167,7 +160,7 @@ export const DisableUsers = () => {
   }
 
   const character = courses.filter((character) =>
-    character.titulo.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+    character.nombreEstudiante.toLocaleLowerCase().includes(search.toLocaleLowerCase())
   )
 
   return (
@@ -235,7 +228,7 @@ export const DisableUsers = () => {
                 </div>
               ) : character.length > 0 ? (
                 character.map((course2, index) => (
-                  <MainStudent key={index} course2={course2} />
+                  <CardDisable key={index} course2={course2} />
                 ))
               ) : (
                 <div className="photoSearch">

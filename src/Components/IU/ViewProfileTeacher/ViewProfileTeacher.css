@@ -170,7 +170,7 @@
 
     .containerTeacher {
         
-        height: 28vw;
+        height: 27vw;
         margin-top: 6vw;
     }
 
@@ -205,11 +205,8 @@
         width: 320px;
         
     }
-
-
     .firms{
-        
-        margin-top: -70px;
+        margin-top: -87px;
     }
 
     .btnRegister {
@@ -217,7 +214,7 @@
         height: 42px;
         font-size: 24px;
         left: 73vw;
-        top: 2vw;
+        top: 1vw;
     }
 }
 

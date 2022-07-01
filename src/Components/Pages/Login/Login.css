@@ -42,16 +42,6 @@
   justify-content: space-evenly;
   align-items: center;
 }
-.form_input1 {
-  margin: 3% 0;
-  height: 5vh;
-  width: 75%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  position: relative;
-  left: 6%;
-}
 .form_icon {
   font-size: 1rem;
 }
@@ -69,7 +59,7 @@
 }
 .login_options {
   height: 5vh;
-  width: 100%;
+  width: 90vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -179,13 +169,14 @@
     align-items: center;
   }
   .login_credentials {
-    width: 50vw;
+    width: 40vw;
   }
   .credentials_line{
     width: 60%;
   }
 
   .login_options{
+    width: 50vw;
     margin-left: 70px;
     margin-top: 40px;
   }

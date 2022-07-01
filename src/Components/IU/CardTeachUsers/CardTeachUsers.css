@@ -33,7 +33,7 @@
 @media (min-width: 1200px) {
     .modalTeacher {
         left: 8%;
-        height: 63vw;
+        height: 43vw;
     }
 
     .cancelTeacher {
@@ -41,7 +41,7 @@
         height: 42px;
         font-size: 24px;
         left: -19vw;
-        top: 51.5vw;
+        top: 51vw;
     }
 }
 

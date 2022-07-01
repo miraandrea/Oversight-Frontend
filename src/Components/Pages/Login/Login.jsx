@@ -2,7 +2,7 @@ import "./Login.css";
 import axios from "axios";
 import swal from "sweetalert";
 import React, { useState } from "react";
-import logo from "../../../Img/Logo.jpg";
+import logo from "../../../Img/logo.png";
 import Cookies from "universal-cookie/es6";
 import { TiLockClosed } from "react-icons/ti";
 import { IoPersonAddOutline } from "react-icons/io5";
@@ -86,13 +86,6 @@ export const Login = () => {
     setErrorMessage(true);
     setMessageHelperText("Usuario o contraseña incorrecta");
   };
-  
-  //see password
-  const [state, setState] = useState(false);
-
-  const toggleBtn = () => {
-    setState(!state);
-  } 
 
   //btn bloquiado
   function nobackbutton() {
@@ -109,7 +102,7 @@ export const Login = () => {
     <div className="login">
       {nobackbutton()}
       <div className="container">
-        <div className="login_title">Oversight</div>
+        <div className="login_title">Oversigth</div>
         <form className="login_form">
           <div className="form_container">
             <div className="form_input">
@@ -124,27 +117,18 @@ export const Login = () => {
                 onChange={handleUser}
               />
             </div>
-            <div className="form_input1">
+            <div className="form_input">
               <TiLockClosed className="form_icon" />
               <TextField
                 id="txtEmail"
                 label="Contraseña"
                 variant="outlined"
                 name="password"
-                type={state ? "text" :
-                "password" } 
+                type="password"  
                 error={errorMessage}
                 helperText={messageHelperText}
                 onChange={handlePassword}
                 />
-                <div className="eye">
-                    <button className="btn_eye" onClick={toggleBtn}>
-                    {
-                      state ? <AiOutlineEyeInvisible/>:
-                      <AiOutlineEye/>
-                    }
-                    </button>
-                </div>
             </div>
             <div onClick={handleSubmit} className="form_btn">
               <Button variant="contained">Iniciar Sesion</Button>
